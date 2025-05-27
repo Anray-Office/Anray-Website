@@ -288,7 +288,6 @@
             endif
           endunless
         -%}
-    
       </div>
 
       {%- if product.quantity_price_breaks_configured? != true and show_quantity_selector -%}
@@ -313,7 +312,6 @@
         {%- endif -%}
       {%- endif -%}
 
-      
       {%- liquid
         if product.quantity_price_breaks_configured? != true and show_quantity_selector or show_price
           if show_dynamic_checkout
