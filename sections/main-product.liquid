@@ -229,6 +229,13 @@
                   <split-words class="split-words block" data-animate="fade-up">{{ product.title }}</split-words>
                 </h1>
 
+
+                {%- liquid
+                  if rating_block == blank and block.settings.show_rating
+                    render 'product-rating', product: product
+                  endif
+                -%}
+              </div>
                 {%- if price_block == blank and block.settings.show_price -%}
                   <div id="Price-{{ section.id }}-{{ product.id }}" class="product__price">
                     {%- render 'product-price', product: product, use_variant: true, class: 'flex flex-wrap items-baseline gap-2 lg:flex-col xl:items-end lg:gap-1d5' -%}
@@ -240,13 +247,6 @@
                     {%- endif -%}
                   </div>
                 {%- endif -%}
-
-                {%- liquid
-                  if rating_block == blank and block.settings.show_rating
-                    render 'product-rating', product: product
-                  endif
-                -%}
-              </div>
 
               {%- if price_block == blank and block.settings.show_price -%}
                 {%- assign product_form_installment_id = 'ProductFormInstallment-' | append: section.id | append: '-' | append: product.id -%}
