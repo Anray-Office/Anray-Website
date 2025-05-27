@@ -122,7 +122,7 @@
         "enable_sticky_info": true,
         "media_size": 66,
         "gallery_layout": "thumbnail",
-        "thumbnail_position": "beside",
+        "thumbnail_position": "below",
         "image_ratio": "adapt_first",
         "image_zoom": "lightbox",
         "hide_variants": false,
