@@ -245,11 +245,48 @@
         "full_width": false,
         "rounded": true
       }
+    },
+    "anray_product_picturs_NRiGjF": {
+      "type": "anray_product-picturs",
+      "blocks": {
+        "image_nngNKg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ourStory_footer.png"
+          }
+        },
+        "image_GCif3q": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/get_in_touch.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_nngNKg",
+        "image_GCif3q"
+      ],
+      "name": "anray_product-picturs",
+      "settings": {
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
     }
   },
   "order": [
     "main-product",
     "help-drawer",
-    "product-recommendations"
+    "product-recommendations",
+    "anray_product_picturs_NRiGjF"
   ]
 }
