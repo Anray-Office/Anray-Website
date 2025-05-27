@@ -248,20 +248,6 @@
     },
     "anray_product_picturs_4M9Jm4": {
       "type": "anray_product-picturs",
-      "blocks": {
-        "image_ciA7Ga": {
-          "type": "image",
-          "settings": {}
-        },
-        "image_bUBxWK": {
-          "type": "image",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "image_ciA7Ga",
-        "image_bUBxWK"
-      ],
       "name": "anray_product-picturs",
       "settings": {
         "transparent_header": false,
