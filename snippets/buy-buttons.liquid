@@ -402,22 +402,42 @@
         endif
       -%}
 
-      {% unless product.metafields.anray_custom_button.amazon_links == blank %}
-        <a
-          href="{{product.metafields.anray_custom_button.amazon_links}}"
-          target="_blank"
-          style="text-decoration: none;"
-        >
-          <button
-            type="button"
-            class="product-form__alert button button--primary button--fixed w-full"
-            is="hover-button"
+      <div class="flex gap-4 justify-center">
+        {% unless product.metafields.anray_custom_button.amazon_links == blank %}
+          <a
+            href="{{product.metafields.anray_custom_button.amazon_links}}"
+            target="_blank"
+            style="text-decoration: none;"
+            class="w-full"
           >
-            <span class="btn-fill" data-fill></span>
-            <span class="btn-text">Buy on Amazon</span>
-          </button>
-        </a>
-      {% endunless %}
+            <button
+              type="button"
+              class="product-form__alert button button--primary button--fixed w-full"
+              is="hover-button"
+            >
+              <span class="btn-fill" data-fill></span>
+              <span class="btn-text"><span>Buy on Amazon</span></span>
+            </button>
+          </a>
+        {% endunless %}
+        {% unless product.metafields.anray_custom_button.amazon_links == blank %}
+          <a
+            href="{{product.metafields.anray_custom_button.amazon_links}}"
+            target="_blank"
+            style="text-decoration: none;"
+            class="w-full"
+          >
+            <button
+              type="button"
+              class="product-form__alert button button--primary button--fixed w-full"
+              is="hover-button"
+            >
+              <span class="btn-fill" data-fill></span>
+              <span class="btn-text"><span>Buy on Amazon</span></span>
+            </button>
+          </a>
+        {% endunless %}
+      </div>
     </div>
   {%- endform -%}
 
