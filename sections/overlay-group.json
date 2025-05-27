@@ -245,6 +245,7 @@
         "spacing",
         "buttons"
       ],
+      "disabled": true,
       "settings": {
         "mode": "testing",
         "delay": 5,
