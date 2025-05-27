@@ -129,7 +129,7 @@
         "enable_video_autoplay": true,
         "enable_video_looping": true,
         "mobile_layout": "full_width",
-        "image_ratio_mobile": "adapt_first",
+        "image_ratio_mobile": "adapt",
         "mobile_thumbnail": false,
         "padding_top": 0,
         "padding_bottom": 84,
