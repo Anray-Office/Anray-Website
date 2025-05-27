@@ -320,11 +320,11 @@
         endif
       -%}
 
+    </div>
         {% unless product.anray_custom_button.amazon_links == blank %}
         <a href="{{ product.anray_custom_button.amazon_links }}" target="_blank" style="text-decoration: none;">
         <button type="button" class="btn button" style="width: 100%; margin-top: 10px; color: #000;background-color: #ffa51d;"><span>Buy on Amazon</span></button></a>
         {% endunless %}
-    </div>
   {%- endform -%}
 
   {%- if enable_back_in_stock -%}
