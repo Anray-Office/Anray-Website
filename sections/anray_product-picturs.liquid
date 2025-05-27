@@ -4,6 +4,28 @@
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
     {%- render 'section-variables', section: section -%};
   }
+  
+  .product-image-container {
+    margin-bottom: 20px;
+  }
+  
+  .product-image-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
+  
+  .product-feature-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-feature-image:hover {
+    transform: scale(1.02);
+  }
 </style>
 
 <div
@@ -15,16 +37,25 @@
   <div class="page-width{% if section.settings.narrow %} page-width--narrow{% endif %} relative">
     <!-- 内容区域 -->
     {% for block in section.blocks %}
+      {% comment %} 根据块的类型进行处理 {% endcomment %}
       {%- case block.type -%}
         {%- when "image" -%}
-            {% liquid
-                if block.settings.image
-                  echo block.settings.image | img_tag
-                else
-                  echo 'product-1' | placeholder_svg_tag
-                endif
-            %}
-      {% endcase %}
+          {% if block.settings.image != blank %}
+            <div class="product-image-container" {{ block.shopify_attributes }}>
+              <div class="product-image-wrapper">
+                {%- assign img_url = block.settings.image | image_url: width: 1200 -%}
+                <img 
+                  src="{{ img_url }}"
+                  alt="{{ block.settings.image.alt | escape }}"
+                  class="product-feature-image"
+                  loading="lazy"
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                >
+              </div>
+            </div>
+          {% endif %}
+        {% endcase %}
     {% endfor %}
     <!-- 内容区域 -->
   </div>
