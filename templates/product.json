@@ -12,15 +12,6 @@
     "main-product": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "icon": "none",
-            "icon_width": 20,
-            "text": "{{ product.vendor }}",
-            "text_size": "text-base"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {
@@ -106,7 +97,6 @@
         }
       },
       "block_order": [
-        "vendor",
         "title",
         "description",
         "countdown",
