@@ -994,6 +994,11 @@
     {%- endif -%}
   </div>
 
+  {% unless product.metafields.my_fields.amazon_link == blank %}
+   <a href="{{product.metafields.my_fields.amazon_link}}" target="_blank" style="text-decoration: none;">
+   <button type="button" class="btn button" style="width: 100%; margin-top: 10px; color: #000;background-color: #ffa51d;"><span>Buy on Amazon</span></button></a>
+  {% endunless %}
+
   {%- if first_3d_model -%}
     <script type="application/json" id="ProductJSON-{{ product.id }}">
       {{ product.media | where: 'media_type', 'model' | json }}
