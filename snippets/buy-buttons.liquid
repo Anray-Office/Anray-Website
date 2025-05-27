@@ -281,13 +281,19 @@
           </button>
         {%- endif -%}
 
-        {%- liquid
-          unless product.quantity_price_breaks_configured? != true and show_quantity_selector or show_price
-            if show_dynamic_checkout
-              echo form | payment_button
-            endif
-          endunless
-        -%}
+        {% comment %} 支付按钮 {% endcomment %}
+      {%- liquid
+        if product.quantity_price_breaks_configured? != true and show_quantity_selector or show_price
+          if show_dynamic_checkout
+            echo form | payment_button
+          endif
+        endif
+      -%}
+
+      {% unless product.anray_custom_button.amazon_link == blank %}
+        <a href="{{product.metafields.my_fields.amazon_link}}" target="_blank" style="text-decoration: none;">
+        <button type="button" class="btn button" style="width: 100%; margin-top: 10px; color: #000;background-color: #ffa51d;"><span>Buy on Amazon</span></button></a>
+     {% endunless %}
       </div>
 
       {%- if product.quantity_price_breaks_configured? != true and show_quantity_selector -%}
