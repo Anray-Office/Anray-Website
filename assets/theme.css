@@ -11716,7 +11716,7 @@ noscript .product-form__input {
 @media screen and (min-width: 1280px) {
   .product {
     /* grid: var(--product-grid); */
-    grid: auto / minmax(0, 1.32fr) minmax(0, 0.68fr);
+    grid: auto / minmax(0, 1fr) minmax(0, 1fr);
     gap: clamp(var(--sp-12), 4.73vw, var(--sp-23));
   }
 }
