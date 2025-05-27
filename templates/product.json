@@ -245,30 +245,11 @@
         "full_width": false,
         "rounded": true
       }
-    },
-    "anray_product_picturs_4M9Jm4": {
-      "type": "anray_product-picturs",
-      "name": "anray_product-picturs",
-      "settings": {
-        "transparent_header": false,
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
-      }
     }
   },
   "order": [
     "main-product",
     "help-drawer",
-    "product-recommendations",
-    "anray_product_picturs_4M9Jm4"
+    "product-recommendations"
   ]
 }
