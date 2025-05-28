@@ -53,58 +53,102 @@
     <div class="anray-gallery">
       <div class="anray-row">
         <div class="anray-col anray-col-full">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/pexels-vlada-karpovich-4617250.jpg?v=1745830037"
-            alt="Gallery image"
-            width="100%"
-            height="100%"
-          >
+          <picture class="media media--{{ section.settings.image_ratio }} block relative overflow-hidden">
+            {%- if section.settings.image1 != blank -%}
+              {{
+                section.settings.image1
+                | image_url: width: section.settings.image1.width
+                | image_tag:
+                  loading: 'lazy',
+                  sizes: sizes,
+                  widths: '300,400,500,600,700,800,900,1000,1200,1400,1600',
+                  is: 'lazy-image'
+              }}
+            {%- else -%}
+              {{- 'lifestyle-1' | placeholder_svg_tag: 'placeholder' -}}
+            {%- endif -%}
+          </picture>
         </div>
       </div>
       <div class="anray-row">
         <div class="anray-col anray-col-narrow">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/pexels-vlada-karpovich-4617250.jpg?v=1745830037"
-            alt="Gallery image"
-            width="100%"
-            height="100%"
-          >
+          {%- if section.settings.image12 != blank -%}
+            {{
+              section.settings.image2
+              | image_url: width: section.settings.image2.width
+              | image_tag:
+                loading: 'lazy',
+                sizes: sizes,
+                widths: '300,400,500,600,700,800,900,1000,1200,1400,1600',
+                is: 'lazy-image'
+            }}
+          {%- else -%}
+            {{- 'lifestyle-1' | placeholder_svg_tag: 'placeholder' -}}
+          {%- endif -%}
         </div>
         <div class="anray-col anray-col-wide">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/pexels-vlada-karpovich-4617250.jpg?v=1745830037"
-            alt="Gallery image"
-            width="100%"
-            height="100%"
-          >
+          {%- if section.settings.image3 != blank -%}
+            {{
+              section.settings.image3
+              | image_url: width: section.settings.image3.width
+              | image_tag:
+                loading: 'lazy',
+                sizes: sizes,
+                widths: '300,400,500,600,700,800,900,1000,1200,1400,1600',
+                is: 'lazy-image'
+            }}
+          {%- else -%}
+            {{- 'lifestyle-1' | placeholder_svg_tag: 'placeholder' -}}
+          {%- endif -%}
         </div>
       </div>
       <div class="anray-row">
         <div class="anray-col anray-col-wide">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/pexels-vlada-karpovich-4617250.jpg?v=1745830037"
-            alt="Gallery image"
-            width="100%"
-            height="100%"
-          >
+          {%- if section.settings.image4 != blank -%}
+            {{
+              section.settings.image4
+              | image_url: width: section.settings.image4.width
+              | image_tag:
+                loading: 'lazy',
+                sizes: sizes,
+                widths: '300,400,500,600,700,800,900,1000,1200,1400,1600',
+                is: 'lazy-image'
+            }}
+          {%- else -%}
+            {{- 'lifestyle-1' | placeholder_svg_tag: 'placeholder' -}}
+          {%- endif -%}
         </div>
         <div class="anray-col anray-col-narrow">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/pexels-vlada-karpovich-4617250.jpg?v=1745830037"
-            alt="Gallery image"
-            width="100%"
-            height="100%"
-          >
+          {%- if section.settings.image5 != blank -%}
+            {{
+              section.settings.image5
+              | image_url: width: section.settings.image5.width
+              | image_tag:
+                loading: 'lazy',
+                sizes: sizes,
+                widths: '300,400,500,600,700,800,900,1000,1200,1400,1600',
+                is: 'lazy-image'
+            }}
+          {%- else -%}
+            {{- 'lifestyle-1' | placeholder_svg_tag: 'placeholder' -}}
+          {%- endif -%}
         </div>
       </div>
       <div class="anray-row">
         <div class="anray-col anray-col-full">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/pexels-vlada-karpovich-4617250.jpg?v=1745830037"
-            alt="Gallery image"
-            width="100%"
-            height="100%"
-          >
+          {%- if section.settings.image6 != blank -%}
+            {{
+              section.settings.image6
+              | image_url: width: section.settings.image6.width
+              | image_tag:
+                loading: 'lazy',
+                sizes: sizes,
+                widths: '300,400,500,600,700,800,900,1000,1200,1400,1600',
+                is: 'lazy-image'
+            }}
+          {%- else -%}
+            {{- 'lifestyle-1' | placeholder_svg_tag: 'placeholder' -}}
+          {%- endif -%}
         </div>
       </div>
     </div>
@@ -199,69 +243,74 @@
       "id": "rounded",
       "default": false,
       "label": "t:sections.global.settings.rounded.label"
-    }
-  ],
-  "blocks": [
+    },
     {
-      "type": "slider",
-      "name": "Slider",
-      "settings": [
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
         {
-          "type": "image_picker",
-          "id": "image1",
-          "label": "Image"
+          "value": "adapt",
+          "label": "t:sections.global.settings.image_ratio.options__1.label"
         },
         {
-          "type": "image_picker",
-          "id": "image2",
-          "label": "Image2"
+          "value": "square",
+          "label": "t:sections.global.settings.image_ratio.options__2.label"
         },
         {
-          "type": "image_picker",
-          "id": "image3",
-          "label": "Image3"
+          "value": "portrait",
+          "label": "t:sections.global.settings.image_ratio.options__3.label"
         },
         {
-          "type": "image_picker",
-          "id": "image4",
-          "label": "Image4"
+          "value": "landscape",
+          "label": "t:sections.global.settings.image_ratio.options__4.label"
         },
         {
-          "type": "image_picker",
-          "id": "image5",
-          "label": "Image5"
+          "value": "wide",
+          "label": "t:sections.global.settings.image_ratio.options__5.label"
         },
         {
-          "type": "image_picker",
-          "id": "image6",
-          "label": "Image6"
+          "value": "rounded",
+          "label": "t:sections.global.settings.image_ratio.options__6.label"
         }
-      ]
+      ],
+      "default": "adapt",
+      "label": "t:sections.global.settings.image_ratio.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Image1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Image2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image3",
+      "label": "Image3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image4",
+      "label": "Image4"
+    },
+    {
+      "type": "image_picker",
+      "id": "image5",
+      "label": "Image5"
+    },
+    {
+      "type": "image_picker",
+      "id": "image6",
+      "label": "Image6"
     }
   ],
+  "blocks": [],
   "presets": [
     {
-      "name": "anray_product-picturs",
-      "blocks": [
-        {
-          "type": "slider"
-        },
-        {
-          "type": "slider"
-        },
-        {
-          "type": "slider"
-        },
-        {
-          "type": "slider"
-        },
-        {
-          "type": "slider"
-        },
-        {
-          "type": "slider"
-        },
-      ]
+      "name": "anray_product-picturs"
     }
   ],
   "disabled_on": {
