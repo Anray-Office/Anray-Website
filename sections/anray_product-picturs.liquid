@@ -22,10 +22,10 @@
   }
 
   .anray-col img {
-      width: 100%;
+      {% comment %} width: 100%;
       height: 100%; /* 修改：确保图片填满列高，实现同行等高 */
       display: block;
-      object-fit: cover; /* 确保图片不变形并填满容器 */
+      object-fit: cover; /* 确保图片不变形并填满容器 */ {% endcomment %}
   }
 
   .anray-col-full {
@@ -40,6 +40,16 @@
   .anray-col-wide {
       flex-basis: 66.67%; /* 左宽或右宽列的宽度 */
   }
+
+  @media (max-width: 767px) {
+    .anray-first-image {
+      height: 100%;
+    }
+    
+    .anray-gallery .anray-row:first-child .anray-col{
+      aspect-ratio: 1.5 / 1;
+    }
+  }
 </style>
 
 <div
@@ -50,10 +60,11 @@
 >
   <div class="page-width{% if section.settings.narrow %} page-width--narrow{% endif %} relative">
     <!-- 内容区域 -->
+    {%- assign sizes = '(max-width: 767px) 100vw, 50vw' -%}
     <div class="anray-gallery">
       <div class="anray-row">
         <div class="anray-col anray-col-full">
-          <picture class="media media--{{ section.settings.image_ratio }} block relative overflow-hidden">
+          <picture class="media media--{{ section.settings.image_ratio }} block relative overflow-hidden anray-first-image">
             {%- if section.settings.image1 != blank -%}
               {{
                 section.settings.image1
@@ -72,7 +83,7 @@
       </div>
       <div class="anray-row">
         <div class="anray-col anray-col-narrow">
-          {%- if section.settings.image12 != blank -%}
+          {%- if section.settings.image2 != blank -%}
             {{
               section.settings.image2
               | image_url: width: section.settings.image2.width
