@@ -76,7 +76,7 @@
           "type": "share",
           "settings": {
             "share_label": "Share",
-            "show_help_desk": true,
+            "show_help_desk": false,
             "help_label": "Need help?",
             "help_type": "drawer",
             "help_page": ""
@@ -241,22 +241,17 @@
       "blocks": {
         "image_nngNKg": {
           "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/ourStory_footer.png"
-          }
+          "settings": {}
         },
         "image_GCif3q": {
           "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/get_in_touch.jpg"
-          }
+          "settings": {}
         }
       },
       "block_order": [
         "image_nngNKg",
         "image_GCif3q"
       ],
-      "name": "anray_product-picturs",
       "settings": {
         "transparent_header": false,
         "color_text": "",
