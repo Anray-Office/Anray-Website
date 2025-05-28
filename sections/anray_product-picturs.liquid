@@ -1,30 +1,44 @@
 <style>
-  #shopify-section-{{ section.id }} {
-    --section-padding-top: {{ section.settings.padding_top }}px;
-    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
-    {%- render 'section-variables', section: section -%};
+    #shopify-section-{{ section.id }} {
+      --section-padding-top: {{ section.settings.padding_top }}px;
+      --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+      {%- render 'section-variables', section: section -%};
+    }
+
+    .anray-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 10px; /* 图片之间的间距 */
   }
-  
-  .product-image-container {
-    margin-bottom: 20px;
+
+  .anray-row {
+      display: flex;
+      gap: 10px; /* 同行图片之间的间距 */
   }
-  
-  .product-image-wrapper {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+
+  .anray-col {
+      flex: 1;
+      aspect-ratio: 2 / 1; /* 新增：设置宽高比为2:1，使容器高度为宽度的一半 */
   }
-  
-  .product-feature-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
+
+  .anray-col img {
+      width: 100%;
+      height: 100%; /* 修改：确保图片填满列高，实现同行等高 */
+      display: block;
+      object-fit: cover; /* 确保图片不变形并填满容器 */
   }
-  
-  .product-feature-image:hover {
-    transform: scale(1.02);
+
+  .anray-col-full {
+      flex-basis: 100%;
+      aspect-ratio: 3 / 1; /* 新增：设置宽高比为2:1，使容器高度为宽度的一半 */
+  }
+
+  .anray-col-narrow {
+      flex-basis: 33.33%; /* 左窄或右窄列的宽度 */
+  }
+
+  .anray-col-wide {
+      flex-basis: 66.67%; /* 左宽或右宽列的宽度 */
   }
 </style>
 
@@ -36,27 +50,64 @@
 >
   <div class="page-width{% if section.settings.narrow %} page-width--narrow{% endif %} relative">
     <!-- 内容区域 -->
-    {% for block in section.blocks %}
-      {% comment %} 根据块的类型进行处理 {% endcomment %}
-      {%- case block.type -%}
-        {%- when "image" -%}
-          {% if block.settings.image != blank %}
-            <div class="product-image-container" {{ block.shopify_attributes }}>
-              <div class="product-image-wrapper">
-                {%- assign img_url = block.settings.image | image_url: width: 1200 -%}
-                <img 
-                  src="{{ img_url }}"
-                  alt="{{ block.settings.image.alt | escape }}"
-                  class="product-feature-image"
-                  loading="lazy"
-                  width="{{ block.settings.image.width }}"
-                  height="{{ block.settings.image.height }}"
-                >
-              </div>
-            </div>
-          {% endif %}
-        {% endcase %}
-    {% endfor %}
+    <div class="anray-gallery">
+      <div class="anray-row">
+        <div class="anray-col anray-col-full">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/pexels-vlada-karpovich-4617250.jpg?v=1745830037"
+            alt="Gallery image"
+            width="100%"
+            height="100%"
+          >
+        </div>
+      </div>
+      <div class="anray-row">
+        <div class="anray-col anray-col-narrow">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/pexels-vlada-karpovich-4617250.jpg?v=1745830037"
+            alt="Gallery image"
+            width="100%"
+            height="100%"
+          >
+        </div>
+        <div class="anray-col anray-col-wide">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/pexels-vlada-karpovich-4617250.jpg?v=1745830037"
+            alt="Gallery image"
+            width="100%"
+            height="100%"
+          >
+        </div>
+      </div>
+      <div class="anray-row">
+        <div class="anray-col anray-col-wide">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/pexels-vlada-karpovich-4617250.jpg?v=1745830037"
+            alt="Gallery image"
+            width="100%"
+            height="100%"
+          >
+        </div>
+        <div class="anray-col anray-col-narrow">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/pexels-vlada-karpovich-4617250.jpg?v=1745830037"
+            alt="Gallery image"
+            width="100%"
+            height="100%"
+          >
+        </div>
+      </div>
+      <div class="anray-row">
+        <div class="anray-col anray-col-full">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/pexels-vlada-karpovich-4617250.jpg?v=1745830037"
+            alt="Gallery image"
+            width="100%"
+            height="100%"
+          >
+        </div>
+      </div>
+    </div>
     <!-- 内容区域 -->
   </div>
 </div>
@@ -157,11 +208,36 @@
       "settings": [
         {
           "type": "image_picker",
-          "id": "image",
+          "id": "image1",
           "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image2",
+          "label": "Image2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image3",
+          "label": "Image3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image4",
+          "label": "Image4"
+        },
+        {
+          "type": "image_picker",
+          "id": "image5",
+          "label": "Image5"
+        },
+        {
+          "type": "image_picker",
+          "id": "image6",
+          "label": "Image6"
         }
       ]
-    },
+    }
   ],
   "presets": [
     {

@@ -402,7 +402,8 @@
         endif
       -%}
 
-      <div class="flex gap-4 justify-center">
+      {% comment %}亚马逊河TK平台按钮 {% endcomment %}
+      <div class="flex gap-4 justify-center" style="display:none">
         {% unless product.metafields.anray_custom_button.amazon_links == blank %}
           <a
             href="{{product.metafields.anray_custom_button.amazon_links}}"
