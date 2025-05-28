@@ -238,20 +238,6 @@
     },
     "anray_product_picturs_NRiGjF": {
       "type": "anray_product-picturs",
-      "blocks": {
-        "image_nngNKg": {
-          "type": "image",
-          "settings": {}
-        },
-        "image_GCif3q": {
-          "type": "image",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "image_nngNKg",
-        "image_GCif3q"
-      ],
       "settings": {
         "transparent_header": false,
         "color_text": "",
@@ -264,7 +250,14 @@
         "padding_bottom": 72,
         "divider": false,
         "narrow": false,
-        "rounded": false
+        "rounded": false,
+        "image_ratio": "adapt",
+        "image1": "shopify://shop_images/ourStory_footer.png",
+        "image2": "shopify://shop_images/get_in_touch.jpg",
+        "image3": "shopify://shop_images/Mask_group_d0731a1b-5bb4-45f0-b078-6bb48f0bf1a2.png",
+        "image4": "shopify://shop_images/get_in_touch.jpg",
+        "image5": "shopify://shop_images/0303_36accb33-a35f-4d22-8290-a7c3e490a48e.png",
+        "image6": "shopify://shop_images/kitchen-7855423_1280.jpg"
       }
     }
   },
