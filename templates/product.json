@@ -519,90 +519,6 @@
         "parallax_direction": "vertical"
       }
     },
-    "portfolio_on_scroll_d44yg3": {
-      "type": "portfolio-on-scroll",
-      "blocks": {
-        "profile_tNYrqH": {
-          "type": "profile",
-          "settings": {
-            "image": "shopify://shop_images/blog.webp",
-            "heading": "Heading",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "color_text": "#ffffff",
-            "color_background": "#171717"
-          }
-        },
-        "profile_MiY88q": {
-          "type": "profile",
-          "settings": {
-            "image": "shopify://shop_images/blog.webp",
-            "heading": "Heading",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "color_text": "#ffffff",
-            "color_background": "#171717"
-          }
-        },
-        "profile_marBLc": {
-          "type": "profile",
-          "settings": {
-            "image": "shopify://shop_images/blog.webp",
-            "heading": "Heading",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "color_text": "#ffffff",
-            "color_background": "#171717"
-          }
-        },
-        "profile_aVDjQy": {
-          "type": "profile",
-          "settings": {
-            "image": "shopify://shop_images/blog.webp",
-            "heading": "Heading",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "color_text": "#ffffff",
-            "color_background": "#171717"
-          }
-        }
-      },
-      "block_order": [
-        "profile_tNYrqH",
-        "profile_MiY88q",
-        "profile_marBLc",
-        "profile_aVDjQy"
-      ],
-      "custom_css": [
-        ".profile__content {display: none;}"
-      ],
-      "name": "t:sections.portfolio-on-scroll.presets.name",
-      "settings": {
-        "image_ratio": "square",
-        "heading": "Multimedia collage",
-        "heading_size": "title-md",
-        "heading_alignment": "text-left md:items-end md:flex-row",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "<p>Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-        "button_label": "",
-        "button_link": "",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "full_width": false,
-        "rounded": false,
-        "enable_parallax": true
-      }
-    },
     "faq_fHwAx8": {
       "type": "faq",
       "blocks": {
@@ -690,6 +606,90 @@
         "narrow": false,
         "rounded": false
       }
+    },
+    "portfolio_on_scroll_d44yg3": {
+      "type": "portfolio-on-scroll",
+      "blocks": {
+        "profile_tNYrqH": {
+          "type": "profile",
+          "settings": {
+            "image": "shopify://shop_images/blog.webp",
+            "heading": "Heading",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "color_text": "#ffffff",
+            "color_background": "#171717"
+          }
+        },
+        "profile_MiY88q": {
+          "type": "profile",
+          "settings": {
+            "image": "shopify://shop_images/blog.webp",
+            "heading": "Heading",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "color_text": "#ffffff",
+            "color_background": "#171717"
+          }
+        },
+        "profile_marBLc": {
+          "type": "profile",
+          "settings": {
+            "image": "shopify://shop_images/blog.webp",
+            "heading": "Heading",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "color_text": "#ffffff",
+            "color_background": "#171717"
+          }
+        },
+        "profile_aVDjQy": {
+          "type": "profile",
+          "settings": {
+            "image": "shopify://shop_images/blog.webp",
+            "heading": "Heading",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "color_text": "#ffffff",
+            "color_background": "#171717"
+          }
+        }
+      },
+      "block_order": [
+        "profile_tNYrqH",
+        "profile_MiY88q",
+        "profile_marBLc",
+        "profile_aVDjQy"
+      ],
+      "custom_css": [
+        ".profile__content {display: none;}"
+      ],
+      "name": "t:sections.portfolio-on-scroll.presets.name",
+      "settings": {
+        "image_ratio": "square",
+        "heading": "Multimedia collage",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
+      }
     }
   },
   "order": [
@@ -702,7 +702,7 @@
     "faq_JMcj4E",
     "image_with_text_8NYiyT",
     "image_with_text_haawLA",
-    "portfolio_on_scroll_d44yg3",
-    "faq_fHwAx8"
+    "faq_fHwAx8",
+    "portfolio_on_scroll_d44yg3"
   ]
 }
