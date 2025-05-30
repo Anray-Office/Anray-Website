@@ -690,6 +690,24 @@
         "rounded": false,
         "enable_parallax": true
       }
+    },
+    "anray_img_with_text_7XEPzB": {
+      "type": "anray-img-with-text",
+      "name": "anray-img-with-text",
+      "settings": {
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
     }
   },
   "order": [
@@ -703,6 +721,7 @@
     "image_with_text_8NYiyT",
     "image_with_text_haawLA",
     "faq_fHwAx8",
-    "portfolio_on_scroll_d44yg3"
+    "portfolio_on_scroll_d44yg3",
+    "anray_img_with_text_7XEPzB"
   ]
 }
