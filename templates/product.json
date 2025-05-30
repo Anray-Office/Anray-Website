@@ -302,8 +302,8 @@
         "question_eRj3PY": {
           "type": "question",
           "settings": {
-            "title": "Frequently asked question",
-            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "title": "Materials",
+            "text": "<ol><li>Exterior Finish: Exterior </li><li>Finish: Hi-Heat Silicone Polyester</li><li>Handles: Dual Riveted PlasticInterior</li><li>Surface: Interior </li><li>Surface: Ceramic NonstickLid</li><li>Material: Lid Material: Tempered Glass<br/><br/></li></ol>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -311,8 +311,8 @@
         "question_W6nEPd": {
           "type": "question",
           "settings": {
-            "title": "Frequently asked question",
-            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "title": "Use and care",
+            "text": "<ol><li>Exterior Finish: Exterior </li><li>Finish: Hi-Heat Silicone Polyester</li><li>Handles: Dual Riveted PlasticInterior</li><li>Surface: Interior </li><li>Surface: Ceramic NonstickLid</li><li>Material: Lid Material: Tempered Glass</li></ol>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -320,17 +320,27 @@
         "question_aekejR": {
           "type": "question",
           "settings": {
-            "title": "Frequently asked question",
-            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "title": "shipping",
+            "text": "<ol><li>Exterior Finish: Exterior </li><li>Finish: Hi-Heat Silicone Polyester</li><li>Handles: Dual Riveted PlasticInterior</li><li>Surface: Interior </li><li>Surface: Ceramic NonstickLid</li><li>Material: Lid Material: Tempered Glass</li></ol>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
+          }
+        },
+        "question_rx83L4": {
+          "type": "question",
+          "settings": {
+            "title": "warranty",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "text",
+            "highlighted_scribble": "basic-underline"
           }
         }
       },
       "block_order": [
         "question_eRj3PY",
         "question_W6nEPd",
-        "question_aekejR"
+        "question_aekejR",
+        "question_rx83L4"
       ],
       "name": "t:sections.faq.presets.name",
       "settings": {
