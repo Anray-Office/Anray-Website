@@ -448,27 +448,27 @@
     "portfolio_on_scroll_d44yg3": {
       "type": "portfolio-on-scroll",
       "blocks": {
-        "profile_xbXUdx": {
-          "type": "profile",
-          "settings": {
-            "image": "shopify://shop_images/Complete_stacking_set_hover_state.webp",
-            "heading": "Heading",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "color_text": "#ffffff",
-            "color_background": "#171717"
-          }
-        },
-        "profile_zWyzHE": {
-          "type": "profile",
-          "settings": {
-            "image": "shopify://shop_images/Complete_stacking_set_hover_state.webp",
-            "heading": "Heading",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "color_text": "#ffffff",
-            "color_background": "#171717"
-          }
-        },
         "profile_tNYrqH": {
+          "type": "profile",
+          "settings": {
+            "image": "shopify://shop_images/blog.webp",
+            "heading": "Heading",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "color_text": "#ffffff",
+            "color_background": "#171717"
+          }
+        },
+        "profile_MiY88q": {
+          "type": "profile",
+          "settings": {
+            "image": "shopify://shop_images/blog.webp",
+            "heading": "Heading",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "color_text": "#ffffff",
+            "color_background": "#171717"
+          }
+        },
+        "profile_marBLc": {
           "type": "profile",
           "settings": {
             "image": "shopify://shop_images/blog.webp",
@@ -490,9 +490,9 @@
         }
       },
       "block_order": [
-        "profile_xbXUdx",
-        "profile_zWyzHE",
         "profile_tNYrqH",
+        "profile_MiY88q",
+        "profile_marBLc",
         "profile_aVDjQy"
       ],
       "name": "t:sections.portfolio-on-scroll.presets.name",
