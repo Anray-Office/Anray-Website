@@ -236,6 +236,24 @@
         "rounded": true
       }
     },
+    "anray_drag_jVRnnU": {
+      "type": "anray-drag",
+      "name": "anray-drag",
+      "settings": {
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 76,
+        "padding_bottom": 0,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
     "anray_product_picturs_NRiGjF": {
       "type": "anray_product-picturs",
       "settings": {
@@ -263,24 +281,6 @@
     "anray_in_box_R6rHHK": {
       "type": "anray-in-box",
       "name": "anray-in-box",
-      "settings": {
-        "transparent_header": false,
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 32,
-        "padding_bottom": 32,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
-      }
-    },
-    "anray_drag_jVRnnU": {
-      "type": "anray-drag",
-      "name": "anray-drag",
       "settings": {
         "transparent_header": false,
         "color_text": "",
