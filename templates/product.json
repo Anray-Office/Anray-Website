@@ -236,6 +236,24 @@
         "rounded": true
       }
     },
+    "anray_drag_jVRnnU": {
+      "type": "anray-drag",
+      "name": "anray-drag",
+      "settings": {
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 76,
+        "padding_bottom": 0,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
     "anray_product_picturs_NRiGjF": {
       "type": "anray_product-picturs",
       "settings": {
@@ -262,6 +280,9 @@
     },
     "anray_in_box_R6rHHK": {
       "type": "anray-in-box",
+      "custom_css": [
+        ".profile__content {display: none;}"
+      ],
       "name": "anray-in-box",
       "settings": {
         "transparent_header": false,
@@ -278,22 +299,396 @@
         "rounded": false
       }
     },
-    "anray_drag_jVRnnU": {
-      "type": "anray-drag",
-      "name": "anray-drag",
+    "faq_JMcj4E": {
+      "type": "faq",
+      "blocks": {
+        "question_eRj3PY": {
+          "type": "question",
+          "settings": {
+            "title": "Materials",
+            "text": "<ol><li>Exterior Finish: Exterior </li><li>Finish: Hi-Heat Silicone Polyester</li><li>Handles: Dual Riveted PlasticInterior</li><li>Surface: Interior </li><li>Surface: Ceramic NonstickLid</li><li>Material: Lid Material: Tempered Glass<br/><br/></li></ol>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_W6nEPd": {
+          "type": "question",
+          "settings": {
+            "title": "Use and care",
+            "text": "<ol><li>Exterior Finish: Exterior </li><li>Finish: Hi-Heat Silicone Polyester</li><li>Handles: Dual Riveted PlasticInterior</li><li>Surface: Interior </li><li>Surface: Ceramic NonstickLid</li><li>Material: Lid Material: Tempered Glass</li></ol>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_aekejR": {
+          "type": "question",
+          "settings": {
+            "title": "shipping",
+            "text": "<ol><li>Exterior Finish: Exterior </li><li>Finish: Hi-Heat Silicone Polyester</li><li>Handles: Dual Riveted PlasticInterior</li><li>Surface: Interior </li><li>Surface: Ceramic NonstickLid</li><li>Material: Lid Material: Tempered Glass</li></ol>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_rx83L4": {
+          "type": "question",
+          "settings": {
+            "title": "warranty",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "text",
+            "highlighted_scribble": "basic-underline"
+          }
+        }
+      },
+      "block_order": [
+        "question_eRj3PY",
+        "question_W6nEPd",
+        "question_aekejR",
+        "question_rx83L4"
+      ],
+      "name": "t:sections.faq.presets.name",
       "settings": {
-        "transparent_header": false,
+        "style": "with-background",
+        "heading": "Product Parameters",
+        "heading_size": "title-sm",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "padding_top": 32,
-        "padding_bottom": 32,
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 13,
+        "padding_top": 72,
+        "padding_bottom": 72,
         "divider": false,
         "narrow": false,
         "rounded": false
+      }
+    },
+    "image_with_text_8NYiyT": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_NVa6a9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_M3zd98": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_qyGcLw": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_NVa6a9",
+        "text_M3zd98",
+        "button_qyGcLw"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/909651273ce90ed43511df0d2e0c195421cf141e29e72-PFQODQ.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "image_with_text_haawLA": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_PqezyN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_JAA7Ty": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_Bj9WDB": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_PqezyN",
+        "text_JAA7Ty",
+        "button_Bj9WDB"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/909651273ce90ed43511df0d2e0c195421cf141e29e72-PFQODQ.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "faq_fHwAx8": {
+      "type": "faq",
+      "blocks": {
+        "question_WiG6fT": {
+          "type": "question",
+          "settings": {
+            "title": "我该如何正确清洁我的烤盘？",
+            "text": "<p>清洁烤盘时，请使用温和的洗涤剂和软布进行清洁。避免使用金属丝球或刮板，以免划伤表面。另外，务必在使用之前彻底晾干烤盘</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_nYrbN8": {
+          "type": "question",
+          "settings": {
+            "title": "我的烤盘变色了",
+            "text": "<p>清洁烤盘时，请使用温和的洗涤剂和软布进行清洁。避免使用金属丝球或刮板，以免划伤表面。另外，务必在使用之前彻底晾干烤盘<br/></p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_izDPct": {
+          "type": "question",
+          "settings": {
+            "title": "我能否在烤盘上使用烤箱喷雾剂？",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_Nd4Mw3": {
+          "type": "question",
+          "settings": {
+            "title": "烤盘可以放在微波炉里加热食物吗？",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_tNw6gW": {
+          "type": "question",
+          "settings": {
+            "title": "我可以将烤盘放在直接火焰上吗？",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "question_WiG6fT",
+        "question_nYrbN8",
+        "question_izDPct",
+        "question_Nd4Mw3",
+        "question_tNw6gW"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "style": "with-background",
+        "heading": "Let’s Answer Your Questions",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 31,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "portfolio_on_scroll_d44yg3": {
+      "type": "portfolio-on-scroll",
+      "blocks": {
+        "profile_tNYrqH": {
+          "type": "profile",
+          "settings": {
+            "image": "shopify://shop_images/blog.webp",
+            "heading": "Heading",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "color_text": "#ffffff",
+            "color_background": "#171717"
+          }
+        },
+        "profile_MiY88q": {
+          "type": "profile",
+          "settings": {
+            "image": "shopify://shop_images/blog.webp",
+            "heading": "Heading",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "color_text": "#ffffff",
+            "color_background": "#171717"
+          }
+        },
+        "profile_marBLc": {
+          "type": "profile",
+          "settings": {
+            "image": "shopify://shop_images/blog.webp",
+            "heading": "Heading",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "color_text": "#ffffff",
+            "color_background": "#171717"
+          }
+        },
+        "profile_aVDjQy": {
+          "type": "profile",
+          "settings": {
+            "image": "shopify://shop_images/blog.webp",
+            "heading": "Heading",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "color_text": "#ffffff",
+            "color_background": "#171717"
+          }
+        }
+      },
+      "block_order": [
+        "profile_tNYrqH",
+        "profile_MiY88q",
+        "profile_marBLc",
+        "profile_aVDjQy"
+      ],
+      "custom_css": [
+        ".profile__content {display: none;}"
+      ],
+      "name": "t:sections.portfolio-on-scroll.presets.name",
+      "settings": {
+        "image_ratio": "square",
+        "heading": "Multimedia collage",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true
       }
     }
   },
@@ -303,6 +698,11 @@
     "product-recommendations",
     "anray_drag_jVRnnU",
     "anray_product_picturs_NRiGjF",
-    "anray_in_box_R6rHHK"
+    "anray_in_box_R6rHHK",
+    "faq_JMcj4E",
+    "image_with_text_8NYiyT",
+    "image_with_text_haawLA",
+    "faq_fHwAx8",
+    "portfolio_on_scroll_d44yg3"
   ]
 }
