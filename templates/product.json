@@ -609,8 +609,8 @@
         "question_WiG6fT": {
           "type": "question",
           "settings": {
-            "title": "Frequently asked question",
-            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "title": "我该如何正确清洁我的烤盘？",
+            "text": "<p>清洁烤盘时，请使用温和的洗涤剂和软布进行清洁。避免使用金属丝球或刮板，以免划伤表面。另外，务必在使用之前彻底晾干烤盘</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -618,8 +618,8 @@
         "question_nYrbN8": {
           "type": "question",
           "settings": {
-            "title": "Frequently asked question",
-            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "title": "我的烤盘变色了",
+            "text": "<p>清洁烤盘时，请使用温和的洗涤剂和软布进行清洁。避免使用金属丝球或刮板，以免划伤表面。另外，务必在使用之前彻底晾干烤盘<br/></p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -627,7 +627,25 @@
         "question_izDPct": {
           "type": "question",
           "settings": {
-            "title": "Frequently asked question",
+            "title": "我能否在烤盘上使用烤箱喷雾剂？",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_Nd4Mw3": {
+          "type": "question",
+          "settings": {
+            "title": "烤盘可以放在微波炉里加热食物吗？",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_tNw6gW": {
+          "type": "question",
+          "settings": {
+            "title": "我可以将烤盘放在直接火焰上吗？",
             "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
@@ -637,7 +655,9 @@
       "block_order": [
         "question_WiG6fT",
         "question_nYrbN8",
-        "question_izDPct"
+        "question_izDPct",
+        "question_Nd4Mw3",
+        "question_tNw6gW"
       ],
       "name": "t:sections.faq.presets.name",
       "settings": {
