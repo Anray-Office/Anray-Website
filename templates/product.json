@@ -271,8 +271,26 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "anray_in_box_R6rHHK": {
+      "type": "anray-in-box",
+      "name": "anray-in-box",
+      "settings": {
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
         "divider": false,
         "narrow": false,
         "rounded": false
@@ -284,6 +302,7 @@
     "help-drawer",
     "product-recommendations",
     "anray_product_picturs_NRiGjF",
-    "anray_drag_jVRnnU"
+    "anray_drag_jVRnnU",
+    "anray_in_box_R6rHHK"
   ]
 }
