@@ -259,12 +259,31 @@
         "image5": "shopify://shop_images/0303_36accb33-a35f-4d22-8290-a7c3e490a48e.png",
         "image6": "shopify://shop_images/kitchen-7855423_1280.jpg"
       }
+    },
+    "anray_drag_jVRnnU": {
+      "type": "anray-drag",
+      "name": "anray-drag",
+      "settings": {
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
     }
   },
   "order": [
     "main-product",
     "help-drawer",
     "product-recommendations",
-    "anray_product_picturs_NRiGjF"
+    "anray_product_picturs_NRiGjF",
+    "anray_drag_jVRnnU"
   ]
 }
