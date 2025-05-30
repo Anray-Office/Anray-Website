@@ -693,6 +693,72 @@
     },
     "anray_img_with_text_7XEPzB": {
       "type": "anray-img-with-text",
+      "blocks": {
+        "heading_BhPdEA": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Right Fit",
+            "text": "<p>Cooking for 1-2 people? The standard-sized Wonder Oven has you covered. Have more mouths to feed? The Large Wonder Oven is spacious enough to cook a family-sized dinner, and then some.</p>"
+          }
+        },
+        "button_Fy7faq": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_BhPdEA",
+        "button_Fy7faq"
+      ],
+      "name": "anray-img-with-text",
+      "settings": {
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "anray_img_with_text_VPjFdJ": {
+      "type": "anray-img-with-text",
+      "blocks": {
+        "heading_zXfynf": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Right Fit",
+            "text": "<p>Cooking for 1-2 people? The standard-sized Wonder Oven has you covered. Have more mouths to feed? The Large Wonder Oven is spacious enough to cook a family-sized dinner, and then some.</p>"
+          }
+        },
+        "button_Hpq4E4": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_zXfynf",
+        "button_Hpq4E4"
+      ],
       "name": "anray-img-with-text",
       "settings": {
         "transparent_header": false,
@@ -722,6 +788,7 @@
     "image_with_text_haawLA",
     "faq_fHwAx8",
     "portfolio_on_scroll_d44yg3",
-    "anray_img_with_text_7XEPzB"
+    "anray_img_with_text_7XEPzB",
+    "anray_img_with_text_VPjFdJ"
   ]
 }
