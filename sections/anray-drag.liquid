@@ -1,0 +1,552 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    {%- render 'section-variables', section: section -%};
+  }
+
+  {
+      padding-inline-start: var(--page-padding);
+    }
+    /* 父容器共有样式 */
+    .anray-accessories-section {
+    }
+
+    .anray-products-container-grey {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 40px;
+      overflow-x: auto;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding: 10px 0;
+      scroll-snap-type: x mandatory; /* 添加强制吸附滚动 */
+      padding-inline-end: 2.5rem;
+    }
+
+    /* 隐藏滚动条 */
+    .anray-products-container-grey::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera*/
+    }
+
+    /* 产品卡片链接样式 */
+    .anray-products-container-grey .anray-product-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      flex: 0 0 calc(25% - 80px); /* 一行刚好显示4个，考虑间距 */
+      min-width: calc(25% - 80px);
+      scroll-snap-align: start; /* 卡片左侧与容器左侧对齐 */
+      position: relative; /* 添加相对定位，用于购物车按钮定位 */
+    }
+
+    .anray-products-container-grey .anray-product-card {
+      width: 100%;
+      border-radius: 15px;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+      cursor: pointer;
+      background-color: #ffffff00;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .anray-products-container-grey .anray-product-card:hover .anray-product-image img {
+      transform: scale(1.05);
+    }
+
+    /* 添加购物车按钮样式 */
+    .anray-add-to-cart-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background-color: rgba(255, 255, 255, 0.637);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: translate(-50%, 50%) scale(0.25);
+      transition: all 1s ease;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .anray-add-to-cart-btn img {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 5px;
+    }
+
+    .anray-add-to-cart-btn span {
+      font-size: 14px;
+      font-weight: 400;
+      color: #000;
+      text-align: center;
+      /* text-transform: lowercase; */
+      font-family: Arial, sans-serif;
+    }
+
+    @media (hover: hover) {
+      .anray-product-link:hover .anray-add-to-cart-btn {
+        opacity: 1;
+        /* transform: ; */
+        transform: translate(-50%, -60%) scale(.95);
+      }
+    }
+
+    /* 响应式设计：不同屏幕尺寸下的布局调整 */
+    @media (max-width: 1200px) {
+      .anray-accessories-section {
+        padding: 0 20px;
+      }
+
+      .anray-products-container-grey .anray-product-link {
+        flex: 0 0 calc(33.333% - 14px); /* 一行显示3个 */
+        min-width: calc(33.333% - 14px);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .anray-products-container-grey .anray-product-link {
+        flex: 0 0 calc(50% - 10px); /* 一行显示2个 */
+        min-width: calc(50% - 10px);
+      }
+
+      .anray-accessories-title-container .anray-accessories-title {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .anray-accessories-section {
+        padding: 0 15px;
+      }
+
+      .anray-products-container-grey .anray-product-link {
+        flex: 0 0 calc(100% - 5px); /* 一行显示1个 */
+        min-width: calc(100% - 5px);
+      }
+
+      .anray-accessories-title-container {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+
+      .anray-accessories-title-container .anray-accessories-title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+      }
+    }
+
+    .anray-products-container-grey .anray-product-image {
+      padding: 0 0.75rem;
+      overflow: hidden;
+      background-color: #eeeeee;
+      aspect-ratio: 1 / 1;
+      width: 100%;
+    }
+
+    .anray-products-container-grey .anray-product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .anray-products-container-grey .anray-product-image-radius {
+      border-radius: 15px;
+    }
+
+    .anray-products-container-grey .anray-product-info {
+      padding: 20px 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .anray-products-container-grey .anray-product-details-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .anray-products-container-grey .anray-product-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      margin: 0;
+    }
+
+    .anray-products-container-grey .anray-product-price-value {
+      margin: 0;
+    }
+
+    .anray-products-container-grey .anray-product-options {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .anray-products-container-grey .anray-product-price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      text-align: right;
+    }
+
+    /* 标题容器样式 */
+    .anray-accessories-title-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 0 0 30px 0;
+    }
+
+    .anray-accessories-title-container .anray-accessories-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #000;
+      margin: 0;
+      line-height: 1;
+    }
+</style>
+
+<div
+  class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}"
+  {% if section.settings.transparent_header %}
+    allow-transparent-header
+  {% endif %}
+>
+  <div class="anray-page-width {% if section.settings.narrow %} page-width--narrow{% endif %} relative">
+    <!-- 内容区域 -->
+    <!-- 添加标题和See All链接 -->
+    <div class="anray-accessories-title-container">
+      <h1 class="anray-accessories-title">Frequently bought together</h1>
+    </div>
+    <!-- 内容 -->
+    <!-- 创建父容器包裹标题和产品列表 -->
+    <div class="anray-accessories-section" id="Coffee">
+      <div class="anray-products-container-grey">
+        <a href="#product1" class="anray-product-link">
+          <div class="anray-product-card">
+            <div class="anray-product-image anray-product-image-radius">
+              <img width="100%" height="100%"
+                src="https://www.terrakaffe.com/cdn/shop/products/BBBundle1.jpg?v=1678845744&width=1000"
+                alt="便携式榨汁机"
+              >
+            </div>
+            <div class="anray-product-info">
+              <div class="anray-product-details-row">
+                <div class="anray-product-details">
+                  <div class="anray-product-name">T-02</div>
+                </div>
+                <div class="anray-product-options">
+                  <div class="anray-product-price">
+                    <div class="anray-product-price-value">$299.00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="anray-add-to-cart-btn">
+            <img width="100%" height="100%"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/add_car.png?v=1748508748"
+              alt="添加购物车"
+            >
+            <span>ADD</span>
+          </div>
+        </a>
+
+        <a href="#product2" class="anray-product-link">
+          <div class="anray-product-card">
+            <div class="anray-product-image anray-product-image-radius">
+              <img width="100%" height="100%"
+                src="https://www.terrakaffe.com/cdn/shop/products/BBBundle1.jpg?v=1678845744&width=1000"
+                alt="便携式榨汁机"
+              >
+            </div>
+            <div class="anray-product-info">
+              <div class="anray-product-details-row">
+                <div class="anray-product-details">
+                  <div class="anray-product-name">T-02</div>
+                </div>
+                <div class="anray-product-options">
+                  <div class="anray-product-price">
+                    <div class="anray-product-price-value">$299.00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="anray-add-to-cart-btn">
+            <img width="100%" height="100%"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/add_car.png?v=1748508748"
+              alt="添加购物车"
+            >
+            <span>ADD</span>
+          </div>
+        </a>
+
+        <a href="#product3" class="anray-product-link">
+          <div class="anray-product-card">
+            <div class="anray-product-image anray-product-image-radius">
+              <img width="100%" height="100%"
+                src="https://www.terrakaffe.com/cdn/shop/products/BBBundle1.jpg?v=1678845744&width=1000"
+                alt="便携式榨汁机"
+              >
+            </div>
+            <div class="anray-product-info">
+              <div class="anray-product-details-row">
+                <div class="anray-product-details">
+                  <div class="anray-product-name">T-02</div>
+                </div>
+                <div class="anray-product-options">
+                  <div class="anray-product-price">
+                    <div class="anray-product-price-value">$299.00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="anray-add-to-cart-btn">
+            <img width="100%" height="100%"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/add_car.png?v=1748508748"
+              alt="添加购物车"
+            >
+            <span>ADD</span>
+          </div>
+        </a>
+        <a href="#product3" class="anray-product-link">
+          <div class="anray-product-card">
+            <div class="anray-product-image anray-product-image-radius">
+              <img width="100%" height="100%"
+                src="https://www.terrakaffe.com/cdn/shop/products/BBBundle1.jpg?v=1678845744&width=1000"
+                alt="便携式榨汁机"
+              >
+            </div>
+            <div class="anray-product-info">
+              <div class="anray-product-details-row">
+                <div class="anray-product-details">
+                  <div class="anray-product-name">T-02</div>
+                </div>
+                <div class="anray-product-options">
+                  <div class="anray-product-price">
+                    <div class="anray-product-price-value">$299.00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="anray-add-to-cart-btn">
+            <img width="100%" height="100%"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/add_car.png?v=1748508748"
+              alt="添加购物车"
+            >
+            <span>ADD</span>
+          </div>
+        </a>
+        <a href="#product3" class="anray-product-link">
+          <div class="anray-product-card">
+            <div class="anray-product-image anray-product-image-radius">
+              <img width="100%" height="100%"
+                src="https://www.terrakaffe.com/cdn/shop/products/BBBundle1.jpg?v=1678845744&width=1000"
+                alt="便携式榨汁机"
+              >
+            </div>
+            <div class="anray-product-info">
+              <div class="anray-product-details-row">
+                <div class="anray-product-details">
+                  <div class="anray-product-name">T-02</div>
+                </div>
+                <div class="anray-product-options">
+                  <div class="anray-product-price">
+                    <div class="anray-product-price-value">$299.00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="anray-add-to-cart-btn">
+            <img width="100%" height="100%"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/add_car.png?v=1748508748"
+              alt="添加购物车"
+            >
+            <span>ADD</span>
+          </div>
+        </a>
+        <a href="#product3" class="anray-product-link">
+          <div class="anray-product-card">
+            <div class="anray-product-image anray-product-image-radius">
+              <img width="100%" height="100%"
+                src="https://www.terrakaffe.com/cdn/shop/products/BBBundle1.jpg?v=1678845744&width=1000"
+                alt="便携式榨汁机"
+              >
+            </div>
+            <div class="anray-product-info">
+              <div class="anray-product-details-row">
+                <div class="anray-product-details">
+                  <div class="anray-product-name">T-02</div>
+                </div>
+                <div class="anray-product-options">
+                  <div class="anray-product-price">
+                    <div class="anray-product-price-value">$299.00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="anray-add-to-cart-btn">
+            <img width="100%" height="100%" width="100%" height="100%"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/add_car.png?v=1748508748"
+              alt="添加购物车"
+            >
+            <span>ADD</span>
+          </div>
+        </a>
+
+        <a href="#product4" class="anray-product-link">
+          <div class="anray-product-card">
+            <div class="anray-product-image anray-product-image-radius">
+              <img width="100%" height="100%"
+                src="https://www.terrakaffe.com/cdn/shop/products/BBBundle1.jpg?v=1678845744&width=1000"
+                alt="便携式榨汁机"
+              >
+            </div>
+            <div class="anray-product-info">
+              <div class="anray-product-details-row">
+                <div class="anray-product-details">
+                  <div class="anray-product-name">T-02</div>
+                </div>
+                <div class="anray-product-options">
+                  <div class="anray-product-price">
+                    <div class="anray-product-price-value">$299.00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="anray-add-to-cart-btn">
+            <img width="100%" height="100%"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/add_car.png?v=1748508748"
+              alt="添加购物车"
+            >
+            <span>ADD</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <!-- 内容区域 -->
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Anray_Test",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "transparent_header",
+      "label": "t:sections.global.settings.transparent_header.label",
+      "info": "t:sections.global.settings.transparent_header.info",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__colors.content",
+      "info": "t:sections.global.settings.header__colors.info"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "t:sections.global.settings.color_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "t:sections.global.settings.color_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "gradient_background",
+      "label": "t:sections.global.settings.gradient_background.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_text",
+      "label": "t:sections.global.settings.color_button_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_background",
+      "label": "t:sections.global.settings.color_button_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "color_button_gradient",
+      "label": "t:sections.global.settings.color_button_gradient.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__section.content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_top.label",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_bottom.label",
+      "default": 72
+    },
+    {
+      "type": "checkbox",
+      "id": "divider",
+      "label": "t:sections.global.settings.divider.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "narrow",
+      "label": "t:sections.global.settings.narrow.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "rounded",
+      "default": false,
+      "label": "t:sections.global.settings.rounded.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anray_Test"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}
