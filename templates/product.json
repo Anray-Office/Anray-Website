@@ -498,6 +498,9 @@
         "profile_marBLc",
         "profile_aVDjQy"
       ],
+      "custom_css": [
+        ".profile__content{display:none;}"
+      ],
       "name": "t:sections.portfolio-on-scroll.presets.name",
       "settings": {
         "image_ratio": "square",
