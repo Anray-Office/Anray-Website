@@ -759,6 +759,9 @@
         "heading_zXfynf",
         "button_Hpq4E4"
       ],
+      "custom_css": [
+        ".anray-img-with-text {flex-direction: row-reverse;}"
+      ],
       "name": "anray-img-with-text",
       "settings": {
         "transparent_header": false,
