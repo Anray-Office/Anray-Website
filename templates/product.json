@@ -602,6 +602,74 @@
         "rounded": false,
         "enable_parallax": true
       }
+    },
+    "faq_fHwAx8": {
+      "type": "faq",
+      "blocks": {
+        "question_WiG6fT": {
+          "type": "question",
+          "settings": {
+            "title": "Frequently asked question",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_nYrbN8": {
+          "type": "question",
+          "settings": {
+            "title": "Frequently asked question",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_izDPct": {
+          "type": "question",
+          "settings": {
+            "title": "Frequently asked question",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "question_WiG6fT",
+        "question_nYrbN8",
+        "question_izDPct"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "style": "with-background",
+        "heading": "Let’s Answer Your Questions",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 31,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
     }
   },
   "order": [
@@ -614,6 +682,7 @@
     "faq_JMcj4E",
     "image_with_text_8NYiyT",
     "image_with_text_haawLA",
-    "portfolio_on_scroll_d44yg3"
+    "portfolio_on_scroll_d44yg3",
+    "faq_fHwAx8"
   ]
 }
