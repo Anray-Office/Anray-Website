@@ -260,9 +260,9 @@
         "image6": "shopify://shop_images/kitchen-7855423_1280.jpg"
       }
     },
-    "anray_drag_jVRnnU": {
-      "type": "anray-drag",
-      "name": "anray-drag",
+    "anray_in_box_R6rHHK": {
+      "type": "anray-in-box",
+      "name": "anray-in-box",
       "settings": {
         "transparent_header": false,
         "color_text": "",
@@ -278,9 +278,9 @@
         "rounded": false
       }
     },
-    "anray_in_box_R6rHHK": {
-      "type": "anray-in-box",
-      "name": "anray-in-box",
+    "anray_drag_jVRnnU": {
+      "type": "anray-drag",
+      "name": "anray-drag",
       "settings": {
         "transparent_header": false,
         "color_text": "",
@@ -301,8 +301,8 @@
     "main-product",
     "help-drawer",
     "product-recommendations",
-    "anray_product_picturs_NRiGjF",
     "anray_drag_jVRnnU",
+    "anray_product_picturs_NRiGjF",
     "anray_in_box_R6rHHK"
   ]
 }
