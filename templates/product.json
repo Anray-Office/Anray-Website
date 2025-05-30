@@ -280,6 +280,9 @@
     },
     "anray_in_box_R6rHHK": {
       "type": "anray-in-box",
+      "custom_css": [
+        ".profile__content {display: none;}"
+      ],
       "name": "anray-in-box",
       "settings": {
         "transparent_header": false,
@@ -366,7 +369,7 @@
         "color_button_background": "",
         "color_button_gradient": "",
         "color_overlay": "#ffffff",
-        "overlay_opacity": 4,
+        "overlay_opacity": 13,
         "padding_top": 72,
         "padding_bottom": 72,
         "divider": false,
