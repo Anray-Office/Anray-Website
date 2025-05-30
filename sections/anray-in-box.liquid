@@ -1,0 +1,247 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    {%- render 'section-variables', section: section -%};
+  }
+
+  .anray-box-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 3rem;
+      font-weight: normal;
+    }
+
+    .anray-box-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .anray-box-item {
+      flex: 0 1 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .anray-box-item__image {
+      width: 100%;
+      aspect-ratio: 1;
+      background: #f5f5f5;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+
+    .anray-box-item__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      padding: 2rem;
+    }
+
+    .anray-box-item__title {
+      font-size: 1rem;
+      margin: 0;
+      font-weight: normal;
+    }
+
+    .anray-box-item__quantity {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      .anray-box-title {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .anray-box-grid {
+        gap: 15px;
+      }
+
+      .anray-box-item {
+        flex: 0 1 calc(50% - 7.5px);
+      }
+    }
+</style>
+
+<div
+  class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}"
+  {% if section.settings.transparent_header %}
+    allow-transparent-header
+  {% endif %}
+>
+  <div class="page-width{% if section.settings.narrow %} page-width--narrow{% endif %} relative">
+    <!-- 内容区域 -->
+    <h2 class="anray-box-title">In the Box</h2>
+    <div class="anray-box-grid">
+      <div class="anray-box-item">
+        <div class="anray-box-item__image">
+          <img
+            width="100%"
+            height="100%"
+            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/product_img.png?v=1748509071"
+            alt="Gimbal"
+          >
+        </div>
+        <h3 class="anray-box-item__title">Gimbal</h3>
+        <div class="anray-box-item__quantity">×1</div>
+      </div>
+      <div class="anray-box-item">
+        <div class="anray-box-item__image">
+          <img
+            width="100%"
+            height="100%"
+            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/product_img.png?v=1748509071"
+            alt="Gimbal"
+          >
+        </div>
+        <h3 class="anray-box-item__title">Gimbal</h3>
+        <div class="anray-box-item__quantity">×1</div>
+      </div>
+      <div class="anray-box-item">
+        <div class="anray-box-item__image">
+          <img
+            width="100%"
+            height="100%"
+            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/product_img.png?v=1748509071"
+            alt="Gimbal"
+          >
+        </div>
+        <h3 class="anray-box-item__title">Gimbal</h3>
+        <div class="anray-box-item__quantity">×1</div>
+      </div>
+      <div class="anray-box-item">
+        <div class="anray-box-item__image">
+          <img
+            width="100%"
+            height="100%"
+            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/product_img.png?v=1748509071"
+            alt="Gimbal"
+          >
+        </div>
+        <h3 class="anray-box-item__title">Gimbal</h3>
+        <div class="anray-box-item__quantity">×1</div>
+      </div>
+      <div class="anray-box-item">
+        <div class="anray-box-item__image">
+          <img
+            width="100%"
+            height="100%"
+            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/product_img.png?v=1748509071"
+            alt="Gimbal"
+          >
+        </div>
+        <h3 class="anray-box-item__title">Gimbal</h3>
+        <div class="anray-box-item__quantity">×1</div>
+      </div>
+    </div>
+    <!-- 内容区域 -->
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "anray-in-box",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "transparent_header",
+      "label": "t:sections.global.settings.transparent_header.label",
+      "info": "t:sections.global.settings.transparent_header.info",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__colors.content",
+      "info": "t:sections.global.settings.header__colors.info"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "t:sections.global.settings.color_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "t:sections.global.settings.color_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "gradient_background",
+      "label": "t:sections.global.settings.gradient_background.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_text",
+      "label": "t:sections.global.settings.color_button_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_background",
+      "label": "t:sections.global.settings.color_button_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "color_button_gradient",
+      "label": "t:sections.global.settings.color_button_gradient.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__section.content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_top.label",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_bottom.label",
+      "default": 72
+    },
+    {
+      "type": "checkbox",
+      "id": "divider",
+      "label": "t:sections.global.settings.divider.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "narrow",
+      "label": "t:sections.global.settings.narrow.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "rounded",
+      "default": false,
+      "label": "t:sections.global.settings.rounded.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "anray-in-box"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}
