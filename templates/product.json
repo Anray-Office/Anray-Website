@@ -47,15 +47,6 @@
             "size_chart": ""
           }
         },
-        "inventory": {
-          "type": "inventory",
-          "settings": {
-            "inventory_threshold": 15,
-            "show_inventory_transfer": true,
-            "show_inventory_quantity": "low",
-            "color_scheme": "accent-1"
-          }
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -101,7 +92,6 @@
         "description",
         "countdown",
         "variant_picker",
-        "inventory",
         "buy_buttons",
         "pickup_availability",
         "share",
