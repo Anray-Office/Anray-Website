@@ -1,24 +1,98 @@
-<style>
+{%- style -%}
   #shopify-section-{{ section.id }} {
     --section-padding-top: {{ section.settings.padding_top }}px;
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
     {%- render 'section-variables', section: section -%}
   }
-</style>
 
-{%- liquid
-  assign enable_footer_info = false
-  if section.settings.enable_newsletter or section.settings.show_social or shop.features.follow_on_shop? and section.settings.enable_follow_on_shop
-    assign enable_footer_info = true
-  endif
--%}
+  .sologan{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family:var(--font-body-family);
+  }
 
-<div class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded{% endif %}"{% if section.settings.enable_parallax %} is="footer-parallax"{% endif %}>
-  <footer class="footer{% if enable_footer_info %}{% if section.settings.invert_newsletter_others %} footer--inverted{% endif %}{% else %} footer--no-info{% endif %} page-width{% if section.settings.full_width %} page-width--full{% endif %} relative grid">
+  .sologan h1{
+    font-size: 2.5rem;
+  }
+
+  .sologan .email_name{
+    font-size: var(--fluid-base-to-2xl);
+  }
+
+
+  .sologan .email_title{
+    font-size: 1.3rem;
+  }
+
+  .footer-logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-logo p{
+    font-size:13vw;
+    color:#ffffff;
+  }
+{%- endstyle -%}
+
+<div
+  class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded{% endif %}"
+  {% if section.settings.enable_parallax %}
+    is="footer-parallax"
+  {% endif %}
+>
+  <footer class="footer page-width{% if section.settings.full_width %} page-width--full{% endif %} relative grid">
+    {%- if section.settings.enable_newsletter
+      or section.settings.show_social
+      or shop.features.follow_on_shop?
+      and section.settings.enable_follow_on_shop
+    -%}
+      <div class="footer__right grid gap-10">
+        <!-- custom -->
+        <div class="sologan">
+          <h1>Built To Perform</h1>
+          <div class="email_name">new business:</div>
+          <a href="mailto:anray@bussiness.com?subject=Hello&cc=cc@example.com&bcc=bcc@example.com"
+            >anray@bussiness.com</a
+          >
+          <!-- <div class="email_title">Sign up for our newsletter</div> -->
+        </div>
+        <!-- custom -->
+        {%- if section.settings.enable_newsletter -%}
+          <div class="footer__newsletter grid gap-6">
+            <p class="h3 text-xl leading-none tracking-none font-medium lg:font-heading">
+              {{ section.settings.newsletter_heading | escape }}
+            </p>
+            {%- render 'newsletter-form', section_id: section.id, context: 'footer' -%}
+
+            {%- if section.settings.newsletter_text != blank -%}
+              <div class="rte text-sm">{{ section.settings.newsletter_text }}</div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.show_social -%}
+          <div class="footer__socials flex justify-start md:justify-end xl:justify-start">
+            {%- render 'social-icons', size: 'lg', gap: '7' -%}
+          </div>
+        {%- endif -%}
+
+        {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
+          <div class="follow-on-shop">
+            {{- shop | login_button: action: 'follow' -}}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
     {%- if section.blocks.size > 0 -%}
       <div class="footer__left flex flex-col md:flex-row gap-10">
         {%- liquid
-          assign block = section.blocks | where: "type", "logo_social" | first
+          assign block = section.blocks | where: 'type', 'logo_social' | first
           if block
             render 'footer-logo', block: block
           endif
@@ -42,63 +116,30 @@
         </div>
       </div>
     {%- endif -%}
-
-    {%- if section.settings.enable_newsletter or section.settings.show_social or shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
-      <div class="footer__right grid gap-10">
-        {%- if section.settings.enable_newsletter -%}
-          <div class="footer__newsletter grid gap-6">
-            {%- if section.settings.newsletter_logo -%}
-              <p class="footer__logo leading-none">
-                <a href="{{ routes.root_url }}">
-                  <span class="sr-only">{{ shop.name }}</span>
-                  {%- capture sizes -%}{{ section.settings.newsletter_logo_height | times: section.settings.newsletter_logo.aspect_ratio }}px{%- endcapture -%}
-                  {%- capture widths -%}{{ section.settings.newsletter_logo_height | times: section.settings.newsletter_logo.aspect_ratio }}, {{ section.settings.newsletter_logo_height | times: section.settings.newsletter_logo.aspect_ratio | times: 2 | at_most: section.settings.newsletter_logo.width }}{%- endcapture -%}
-                  {%- capture style -%}--image-width: {{ section.settings.newsletter_logo_height | times: section.settings.newsletter_logo.aspect_ratio }}px; --image-height: {{ section.settings.newsletter_logo_height }}px;{%- endcapture -%}
-                  {{- section.settings.newsletter_logo | image_url: width: section.settings.newsletter_logo.width | image_tag: loading: 'lazy', widths: widths, sizes: sizes, style: style, preload: true, is: 'lazy-image' -}}
-                </a>
-              </p>
-            {%- endif -%}
-
-            <p class="h3 text-xl {{ section.settings.newsletter_heading_size }} leading-none tracking-none font-medium lg:font-heading">{{ section.settings.newsletter_heading | escape }}</p>
-            {%- render 'newsletter-form', section_id: section.id, context: 'footer' -%}
-
-            {%- if section.settings.newsletter_text != blank -%}
-              <div class="rte text-sm leading-tight">{{ section.settings.newsletter_text }}</div>
-            {%- endif -%}
-          </div>
-        {%- endif -%}
-
-        {%- if section.settings.show_social -%}
-          <div class="footer__socials flex justify-start md:justify-end xl:justify-start">
-            {%- render 'social-icons', size: 'lg', gap: '7' -%}
-          </div>
-        {%- endif -%}
-
-        {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
-          <div class="follow-on-shop">
-            {{- shop | login_button: action: 'follow' -}}
-          </div>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
   </footer>
 
   {%- if section.settings.enable_parallax -%}
-    <parallax-overlay class="footer-overlay hidden md:block z-20 absolute left-0 top-0 w-full pointer-events-none" data-target="height" data-start="100%" data-stop="0%"></parallax-overlay>
+    <parallax-overlay
+      class="footer-overlay hidden md:block z-20 absolute left-0 top-0 w-full pointer-events-none"
+      data-target="height"
+      data-start="100%"
+      data-stop="0%"
+    ></parallax-overlay>
   {%- endif -%}
-</div>
 
+  <div class="footer-logo">
+    <p class="single_word">A</p>
+    <p class="single_word">N</p>
+    <p class="single_word">R</p>
+    <p class="single_word">A</p>
+    <p class="single_word">Y</p>
+  </div>
+</div>
 {% schema %}
 {
   "name": "t:sections.footer.name",
   "max_blocks": 12,
   "settings": [
-    {
-      "type": "checkbox",
-      "id": "invert_newsletter_others",
-      "default": false,
-      "label": "t:sections.footer.settings.invert_newsletter_others.label"
-    },
     {
       "type": "header",
       "content": "t:sections.footer.settings.header__newsletter.content",
@@ -117,49 +158,10 @@
       "label": "t:sections.global.settings.heading.label"
     },
     {
-      "type": "select",
-      "id": "newsletter_heading_size",
-      "options": [
-        {
-          "value": "md:title-sm",
-          "label": "t:sections.global.settings.heading_size.options__1.label"
-        },
-        {
-          "value": "md:title-md",
-          "label": "t:sections.global.settings.heading_size.options__2.label"
-        },
-        {
-          "value": "md:title-lg",
-          "label": "t:sections.global.settings.heading_size.options__3.label"
-        },
-        {
-          "value": "md:title-xl",
-          "label": "t:sections.global.settings.heading_size.options__4.label"
-        }
-      ],
-      "default": "md:title-lg",
-      "label": "t:sections.global.settings.heading_size.label"
-    },
-    {
       "type": "richtext",
       "id": "newsletter_text",
       "label": "t:sections.global.settings.text.label",
       "info": "t:sections.global.settings.optional.label"
-    },
-    {
-      "type": "image_picker",
-      "id": "newsletter_logo",
-      "label": "t:sections.footer.settings.newsletter_logo.label"
-    },
-    {
-      "type": "range",
-      "id": "newsletter_logo_height",
-      "label": "t:sections.footer.settings.newsletter_logo_height.label",
-      "default": 50,
-      "min": 20,
-      "max": 120,
-      "step": 1,
-      "unit": "px"
     },
     {
       "type": "header",
@@ -267,8 +269,8 @@
     {
       "type": "checkbox",
       "id": "enable_parallax",
-      "label": "t:sections.global.settings.enable_parallax.label",
-      "default": true
+      "default": true,
+      "label": "t:sections.global.settings.enable_parallax.label"
     }
   ],
   "blocks": [
@@ -327,22 +329,12 @@
         {
           "type": "range",
           "id": "container_width",
-          "label": "t:sections.footer.blocks.global.settings.container_width.label",
+          "label": "t:sections.footer.blocks.link_list.settings.container_width.label",
           "default": 50,
           "min": 15,
           "max": 95,
           "step": 1,
           "unit": "%"
-        },
-        {
-          "type": "header",
-          "content": "t:sections.global.settings.header__mobile.content"
-        },
-        {
-          "type": "checkbox",
-          "id": "opened",
-          "default": false,
-          "label": "t:sections.footer.blocks.global.settings.opened.label"
         }
       ]
     },
@@ -366,22 +358,12 @@
         {
           "type": "range",
           "id": "container_width",
-          "label": "t:sections.footer.blocks.global.settings.container_width.label",
+          "label": "t:sections.footer.blocks.text.settings.container_width.label",
           "default": 50,
           "min": 15,
           "max": 95,
           "step": 1,
           "unit": "%"
-        },
-        {
-          "type": "header",
-          "content": "t:sections.global.settings.header__mobile.content"
-        },
-        {
-          "type": "checkbox",
-          "id": "opened",
-          "default": false,
-          "label": "t:sections.footer.blocks.global.settings.opened.label"
         }
       ]
     },
@@ -439,22 +421,12 @@
         {
           "type": "range",
           "id": "container_width",
-          "label": "t:sections.footer.blocks.global.settings.container_width.label",
+          "label": "t:sections.footer.blocks.brand_information.settings.container_width.label",
           "default": 50,
           "min": 15,
           "max": 95,
           "step": 1,
           "unit": "%"
-        },
-        {
-          "type": "header",
-          "content": "t:sections.global.settings.header__mobile.content"
-        },
-        {
-          "type": "checkbox",
-          "id": "opened",
-          "default": false,
-          "label": "t:sections.footer.blocks.global.settings.opened.label"
         }
       ]
     }

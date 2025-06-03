@@ -403,7 +403,7 @@
       -%}
 
       {% comment %}亚马逊河TK平台按钮 {% endcomment %}
-      <div class="inline-flex gap-4 justify-center" style=" ">
+      <div class="inline-flex gap-4 justify-center" style="">
         {% unless product.metafields.anray_custom_button.amazon_links == blank %}
           <a
             href="{{product.metafields.anray_custom_button.amazon_links}}"
@@ -443,7 +443,7 @@
   {%- endform -%}
 
   {%- if enable_back_in_stock -%}
-    <div id="BackInStock-{{ section_id }}-{{ product_id }}">
+    <div id="BackInStock-{{ section_id }}-{{ product_id }}"> 
       {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
         <back-in-stock-drawer
           id="BackInStockDrawer-{{ section_id }}-{{ product_id }}"
