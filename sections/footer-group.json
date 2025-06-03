@@ -114,8 +114,7 @@
           "settings": {
             "heading": "Quick links",
             "menu": "footer",
-            "container_width": 50,
-            "opened": false
+            "container_width": 50
           }
         },
         "brand_information_WxGhcy": {
@@ -130,8 +129,7 @@
             "button_link_3": "",
             "button_label_4": "",
             "button_link_4": "",
-            "container_width": 50,
-            "opened": false
+            "container_width": 50
           }
         },
         "link_list-2": {
@@ -139,8 +137,7 @@
           "settings": {
             "heading": "Information",
             "menu": "footer",
-            "container_width": 50,
-            "opened": false
+            "container_width": 50
           }
         },
         "brand_information": {
@@ -155,8 +152,7 @@
             "button_link_3": "",
             "button_label_4": "",
             "button_link_4": "",
-            "container_width": 95,
-            "opened": false
+            "container_width": 95
           }
         }
       },
@@ -168,14 +164,10 @@
         "brand_information"
       ],
       "settings": {
-        "invert_newsletter_others": false,
         "enable_newsletter": false,
         "newsletter_heading": "Stay in the loop with our weekly newsletter",
-        "newsletter_heading_size": "md:title-lg",
         "newsletter_text": "",
-        "newsletter_logo": "shopify://shop_images/pear-one_8.png",
-        "newsletter_logo_height": 47,
-        "show_social": true,
+        "show_social": false,
         "enable_follow_on_shop": false,
         "color_text": "#ffffff",
         "color_background": "#171717",
