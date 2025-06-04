@@ -45,17 +45,35 @@
             "custom_text": "",
             "menu": "main-menu"
           }
+        },
+        "menu_9mnmhw": {
+          "type": "menu",
+          "settings": {
+            "heading": "栏目标题",
+            "custom_text": "",
+            "menu": "main-menu"
+          }
+        },
+        "menu_Mk6H4k": {
+          "type": "menu",
+          "settings": {
+            "heading": "栏目标题",
+            "custom_text": "",
+            "menu": "main-menu"
+          }
         }
       },
       "block_order": [
         "menu_PXHF94",
         "menu_AXppDd",
         "menu_FNBYWw",
-        "menu_7C4iyH"
+        "menu_7C4iyH",
+        "menu_9mnmhw",
+        "menu_Mk6H4k"
       ],
       "name": "Anray 页脚",
       "settings": {
-        "color_background": "#F8F7F5",
+        "color_background": "#f8f7f5",
         "color_text": "#333333",
         "padding_top": 60,
         "padding_bottom": 60,
