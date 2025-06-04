@@ -25,54 +25,46 @@
     flex-direction: column;
     gap: 20px;
   }
-  .anray-footer-right {
-    flex: 3;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: flex-start;
+  .anray-footer-accordion-item { /* 替换 .anray-footer-column */
+    margin-bottom: 20px; /* 保留底部边距 */
+    /* 宽度将由父级 flex 容器的 Tailwind 类 (md:grow) 控制 */
   }
-  .anray-footer-column {
-    flex-grow: 0;
-    flex-shrink: 0;
-    width: calc((100% - 40px) / 3);
-    min-width: 160px;
-    margin-bottom: 20px;
-  }
-  .anray-footer-column h5 {
-    font-size: 1em; /* 调整为图片中的大小 */
-    font-weight: bold; /* 图片中标题是粗体 */
-    margin-bottom: 15px; /* 标题和链接列表的间距 */
+
+  .anray-footer-accordion-summary { /* 替换 .anray-footer-column h5 */
+    display: block; /* 允许 margin-bottom */
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 15px;
     color: {{ section.settings.color_text }};
-    text-transform: uppercase; /* New: Make column titles uppercase like in the image */
+    text-transform: uppercase;
+    list-style: none; /* 移除默认的 disclosure marker */
+    cursor: pointer;
   }
-  .anray-footer-column .rte,
-  .anray-footer-column .rte p,
-  .anray-footer-column .rte a {
+  .anray-footer-accordion-summary::-webkit-details-marker {
+    display: none; /* 移除 Safari/Chrome 的默认 marker */
+  }
+
+  .anray-footer-accordion-content .rte, /* 替换 .anray-footer-column .rte */
+  .anray-footer-accordion-content .rte p,
+  .anray-footer-accordion-content .rte a {
     font-size: 0.9em;
     line-height: 1.6;
     color: {{ section.settings.color_text }};
   }
-  .anray-footer-column .rte a {
-    text-decoration: underline; /* 根据需要调整 */
+  .anray-footer-accordion-content .rte a {
+    text-decoration: underline;
   }
-  .anray-footer-column ul {
+
+  .anray-footer-menu-list { /* 替换 .anray-footer-column ul */
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  .anray-footer-column ul li {
-    margin-bottom: 8px; /* 链接项之间的间距 */
+  .anray-footer-menu-list li { /* 替换 .anray-footer-column ul li */
+    margin-bottom: 8px;
   }
-  .anray-footer-column ul li a {
-    text-decoration: none;
-    color: {{ section.settings.color_text }};
-    line-height: 1.25;
-  }
-  .anray-footer-column ul li a:hover {
-    text-decoration: underline;
-  }
+  /* .anray-footer-column ul li a 和 a:hover 的样式由 reversed-link 和 Tailwind utility 类处理 */
+
   .anray-footer-logo {
     flex-grow: 1;
     display: flex;
@@ -195,9 +187,12 @@
     .anray-footer-policy-links {
       order: -1; /* Policies can appear before or after copyright text based on design */
     }
+    /* .anray-footer-accordion-item 的宽度由 flex-grow 和 gap 控制 */
   }
 
-  @media (max-width: 990px) { /* 中等屏幕调整 */
+  /* 移除原有的 .anray-footer-column 宽度调整，Tailwind 类接管响应式 */
+  /*
+  @media (max-width: 990px) {
     .anray-footer-right {
       justify-content: flex-start;
     }
@@ -206,7 +201,7 @@
     }
   }
 
-  @media (max-width: 768px) { /* 移动端调整 */
+  @media (max-width: 768px) { 
     .anray-footer-main {
       flex-direction: column;
       align-items: flex-start;
@@ -226,6 +221,7 @@
       text-align: left;
     }
   }
+  */
 </style>
 
 <div class="anray-footer-container">
@@ -274,42 +270,34 @@
       {%- endif -%}
     </div>
 
-    <div class="anray-footer-right">
+    <div class="anray-footer-right flex flex-wrap flex-col md:flex-row md:grow md:gap-12">
       {%- for block in section.blocks -%}
-        <div class="anray-footer-column" {{ block.shopify_attributes }}>
-          {%- case block.type -%}
-            {%- when 'menu' -%}
+        {%- if block.type == 'menu' -%}
+          <details class="anray-footer-accordion-item details" {{ block.shopify_attributes }}>
+            <summary class="anray-footer-accordion-summary">
               {%- if block.settings.heading != blank -%}
-                <h5>{{ block.settings.heading }}</h5>
+                <span class="anray-footer-accordion-heading">{{ block.settings.heading }}</span>
               {%- endif -%}
+              {# TODO: Consider adding a chevron icon here for open/close state #}
+            </summary>
+            <div class="anray-footer-accordion-content">
               {%- if block.settings.custom_text != blank -%}
                 <div class="rte">{{ block.settings.custom_text }}</div>
               {%- endif -%}
               {%- if block.settings.menu != blank and block.settings.menu.links.size > 0 -%}
-                <ul>
+                <ul class="anray-footer-menu-list">
                   {%- for link in block.settings.menu.links -%}
                     <li>
-                      <a href="{{ link.url }}" class="text-sm-lg">{{ link.title }}</a>
+                      <a href="{{ link.url }}" class="block reversed-link text-sm-lg leading-tight">
+                        {{ link.title }}
+                      </a>
                     </li>
                   {%- endfor -%}
                 </ul>
               {%- endif -%}
-            {%- when 'text_content' -%}
-              {%- if block.settings.heading != blank -%}
-                <h5>{{ block.settings.heading }}</h5>
-              {%- endif -%}
-              {%- if block.settings.content != blank -%}
-                <div class="rte">{{ block.settings.content }}</div>
-              {%- endif -%}
-            {%- when 'contact_info' -%}
-              {%- if block.settings.heading != blank -%}
-                <h5>{{ block.settings.heading }}</h5>
-              {%- endif -%}
-              {%- if block.settings.custom_html != blank -%}
-                <div class="rte">{{ block.settings.custom_html }}</div>
-              {%- endif -%}
-          {%- endcase -%}
-        </div>
+            </div>
+          </details>
+        {%- endif -%}
       {%- endfor -%}
     </div>
   </div>
@@ -423,7 +411,6 @@
 {% schema %}
 {
   "name": "Anray Footer",
-  "max_blocks": 5,
   "settings": [
     {
       "type": "color",
@@ -565,6 +552,7 @@
     {
       "type": "menu",
       "name": "菜单列",
+      "limit": 7,
       "settings": [
         {
           "type": "text",
@@ -583,43 +571,6 @@
           "id": "menu",
           "label": "选择菜单",
           "info": "在 Shopify后台 > 在线商店 > 导航处创建和管理菜单。"
-        }
-      ]
-    },
-    {
-      "type": "text_content",
-      "name": "文本内容列",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "标题",
-          "default": "内容标题"
-        },
-        {
-          "type": "richtext",
-          "id": "content",
-          "label": "内容",
-          "default": "<p>在此处添加您的文本内容。</p>"
-        }
-      ]
-    },
-    {
-      "type": "contact_info",
-      "name": "联系信息列",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "标题",
-          "default": "联系我们"
-        },
-        {
-          "type": "richtext",
-          "id": "custom_html",
-          "label": "自定义HTML/文本",
-          "info": "用于显示地址、电话、电子邮件或简单链接列表。",
-          "default": "<p>将您的联系信息放在这里。</p>"
         }
       ]
     }
