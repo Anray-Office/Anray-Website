@@ -20,18 +20,24 @@
   .anray-footer-left {
     flex: 1;
     min-width: 220px; /* 适应logo和支付信息 */
-    margin-bottom: 30px;
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
   .anray-footer-right {
     flex: 3;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 20px; /* 栏目间的间隙 */
+    gap: 20px;
+    align-items: flex-start;
   }
   .anray-footer-column {
-    flex-grow: 1;
-    min-width: 160px; /* 每列的最小宽度 */
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: calc((100% - 40px) / 3);
+    min-width: 160px;
     margin-bottom: 20px;
   }
   .anray-footer-column h5 {
@@ -62,20 +68,26 @@
   .anray-footer-column ul li a {
     text-decoration: none;
     color: {{ section.settings.color_text }};
-    font-size: 0.9em; /* 调整为图片中的大小 */
-    line-height: 1.6;
+    line-height: 1.25;
   }
   .anray-footer-column ul li a:hover {
     text-decoration: underline;
   }
+  .anray-footer-logo {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-start;
+  }
   .anray-footer-logo img {
     max-height: {{ section.settings.logo_height }}px;
-    margin-bottom: 30px; /* Logo 和下方内容的间距 */
+    display: block;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    max-width: 100%;
   }
-  .anray-footer-secure-payments h4,
-  .anray-footer-social h4 {
-    font-size: 0.9em; /* 调整为图片中的大小 */
-    font-weight: bold;
+  .anray-footer-secure-payments .anray-button--sm,
+  .anray-footer-social .anray-button--sm {
     margin-top: 25px;
     margin-bottom: 10px;
     color: {{ section.settings.color_text }};
@@ -187,17 +199,17 @@
 
   @media (max-width: 990px) { /* 中等屏幕调整 */
     .anray-footer-right {
-      justify-content: flex-start; /* 在较小屏幕上从左开始排列 */
+      justify-content: flex-start;
     }
     .anray-footer-column {
-       min-width: calc(50% - 20px); /* 两列布局 */
+       width: calc((100% - 20px) / 2);
     }
   }
 
   @media (max-width: 768px) { /* 移动端调整 */
     .anray-footer-main {
       flex-direction: column;
-      align-items: flex-start; /* 在移动端左对齐 */
+      align-items: flex-start;
       text-align: left;
     }
     .anray-footer-left,
@@ -206,12 +218,12 @@
       flex-basis: auto;
     }
     .anray-footer-column {
-      min-width: 100%; /* 移动端单列显示 */
+      width: 100%;
     }
     .anray-footer-secure-payments,
     .anray-footer-social,
     .anray-footer-logo {
-      text-align: left; /* 确保左侧内容在移动端也左对齐 */
+      text-align: left;
     }
   }
   .anray-footer-main {
@@ -239,7 +251,7 @@
       {%- if section.settings.show_secure_payments -%}
         <div class="anray-footer-secure-payments">
           {%- if section.settings.secure_payments_title != blank -%}
-            <h4>{{ section.settings.secure_payments_title }}</h4>
+            <p class="text-base-2xl font-medium anray-button--sm">{{ section.settings.secure_payments_title }}</p>
           {%- endif -%}
           <div class="payment-icons-container">
             {%- unless shop.enabled_payment_types == empty -%}
@@ -258,9 +270,9 @@
       {%- if section.settings.show_social_media -%}
         <div class="anray-footer-social">
           {%- if section.settings.social_media_title != blank -%}
-            <h4>{{ section.settings.social_media_title }}</h4>
+            <p class="text-base-2xl font-medium anray-button--sm">{{ section.settings.social_media_title }}</p>
           {%- endif -%}
-          {%- render 'social-icons' -%}
+          {%- render 'social-icons', size:'lg', gap:'7' -%}
         </div>
       {%- endif -%}
     </div>
@@ -271,7 +283,7 @@
           {%- case block.type -%}
             {%- when 'menu' -%}
               {%- if block.settings.heading != blank -%}
-                <h5>{{ block.settings.heading }}</h5>
+                <p class="text-base-2xl font-medium">{{ block.settings.heading }}</p>
               {%- endif -%}
               {%- if block.settings.custom_text != blank -%}
                 <div class="rte">{{ block.settings.custom_text }}</div>
@@ -280,7 +292,7 @@
                 <ul>
                   {%- for link in block.settings.menu.links -%}
                     <li>
-                      <a href="{{ link.url }}">{{ link.title }}</a>
+                      <a href="{{ link.url }}" class="text-sm-lg">{{ link.title }}</a>
                     </li>
                   {%- endfor -%}
                 </ul>
