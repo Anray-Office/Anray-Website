@@ -116,6 +116,73 @@
     padding-left: 15px;
     padding-right: 15px;
   }
+  .anray-footer-copyright-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .anray-footer-copyright-text {
+    margin: 0;
+  }
+  .anray-footer-policy-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Gap between policy links */
+    justify-content: center;
+  }
+  .anray-footer-policy-links a {
+    color: {{ section.settings.color_text }};
+    text-decoration: none;
+    font-size: 0.9em;
+  }
+  .anray-footer-policy-links a:hover {
+    text-decoration: underline;
+  }
+  .anray-footer-localization {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .anray-footer-localization .localization__form {
+    position: relative;
+  }
+  .anray-footer-localization .localization__item {
+    background-color: transparent;
+    border: 1px solid {{ section.settings.color_text }};
+    color: {{ section.settings.color_text }};
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9em;
+  }
+  .anray-footer-localization select.localization__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  @media (min-width: 769px) { /* Desktop layout for copyright bar */
+    .anray-footer-copyright-content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .anray-footer-localization {
+      /* Adjust positioning if needed */
+    }
+    .anray-footer-policy-links {
+      order: -1; /* Policies can appear before or after copyright text based on design */
+    }
+  }
 
   @media (max-width: 990px) { /* 中等屏幕调整 */
     .anray-footer-right {
@@ -218,7 +285,76 @@
 
   {%- if section.settings.copyright_text != blank -%}
     <div class="anray-footer-copyright">
-      <p>{{ section.settings.copyright_text | replace: '[year]', 'now' | date: '%Y' }}</p>
+      <div class="anray-footer-copyright-content page-width">
+        <p class="anray-footer-copyright-text">{{ section.settings.copyright_text | replace: '[year]', 'now' | date: '%Y' }}</p>
+
+        {%- if section.settings.show_policy_links -%}
+          {%- assign policy_links = false -%}
+          {%- for policy in shop.policies -%}
+            {%- if policy != blank -%}
+              {%- assign policy_links = true -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if policy_links -%}
+            <ul class="anray-footer-policy-links">
+              {%- for policy in shop.policies -%}
+                {%- if policy != blank -%}
+                  <li><a href="{{ policy.url }}">{{ policy.title }}</a></li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- liquid
+          assign enable_language_selector = false
+          if section.settings.enable_language_selector and localization.available_languages.size > 1
+            assign enable_language_selector = true
+          endif
+
+          assign enable_country_selector = false
+          if section.settings.enable_country_selector and localization.available_countries.size > 1
+            assign enable_country_selector = true
+          endif
+        -%}
+
+        {%- if enable_language_selector or enable_country_selector -%}
+          <div class="anray-footer-localization">
+            {%- if enable_language_selector -%}
+              <div>
+                {%- form 'localization', id: 'AnrayFooterLanguageForm', class: 'localization__form' -%}
+                  <label for="AnrayFooterLanguageList" class="sr-only">{{ 'localization.language_label' | t }}</label>
+                  <button type="button" class="localization__item">{{ localization.language.endonym_name | capitalize }}</button>
+                  <select name="locale_code" id="AnrayFooterLanguageList" class="localization__item" onchange="this.form.submit()">
+                    {%- for language in localization.available_languages -%}
+                      <option value="{{ language.iso_code }}" {%- if language.iso_code == localization.language.iso_code %} selected{% endif %}>
+                        {{ language.endonym_name | capitalize }}
+                      </option>
+                    {%- endfor -%}
+                  </select>
+                {%- endform -%}
+              </div>
+            {%- endif -%}
+
+            {%- if enable_country_selector -%}
+              <div>
+                {%- form 'localization', id: 'AnrayFooterCountryForm', class: 'localization__form' -%}
+                  <label for="AnrayFooterCountryList" class="sr-only">{{ 'localization.country_label' | t }}</label>
+                  <button type="button" class="localization__item">{{ localization.country.name }} ({{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }})</button>
+                  <select name="country_code" id="AnrayFooterCountryList" class="localization__item" onchange="this.form.submit()">
+                    {%- for country in localization.available_countries -%}
+                      <option value="{{ country.iso_code }}" {%- if country.iso_code == localization.country.iso_code %} selected{% endif %}>
+                        {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
+                      </option>
+                    {%- endfor -%}
+                  </select>
+                {%- endform -%}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
     </div>
   {%- endif -%}
 </div>
@@ -336,6 +472,31 @@
       "label": "版权文本",
       "default": "Copyright @ [year] bella Kitchenware. All Rights Reserved. | A Made By Gather Brand. Site by OFF+BRAND",
       "info": "使用 [year] 将自动替换为当前年份。"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_policy_links",
+      "label": "显示政策链接",
+      "default": false,
+      "info": "在 Shopify 后台 > 设置 > 政策 中管理您的政策页面。"
+    },
+    {
+      "type": "header",
+      "content": "本地化"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "label": "启用语言选择器",
+      "default": false,
+      "info": "需在 Shopify 后台 > 设置 > 语言 中添加多种语言。"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "label": "启用国家/地区选择器",
+      "default": false,
+      "info": "需在 Shopify 后台 > 设置 > 市场 中配置多个市场。"
     }
   ],
   "blocks": [
