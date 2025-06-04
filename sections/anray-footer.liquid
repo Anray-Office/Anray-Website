@@ -280,7 +280,7 @@
           {%- case block.type -%}
             {%- when 'menu' -%}
               {%- if block.settings.heading != blank -%}
-                <p class="text-base-2xl font-medium">{{ block.settings.heading }}</p>
+                <h5>{{ block.settings.heading }}</h5>
               {%- endif -%}
               {%- if block.settings.custom_text != blank -%}
                 <div class="rte">{{ block.settings.custom_text }}</div>
@@ -293,6 +293,20 @@
                     </li>
                   {%- endfor -%}
                 </ul>
+              {%- endif -%}
+            {%- when 'text_content' -%}
+              {%- if block.settings.heading != blank -%}
+                <h5>{{ block.settings.heading }}</h5>
+              {%- endif -%}
+              {%- if block.settings.content != blank -%}
+                <div class="rte">{{ block.settings.content }}</div>
+              {%- endif -%}
+            {%- when 'contact_info' -%}
+              {%- if block.settings.heading != blank -%}
+                <h5>{{ block.settings.heading }}</h5>
+              {%- endif -%}
+              {%- if block.settings.custom_html != blank -%}
+                <div class="rte">{{ block.settings.custom_html }}</div>
               {%- endif -%}
           {%- endcase -%}
         </div>
@@ -409,6 +423,7 @@
 {% schema %}
 {
   "name": "Anray Footer",
+  "max_blocks": 5,
   "settings": [
     {
       "type": "color",
@@ -550,7 +565,6 @@
     {
       "type": "menu",
       "name": "菜单列",
-      "limit": 7,
       "settings": [
         {
           "type": "text",
@@ -569,6 +583,43 @@
           "id": "menu",
           "label": "选择菜单",
           "info": "在 Shopify后台 > 在线商店 > 导航处创建和管理菜单。"
+        }
+      ]
+    },
+    {
+      "type": "text_content",
+      "name": "文本内容列",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "标题",
+          "default": "内容标题"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "内容",
+          "default": "<p>在此处添加您的文本内容。</p>"
+        }
+      ]
+    },
+    {
+      "type": "contact_info",
+      "name": "联系信息列",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "标题",
+          "default": "联系我们"
+        },
+        {
+          "type": "richtext",
+          "id": "custom_html",
+          "label": "自定义HTML/文本",
+          "info": "用于显示地址、电话、电子邮件或简单链接列表。",
+          "default": "<p>将您的联系信息放在这里。</p>"
         }
       ]
     }
