@@ -233,6 +233,13 @@
     background-position-x: var(--transform-origin-end);
     transition: background-size var(--animation-primary);
 }
+
+  @media screen and (pointer: fine) {
+    .reversed-link:not([aria-disabled]):hover, .rte a:hover {
+        background-position-x: var(--transform-origin-start);
+        background-size: 100% 1px;
+    }
+}
 </style>
 
 <div class="anray-footer-container">
