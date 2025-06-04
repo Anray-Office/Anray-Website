@@ -221,11 +221,13 @@
       {%- if section.settings.logo != blank -%}
         <div class="anray-footer-logo">
           <a href="{{ routes.root_url }}" aria-label="{{ shop.name }} Logo">
-            <img src="{{ section.settings.logo | image_url: height: section.settings.logo_height }}"
-                 alt="{{ section.settings.logo.alt | default: shop.name }}"
-                 height="{{ section.settings.logo_height }}"
-                 width="{{ section.settings.logo.width | divided_by: section.settings.logo.height | times: section.settings.logo_height | round }}"
-                 loading="lazy">
+            <img
+              src="{{ section.settings.logo | image_url: height: section.settings.logo_height }}"
+              alt="{{ section.settings.logo.alt | default: shop.name }}"
+              height="{{ section.settings.logo_height }}"
+              width="{{ section.settings.logo.width | divided_by: section.settings.logo.height | times: section.settings.logo_height | round }}"
+              loading="lazy"
+            >
           </a>
         </div>
       {%- endif -%}
@@ -258,7 +260,7 @@
         </div>
       {%- endif -%}
     </div>
-    
+
     <div class="anray-footer-right">
       {%- for block in section.blocks -%}
         <div class="anray-footer-column" {{ block.shopify_attributes }}>
@@ -273,7 +275,9 @@
               {%- if block.settings.menu != blank and block.settings.menu.links.size > 0 -%}
                 <ul>
                   {%- for link in block.settings.menu.links -%}
-                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                    <li>
+                      <a href="{{ link.url }}">{{ link.title }}</a>
+                    </li>
                   {%- endfor -%}
                 </ul>
               {%- endif -%}
@@ -286,7 +290,9 @@
   {%- if section.settings.copyright_text != blank -%}
     <div class="anray-footer-copyright">
       <div class="anray-footer-copyright-content page-width">
-        <p class="anray-footer-copyright-text">{{ section.settings.copyright_text | replace: '[year]', 'now' | date: '%Y' }}</p>
+        <p class="anray-footer-copyright-text">
+          {{ section.settings.copyright_text | replace: '[year]', 'now' | date: '%Y' }}
+        </p>
 
         {%- if section.settings.show_policy_links -%}
           {%- assign policy_links = false -%}
@@ -300,7 +306,9 @@
             <ul class="anray-footer-policy-links">
               {%- for policy in shop.policies -%}
                 {%- if policy != blank -%}
-                  <li><a href="{{ policy.url }}">{{ policy.title }}</a></li>
+                  <li>
+                    <a href="{{ policy.url }}">{{ policy.title }}</a>
+                  </li>
                 {%- endif -%}
               {%- endfor -%}
             </ul>
@@ -325,10 +333,22 @@
               <div>
                 {%- form 'localization', id: 'AnrayFooterLanguageForm', class: 'localization__form' -%}
                   <label for="AnrayFooterLanguageList" class="sr-only">{{ 'localization.language_label' | t }}</label>
-                  <button type="button" class="localization__item">{{ localization.language.endonym_name | capitalize }}</button>
-                  <select name="locale_code" id="AnrayFooterLanguageList" class="localization__item" onchange="this.form.submit()">
+                  <button type="button" class="localization__item">
+                    {{ localization.language.endonym_name | capitalize }}
+                  </button>
+                  <select
+                    name="locale_code"
+                    id="AnrayFooterLanguageList"
+                    class="localization__item"
+                    onchange="this.form.submit()"
+                  >
                     {%- for language in localization.available_languages -%}
-                      <option value="{{ language.iso_code }}" {%- if language.iso_code == localization.language.iso_code %} selected{% endif %}>
+                      <option
+                        value="{{ language.iso_code }}"
+                        {%- if language.iso_code == localization.language.iso_code %}
+                          selected
+                        {% endif %}
+                      >
                         {{ language.endonym_name | capitalize }}
                       </option>
                     {%- endfor -%}
@@ -341,11 +361,25 @@
               <div>
                 {%- form 'localization', id: 'AnrayFooterCountryForm', class: 'localization__form' -%}
                   <label for="AnrayFooterCountryList" class="sr-only">{{ 'localization.country_label' | t }}</label>
-                  <button type="button" class="localization__item">{{ localization.country.name }} ({{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }})</button>
-                  <select name="country_code" id="AnrayFooterCountryList" class="localization__item" onchange="this.form.submit()">
+                  <button type="button" class="localization__item">
+                    {{ localization.country.name }} ({{ localization.country.currency.iso_code }}
+                    {{ localization.country.currency.symbol }})
+                  </button>
+                  <select
+                    name="country_code"
+                    id="AnrayFooterCountryList"
+                    class="localization__item"
+                    onchange="this.form.submit()"
+                  >
                     {%- for country in localization.available_countries -%}
-                      <option value="{{ country.iso_code }}" {%- if country.iso_code == localization.country.iso_code %} selected{% endif %}>
-                        {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
+                      <option
+                        value="{{ country.iso_code }}"
+                        {%- if country.iso_code == localization.country.iso_code %}
+                          selected
+                        {% endif %}
+                      >
+                        {{ country.name }} ({{ country.currency.iso_code }}
+                        {{ country.currency.symbol }})
                       </option>
                     {%- endfor -%}
                   </select>
