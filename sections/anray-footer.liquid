@@ -25,46 +25,54 @@
     flex-direction: column;
     gap: 20px;
   }
-  .anray-footer-accordion-item { /* 替换 .anray-footer-column */
-    margin-bottom: 20px; /* 保留底部边距 */
-    /* 宽度将由父级 flex 容器的 Tailwind 类 (md:grow) 控制 */
+  .anray-footer-right {
+    flex: 3;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
   }
-
-  .anray-footer-accordion-summary { /* 替换 .anray-footer-column h5 */
-    display: block; /* 允许 margin-bottom */
-    font-size: 1em;
-    font-weight: bold;
-    margin-bottom: 15px;
+  .anray-footer-column {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: calc((100% - 40px) / 3);
+    min-width: 160px;
+    margin-bottom: 20px;
+  }
+  .anray-footer-column h5 {
+    font-size: 1em; /* 调整为图片中的大小 */
+    font-weight: bold; /* 图片中标题是粗体 */
+    margin-bottom: 15px; /* 标题和链接列表的间距 */
     color: {{ section.settings.color_text }};
-    text-transform: uppercase;
-    list-style: none; /* 移除默认的 disclosure marker */
-    cursor: pointer;
+    text-transform: uppercase; /* New: Make column titles uppercase like in the image */
   }
-  .anray-footer-accordion-summary::-webkit-details-marker {
-    display: none; /* 移除 Safari/Chrome 的默认 marker */
-  }
-
-  .anray-footer-accordion-content .rte, /* 替换 .anray-footer-column .rte */
-  .anray-footer-accordion-content .rte p,
-  .anray-footer-accordion-content .rte a {
+  .anray-footer-column .rte,
+  .anray-footer-column .rte p,
+  .anray-footer-column .rte a {
     font-size: 0.9em;
     line-height: 1.6;
     color: {{ section.settings.color_text }};
   }
-  .anray-footer-accordion-content .rte a {
-    text-decoration: underline;
+  .anray-footer-column .rte a {
+    text-decoration: underline; /* 根据需要调整 */
   }
-
-  .anray-footer-menu-list { /* 替换 .anray-footer-column ul */
+  .anray-footer-column ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  .anray-footer-menu-list li { /* 替换 .anray-footer-column ul li */
-    margin-bottom: 8px;
+  .anray-footer-column ul li {
+    margin-bottom: 8px; /* 链接项之间的间距 */
   }
-  /* .anray-footer-column ul li a 和 a:hover 的样式由 reversed-link 和 Tailwind utility 类处理 */
-
+  .anray-footer-column ul li a {
+    text-decoration: none;
+    color: {{ section.settings.color_text }};
+    line-height: 1.25;
+  }
+  .anray-footer-column ul li a:hover {
+    text-decoration: underline;
+  }
   .anray-footer-logo {
     flex-grow: 1;
     display: flex;
@@ -187,12 +195,9 @@
     .anray-footer-policy-links {
       order: -1; /* Policies can appear before or after copyright text based on design */
     }
-    /* .anray-footer-accordion-item 的宽度由 flex-grow 和 gap 控制 */
   }
 
-  /* 移除原有的 .anray-footer-column 宽度调整，Tailwind 类接管响应式 */
-  /*
-  @media (max-width: 990px) {
+  @media (max-width: 990px) { /* 中等屏幕调整 */
     .anray-footer-right {
       justify-content: flex-start;
     }
@@ -201,7 +206,7 @@
     }
   }
 
-  @media (max-width: 768px) { 
+  @media (max-width: 768px) { /* 移动端调整 */
     .anray-footer-main {
       flex-direction: column;
       align-items: flex-start;
@@ -221,7 +226,6 @@
       text-align: left;
     }
   }
-  */
 </style>
 
 <div class="anray-footer-container">
@@ -270,34 +274,28 @@
       {%- endif -%}
     </div>
 
-    <div class="anray-footer-right flex flex-wrap flex-col md:flex-row md:grow md:gap-12">
+    <div class="anray-footer-right">
       {%- for block in section.blocks -%}
-        {%- if block.type == 'menu' -%}
-          <details class="anray-footer-accordion-item details" {{ block.shopify_attributes }}>
-            <summary class="anray-footer-accordion-summary">
+        <div class="anray-footer-column" {{ block.shopify_attributes }}>
+          {%- case block.type -%}
+            {%- when 'menu' -%}
               {%- if block.settings.heading != blank -%}
-                <span class="anray-footer-accordion-heading">{{ block.settings.heading }}</span>
+                <p class="text-base-2xl font-medium">{{ block.settings.heading }}</p>
               {%- endif -%}
-              {# TODO: Consider adding a chevron icon here for open/close state #}
-            </summary>
-            <div class="anray-footer-accordion-content">
               {%- if block.settings.custom_text != blank -%}
                 <div class="rte">{{ block.settings.custom_text }}</div>
               {%- endif -%}
               {%- if block.settings.menu != blank and block.settings.menu.links.size > 0 -%}
-                <ul class="anray-footer-menu-list">
+                <ul>
                   {%- for link in block.settings.menu.links -%}
                     <li>
-                      <a href="{{ link.url }}" class="block reversed-link text-sm-lg leading-tight">
-                        {{ link.title }}
-                      </a>
+                      <a href="{{ link.url }}" class="text-sm-lg">{{ link.title }}</a>
                     </li>
                   {%- endfor -%}
                 </ul>
               {%- endif -%}
-            </div>
-          </details>
-        {%- endif -%}
+          {%- endcase -%}
+        </div>
       {%- endfor -%}
     </div>
   </div>
