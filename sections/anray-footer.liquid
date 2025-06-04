@@ -25,52 +25,44 @@
     flex-direction: column;
     gap: 20px;
   }
-  .anray-footer-right {
-    flex: 3;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: flex-start;
-  }
-  .anray-footer-column {
+  .footer-column {
     flex-grow: 0;
     flex-shrink: 0;
-    width: calc((100% - 40px) / 3);
+    width: calc((100% - 96px) / 3);
     min-width: 160px;
     margin-bottom: 20px;
   }
-  .anray-footer-column h5 {
+  .footer-column h5 {
     font-size: 1em; /* 调整为图片中的大小 */
     font-weight: bold; /* 图片中标题是粗体 */
     margin-bottom: 15px; /* 标题和链接列表的间距 */
     color: {{ section.settings.color_text }};
     text-transform: uppercase; /* New: Make column titles uppercase like in the image */
   }
-  .anray-footer-column .rte,
-  .anray-footer-column .rte p,
-  .anray-footer-column .rte a {
+  .footer-column .rte,
+  .footer-column .rte p,
+  .footer-column .rte a {
     font-size: 0.9em;
     line-height: 1.6;
     color: {{ section.settings.color_text }};
   }
-  .anray-footer-column .rte a {
+  .footer-column .rte a {
     text-decoration: underline; /* 根据需要调整 */
   }
-  .anray-footer-column ul {
+  .footer-column ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  .anray-footer-column ul li {
+  .footer-column ul li {
     margin-bottom: 8px; /* 链接项之间的间距 */
   }
-  .anray-footer-column ul li a {
+  .footer-column ul li a {
     text-decoration: none;
     color: {{ section.settings.color_text }};
     line-height: 1.25;
   }
-  .anray-footer-column ul li a:hover {
+  .footer-column ul li a:hover {
     text-decoration: underline;
   }
   .anray-footer-logo {
@@ -201,8 +193,8 @@
     .anray-footer-right {
       justify-content: flex-start;
     }
-    .anray-footer-column {
-       width: calc((100% - 20px) / 2);
+    .footer-column {
+       width: calc((100% - 48px) / 2);
     }
   }
 
@@ -217,7 +209,7 @@
       width: 100%;
       flex-basis: auto;
     }
-    .anray-footer-column {
+    .footer-column {
       width: 100%;
     }
     .anray-footer-secure-payments,
@@ -277,9 +269,9 @@
       {%- endif -%}
     </div>
 
-    <div class="anray-footer-right">
+    <div class="footer__accordions flex flex-wrap flex-col md:flex-row md:gap-12">
       {%- for block in section.blocks -%}
-        <div class="anray-footer-column" {{ block.shopify_attributes }}>
+        <div class="footer-column" {{ block.shopify_attributes }}>
           {%- case block.type -%}
             {%- when 'menu' -%}
               {%- if block.settings.heading != blank -%}
