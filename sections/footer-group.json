@@ -11,6 +11,68 @@
   "type": "footer",
   "name": "t:sections.footer-group.name",
   "sections": {
+    "anray_footer_hAwMbz": {
+      "type": "anray-footer",
+      "blocks": {
+        "menu_PXHF94": {
+          "type": "menu",
+          "settings": {
+            "heading": "Customer Support",
+            "custom_text": "",
+            "menu": "footer"
+          }
+        },
+        "menu_AXppDd": {
+          "type": "menu",
+          "settings": {
+            "heading": "my ANRAY",
+            "custom_text": "",
+            "menu": "main-menu"
+          }
+        },
+        "menu_FNBYWw": {
+          "type": "menu",
+          "settings": {
+            "heading": "Account",
+            "custom_text": "",
+            "menu": "main-menu"
+          }
+        },
+        "menu_7C4iyH": {
+          "type": "menu",
+          "settings": {
+            "heading": "Company",
+            "custom_text": "",
+            "menu": "main-menu"
+          }
+        }
+      },
+      "block_order": [
+        "menu_PXHF94",
+        "menu_AXppDd",
+        "menu_FNBYWw",
+        "menu_7C4iyH"
+      ],
+      "name": "Anray 页脚",
+      "settings": {
+        "color_background": "#F8F7F5",
+        "color_text": "#333333",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "logo": "shopify://shop_images/image_616-removebg-preview.png",
+        "logo_height": 100,
+        "show_secure_payments": true,
+        "secure_payments_title": "SECURE PAYMENTS",
+        "monochrome_payment_icons": false,
+        "payment_icon_height": 24,
+        "show_social_media": true,
+        "social_media_title": "GET SOCIAL",
+        "copyright_text": "Copyright @ [year] bella Kitchenware. All Rights Reserved. | A Made By Gather Brand. Site by OFF+BRAND",
+        "show_policy_links": false,
+        "enable_language_selector": false,
+        "enable_country_selector": false
+      }
+    },
     "multicolumn-with-icons": {
       "type": "multicolumn-with-icons",
       "blocks": {
@@ -213,6 +275,7 @@
     }
   },
   "order": [
+    "anray_footer_hAwMbz",
     "multicolumn-with-icons",
     "footer",
     "footer-copyright"
