@@ -17,7 +17,7 @@
         "menu_PXHF94": {
           "type": "menu",
           "settings": {
-            "heading": "Customer Support",
+            "heading": "Support",
             "custom_text": "",
             "menu": "footer"
           }
@@ -25,7 +25,7 @@
         "menu_AXppDd": {
           "type": "menu",
           "settings": {
-            "heading": "my ANRAY",
+            "heading": "My ANRAY",
             "custom_text": "",
             "menu": "main-menu"
           }
@@ -49,7 +49,7 @@
         "menu_9mnmhw": {
           "type": "menu",
           "settings": {
-            "heading": "栏目标题",
+            "heading": "Contact",
             "custom_text": "",
             "menu": "main-menu"
           }
@@ -57,7 +57,7 @@
         "menu_Mk6H4k": {
           "type": "menu",
           "settings": {
-            "heading": "栏目标题",
+            "heading": "About",
             "custom_text": "",
             "menu": "main-menu"
           }
