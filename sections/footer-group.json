@@ -273,6 +273,7 @@
     },
     "footer-copyright": {
       "type": "footer-copyright",
+      "disabled": true,
       "settings": {
         "enable_language_selector": false,
         "enable_country_selector": false,
