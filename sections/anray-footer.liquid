@@ -32,13 +32,19 @@
     flex-direction: column;
     gap: 20px;
     max-width: 100%; /* 限制最大宽度 */
-    {% comment %} padding-inline: clamp(var(--sp-10), 8.421vw, var(--sp-40)); {% endcomment %}
+    padding-inline: clamp(var(--sp-10), 8.421vw, var(--sp-40));
+  }
+  
+  @media (max-width: 1279.99px) {
+    .anray-footer-right{
+      padding-inline: clamp(var(--sp-10), 8.421vw, var(--sp-40));
+    }
   }
 
   .footer__accordions {
     /* Define gap variable, assuming md:gap-12 from Tailwind is 3rem (48px) */
     /* and matches var(--sp-12) used in snippets */
-    --footer-column-gap: 3rem; 
+    --footer-column-gap: 3rem;
     max-width: 100%; /* 确保不超出父容器 */
     box-sizing: border-box; /* 确保padding和border不会增加总宽度 */
   }
@@ -219,7 +225,7 @@
     text-decoration: none;
     font-size: 0.9em;
   }
-  
+
   .anray-footer-localization {
     display: flex;
     gap: 20px;
@@ -269,10 +275,7 @@
     }
   }
 
-  @media (max-width: 990px) { /* 中等屏幕调整 */
-    /* Styles for .footer__accordions and its children on medium screens are mostly handled by Tailwind. */
-    /* block.settings.container_width in snippets also influences child widths. */
-  }
+
 
   @media (max-width: 768px) { /* 移动端调整 */
     .anray-footer-main {
@@ -346,7 +349,7 @@
       {%- endif -%}
     </div>
 
-    <div class="footer__accordions flex flex-wrap flex-col md:flex-row md:gap-8">
+    <div class="footer__accordions flex flex-wrap flex-col md:flex-row md:gap-8 anray-footer-right">
       {%- liquid
         for block in section.blocks
           case block.type
