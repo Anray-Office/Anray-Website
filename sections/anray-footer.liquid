@@ -15,15 +15,14 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 40px; /* Spacing between left and right columns on desktop */
+    gap: 0; /* Spacing between left and right columns on desktop */
     /* Assuming 'page-width' class handles max-width and margin: 0 auto for centering. */
     /* Add padding if 'page-width' doesn't, or to ensure consistency: */
-    padding-left: var(--page-padding, 15px); /* Use theme variable or fallback */
-    padding-right: var(--page-padding, 15px);
     width: 100%; /* 确保不会超出父容器 */
     max-width: 100%; /* 限制最大宽度 */
     box-sizing: border-box; /* 确保padding不会增加总宽度 */
   }
+
   .anray-footer-left {
     flex-grow: 1; /* For 1:3 ratio with right side */
     flex-shrink: 0; /* Prevent shrinking before wrap */
@@ -33,6 +32,7 @@
     flex-direction: column;
     gap: 20px;
     max-width: 100%; /* 限制最大宽度 */
+    {% comment %} padding-inline: clamp(var(--sp-10), 8.421vw, var(--sp-40)); {% endcomment %}
   }
 
   .footer__accordions {
@@ -137,17 +137,14 @@
     max-width: 100%; /* 防止溢出 */
     overflow-wrap: break-word;
   }
-  .footer__accordions .details__content ul li a:hover {
-    {% comment %} text-decoration: underline; {% endcomment %}
-  }
 
   .anray-footer-logo {
     flex-grow: 1;
     display: flex;
     align-items: flex-start;
-    padding-right: 15px;
     max-width: 100%; /* 防止溢出 */
   }
+
   .anray-footer-logo img {
     max-height: {{ section.settings.logo_height }}px;
     display: block;
@@ -222,9 +219,7 @@
     text-decoration: none;
     font-size: 0.9em;
   }
-  .anray-footer-policy-links a:hover {
-    {% comment %} text-decoration: underline; {% endcomment %}
-  }
+  
   .anray-footer-localization {
     display: flex;
     gap: 20px;
@@ -270,7 +265,7 @@
       flex-shrink: 0; /* Prevent shrinking */
     }
     .anray-footer-left {
-      margin-bottom: 0; /* Reset any mobile-specific bottom margin */
+      margin-bottom: 5rem; /* Reset any mobile-specific bottom margin */
     }
   }
 
@@ -307,7 +302,7 @@
 </style>
 
 <div class="anray-footer-container">
-  <div class="anray-footer-main page-width">
+  <div class="anray-footer-main page-width {% if section.settings.full_width %} page-width--full{% endif %}">
     <div class="anray-footer-left">
       {%- if section.settings.logo != blank -%}
         <div class="anray-footer-logo">
@@ -351,7 +346,7 @@
       {%- endif -%}
     </div>
 
-    <div class="footer__accordions flex flex-wrap flex-col md:flex-row md:gap-12">
+    <div class="footer__accordions flex flex-wrap flex-col md:flex-row md:gap-8">
       {%- liquid
         for block in section.blocks
           case block.type
@@ -484,6 +479,12 @@
       "id": "color_background",
       "label": "背景颜色",
       "default": "#F8F7F5"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "全宽",
+      "default": false
     },
     {
       "type": "color",
