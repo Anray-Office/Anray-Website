@@ -243,17 +243,6 @@
           </a>
         </div>
       {%- endif -%}
-      echo '&copy;&nbsp;'
-          echo 'now' | date: '%Y'
-          echo '&nbsp;'
-          echo shop.name
-          if section.settings.copyright_text != blank
-            echo '&nbsp;'
-            echo section.settings.copyright_text
-          endif
-          echo '.&nbsp;'
-        endif
-        echo powered_by_link
       {%- if section.settings.show_secure_payments -%}
         <div class="anray-footer-secure-payments">
           {%- if section.settings.secure_payments_title != blank -%}
