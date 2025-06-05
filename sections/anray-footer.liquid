@@ -15,9 +15,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 0; /* Spacing between left and right columns on desktop */
-    /* Assuming 'page-width' class handles max-width and margin: 0 auto for centering. */
-    /* Add padding if 'page-width' doesn't, or to ensure consistency: */
+    gap: 0;
     width: 100%; /* 确保不会超出父容器 */
     max-width: 100%; /* 限制最大宽度 */
     box-sizing: border-box; /* 确保padding不会增加总宽度 */
@@ -25,7 +23,6 @@
 
   .anray-footer-left {
     flex-grow: 1; /* For 1:3 ratio with right side */
-    flex-shrink: 0; /* Prevent shrinking before wrap */
     min-width: 220px; /* 适应logo和支付信息 */
     /* margin-bottom removed, gap on anray-footer-main will handle mobile stacking */
     display: flex;
@@ -34,16 +31,20 @@
     max-width: 100%; /* 限制最大宽度 */
     padding-inline: clamp(var(--sp-10), 8.421vw, var(--sp-40));
   }
-  
-  @media (max-width: 1279.99px) {
-    .anray-footer-right{
+
+  @media (min-width: 1440px){
+    .anray-footer-main {
+      flex-wrap: nowrap;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width:1440px) {
+    .anray-footer-right {
       padding-inline: clamp(var(--sp-10), 8.421vw, var(--sp-40));
     }
   }
 
   .footer__accordions {
-    /* Define gap variable, assuming md:gap-12 from Tailwind is 3rem (48px) */
-    /* and matches var(--sp-12) used in snippets */
     --footer-column-gap: 3rem;
     max-width: 100%; /* 确保不超出父容器 */
     box-sizing: border-box; /* 确保padding和border不会增加总宽度 */
