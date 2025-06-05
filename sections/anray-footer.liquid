@@ -243,7 +243,7 @@
           </a>
         </div>
       {%- endif -%}
-
+      {%- render 'icon', icon: 'chevron-down', size: 'xs', class: 'absolute pointer-events-none' -%}
       {%- if section.settings.show_secure_payments -%}
         <div class="anray-footer-secure-payments">
           {%- if section.settings.secure_payments_title != blank -%}
