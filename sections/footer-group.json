@@ -11,6 +11,98 @@
   "type": "footer",
   "name": "t:sections.footer-group.name",
   "sections": {
+    "anray_footer_fDtMQx": {
+      "type": "anray-footer",
+      "blocks": {
+        "link_list_wDBkQi": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Customer Support",
+            "custom_text": "<p>对您的订单有疑问吗？我们很乐意帮忙</p><p><a href=\"/pages/contact\">Contact us Here</a></p>",
+            "menu": "customer-account-main-menu",
+            "opened": false,
+            "container_width": 33
+          }
+        },
+        "link_list_yFrtKP": {
+          "type": "link_list",
+          "settings": {
+            "heading": "my ANRAY",
+            "custom_text": "",
+            "menu": "main-menu",
+            "opened": false,
+            "container_width": 33
+          }
+        },
+        "link_list_HNmPww": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Account",
+            "custom_text": "",
+            "menu": "main-menu",
+            "opened": false,
+            "container_width": 33
+          }
+        },
+        "link_list_EGD6Gc": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Company",
+            "custom_text": "",
+            "menu": "main-menu",
+            "opened": false,
+            "container_width": 33
+          }
+        },
+        "link_list_BDQqRg": {
+          "type": "link_list",
+          "settings": {
+            "heading": "栏目标题",
+            "custom_text": "",
+            "menu": "main-menu",
+            "opened": false,
+            "container_width": 33
+          }
+        },
+        "link_list_NEt6bT": {
+          "type": "link_list",
+          "settings": {
+            "heading": "栏目标题",
+            "custom_text": "",
+            "menu": "main-menu",
+            "opened": false,
+            "container_width": 33
+          }
+        }
+      },
+      "block_order": [
+        "link_list_wDBkQi",
+        "link_list_yFrtKP",
+        "link_list_HNmPww",
+        "link_list_EGD6Gc",
+        "link_list_BDQqRg",
+        "link_list_NEt6bT"
+      ],
+      "name": "Anray Footer",
+      "settings": {
+        "color_background": "#F8F7F5",
+        "color_text": "#333333",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "logo": "shopify://shop_images/ANRAY.png",
+        "logo_height": 100,
+        "show_secure_payments": true,
+        "secure_payments_title": "SECURE PAYMENTS",
+        "monochrome_payment_icons": false,
+        "payment_icon_height": 24,
+        "show_social_media": true,
+        "social_media_title": "GET SOCIAL",
+        "copyright_text": "",
+        "show_policy_links": false,
+        "enable_language_selector": false,
+        "enable_country_selector": false
+      }
+    },
     "multicolumn-with-icons": {
       "type": "multicolumn-with-icons",
       "blocks": {
@@ -213,6 +305,7 @@
     }
   },
   "order": [
+    "anray_footer_fDtMQx",
     "multicolumn-with-icons",
     "footer",
     "footer-copyright"
