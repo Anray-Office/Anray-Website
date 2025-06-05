@@ -234,68 +234,6 @@
   .anray-footer-main {
 
   }
-
-  /* Accordion Styles */
-  .footer-accordion-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0; /* h5 will provide base styling */
-    background: none;
-    border: none;
-    text-align: left;
-    cursor: pointer;
-    font: inherit; /* Inherit from parent h5 */
-    color: inherit; /* Inherit from parent h5 */
-    text-transform: inherit; /* Inherit from parent h5 */
-  }
-
-  .footer-accordion-button-text {
-    /* Text specific styles if needed, otherwise inherits from h5 via button */
-  }
-
-  .footer-accordion-icon svg {
-    width: 1em; /* Adjust size */
-    height: 1em;
-    transition: transform 0.2s ease-in-out;
-    fill: currentColor;
-  }
-
-  .footer-accordion-button[aria-expanded="true"] .footer-accordion-icon svg {
-    transform: rotate(180deg);
-  }
-
-  .footer-accordion-content-inner {
-    padding-top: 15px; /* Space between title and content when open */
-  }
-
-  @media (max-width: 768px) {
-    .anray-footer-column h5 { /* This is the accordion trigger's wrapper */
-      margin-bottom: 0; /* Remove margin when it's an accordion trigger */
-    }
-
-    /* JS handles visibility via 'hidden' attribute. This is a no-JS fallback. */
-    .footer-accordion-button[aria-expanded="false"] + .footer-accordion-content {
-       display: none;
-    }
-     .footer-accordion-button[aria-expanded="true"] + .footer-accordion-content {
-       display: block;
-    }
-  }
-
-  @media (min-width: 769px) {
-    .footer-accordion-button {
-      cursor: default;
-    }
-    .footer-accordion-button .footer-accordion-icon {
-      display: none;
-    }
-    /* .footer-accordion-content is handled by JS removing 'hidden' */
-    .anray-footer-column h5 { /* Restore original margin */
-       margin-bottom: 15px;
-    }
-  }
 </style>
 
 <div class="anray-footer-container">
@@ -348,41 +286,19 @@
         <div class="anray-footer-column" {{ block.shopify_attributes }}>
           {%- case block.type -%}
             {%- when 'menu' -%}
-              {%- if block.settings.heading != blank -%}
-                <h5>
-                  <button
-                    type="button"
-                    aria-expanded="false"
-                    class="footer-accordion-button"
-                    aria-controls="footer-accordion-content-{{ section.id }}-{{ block.id }}"
-                  >
-                    <span class="footer-accordion-button-text">{{ block.settings.heading }}</span>
-                    <span class="footer-accordion-icon">
-                      <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6"> <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.292 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"/> </svg>
-                    </span>
-                  </button>
-                </h5>
-              {%- endif -%}
-              <div
-                id="footer-accordion-content-{{ section.id }}-{{ block.id }}"
-                class="footer-accordion-content"
-                hidden
-              >
-                <div class="footer-accordion-content-inner">
-                  {%- if block.settings.custom_text != blank -%}
-                    <div class="rte">{{ block.settings.custom_text }}</div>
-                  {%- endif -%}
-                  {%- if block.settings.menu != blank and block.settings.menu.links.size > 0 -%}
-                    <ul>
-                      {%- for link in block.settings.menu.links -%}
-                        <li>
-                          <a href="{{ link.url }}" class="text-sm-lg">{{ link.title }}</a>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  {%- endif -%}
-                </div>
-              </div>
+              {%- comment -%}
+                Rendering 'footer-menu' snippet to get accordion behavior.
+                Note: 'block.settings.custom_text' from anray-footer's schema
+                will not be rendered by 'footer-menu.liquid'.
+                'footer-menu.liquid' expects 'block.settings.heading', 'block.settings.menu',
+                and 'block.settings.opened'.
+              {%- endcomment -%}
+              {% render 'footer-menu', block: block %}
+            {%- comment -%}
+              If there were other block types, they would need their own rendering logic here.
+              Since 'anray-footer.liquid' only has 'menu' blocks in its schema,
+              this 'case' statement will always take the 'menu' path.
+            {%- endcomment -%}
           {%- endcase -%}
         </div>
       {%- endfor -%}
@@ -658,6 +574,13 @@
           "id": "menu",
           "label": "选择菜单",
           "info": "在 Shopify后台 > 在线商店 > 导航处创建和管理菜单。"
+        },
+        {
+          "type": "checkbox",
+          "id": "opened",
+          "label": "默认在移动端展开",
+          "default": false,
+          "info": "控制此菜单列在移动视图中是否默认展开。"
         }
       ]
     }
@@ -703,62 +626,3 @@
   }
 }
 {% endschema %}
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const accordionTriggers = document.querySelectorAll('.anray-footer-container .footer-accordion-button');
-  const mobileMaxWidth = 768;
-
-  function isMobileView() {
-    return window.innerWidth <= mobileMaxWidth;
-  }
-
-  function setAccordionState(trigger, contentPanel, icon) {
-    if (isMobileView()) {
-      // For mobile: set initial state to closed. Click handler will manage subsequent states.
-      // If you add a schema setting like 'opened_by_default_mobile', you can check it here.
-      // For now, all are closed initially on mobile unless JS has already run and user interacted.
-      if (trigger.getAttribute('aria-expanded') !== 'true') { // Only force close if not already open
-        trigger.setAttribute('aria-expanded', 'false');
-        if (contentPanel) contentPanel.hidden = true;
-      }
-      trigger.style.cursor = 'pointer';
-      if (icon) icon.style.display = '';
-    } else {
-      // For desktop: all accordions are open and non-interactive
-      trigger.setAttribute('aria-expanded', 'true');
-      if (contentPanel) contentPanel.hidden = false;
-      trigger.style.cursor = 'default';
-      if (icon) icon.style.display = 'none';
-    }
-  }
-
-  accordionTriggers.forEach(trigger => {
-    const contentPanelId = trigger.getAttribute('aria-controls');
-    const contentPanel = document.getElementById(contentPanelId);
-    const icon = trigger.querySelector('.footer-accordion-icon');
-
-    setAccordionState(trigger, contentPanel, icon); // Set initial state
-
-    trigger.addEventListener('click', function() {
-      if (isMobileView()) {
-        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
-        trigger.setAttribute('aria-expanded', !isExpanded);
-        if (contentPanel) {
-          contentPanel.hidden = isExpanded;
-        }
-      }
-    });
-  });
-
-  // Adjust on resize
-  window.addEventListener('resize', function() {
-    accordionTriggers.forEach(trigger => {
-      const contentPanelId = trigger.getAttribute('aria-controls');
-      const contentPanel = document.getElementById(contentPanelId);
-      const icon = trigger.querySelector('.footer-accordion-icon');
-      setAccordionState(trigger, contentPanel, icon);
-    });
-  });
-});
-</script>
