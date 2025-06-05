@@ -285,20 +285,30 @@
       {%- for block in section.blocks -%}
         <div class="anray-footer-column" {{ block.shopify_attributes }}>
           {%- case block.type -%}
-            {%- when 'menu' -%}
+            {%- when 'link_list' -%}
               {%- comment -%}
-                Rendering 'footer-menu' snippet to get accordion behavior.
-                Note: 'block.settings.custom_text' from anray-footer's schema
-                will not be rendered by 'footer-menu.liquid'.
+                Rendering 'footer-menu' snippet for 'link_list' blocks.
                 'footer-menu.liquid' expects 'block.settings.heading', 'block.settings.menu',
                 and 'block.settings.opened'.
+                The 'custom_text' setting from this section's schema for 'link_list' blocks
+                is not used by 'footer-menu.liquid'.
               {%- endcomment -%}
               {% render 'footer-menu', block: block %}
-            {%- comment -%}
-              If there were other block types, they would need their own rendering logic here.
-              Since 'anray-footer.liquid' only has 'menu' blocks in its schema,
-              this 'case' statement will always take the 'menu' path.
-            {%- endcomment -%}
+            {%- when 'text' -%}
+              {%- comment -%}
+                Rendering 'footer-text' snippet for 'text' blocks.
+                'footer-text.liquid' expects 'block.settings.heading', 'block.settings.text',
+                and 'block.settings.opened'.
+              {%- endcomment -%}
+              {% render 'footer-text', block: block %}
+            {%- when 'brand_information' -%}
+              {%- comment -%}
+                Rendering 'footer-contact' snippet for 'brand_information' blocks.
+                'footer-contact.liquid' expects 'block.settings.heading',
+                'block.settings.button_label_1/link_1' through 'button_label_4/link_4',
+                and 'block.settings.opened'.
+              {%- endcomment -%}
+              {% render 'footer-contact', block: block %}
           {%- endcase -%}
         </div>
       {%- endfor -%}
@@ -553,8 +563,8 @@
   ],
   "blocks": [
     {
-      "type": "menu",
-      "name": "菜单列",
+      "type": "link_list",
+      "name": "菜单列 (Link List)",
       "limit": 7,
       "settings": [
         {
@@ -566,8 +576,8 @@
         {
           "type": "richtext",
           "id": "custom_text",
-          "label": "自定义文本 (可选)",
-          "info": "例如用于第一列的介绍性文本和特殊链接。"
+          "label": "自定义文本 (可选, 不会被标准footer-menu显示)",
+          "info": "例如用于第一列的介绍性文本和特殊链接。注意: 标准的 footer-menu snippet 不会显示此文本。"
         },
         {
           "type": "link_list",
@@ -583,6 +593,90 @@
           "info": "控制此菜单列在移动视图中是否默认展开。"
         }
       ]
+    },
+    {
+      "type": "text",
+      "name": "文本列 (Text)",
+      "limit": 7,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "标题",
+          "default": "文本标题"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "文本内容",
+          "default": "<p>这是一些示例文本。</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "opened",
+          "label": "默认在移动端展开",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "brand_information",
+      "name": "品牌信息列 (Brand Info)",
+      "limit": 7,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "标题",
+          "default": "品牌信息"
+        },
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "label": "按钮 1 - 标签"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "按钮 1 - 链接"
+        },
+        {
+          "type": "text",
+          "id": "button_label_2",
+          "label": "按钮 2 - 标签"
+        },
+        {
+          "type": "url",
+          "id": "button_link_2",
+          "label": "按钮 2 - 链接"
+        },
+        {
+          "type": "text",
+          "id": "button_label_3",
+          "label": "按钮 3 - 标签"
+        },
+        {
+          "type": "url",
+          "id": "button_link_3",
+          "label": "按钮 3 - 链接"
+        },
+        {
+          "type": "text",
+          "id": "button_label_4",
+          "label": "按钮 4 - 标签"
+        },
+        {
+          "type": "url",
+          "id": "button_link_4",
+          "label": "按钮 4 - 链接"
+        },
+        {
+          "type": "checkbox",
+          "id": "opened",
+          "label": "默认在移动端展开",
+          "default": false
+        }
+      ]
     }
   ],
   "presets": [
@@ -590,7 +684,7 @@
       "name": "Anray Footer",
       "blocks": [
         {
-          "type": "menu",
+          "type": "link_list",
           "settings": {
             "heading": "Customer Support",
             "custom_text": "<p>对您的订单有疑问吗？我们很乐意帮忙</p><p><a href=\"/pages/contact\">Contact us Here</a></p>",
@@ -598,21 +692,21 @@
           }
         },
         {
-          "type": "menu",
+          "type": "link_list",
           "settings": {
             "heading": "my ANRAY",
             "menu": "footer-my-anray"
           }
         },
         {
-          "type": "menu",
+          "type": "link_list",
           "settings": {
             "heading": "Account",
             "menu": "footer-account-links"
           }
         },
         {
-          "type": "menu",
+          "type": "link_list",
           "settings": {
             "heading": "Company",
             "menu": "footer-company-links"
