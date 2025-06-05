@@ -6,82 +6,147 @@
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
     font-family: sans-serif; /* 基础字体，请根据您的品牌字体调整 */
+    overflow-x: hidden; /* 防止内部元素导致横向滚动 */
+    width: 100%; /* 确保容器不会超出视口宽度 */
+    max-width: 100%; /* 限制最大宽度 */
+    box-sizing: border-box; /* 确保padding不会增加总宽度 */
   }
   .anray-footer-main {
-   display: flex;
+    display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 40px; /* Spacing between left and right columns on desktop */
+    /* Assuming 'page-width' class handles max-width and margin: 0 auto for centering. */
+    /* Add padding if 'page-width' doesn't, or to ensure consistency: */
+    padding-left: var(--page-padding, 15px); /* Use theme variable or fallback */
+    padding-right: var(--page-padding, 15px);
+    width: 100%; /* 确保不会超出父容器 */
+    max-width: 100%; /* 限制最大宽度 */
+    box-sizing: border-box; /* 确保padding不会增加总宽度 */
   }
   .anray-footer-left {
-    flex: 1;
+    flex-grow: 1; /* For 1:3 ratio with right side */
+    flex-shrink: 0; /* Prevent shrinking before wrap */
     min-width: 220px; /* 适应logo和支付信息 */
-    margin-bottom: 70px;
+    /* margin-bottom removed, gap on anray-footer-main will handle mobile stacking */
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding-inline: clamp(var(--sp-10), 8.421vw, var(--sp-40));
-    {% comment %} padding-block-start:0; {% endcomment %}
-    {% comment %} border-block-start: none; {% endcomment %}
+    max-width: 100%; /* 限制最大宽度 */
   }
 
-  @media screen and (max-width: 768px) {
-    .anray-footer-right{
-      padding-inline: clamp(var(--sp-10), 8.421vw, var(--sp-40));
+  .footer__accordions {
+    /* Define gap variable, assuming md:gap-12 from Tailwind is 3rem (48px) */
+    /* and matches var(--sp-12) used in snippets */
+    --footer-column-gap: 3rem; 
+    max-width: 100%; /* 确保不超出父容器 */
+    box-sizing: border-box; /* 确保padding和border不会增加总宽度 */
+  }
+
+  /* 确保footer__accordions的子元素不会导致溢出 */
+  .footer__accordions > * {
+    max-width: 100%; /* 限制每列的最大宽度 */
+    box-sizing: border-box; /* 确保padding不会增加总宽度 */
+    overflow-wrap: break-word; /* 允许长单词断行 */
+    word-wrap: break-word; /* 兼容性 */
+    word-break: break-word; /* 在必要时允许单词内断行 */
+    hyphens: auto; /* 添加连字符 */
+  }
+
+  /* 处理可能导致溢出的内部元素 */
+  .footer__accordions .details__content {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* 确保链接文本不会导致溢出 */
+  .footer__accordions .details__content a,
+  .footer__accordions .details__content p,
+  .footer__accordions .details__content span {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* For screens between md (768px) and lg (1024px) - Aim for 2 columns */
+  @media (min-width: 768px) and (max-width: 1023.98px) {
+    .footer__accordions > * { /* Targets direct children (the columns from snippets) */
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: calc((100% - var(--footer-column-gap)) / 2);
+      max-width: calc((100% - var(--footer-column-gap)) / 2); /* 确保最大宽度与flex-basis一致 */
     }
   }
 
-  .anray-footer-right {
-    flex: 3;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: flex-start;
+  /* For screens between lg (1024px) and xl (1280px) - Aim for 3 columns */
+  @media (min-width: 1024px) and (max-width: 1279.98px) {
+    .footer__accordions > * {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: calc((100% - (2 * var(--footer-column-gap))) / 3);
+      max-width: calc((100% - (2 * var(--footer-column-gap))) / 3); /* 确保最大宽度与flex-basis一致 */
+    }
   }
-  .anray-footer-column {
-    flex-grow: 0;
-    flex-shrink: 0;
-    width: calc((100% - 40px) / 3);
-    min-width: 160px;
-    margin-bottom: 20px;
-  }
-  .anray-footer-column h5 {
+  /* For screens >= xl (1280px), the snippet's inline style for width using block.settings.container_width will take precedence. */
+
+  /* Styling for titles within accordion items */
+  .footer__accordions .heading { /* Targets <span class="heading"> from snippets */
     font-size: 1em; /* 调整为图片中的大小 */
     font-weight: bold; /* 图片中标题是粗体 */
     margin-bottom: 15px; /* 标题和链接列表的间距 */
     color: {{ section.settings.color_text }};
-    text-transform: uppercase; /* New: Make column titles uppercase like in the image */
+    text-transform: uppercase;
+    display: block; /* Ensure margin-bottom applies correctly if it's a span */
+    max-width: 100%; /* 防止溢出 */
+    overflow-wrap: break-word;
   }
-  .anray-footer-column .rte,
-  .anray-footer-column .rte p,
-  .anray-footer-column .rte a {
+
+  /* Styling for rich text content within accordion items */
+  .footer__accordions .details__content .rte,
+  .footer__accordions .details__content .rte p,
+  .footer__accordions .details__content .rte a {
     font-size: 0.9em;
     line-height: 1.6;
     color: {{ section.settings.color_text }};
+    max-width: 100%; /* 防止溢出 */
+    overflow-wrap: break-word;
   }
-  .anray-footer-column .rte a {
+  .footer__accordions .details__content .rte a {
     text-decoration: underline; /* 根据需要调整 */
   }
-  .anray-footer-column ul {
+
+  /* Styling for lists within accordion items */
+  .footer__accordions .details__content ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    max-width: 100%; /* 防止溢出 */
   }
-  .anray-footer-column ul li {
+  .footer__accordions .details__content ul li {
     margin-bottom: 8px; /* 链接项之间的间距 */
+    max-width: 100%; /* 防止溢出 */
+    overflow-wrap: break-word;
   }
-  .anray-footer-column ul li a {
+  .footer__accordions .details__content ul li a {
     text-decoration: none;
     color: {{ section.settings.color_text }};
     line-height: 1.25;
+    max-width: 100%; /* 防止溢出 */
+    overflow-wrap: break-word;
   }
-  .anray-footer-column ul li a:hover {
-    text-decoration: underline;
+  .footer__accordions .details__content ul li a:hover {
+    {% comment %} text-decoration: underline; {% endcomment %}
   }
+
   .anray-footer-logo {
     flex-grow: 1;
     display: flex;
     align-items: flex-start;
+    padding-right: 15px;
+    max-width: 100%; /* 防止溢出 */
   }
   .anray-footer-logo img {
     max-height: {{ section.settings.logo_height }}px;
@@ -158,7 +223,7 @@
     font-size: 0.9em;
   }
   .anray-footer-policy-links a:hover {
-    text-decoration: underline;
+    {% comment %} text-decoration: underline; {% endcomment %}
   }
   .anray-footer-localization {
     display: flex;
@@ -200,35 +265,40 @@
     .anray-footer-policy-links {
       order: -1; /* Policies can appear before or after copyright text based on design */
     }
+    .footer__accordions {
+      flex-grow: 3; /* For 1:3 ratio with left side */
+      flex-shrink: 0; /* Prevent shrinking */
+    }
+    .anray-footer-left {
+      margin-bottom: 0; /* Reset any mobile-specific bottom margin */
+    }
   }
 
   @media (max-width: 990px) { /* 中等屏幕调整 */
-    .anray-footer-right {
-      justify-content: flex-start;
-    }
-    .anray-footer-column {
-       width: calc((100% - 20px) / 2);
-    }
+    /* Styles for .footer__accordions and its children on medium screens are mostly handled by Tailwind. */
+    /* block.settings.container_width in snippets also influences child widths. */
   }
 
   @media (max-width: 768px) { /* 移动端调整 */
     .anray-footer-main {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: flex-start; /* Content within anray-footer-main aligns left */
       text-align: left;
+      gap: 20px; /* Vertical gap when stacked */
     }
-    .anray-footer-left,
-    .anray-footer-right {
+    .anray-footer-left {
       width: 100%;
-      flex-basis: auto;
+      flex-basis: auto; /* Override desktop flex settings */
+      margin-bottom: 0; /* Vertical gap handled by parent's gap */
     }
-    .anray-footer-column {
+    .footer__accordions { /* Targeting the new class for the right side */
       width: 100%;
+      flex-basis: auto; /* Override desktop flex settings */
     }
     .anray-footer-secure-payments,
     .anray-footer-social,
     .anray-footer-logo {
-      text-align: left;
+      text-align: left; /* This is fine */
     }
   }
   .anray-footer-main {
@@ -281,37 +351,21 @@
       {%- endif -%}
     </div>
 
-    <div class="anray-footer-right">
-      {%- for block in section.blocks -%}
-        <div class="anray-footer-column" {{ block.shopify_attributes }}>
-          {%- case block.type -%}
-            {%- when 'link_list' -%}
-              {%- comment -%}
-                Rendering 'footer-menu' snippet for 'link_list' blocks.
-                'footer-menu.liquid' expects 'block.settings.heading', 'block.settings.menu',
-                and 'block.settings.opened'.
-                The 'custom_text' setting from this section's schema for 'link_list' blocks
-                is not used by 'footer-menu.liquid'.
-              {%- endcomment -%}
-              {% render 'footer-menu', block: block %}
-            {%- when 'text' -%}
-              {%- comment -%}
-                Rendering 'footer-text' snippet for 'text' blocks.
-                'footer-text.liquid' expects 'block.settings.heading', 'block.settings.text',
-                and 'block.settings.opened'.
-              {%- endcomment -%}
-              {% render 'footer-text', block: block %}
-            {%- when 'brand_information' -%}
-              {%- comment -%}
-                Rendering 'footer-contact' snippet for 'brand_information' blocks.
-                'footer-contact.liquid' expects 'block.settings.heading',
-                'block.settings.button_label_1/link_1' through 'button_label_4/link_4',
-                and 'block.settings.opened'.
-              {%- endcomment -%}
-              {% render 'footer-contact', block: block %}
-          {%- endcase -%}
-        </div>
-      {%- endfor -%}
+    <div class="footer__accordions flex flex-wrap flex-col md:flex-row md:gap-12">
+      {%- liquid
+        for block in section.blocks
+          case block.type
+            when 'link_list'
+              render 'footer-menu', block: block
+
+            when 'text'
+              render 'footer-text', block: block
+
+            when 'brand_information'
+              render 'footer-contact', block: block
+          endcase
+        endfor
+      -%}
     </div>
   </div>
 
