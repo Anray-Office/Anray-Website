@@ -273,14 +273,13 @@
     },
     "footer-copyright": {
       "type": "footer-copyright",
-      "disabled": true,
       "settings": {
         "enable_language_selector": true,
         "enable_country_selector": true,
         "show_policy": false,
         "show_payment_icons": true,
         "monochrome_payment_icons": false,
-        "show_copyright": true,
+        "show_copyright": false,
         "copyright_text": "",
         "color_text": "#ffffff",
         "color_background": "#171717",
