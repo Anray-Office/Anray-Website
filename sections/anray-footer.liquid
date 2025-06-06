@@ -368,110 +368,93 @@
     </div>
   </div>
 
-  {%- if section.settings.copyright_text != blank -%}
-    <div class="anray-footer-copyright">
-      <div class="anray-footer-copyright-content page-width">
-        <p class="anray-footer-copyright-text">
-          {{ section.settings.copyright_text | replace: '[year]', 'now' | date: '%Y' }}
-        </p>
-
-        {%- if section.settings.show_policy_links -%}
-          {%- assign policy_links = false -%}
-          {%- for policy in shop.policies -%}
-            {%- if policy != blank -%}
-              {%- assign policy_links = true -%}
-              {%- break -%}
-            {%- endif -%}
-          {%- endfor -%}
-          {%- if policy_links -%}
-            <ul class="anray-footer-policy-links">
-              {%- for policy in shop.policies -%}
-                {%- if policy != blank -%}
-                  <li>
-                    <a href="{{ policy.url }}">{{ policy.title }}</a>
-                  </li>
-                {%- endif -%}
-              {%- endfor -%}
-            </ul>
-          {%- endif -%}
-        {%- endif -%}
-
+  <div class="anray-footer-copyright">
+    <div class="footer-copyright page-width w-full flex flex-col items-center justify-between gap-4 lg:gap-0 lg:flex-row relative">
+      <div class="rte credits text-center">
         {%- liquid
-          assign enable_language_selector = false
-          if section.settings.enable_language_selector and localization.available_languages.size > 1
-            assign enable_language_selector = true
+          if section.settings.show_copyright
+            echo '&copy;&nbsp;'
+            echo 'now' | date: '%Y'
+            echo '&nbsp;'
+            echo shop.name
+            if section.settings.copyright_text_custom != blank
+              echo '&nbsp;'
+              echo section.settings.copyright_text_custom
+            endif
+            echo '.&nbsp;'
           endif
-
-          assign enable_country_selector = false
-          if section.settings.enable_country_selector and localization.available_countries.size > 1
-            assign enable_country_selector = true
-          endif
+          echo powered_by_link
         -%}
-
-        {%- if enable_language_selector or enable_country_selector -%}
-          <div class="anray-footer-localization">
-            {%- if enable_language_selector -%}
-              <div>
-                {%- form 'localization', id: 'AnrayFooterLanguageForm', class: 'localization__form' -%}
-                  <label for="AnrayFooterLanguageList" class="sr-only">{{ 'localization.language_label' | t }}</label>
-                  <button type="button" class="localization__item">
-                    {{ localization.language.endonym_name | capitalize }}
-                  </button>
-                  <select
-                    name="locale_code"
-                    id="AnrayFooterLanguageList"
-                    class="localization__item"
-                    onchange="this.form.submit()"
-                  >
-                    {%- for language in localization.available_languages -%}
-                      <option
-                        value="{{ language.iso_code }}"
-                        {%- if language.iso_code == localization.language.iso_code %}
-                          selected
-                        {% endif %}
-                      >
-                        {{ language.endonym_name | capitalize }}
-                      </option>
-                    {%- endfor -%}
-                  </select>
-                {%- endform -%}
-              </div>
-            {%- endif -%}
-
-            {%- if enable_country_selector -%}
-              <div>
-                {%- form 'localization', id: 'AnrayFooterCountryForm', class: 'localization__form' -%}
-                  <label for="AnrayFooterCountryList" class="sr-only">{{ 'localization.country_label' | t }}</label>
-                  <button type="button" class="localization__item">
-                    {{ localization.country.name }} ({{ localization.country.currency.iso_code }}
-                    {{ localization.country.currency.symbol }})
-                  </button>
-                  <select
-                    name="country_code"
-                    id="AnrayFooterCountryList"
-                    class="localization__item"
-                    onchange="this.form.submit()"
-                  >
-                    {%- for country in localization.available_countries -%}
-                      <option
-                        value="{{ country.iso_code }}"
-                        {%- if country.iso_code == localization.country.iso_code %}
-                          selected
-                        {% endif %}
-                      >
-                        {{ country.name }} ({{ country.currency.iso_code }}
-                        {{ country.currency.symbol }})
-                      </option>
-                    {%- endfor -%}
-                  </select>
-                {%- endform -%}
-              </div>
-            {%- endif -%}
-          </div>
+        {%- if section.settings.show_policy -%}
+          <ul class="flex flex-wrap gap-3 justify-center lg:justify-start">
+            {%- for policy in shop.policies -%}
+              {%- if policy != blank -%}
+                <li>
+                  <small>
+                    <a href="{{ policy.url }}" class="block reversed-link">{{ policy.title }}</a>
+                  </small>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
         {%- endif -%}
       </div>
+
+      {%- liquid
+        assign enable_language_selector = false
+        if section.settings.enable_language_selector and localization.available_languages.size > 1
+          assign enable_language_selector = true
+        endif
+
+        assign enable_country_selector = false
+        if section.settings.enable_country_selector and localization.available_countries.size > 1
+          assign enable_country_selector = true
+        endif
+      -%}
+      {%- if enable_language_selector or enable_country_selector -%}
+        <div class="localization flex items-center justify-center flex-col md:flex-row">
+          {%- if enable_language_selector -%}
+            <div class="grid gap-2">
+              {%- form 'localization', id: 'AnrayFooterLanguageForm', class: 'localization__form flex items-center relative' -%}
+                <label class="sr-only" for="AnrayFooterLanguageList">{{ 'localization.language_label' | t }}</label>
+                {%- render 'icon', icon: 'language', size: 'xs', class: 'stroke-1 absolute pointer-events-none' -%}
+                <button type="button" class="localization__item cursor-pointer leading-tight w-full">
+                  {{- localization.language.endonym_name | capitalize -}}
+                </button>
+                <select name="locale_code" id="AnrayFooterLanguageList" class="localization__item cursor-pointer absolute top-0 left-0 w-full h-full opacity-0" onchange="this.form.submit()">
+                  {%- for language in localization.available_languages -%}
+                    <option value="{{ language.iso_code }}"{% if language.iso_code == localization.language.iso_code %} selected{% endif %}>
+                      {{- language.endonym_name | capitalize -}}
+                    </option>
+                  {%- endfor -%}
+                </select>
+                {%- render 'icon', icon: 'chevron-down', size: 'xs', class: 'absolute pointer-events-none' -%}
+              {%- endform -%}
+            </div>
+          {%- endif -%}
+          {%- if enable_country_selector -%}
+            <div class="grid gap-2">
+              {%- form 'localization', id: 'AnrayFooterCountryForm', class: 'localization__form flex items-center relative' -%}
+                <label class="sr-only" for="AnrayFooterCountryList">{{ 'localization.country_label' | t }}</label>
+                {%- render 'icon', icon: 'currency', size: 'xs', class: 'stroke-1 absolute pointer-events-none' -%}
+                <button type="button" class="localization__item cursor-pointer leading-tight w-full">
+                  {{- localization.country.name }} ({{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }})
+                </button>
+                <select name="country_code" id="AnrayFooterCountryList" class="localization__item cursor-pointer absolute top-0 left-0 w-full h-full opacity-0" onchange="this.form.submit()">
+                  {%- for country in localization.available_countries -%}
+                    <option value="{{ country.iso_code }}"{% if country.iso_code == localization.country.iso_code %} selected{% endif %}>
+                      {{- country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
+                    </option>
+                  {%- endfor -%}
+                </select>
+                {%- render 'icon', icon: 'chevron-down', size: 'xs', class: 'absolute pointer-events-none' -%}
+              {%- endform -%}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
     </div>
-  {%- endif -%}
+  </div>
 </div>
 
 {% schema %}
@@ -588,15 +571,20 @@
       "content": "底部版权"
     },
     {
+      "type": "checkbox",
+      "id": "show_copyright",
+      "label": "显示版权信息",
+      "default": true
+    },
+    {
       "type": "text",
-      "id": "copyright_text",
-      "label": "版权文本",
-      "default": "Copyright @ {{ 'now' | date: '%Y' }} bella Kitchenware. All Rights Reserved. | A Made By Gather Brand. Site by OFF+BRAND",
-      "info": "年份将自动显示为当前年份。"
+      "id": "copyright_text_custom",
+      "label": "自定义版权文本",
+      "info": "此文本将附加在'© [年份] [商店名称]'之后。"
     },
     {
       "type": "checkbox",
-      "id": "show_policy_links",
+      "id": "show_policy",
       "label": "显示政策链接",
       "default": false,
       "info": "在 Shopify 后台 > 设置 > 政策 中管理您的政策页面。"
@@ -623,7 +611,7 @@
   "blocks": [
     {
       "type": "link_list",
-      "name": "菜单列 (Link List)",
+      "name": "Link List",
       "limit": 7,
       "settings": [
         {
