@@ -341,24 +341,6 @@
         "rounded": false,
         "enable_parallax": true
       }
-    },
-    "anray_drag_video_4XXwAq": {
-      "type": "anray-drag-video",
-      "name": "anray-drag-video",
-      "settings": {
-        "transparent_header": false,
-        "color_text": "",
-        "color_background": "#f8f7f5",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "narrow": true,
-        "rounded": false
-      }
     }
   },
   "order": [
@@ -367,7 +349,6 @@
     "product_bundle_qFDGtB",
     "blog_posts_UthncV",
     "blog_posts_collage_Wxb3Mk",
-    "collage_bU7NAi",
-    "anray_drag_video_4XXwAq"
+    "collage_bU7NAi"
   ]
 }
