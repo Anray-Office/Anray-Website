@@ -348,7 +348,7 @@
       "settings": {
         "transparent_header": false,
         "color_text": "",
-        "color_background": "",
+        "color_background": "#f8f7f5",
         "gradient_background": "",
         "color_button_text": "",
         "color_button_background": "",
@@ -356,7 +356,7 @@
         "padding_top": 72,
         "padding_bottom": 72,
         "divider": false,
-        "narrow": false,
+        "narrow": true,
         "rounded": false
       }
     }
