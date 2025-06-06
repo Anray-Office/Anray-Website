@@ -288,7 +288,8 @@
     .anray-footer-left {
       width: 100%;
       flex-basis: auto; /* Override desktop flex settings */
-      margin-bottom: 0; /* Vertical gap handled by parent's gap */
+      margin-bottom: 5rem; /* Reset any mobile-specific bottom margin */
+      align-items: center; /* Horizontally center the content blocks */
     }
     .footer__accordions { /* Targeting the new class for the right side */
       width: 100%;
@@ -297,11 +298,15 @@
     .anray-footer-secure-payments,
     .anray-footer-social,
     .anray-footer-logo {
-      text-align: left; /* This is fine */
+      text-align: center; /* Center the text and inline content within the blocks */
+    }
+    .payment-icons {
+      justify-content: center; /* Horizontally center the payment icons themselves */
     }
   }
-  .anray-footer-main {
-
+  
+  .footer-copyright{
+    padding-block: 0;
   }
 </style>
 
@@ -371,7 +376,6 @@
   <div class="anray-footer-copyright">
     <div class="footer-copyright page-width w-full flex flex-col items-center justify-center gap-4 lg:gap-0 lg:flex-row relative">
       <div class="rte credits text-center">
-        
         {%- liquid
           if section.settings.show_copyright
             echo 'Copyright'
@@ -420,15 +424,28 @@
         <div class="localization flex items-center justify-center flex-col md:flex-row">
           {%- if enable_language_selector -%}
             <div class="grid gap-2">
-              {%- form 'localization', id: 'AnrayFooterLanguageForm', class: 'localization__form flex items-center relative' -%}
+              {%- form 'localization',
+                id: 'AnrayFooterLanguageForm',
+                class: 'localization__form flex items-center relative'
+              -%}
                 <label class="sr-only" for="AnrayFooterLanguageList">{{ 'localization.language_label' | t }}</label>
                 {%- render 'icon', icon: 'language', size: 'xs', class: 'stroke-1 absolute pointer-events-none' -%}
                 <button type="button" class="localization__item cursor-pointer leading-tight w-full">
                   {{- localization.language.endonym_name | capitalize -}}
                 </button>
-                <select name="locale_code" id="AnrayFooterLanguageList" class="localization__item cursor-pointer absolute top-0 left-0 w-full h-full opacity-0" onchange="this.form.submit()">
+                <select
+                  name="locale_code"
+                  id="AnrayFooterLanguageList"
+                  class="localization__item cursor-pointer absolute top-0 left-0 w-full h-full opacity-0"
+                  onchange="this.form.submit()"
+                >
                   {%- for language in localization.available_languages -%}
-                    <option value="{{ language.iso_code }}"{% if language.iso_code == localization.language.iso_code %} selected{% endif %}>
+                    <option
+                      value="{{ language.iso_code }}"
+                      {% if language.iso_code == localization.language.iso_code %}
+                        selected
+                      {% endif %}
+                    >
                       {{- language.endonym_name | capitalize -}}
                     </option>
                   {%- endfor -%}
@@ -439,16 +456,31 @@
           {%- endif -%}
           {%- if enable_country_selector -%}
             <div class="grid gap-2">
-              {%- form 'localization', id: 'AnrayFooterCountryForm', class: 'localization__form flex items-center relative' -%}
+              {%- form 'localization',
+                id: 'AnrayFooterCountryForm',
+                class: 'localization__form flex items-center relative'
+              -%}
                 <label class="sr-only" for="AnrayFooterCountryList">{{ 'localization.country_label' | t }}</label>
                 {%- render 'icon', icon: 'currency', size: 'xs', class: 'stroke-1 absolute pointer-events-none' -%}
                 <button type="button" class="localization__item cursor-pointer leading-tight w-full">
-                  {{- localization.country.name }} ({{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }})
+                  {{- localization.country.name }} ({{ localization.country.currency.iso_code }}
+                  {{ localization.country.currency.symbol }})
                 </button>
-                <select name="country_code" id="AnrayFooterCountryList" class="localization__item cursor-pointer absolute top-0 left-0 w-full h-full opacity-0" onchange="this.form.submit()">
+                <select
+                  name="country_code"
+                  id="AnrayFooterCountryList"
+                  class="localization__item cursor-pointer absolute top-0 left-0 w-full h-full opacity-0"
+                  onchange="this.form.submit()"
+                >
                   {%- for country in localization.available_countries -%}
-                    <option value="{{ country.iso_code }}"{% if country.iso_code == localization.country.iso_code %} selected{% endif %}>
-                      {{- country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
+                    <option
+                      value="{{ country.iso_code }}"
+                      {% if country.iso_code == localization.country.iso_code %}
+                        selected
+                      {% endif %}
+                    >
+                      {{- country.name }} ({{ country.currency.iso_code }}
+                      {{ country.currency.symbol }})
                     </option>
                   {%- endfor -%}
                 </select>
