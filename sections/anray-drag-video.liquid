@@ -1,0 +1,316 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    {%- render 'section-variables', section: section -%};
+  }
+
+  .anray-inspired-title {
+    text-align: center;
+    font-size: 32px;
+    color: rgb(107, 91, 84);
+    margin-bottom: 30px;
+  }
+
+  .anray-inspired-grid {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    /* 火狐浏览器隐藏滚动条 */
+    scrollbar-width: none;
+    /* IE10+ 隐藏滚动条 */
+    -ms-overflow-style: none;
+    /* 旧版火狐浏览器隐藏滚动条 */
+    scrollbar-color: transparent transparent;
+    -ms-overflow-style: none;
+    padding-bottom: 10px;
+    width: 100%;
+    /* scroll-snap-type: x mandatory; */
+    /* scroll-behavior: smooth; */
+    padding: 20px 0;
+    cursor: grab;
+  }
+
+  .anray-inspired-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .anray-inspired-item {
+    flex: 0 0 calc((100% - 75px) / 6);
+    overflow: hidden;
+    border-radius: 15px;
+    scroll-snap-align: center;
+    transition: transform 0.5s ease;
+    transform-origin: center center;
+  }
+
+  .anray-inspired-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* 添加动画效果 */
+  .anray-inspired-item.anray-animate {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+
+  /* 拖拽时的样式 */
+  .anray-inspired-grid.grabbing {
+    cursor: grabbing;
+  }
+</style>
+
+<div
+  class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}"
+  {% if section.settings.transparent_header %}
+    allow-transparent-header
+  {% endif %}
+>
+  <div class="page-width{% if section.settings.narrow %} page-width--narrow{% endif %} relative">
+    <!-- 内容区域 -->
+    <h2 class="anray-inspired-title">Get inspired</h2>
+    <div class="anray-inspired-grid">
+      <div class="anray-inspired-item">
+        <img
+          width="100%"
+          height="100%"
+          src="https://cdn.prod.website-files.com/669a8d6498ba88c08dfd2cd2%2F673db8e8928a767c7d03f23e_1_Devante_1-poster-00001.jpg"
+          alt="Cooking inspiration 1"
+        >
+      </div>
+      <div class="anray-inspired-item">
+        <img
+          width="100%"
+          height="100%"
+          src="https://cdn.prod.website-files.com/669a8d6498ba88c08dfd2cd2%2F673db8e8928a767c7d03f23e_1_Devante_1-poster-00001.jpg"
+          alt="Cooking inspiration 2"
+        >
+      </div>
+      <div class="anray-inspired-item">
+        <img
+          width="100%"
+          height="100%"
+          src="https://cdn.prod.website-files.com/669a8d6498ba88c08dfd2cd2%2F673db8e8928a767c7d03f23e_1_Devante_1-poster-00001.jpg"
+          alt="Cooking inspiration 3"
+        >
+      </div>
+      <div class="anray-inspired-item">
+        <img
+          width="100%"
+          height="100%"
+          src="https://cdn.prod.website-files.com/669a8d6498ba88c08dfd2cd2%2F673db8e8928a767c7d03f23e_1_Devante_1-poster-00001.jpg"
+          alt="Cooking inspiration 4"
+        >
+      </div>
+      <div class="anray-inspired-item">
+        <img
+          width="100%"
+          height="100%"
+          src="https://cdn.prod.website-files.com/669a8d6498ba88c08dfd2cd2%2F673db8e8928a767c7d03f23e_1_Devante_1-poster-00001.jpg"
+          alt="Cooking inspiration 5"
+        >
+      </div>
+      <div class="anray-inspired-item">
+        <img
+          width="100%"
+          height="100%"
+          src="https://cdn.prod.website-files.com/669a8d6498ba88c08dfd2cd2%2F673db8e8928a767c7d03f23e_1_Devante_1-poster-00001.jpg"
+          alt="Cooking inspiration 6"
+        >
+      </div>
+      <div class="anray-inspired-item">
+        <img
+          width="100%"
+          height="100%"
+          src="https://cdn.prod.website-files.com/669a8d6498ba88c08dfd2cd2%2F673db8e8928a767c7d03f23e_1_Devante_1-poster-00001.jpg"
+          alt="Cooking inspiration 5"
+        >
+      </div>
+      <div class="anray-inspired-item">
+        <img
+          width="100%"
+          height="100%"
+          src="https://cdn.prod.website-files.com/669a8d6498ba88c08dfd2cd2%2F673db8e8928a767c7d03f23e_1_Devante_1-poster-00001.jpg"
+          alt="Cooking inspiration 6"
+        >
+      </div>
+      <div class="anray-inspired-item">
+        <img
+          width="100%"
+          height="100%"
+          src="https://cdn.prod.website-files.com/669a8d6498ba88c08dfd2cd2%2F673db8e8928a767c7d03f23e_1_Devante_1-poster-00001.jpg"
+          alt="Cooking inspiration 5"
+        >
+      </div>
+      <div class="anray-inspired-item">
+        <img
+          width="100%"
+          height="100%"
+          src="https://cdn.prod.website-files.com/669a8d6498ba88c08dfd2cd2%2F673db8e8928a767c7d03f23e_1_Devante_1-poster-00001.jpg"
+          alt="Cooking inspiration 6"
+        >
+      </div>
+    </div>
+    <!-- 内容区域 -->
+  </div>
+</div>
+
+<!-- 引入自定义拖拽脚本 -->
+<script src="{{ 'anray-custom-Drag.js' | asset_url }}" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // 初始化拖拽滚动
+    const dragScroll = new DragScroll('.anray-inspired-grid', {
+      scrollMultiplier: 1.2, // 滚动灵敏度
+      momentumMultiplier: 20, // 惯性系数
+      frictionFactor: 0.92, // 摩擦系数，越小减速越快
+    });
+
+    // 存储实例以便需要时访问
+    window.dragScroll = dragScroll;
+
+    // 动画效果代码
+    const container = document.querySelector('.anray-inspired-grid');
+    const items = document.querySelectorAll('.anray-inspired-item');
+
+    // 初始化：除了可见区域内的项目，其他都添加动画类
+    function initializeItems() {
+      const containerRect = container.getBoundingClientRect();
+      items.forEach((item) => {
+        const itemRect = item.getBoundingClientRect();
+        // 检查项目是否在可见区域内
+        const isVisible =
+          itemRect.left >= containerRect.left - itemRect.width / 2 &&
+          itemRect.right <= containerRect.right + itemRect.width / 2;
+
+        if (!isVisible) {
+          item.classList.add('anray-animate');
+        } else {
+          item.classList.remove('anray-animate');
+        }
+      });
+    }
+
+    // 滚动时更新动画
+    container.addEventListener('scroll', function () {
+      const containerRect = container.getBoundingClientRect();
+      items.forEach((item) => {
+        const itemRect = item.getBoundingClientRect();
+        // 检查项目是否在可见区域内
+        const isVisible =
+          itemRect.left >= containerRect.left - itemRect.width / 2 &&
+          itemRect.right <= containerRect.right + itemRect.width / 2;
+
+        if (!isVisible) {
+          item.classList.add('anray-animate');
+        } else {
+          item.classList.remove('anray-animate');
+        }
+      });
+    });
+
+    // 初始化
+    initializeItems();
+  });
+</script>
+{% schema %}
+{
+  "name": "Anray_Test",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "transparent_header",
+      "label": "t:sections.global.settings.transparent_header.label",
+      "info": "t:sections.global.settings.transparent_header.info",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__colors.content",
+      "info": "t:sections.global.settings.header__colors.info"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "t:sections.global.settings.color_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "t:sections.global.settings.color_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "gradient_background",
+      "label": "t:sections.global.settings.gradient_background.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_text",
+      "label": "t:sections.global.settings.color_button_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_background",
+      "label": "t:sections.global.settings.color_button_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "color_button_gradient",
+      "label": "t:sections.global.settings.color_button_gradient.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__section.content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_top.label",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_bottom.label",
+      "default": 72
+    },
+    {
+      "type": "checkbox",
+      "id": "divider",
+      "label": "t:sections.global.settings.divider.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "narrow",
+      "label": "t:sections.global.settings.narrow.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "rounded",
+      "default": false,
+      "label": "t:sections.global.settings.rounded.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anray_Test"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}
