@@ -85,7 +85,7 @@
       ],
       "name": "Anray Footer",
       "settings": {
-        "color_background": "#f8f7f5",
+        "color_background": "#f0eee7",
         "full_width": true,
         "color_text": "#4a4635",
         "padding_top": 60,
