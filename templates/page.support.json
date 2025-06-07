@@ -23,9 +23,29 @@
         "narrow": true,
         "rounded": false
       }
+    },
+    "video_4PLm69": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "transparent_header": true,
+        "video_url": "",
+        "cover_image": "shopify://shop_images/DSC_3939_956ad40c-999a-4626-9a66-f293e5ae46b3.webp",
+        "description": "",
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "image_height": "adapt",
+        "image_height_mobile": "600px",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false
+      }
     }
   },
   "order": [
-    "main-page"
+    "main-page",
+    "video_4PLm69"
   ]
 }
