@@ -47,6 +47,7 @@
     },
     "video_mRcxqQ": {
       "type": "video",
+      "disabled": true,
       "name": "t:sections.video.presets.name",
       "settings": {
         "transparent_header": true,
@@ -66,12 +67,11 @@
     },
     "image_with_text_overlay_R484R4": {
       "type": "image-with-text-overlay",
-      "disabled": true,
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
         "transparent_header": true,
         "image": "shopify://shop_images/17492787582220.png",
-        "image_height": "100vh",
+        "image_height": "750px",
         "content_width": "small",
         "content_position": "md:items-end md:justify-start",
         "text_alignment": "left",
