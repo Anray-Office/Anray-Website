@@ -643,6 +643,9 @@
       "block_order": [
         "text_xRdqRn"
       ],
+      "custom_css": [
+        ".section--plain:before {color: #F8F7F5;}"
+      ],
       "name": "t:sections.scrolling-text.presets.name",
       "settings": {
         "direction": "right",
