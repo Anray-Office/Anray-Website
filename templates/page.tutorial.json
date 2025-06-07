@@ -29,8 +29,8 @@
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
         "transparent_header": true,
-        "image": "shopify://shop_images/ourStory_footer.png",
-        "image_height": "650px",
+        "image": "shopify://shop_images/DSC_3939_956ad40c-999a-4626-9a66-f293e5ae46b3.webp",
+        "image_height": "500px",
         "content_width": "small",
         "content_position": "md:items-end md:justify-start",
         "text_alignment": "left",
