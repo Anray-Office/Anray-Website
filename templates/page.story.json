@@ -644,7 +644,7 @@
         "text_xRdqRn"
       ],
       "custom_css": [
-        ".section--plain:before {background-color:#f8f7f5;}"
+        ".section--plain:before {background-color: #f8f7f5;}"
       ],
       "name": "t:sections.scrolling-text.presets.name",
       "settings": {
@@ -655,9 +655,9 @@
         "enable_parallax": true,
         "color_text": "#171717",
         "color_background": "#f8f7f5",
-        "gradient_background": "linear-gradient(135deg,#ece9e6,#ffffff)",
+        "gradient_background": "",
         "color_highlight": "#826c55",
-        "gradient_highlight": "linear-gradient(89deg,#dae2f8,#d6a4a4)",
+        "gradient_highlight": "",
         "padding_top": 40,
         "padding_bottom": 40,
         "divider": false,
