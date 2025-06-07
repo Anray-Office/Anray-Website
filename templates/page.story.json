@@ -55,10 +55,29 @@
         "full_width": true,
         "rounded": true
       }
+    },
+    "custom_liquid_wQbdfA": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "liquid": "",
+        "color_text": "",
+        "color_background": "#f8f7f5",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
     }
   },
   "order": [
     "main",
-    "video-with-text-overlay"
+    "video-with-text-overlay",
+    "custom_liquid_wQbdfA"
   ]
 }
