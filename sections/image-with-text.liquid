@@ -6,6 +6,8 @@
     {%- if section.settings.image != blank and section.settings.image_height == 'adapt' %}
       --ratio-percent: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;
     {% endif -%}
+
+    position: relative;
   }
 
   {%- assign image_mobile = section.settings.image_mobile | default: section.settings.image -%}
@@ -17,25 +19,25 @@
     }
   {% endif -%}
 
-  {% if template == 'index' %}
-    .image-with-text.with-background::before {
+  #shopify-section-{{ section.id }} .section::after {
     content: "";
     pointer-events: none;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
-    left: -117rem;
-    width: 200vw;
-    height: 127vh;
-    border-radius: 50%;
-    background: var(--gradient-background);
-    background-color: #f9dec2;
-    }
-  {% endif %}
+    left: 0;
+    width: 105%;
+    height: 150%;
+    {% comment %} background-image: url('https://cdn.shopify.com/s/files/1/0683/9065/0074/files/Ellipse_12.png?v=1749261065'); {% endcomment %}
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
 </style>
 
-<div class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}">
+<div class="section anray-iamge-background section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}">
   <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %} relative">
     {%- liquid
       assign with_background = false
@@ -47,10 +49,16 @@
       endif
     -%}
     <div class="image-with-text{% if with_background %} with-background{% endif %} lg:flex lg:gap-8{% if section.settings.layout == 'image_first' %} lg:flex-row{% else %} lg:flex-row-reverse{% endif %} overflow-hidden">
-      <div class="image-with-text__item grow shrink-0{% if section.settings.image_width == 'small' %} lg:grow-0{% endif %} relative">
+      <div
+        class="image-with-text__item grow shrink-0{% if section.settings.image_width == 'small' %} lg:grow-0{% endif %} relative"
+        style="z-index: 1;"
+      >
         <div class="image-with-text__media h-full">
-          <media-element class="image-with-text__image block media--{{ section.settings.image_height }} mobile:media--{{ section.settings.image_height_mobile }} relative overflow-hidden"
-            {%- if section.settings.enable_parallax %} data-parallax="0.3" data-parallax-dir="{{ section.settings.parallax_direction }}"{% endif -%}
+          <media-element
+            class="image-with-text__image block media--{{ section.settings.image_height }} mobile:media--{{ section.settings.image_height_mobile }} relative overflow-hidden"
+            {%- if section.settings.enable_parallax %}
+              data-parallax="0.3" data-parallax-dir="{{ section.settings.parallax_direction }}"
+            {% endif -%}
           >
             <picture class="media media--height block w-full h-full relative overflow-hidden">
               {%- if section.settings.image != blank -%}
@@ -63,8 +71,16 @@
                     height="{{ section.settings.image_mobile.height }}"
                   >
                 {%- endif -%}
-  
-                {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: loading: 'lazy', sizes: sizes, widths: '300,400,500,600,700,800,900,1000,1200,1400,1600', is: 'lazy-image' -}}
+
+                {{-
+                  section.settings.image
+                  | image_url: width: section.settings.image.width
+                  | image_tag:
+                    loading: 'lazy',
+                    sizes: sizes,
+                    widths: '300,400,500,600,700,800,900,1000,1200,1400,1600',
+                    is: 'lazy-image'
+                -}}
               {%- else -%}
                 {{- 'lifestyle-1' | placeholder_svg_tag: 'placeholder' -}}
               {%- endif -%}
@@ -87,33 +103,65 @@
             {%- case block.type -%}
               {%- when '@app' -%}
                 {%- render block -%}
-    
+
               {%- when 'spacing' -%}
-                <empty-element class="block spacing-section{% if block.settings.height_mobile == 0 %} hidden lg:block{% endif %}{% if block.settings.height == 0 %} lg:hidden{% endif %}" style="--spacing-height-desktop: {{ block.settings.height }}px; --spacing-height-mobile: {{ block.settings.height_mobile }}px;" {{ block.shopify_attributes }}></empty-element>
+                <empty-element
+                  class="block spacing-section{% if block.settings.height_mobile == 0 %} hidden lg:block{% endif %}{% if block.settings.height == 0 %} lg:hidden{% endif %}"
+                  style="--spacing-height-desktop: {{ block.settings.height }}px; --spacing-height-mobile: {{ block.settings.height_mobile }}px;"
+                  {{ block.shopify_attributes }}
+                ></empty-element>
 
               {%- when 'subheading' -%}
                 {%- if block.settings.subheading != blank -%}
-                  <p class="banner__subheading heading uppercase leading-none tracking-widest {{ block.settings.subheading_size }}{% if block.settings.secondary_color %} banner__text--colored{% endif %}" {{ block.shopify_attributes }}>
+                  <p
+                    class="banner__subheading heading uppercase leading-none tracking-widest {{ block.settings.subheading_size }}{% if block.settings.secondary_color %} banner__text--colored{% endif %}"
+                    {{ block.shopify_attributes }}
+                  >
                     {{- block.settings.subheading -}}
                   </p>
                 {%- endif -%}
-                
+
               {%- when 'heading' -%}
                 {%- if block.settings.heading != blank -%}
                   {%- assign delay = delay | plus: 1 -%}
-                  <{{ block.settings.heading_tag }} class="heading leading-none {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+                  <{{ block.settings.heading_tag }}
+                    class="heading leading-none {{ block.settings.heading_size }}"
+                    {{ block.shopify_attributes }}
+                  >
                     {%- if block.settings.highlighted_text == 'none' -%}
-                      <split-words class="split-words block" data-animate="fade-up-large" data-animate-delay="{{ delay | times: 250 }}">{{ block.settings.heading }}</split-words>
+                      <split-words
+                        class="split-words block"
+                        data-animate="fade-up-large"
+                        data-animate-delay="{{ delay | times: 250 }}"
+                      >
+                        {{- block.settings.heading -}}
+                      </split-words>
                     {%- else -%}
-                      {%- render 'highlighted-text', content: block.settings.heading, style: block.settings.highlighted_text, scribble: block.settings.highlighted_scribble, gradient: with_gradient -%}
+                      {%- render 'highlighted-text',
+                        content: block.settings.heading,
+                        style: block.settings.highlighted_text,
+                        scribble: block.settings.highlighted_scribble,
+                        gradient: with_gradient
+                      -%}
                     {%- endif -%}
                   </{{ block.settings.heading_tag }}>
                 {%- endif -%}
-    
+
               {%- when 'text' -%}
                 {%- if block.settings.text != blank -%}
-                  <div class="rte leading-normal {{ block.settings.text_font }} {{ block.settings.text_size }}{% if block.settings.secondary_color %} text-opacity{% endif %}"{% if block.settings.text_size == 'subtext-custom' %} style="--subtext-size:{{ block.settings.text_max_size }}px;"{% endif %} {{ block.shopify_attributes }}>
-                    {%- render 'highlighted-text', content: block.settings.text, style: block.settings.highlighted_text, scribble: block.settings.highlighted_scribble, gradient: with_gradient -%}
+                  <div
+                    class="rte leading-normal {{ block.settings.text_font }} {{ block.settings.text_size }}{% if block.settings.secondary_color %} text-opacity{% endif %}"
+                    {% if block.settings.text_size == 'subtext-custom' %}
+                      style="--subtext-size:{{ block.settings.text_max_size }}px;"
+                    {% endif %}
+                    {{ block.shopify_attributes }}
+                  >
+                    {%- render 'highlighted-text',
+                      content: block.settings.text,
+                      style: block.settings.highlighted_text,
+                      scribble: block.settings.highlighted_scribble,
+                      gradient: with_gradient
+                    -%}
                   </div>
                 {%- endif -%}
 
@@ -123,7 +171,11 @@
                     <figure class="media media--transparent relative inline-block">
                       {%- capture sizes -%}{{ block.settings.icon_width }}px{%- endcapture -%}
                       {%- capture widths -%}{{ block.settings.icon_width }}, {{ block.settings.icon_width | times: 2 | at_most: block.settings.icon_image.width }}{%- endcapture -%}
-                      {{- block.settings.icon_image | image_url: width: block.settings.icon_image.width | image_tag: loading: 'lazy', sizes: sizes, widths: widths, class: 'image-fit' -}}
+                      {{-
+                        block.settings.icon_image
+                        | image_url: width: block.settings.icon_image.width
+                        | image_tag: loading: 'lazy', sizes: sizes, widths: widths, class: 'image-fit'
+                      -}}
                     </figure>
                   </div>
                 {%- elsif block.settings.icon != 'none' -%}
@@ -144,11 +196,21 @@
                         {%- assign sizes = 'min(100vw, var(--page-width))' -%}
                         {%- assign widths = '50,75,100,150,200,300,400,500,750,1000,1250,1500,1750,2000,2250,2500,2750,3000,3200' -%}
                       {%- endif -%}
-                      {{- block.settings.image | image_url: width: block.settings.image.width | image_tag: loading: 'lazy', sizes: sizes, widths: widths, style: style, is: 'lazy-image', class: 'image-fit' -}}
+                      {{-
+                        block.settings.image
+                        | image_url: width: block.settings.image.width
+                        | image_tag:
+                          loading: 'lazy',
+                          sizes: sizes,
+                          widths: widths,
+                          style: style,
+                          is: 'lazy-image',
+                          class: 'image-fit'
+                      -}}
                     </figure>
                   </div>
                 {%- endif -%}
-    
+
               {%- when 'button' -%}
                 {%- if block.settings.button_label != blank -%}
                   {%- render 'button',
@@ -164,7 +226,16 @@
 
               {%- when 'link' -%}
                 {%- if block.settings.label != blank -%}
-                  <a class="link inline-block"{% if block.settings.link != blank %} href="{{ block.settings.link }}"{% if block.settings.external %} target="_blank" rel="noopener"{% endif %}{% else %} role="link" aria-disabled="true"{% endif %} {{ block.shopify_attributes }}>
+                  <a
+                    class="link inline-block"
+                    {% if block.settings.link != blank %}
+                      href="{{ block.settings.link }}"
+                      {%- if block.settings.external %} target="_blank" rel="noopener"{% endif -%}
+                    {% else %}
+                      role="link" aria-disabled="true"
+                    {% endif %}
+                    {{ block.shopify_attributes }}
+                  >
                     {{- block.settings.label -}}
                   </a>
                 {%- endif -%}
@@ -1283,11 +1354,7 @@
     }
   ],
   "disabled_on": {
-    "groups": [
-      "footer",
-      "header",
-      "custom.overlay"
-    ]
+    "groups": ["footer", "header", "custom.overlay"]
   }
 }
 {% endschema %}
