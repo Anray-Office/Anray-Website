@@ -50,7 +50,8 @@
       "name": "t:sections.video.presets.name",
       "settings": {
         "transparent_header": false,
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "video_url": "",
+        "cover_image": "shopify://shop_images/17492787582220.png",
         "description": "",
         "enable_video_autoplay": false,
         "enable_video_looping": false,
