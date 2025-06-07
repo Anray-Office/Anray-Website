@@ -638,17 +638,28 @@
             "highlighted_text": "stencil",
             "highlighted_scribble": "squiggle-underline-2"
           }
+        },
+        "text_CAMzjz": {
+          "type": "text",
+          "settings": {
+            "text": "Welcome To ANRAY",
+            "text_size": 160,
+            "text_font": "heading",
+            "highlighted_text": "stencil",
+            "highlighted_scribble": "circle"
+          }
         }
       },
       "block_order": [
-        "text_xRdqRn"
+        "text_xRdqRn",
+        "text_CAMzjz"
       ],
       "custom_css": [
         ".section--plain:before {background-color: #f8f7f5;}"
       ],
       "name": "t:sections.scrolling-text.presets.name",
       "settings": {
-        "direction": "right",
+        "direction": "left",
         "speed": 20,
         "grid_horizontal": 70,
         "enable_twin": true,
