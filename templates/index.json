@@ -181,6 +181,80 @@
         "enable_parallax": true,
         "parallax_direction": "vertical"
       }
+    },
+    "images_with_text_overlay_AKBA6e": {
+      "type": "images-with-text-overlay",
+      "blocks": {
+        "heading_Gkh6MG": {
+          "type": "heading",
+          "settings": {
+            "heading": "Recipes",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_ccQdeT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_7TcREP": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "shopify://pages/recipes",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_Gkh6MG",
+        "text_ccQdeT",
+        "button_7TcREP"
+      ],
+      "custom_css": [
+        ".scrolled-images__row {opacity: 1;}"
+      ],
+      "name": "t:sections.images-with-text-overlay.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "image_height": "650px",
+        "content_width": "small",
+        "content_position": "md:items-end md:justify-start",
+        "text_alignment": "left",
+        "image_1": "shopify://shop_images/2_15b56563-7039-40f0-abe2-ef921aeade24.png",
+        "image_2": "shopify://shop_images/376cfc6a2f642364c0b20d730ee5a308.png",
+        "image_3": "shopify://shop_images/c1bf82cdf804d6e1fcde71c7748f8ccd.png",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#171717",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#ffffff",
+        "color_button_background": "#171717",
+        "color_button_gradient": "",
+        "color_overlay": "#f8f7f5",
+        "overlay_opacity": 100,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true
+      }
     }
   },
   "order": [
@@ -188,6 +262,7 @@
     "image_with_text_overlay_R484R4",
     "custom_liquid_hCLTdj",
     "custom_liquid_77kc3g",
-    "image_with_text_8GWDxE"
+    "image_with_text_8GWDxE",
+    "images_with_text_overlay_AKBA6e"
   ]
 }
