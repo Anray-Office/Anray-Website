@@ -49,9 +49,9 @@
       "type": "video",
       "name": "t:sections.video.presets.name",
       "settings": {
-        "transparent_header": true,
+        "transparent_header": false,
         "video_url": "",
-        "cover_image": "shopify://shop_images/17492787582220.png",
+        "cover_image": "shopify://shop_images/f9f9ff23c4d560c3a8374f1b2d0f197.png",
         "description": "",
         "enable_video_autoplay": false,
         "enable_video_looping": false,
