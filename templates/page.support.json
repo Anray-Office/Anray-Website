@@ -176,7 +176,7 @@
         "heading_size": "title-md",
         "heading_alignment": "text-center md:items-center",
         "heading_tag": "h2",
-        "subheading": "",
+        "subheading": "Find our most common questions below",
         "description": "",
         "button_label": "",
         "button_link": "",
@@ -197,7 +197,7 @@
         "padding_top": 72,
         "padding_bottom": 72,
         "divider": false,
-        "narrow": true,
+        "narrow": false,
         "rounded": false
       }
     }
