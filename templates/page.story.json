@@ -146,11 +146,73 @@
         "rounded": false
       }
     },
+    "rich_text_66MKRE": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cyVb3e": {
+          "type": "heading",
+          "settings": {
+            "heading": "Rich text",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_FyQ8dU": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cyVb3e",
+        "text_FyQ8dU"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "#f8f7f5",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 0,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
     "custom_liquid_XfdaKQ": {
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "liquid": "",
+        "liquid": "<style>\n        html {\n            margin: 0;\n            /* 重置浏览器默认边距 */\n            padding: 0;\n            /* 重置浏览器默认内边距 */\n            box-sizing: border-box;\n            /* 现代盒模型，便于尺寸设置 */\n            font-size: 90%;\n            /* 基础字体大小调整 */\n            /* scroll-snap-type: y mandatory; */\n            /* Commenting out for now, can be added back if needed */\n            /* 启用垂直方向的滚动捕捉 */\n            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;\n            /* Adding a common sans-serif font */\n            background-color: #fdfbf6;\n            /* Light beige background for the whole page */\n        }\n\n        .our-story-describe {\n            max-width: 1600px;\n            /* 1200px ÷ 14.4px = 83.333rem */\n            /* Limiting max width */\n            height: 100vh;\n            /* Full viewport height */\n            margin: 0 auto;\n            /* Centering the container */\n            /* background-color: palegoldenrod; */\n            /* Will be set on describe-container */\n            display: flex;\n            /* Added to center content if needed, though describe-container handles layout */\n            align-items: center;\n            /* Vertically center content */\n            justify-content: center;\n            /* Horizontally center content */\n        }\n\n        .describe-container {\n            width: 100%;\n            height: 100%;\n            /* min-height: 700px;  */\n            /* Changed from 100% to auto to fit content, or use a fixed height like 600px */\n            max-height: 700px;\n            /* 700px ÷ 14.4px = 48.611rem */\n            /* Max height for the content area */\n            background-color: #f5f1e9;\n            /* Light beige background from image */\n            display: flex;\n            /* justify-content: center; */\n            /* Handled by our-story-describe */\n            /* align-items: center; */\n            /* Handled by our-story-describe */\n            border-radius: 1.042rem;\n            /* 15px ÷ 14.4px = 1.042rem */\n            /* Rounded corners for the main content block */\n            overflow: hidden;\n            /* To ensure child rounded corners are visible */\n            gap: 1.042rem;\n            /* 15px ÷ 14.4px = 1.042rem */\n            /* Gap between left and right sections */\n            padding: 1.042rem;\n            /* 15px ÷ 14.4px = 1.042rem */\n            /* Padding inside the container */\n        }\n\n        .des-left {\n            /* width: 100%; */\n            /* Not needed with flex */\n            height: 100%;\n            position: relative;\n            /* For absolute positioning of title */\n            flex: 1.5;\n            /* Adjusted flex ratio, was 1 */\n            display: flex;\n            /* To make img fill the container */\n            border-radius: 0.694rem;\n            /* 10px ÷ 14.4px = 0.694rem */\n            /* Rounded corners */\n            overflow: hidden;\n            /* To make child img rounded corners visible */\n        }\n\n        .des-left img {\n            /* Style for the image itself */\n            width: 100%;\n            height: 100%;\n            object-fit: cover;\n            /* Cover the area, cropping if necessary */\n            border-radius: 0.694rem;\n            /* 10px ÷ 14.4px = 0.694rem */\n            /* Rounded corners for the image */\n        }\n\n        .des-left-title {\n            position: absolute;\n            top: 1.389rem;\n            /* 20px ÷ 14.4px = 1.389rem */\n            /* Adjust spacing from top */\n            left: 1.389rem;\n            /* 20px ÷ 14.4px = 1.389rem */\n            /* Adjust spacing from left */\n            /* width: 100%; */\n            /* Not needed, let it fit content */\n            height: fit-content;\n            /* background-color: palegoldenrod; */\n            /* Remove background, text is directly on image */\n            color: white;\n            /* Text color */\n            z-index: 1;\n            /* Ensure title is above the image */\n        }\n\n        .des-left-title span {\n            /* Style for \"For the Sake of Celebration\" */\n            font-size: 0.9em;\n            font-weight: normal;\n            display: block;\n            /* Make it a block to control margin */\n            margin-bottom: 0.347rem;\n            /* 5px ÷ 14.4px = 0.347rem */\n        }\n\n        .des-left-title h2 {\n            /* Style for \"Traditionware\" */\n            font-size: 2em;\n            /* Larger font size */\n            font-weight: bold;\n            margin: 0;\n            /* Remove default h2 margin */\n            line-height: 1.1;\n            color: white;\n            letter-spacingf: .15rem;\n        }\n\n\n        .des-right {\n            /* width: 100%; */\n            /* Not needed with flex */\n            height: 100%;\n            /* background-color: palegreen; */\n            /* Will be transparent or match parent */\n            flex: 2;\n            display: flex;\n            /* Added to manage children */\n            flex-direction: column;\n            /* Stack children vertically */\n            gap: 1.042rem;\n            /* 15px ÷ 14.4px = 1.042rem */\n            /* Gap between top and bottom rows */\n        }\n\n        .des-rtop {\n            flex: 1;\n            /* Takes up available space */\n            display: flex;\n            gap: 1.042rem;\n            /* 15px ÷ 14.4px = 1.042rem */\n            /* Gap between items in the top row */\n        }\n\n        .rtop-item {\n            flex: 1;\n            background-color: #b79853;\n            border-radius: 0.694rem;\n            /* 10px ÷ 14.4px = 0.694rem */\n            display: flex;\n            flex-direction: column;\n            justify-content: center;\n            align-items: center;\n            padding: 0.694rem;\n            /* 10px ÷ 14.4px = 0.694rem */\n            text-align: center;\n            color: #333;\n        }\n\n        .rtop-item.image-item {\n            /* Specific style for image item */\n            padding: 0;\n            /* No padding for image item, image fills it */\n            background-color: transparent;\n            /* No background for the image container itself */\n        }\n\n        .rtop-item img {\n            width: 100%;\n            height: 100%;\n            object-fit: cover;\n            border-radius: 0.694rem;\n            /* 10px ÷ 14.4px = 0.694rem */\n        }\n\n        .rtop-item .big-text {\n            font-size: 2.5em;\n            /* Large text like 80K+ */\n            font-weight: bold;\n            margin: 0;\n            line-height: 1;\n        }\n\n        .rtop-item .small-text {\n            font-size: 0.9em;\n            margin-top: 0.347rem;\n            /* 5px ÷ 14.4px = 0.347rem */\n        }\n\n        .des-rbottom {\n            flex: 2;\n            /* Takes more space, as it's taller */\n            background-color: rgb(255, 255, 255);\n            /* Placeholder */\n            border-radius: 0.694rem;\n            /* 10px ÷ 14.4px = 0.694rem */\n            overflow: hidden;\n            /* To ensure video/image respects border radius */\n            position: relative;\n            /* For pause button */\n        }\n\n        .des-rbottom img,\n        .des-rbottom video {\n            /* Style for image/video in bottom section */\n            width: 100%;\n            height: 100%;\n            object-fit: cover;\n        }\n\n        /* 删除未使用的pause-button和play-button相关样式 */\n\n        /* Anray播放/暂停按钮样式 */\n        .Anray-play-buttons {\n            position: absolute;\n            top: 0.9375rem;\n            right: 0.9375rem;\n            width: var(--sp-10);\n            height: var(--sp-10);\n            background-color: rgba(255, 255, 255, 0.9);\n            border: none;\n            border-radius: 50%;\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            cursor: pointer;\n            padding: 0;\n            box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.15);\n            z-index: 10;\n            transition: all 0.3s ease;\n        }\n\n        @media screen and (min-width: 1024px) {\n            .Anray-play-buttons {\n                width: var(--sp-12);\n                height: var(--sp-12);\n            }\n        }\n\n        .Anray-play-buttons:hover {\n            background-color: rgba(255, 255, 255, 1);\n            transform: scale(1.05);\n        }\n\n        .Anray-play-button,\n        .Anray-pause-button {\n            width: 1.5rem;\n            height: 1.5rem;\n            color: #333;\n        }\n\n        .Anray-pause-button {\n            display: none;\n        }\n\n        .Anray-play-buttons.playing .Anray-play-button {\n            display: none;\n        }\n\n        .Anray-play-buttons.playing .Anray-pause-button {\n            display: block;\n        }\n    </style>\n    <div class=\"our-story-describe\">\n        <div class=\"describe-container\">\n            <div class=\"des-left\">\n                <div class=\"des-left-title\">\n                    <span>For the Sake of Celebration</span>\n                    <h2>Traditionware</h2>\n                </div>\n                <img src=\"https://cdn.shopify.com/s/files/1/0683/9065/0074/files/get_in_touch.jpg?v=1747364277\"\n                    alt=\"Traditionware\">\n            </div>\n            <div class=\"des-right\">\n                <div class=\"des-rtop\">\n                    <div class=\"rtop-item rtop-item1\">\n                        <p class=\"big-text\">80K+</p>\n                        <p class=\"small-text\">5 Star Reviews</p>\n                    </div>\n                    <div class=\"rtop-item rtop-item2 image-item\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0683/9065/0074/files/blog.webp?v=1747379958\"\n                            alt=\"Hot Pot\">\n                    </div>\n                    <div class=\"rtop-item rtop-item3\">\n                        <p class=\"big-text\">40+</p>\n                        <p class=\"small-text\">Patented Designs</p>\n                    </div>\n                </div>\n                <div class=\"des-rbottom\">\n                    <video id=\"myVideo\" playsinline=\"true\" autoplay=\"autoplay\" preload=\"none\"\n                        poster=\"https://fromourplace.com/cdn/shop/files/our-place-2up-category-PerfectPot-AlwaysPan-WonderOven-BlueSalt.jpg?crop=center&height=991&v=1743623349&width=1167\">\n                        <source src=\"https://cdn.shopify.com/videos/c/o/v/2999bcac17ee4c038081ddc29d0800ba.mp4\"\n                            type=\"video/mp4\">\n                        <img\n                            src=\"https://fromourplace.com/cdn/shop/files/our-place-2up-category-PerfectPot-AlwaysPan-WonderOven-BlueSalt.jpg?crop=center&height=991&v=1743623349&width=1167\">\n                    </video>\n                    <button class=\"Anray-play-buttons\">\n                        <svg class=\"Anray-play-button\" viewBox=\"0 0 36 36\" stroke=\"none\" fill=\"currentColor\"\n                            xmlns=\"http://www.w3.org/2000/svg\">\n                            <path\n                                d=\"M34 17.5006C34 18.3302 33.5707 19.0963 32.8683 19.5206L9.535 33.6629C9.164 33.8869 8.74867 34 8.33333 34C7.93667 34 7.54 33.8986 7.183 33.6936C6.45267 33.274 6 32.4915 6 31.6429V3.35817C6 2.50962 6.45267 1.72708 7.183 1.30752C7.91333 0.885606 8.814 0.899749 9.535 1.33816L32.8683 15.4805C33.5707 15.9048 34 16.6709 34 17.5006\">\n                            </path>\n                        </svg><svg class=\"Anray-pause-button\" viewBox=\"0 0 36 36\" stroke=\"currentColor\" fill=\"none\"\n                            xmlns=\"http://www.w3.org/2000/svg\">\n                            <path stroke-linecap=\"round\" stroke-width=\"6\" d=\"M9 4V32\"></path>\n                            <path stroke-linecap=\"round\" stroke-width=\"6\" d=\"M27 4V32\"></path>\n                        </svg></button>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <script>\n        const video = document.getElementById('myVideo');\n        const anrayPlayBtn = document.querySelector('.Anray-play-buttons');\n\n        // 视频控制 - 播放/暂停功能\n        anrayPlayBtn.addEventListener('click', () => {\n            if (video.paused || video.ended) {\n                video.play();\n                anrayPlayBtn.classList.add('playing');\n            } else {\n                video.pause();\n                anrayPlayBtn.classList.remove('playing');\n            }\n        });\n\n        video.addEventListener('play', () => {\n            anrayPlayBtn.classList.add('playing');\n        });\n\n        video.addEventListener('pause', () => {\n            anrayPlayBtn.classList.remove('playing');\n        });\n\n        // 设置按钮初始状态\n        if (video.paused || video.ended) {\n            anrayPlayBtn.classList.remove('playing');\n        } else {\n            anrayPlayBtn.classList.add('playing');\n        }\n    </script>",
         "color_text": "",
         "color_background": "#f8f7f5",
         "gradient_background": "",
@@ -206,6 +268,7 @@
     "video-with-text-overlay",
     "custom_liquid_wQbdfA",
     "faq_f6cpTC",
+    "rich_text_66MKRE",
     "custom_liquid_XfdaKQ",
     "custom_liquid_NRBjmJ",
     "custom_liquid_L36LjG"
