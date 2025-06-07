@@ -67,7 +67,9 @@
     },
     "image_with_text_overlay_R484R4": {
       "type": "image-with-text-overlay",
-      "custom_css": [],
+      "custom_css": [
+        ".media>img{object-fit: contain;}"
+      ],
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
         "transparent_header": true,
