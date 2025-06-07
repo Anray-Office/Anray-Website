@@ -5,7 +5,7 @@
     {%- render 'section-variables', section: section -%}
   }
 
-    .image-with-text::before {
+    .section .back-circle::before {
     content: "";
     pointer-events: none;
     position: absolute;
@@ -22,7 +22,7 @@
 </style>
 
 <div class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}">
-  <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %} relative">
+  <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %} relative back-circle">
     <div class="image-with-text flex gap-8 flex-col{% if section.settings.layout == 'image_first' %} lg:flex-row{% else %} lg:flex-row-reverse{% endif %}">
       <div class="image-with-text__item grow shrink-0{% if section.settings.image_width == 'small' %} lg:grow-0{% endif %} relative">
         <div class="image-with-text__media{% if section.settings.image_2 != blank %} with-2nd-image{% endif %}">
