@@ -30,7 +30,7 @@
       "settings": {
         "transparent_header": true,
         "image": "shopify://shop_images/DSC_3939_956ad40c-999a-4626-9a66-f293e5ae46b3.webp",
-        "image_height": "500px",
+        "image_height": "550px",
         "content_width": "small",
         "content_position": "md:items-center md:justify-center",
         "text_alignment": "left",
