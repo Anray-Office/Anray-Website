@@ -5,7 +5,6 @@
     {%- render 'section-variables', section: section -%}
   }
 
-  {% if template == 'index' %}
     .image-with-text.with-background::before {
     content: "";
     pointer-events: none;
@@ -20,7 +19,6 @@
     background: var(--gradient-background);
     background-color: #f9dec2;
     }
-  {% endif %}
 </style>
 
 <div class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}">
