@@ -4,6 +4,23 @@
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
     {%- render 'section-variables', section: section -%}
   }
+
+  {% if template == 'index' %}
+    .image-with-text.with-background::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -117rem;
+    width: 200vw;
+    height: 127vh;
+    border-radius: 50%;
+    background: var(--gradient-background);
+    background-color: #f9dec2;
+    }
+  {% endif %}
 </style>
 
 <div class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}">
