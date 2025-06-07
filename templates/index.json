@@ -47,12 +47,11 @@
     },
     "video_mRcxqQ": {
       "type": "video",
-      "disabled": true,
       "name": "t:sections.video.presets.name",
       "settings": {
         "transparent_header": true,
         "video_url": "",
-        "cover_image": "shopify://shop_images/f9f9ff23c4d560c3a8374f1b2d0f197.png",
+        "cover_image": "shopify://shop_images/17492787582220.png",
         "description": "",
         "enable_video_autoplay": false,
         "enable_video_looping": false,
@@ -68,6 +67,7 @@
     },
     "image_with_text_overlay_R484R4": {
       "type": "image-with-text-overlay",
+      "disabled": true,
       "custom_css": [
         ".media > img {object-fit: contain;}"
       ],
