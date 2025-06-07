@@ -110,12 +110,83 @@
         "narrow": false,
         "rounded": false
       }
+    },
+    "image_with_text_8GWDxE": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_eqaQ6L": {
+          "type": "heading",
+          "settings": {
+            "heading": "Learn with Us",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_kzezPn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Let users understand Anray's brand story, mission, and philosophy, and build brand trust. We should also emphasize the brand's core values ​​such as professionalism, innovation, and environmental protection, so that users can resonate with the brand and enhance their purchasing confidence.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_w3QqJ9": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/our-story",
+            "button_style": "primary",
+            "button_size": "sm",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_eqaQ6L",
+        "text_kzezPn",
+        "button_w3QqJ9"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image_height": "650px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
     }
   },
   "order": [
     "blog-posts-collage",
     "image_with_text_overlay_R484R4",
     "custom_liquid_hCLTdj",
-    "custom_liquid_77kc3g"
+    "custom_liquid_77kc3g",
+    "image_with_text_8GWDxE"
   ]
 }
