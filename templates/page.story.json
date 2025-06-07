@@ -152,7 +152,7 @@
         "heading_cyVb3e": {
           "type": "heading",
           "settings": {
-            "heading": "Rich text",
+            "heading": "ANRAY STORY",
             "heading_size": "title-lg tracking-heading",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -162,7 +162,7 @@
         "text_FyQ8dU": {
           "type": "text",
           "settings": {
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "<p>We believe in the power of home cooking to connect people. That’s why we’re committed to creating products that make cooking and sharing meals easier and more joyful. Our products are designed to help us live together as families and celebrate the traditions of making (and breaking): giving, choosing, and discovering.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
