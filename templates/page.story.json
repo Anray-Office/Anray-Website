@@ -299,6 +299,123 @@
         "rounded": false
       }
     },
+    "scrolling_banner_fe4bJE": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "video_cLGfQq": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/焊接2.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "icon": "none",
+            "icon_width": 48,
+            "heading": "卖点1",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "subheading": "",
+            "description": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "image_TrKK34": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/e2d046f9ab7cae588c46ff312686908c99153c6f1a27c-n6Nltj_fw1200.png",
+            "icon": "none",
+            "icon_width": 48,
+            "heading": "卖点2",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "subheading": "",
+            "description": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "image_jF8cGA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/0303_36accb33-a35f-4d22-8290-a7c3e490a48e.png",
+            "icon": "none",
+            "icon_width": 48,
+            "heading": "卖点3",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "subheading": "",
+            "description": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "image_6xWx36": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/9f282faf2c68ba7d2ad889684123f9ebef932b9fcbe3d-ZMiKCH_fw1200.png",
+            "icon": "none",
+            "icon_width": 48,
+            "heading": "Heading 4",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "subheading": "",
+            "description": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "video_cLGfQq",
+        "image_TrKK34",
+        "image_jF8cGA",
+        "image_6xWx36"
+      ],
+      "name": "t:sections.scrolling-banner.presets.name",
+      "settings": {
+        "image_height": "650px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "items-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "#f8f7f5",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
     "collage_wBD6wW": {
       "type": "collage",
       "blocks": {
@@ -509,120 +626,38 @@
         "enable_parallax": true
       }
     },
-    "scrolling_banner_fe4bJE": {
-      "type": "scrolling-banner",
+    "scrolling_text_7CGrz7": {
+      "type": "scrolling-text",
       "blocks": {
-        "video_cLGfQq": {
-          "type": "video",
+        "text_xRdqRn": {
+          "type": "text",
           "settings": {
-            "video": "shopify://files/videos/焊接2.mp4",
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "icon": "none",
-            "icon_width": 48,
-            "heading": "卖点1",
-            "heading_size": "title-md",
-            "heading_tag": "h2",
-            "subheading": "",
-            "description": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "image_TrKK34": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/e2d046f9ab7cae588c46ff312686908c99153c6f1a27c-n6Nltj_fw1200.png",
-            "icon": "none",
-            "icon_width": 48,
-            "heading": "卖点2",
-            "heading_size": "title-md",
-            "heading_tag": "h2",
-            "subheading": "",
-            "description": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "image_jF8cGA": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/0303_36accb33-a35f-4d22-8290-a7c3e490a48e.png",
-            "icon": "none",
-            "icon_width": 48,
-            "heading": "卖点3",
-            "heading_size": "title-md",
-            "heading_tag": "h2",
-            "subheading": "",
-            "description": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "image_6xWx36": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/9f282faf2c68ba7d2ad889684123f9ebef932b9fcbe3d-ZMiKCH_fw1200.png",
-            "icon": "none",
-            "icon_width": 48,
-            "heading": "Heading 4",
-            "heading_size": "title-md",
-            "heading_tag": "h2",
-            "subheading": "",
-            "description": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
+            "text": "Welcome To ANRAY",
+            "text_size": 160,
+            "text_font": "heading",
+            "highlighted_text": "stencil",
+            "highlighted_scribble": "squiggle-underline-2"
           }
         }
       },
       "block_order": [
-        "video_cLGfQq",
-        "image_TrKK34",
-        "image_jF8cGA",
-        "image_6xWx36"
+        "text_xRdqRn"
       ],
-      "name": "t:sections.scrolling-banner.presets.name",
+      "name": "t:sections.scrolling-text.presets.name",
       "settings": {
-        "image_height": "650px",
-        "image_width": "medium",
-        "layout": "image_first",
-        "text_alignment": "left",
-        "content_position": "items-center",
-        "image_height_mobile": "auto",
-        "text_alignment_mobile": "left",
+        "direction": "right",
+        "speed": 20,
+        "grid_horizontal": 70,
+        "enable_twin": true,
+        "enable_parallax": true,
         "color_text": "",
         "color_background": "#f8f7f5",
         "gradient_background": "",
-        "color_background_2": "",
-        "gradient_background_2": "",
         "color_highlight": "",
         "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
+        "padding_top": 36,
+        "padding_bottom": 36,
         "divider": false,
-        "full_width": false,
         "rounded": false
       }
     }
@@ -635,7 +670,8 @@
     "rich_text_66MKRE",
     "custom_liquid_XfdaKQ",
     "faq_ezVHKq",
+    "scrolling_banner_fe4bJE",
     "collage_wBD6wW",
-    "scrolling_banner_fe4bJE"
+    "scrolling_text_7CGrz7"
   ]
 }
