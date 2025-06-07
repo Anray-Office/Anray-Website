@@ -67,13 +67,14 @@
     },
     "image_with_text_overlay_R484R4": {
       "type": "image-with-text-overlay",
+      "custom_css": [],
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
         "transparent_header": true,
         "image": "shopify://shop_images/17492787582220.png",
-        "image_height": "750px",
+        "image_height": "850px",
         "content_width": "small",
-        "content_position": "md:items-end md:justify-start",
+        "content_position": "md:items-center md:justify-center",
         "text_alignment": "left",
         "image_height_mobile": "auto",
         "content_position_mobile": "items-end justify-start",
@@ -91,8 +92,8 @@
         "divider": false,
         "full_width": true,
         "rounded": false,
-        "enable_parallax": true,
-        "parallax_direction": "zoom"
+        "enable_parallax": false,
+        "parallax_direction": "vertical"
       }
     },
     "custom_liquid_hCLTdj": {
