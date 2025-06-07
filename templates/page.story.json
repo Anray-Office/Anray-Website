@@ -644,7 +644,7 @@
         "text_xRdqRn"
       ],
       "custom_css": [
-        ".section--plain:before {color: #F8F7F5;}"
+        ".section--plain:before {background-color:#f8f7f5;}"
       ],
       "name": "t:sections.scrolling-text.presets.name",
       "settings": {
