@@ -135,7 +135,7 @@
         "question_VE3RWG": {
           "type": "question",
           "settings": {
-            "title": "Frequently asked question",
+            "title": "When will I receive my order?",
             "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
@@ -144,7 +144,7 @@
         "question_bBhRxD": {
           "type": "question",
           "settings": {
-            "title": "Frequently asked question",
+            "title": "I ordered something on preorder. When will it ship?",
             "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
@@ -153,7 +153,16 @@
         "question_kcmbJk": {
           "type": "question",
           "settings": {
-            "title": "Frequently asked question",
+            "title": "How do I clean my Always Pan or Perfect Pot?",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_yq8rUN": {
+          "type": "question",
+          "settings": {
+            "title": "I just ordered but I picked the wrong color - what should I do?",
             "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
@@ -163,7 +172,8 @@
       "block_order": [
         "question_VE3RWG",
         "question_bBhRxD",
-        "question_kcmbJk"
+        "question_kcmbJk",
+        "question_yq8rUN"
       ],
       "custom_css": [
         ".subtext-lg {order: 2;}",
