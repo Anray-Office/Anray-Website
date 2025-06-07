@@ -232,7 +232,7 @@
         "question_GmJCt6": {
           "type": "question",
           "settings": {
-            "title": "Frequently asked question",
+            "title": "首先要问的是：“anray”这个名字背后的含义是什么？",
             "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
@@ -241,7 +241,7 @@
         "question_MzmCHB": {
           "type": "question",
           "settings": {
-            "title": "Frequently asked question",
+            "title": "我觉得做饭太难了。这适合我吗？",
             "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
@@ -250,7 +250,7 @@
         "question_FdyQgH": {
           "type": "question",
           "settings": {
-            "title": "Frequently asked question",
+            "title": "你的照片胃口打开，有食谱可以分享吗",
             "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
