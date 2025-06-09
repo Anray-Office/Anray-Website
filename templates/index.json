@@ -165,7 +165,7 @@
           "settings": {
             "button_label": "Learn More",
             "button_link": "shopify://pages/our-story",
-            "button_style": "primary",
+            "button_style": "secondary",
             "button_size": "sm",
             "button_external": false,
             "button_icon": true
