@@ -10,14 +10,13 @@
   - show_icon: {Boolean} if set to true, render a icon along the button.
   - classes: {String} the extra classes.
   - shopify_attributes: {String} the shopify attributes.
-  - border_radius: {String} the border radius of the button.
 
   Usage:
   {% render 'button', label: 'Button label', link: '#' %}
 {%- endcomment -%}
 
 {%- if style == 'link' -%}
-  <a class="link inline-block{% if classes != blank %} {{ classes }}{% endif %}{% if show_icon %} icon-with-text{% endif %}"{% if link != blank %} href="{{ link }}"{% if external %} target="_blank" rel="noopener"{% endif %}{% else %} role="link" aria-disabled="true"{% endif %} is="hover-link" {{ shopify_attributes }} {% if border_radius %} style="border-radius: {{ border_radius }};"{% endif %}>
+  <a class="link inline-block{% if classes != blank %} {{ classes }}{% endif %}{% if show_icon %} icon-with-text{% endif %}"{% if link != blank %} href="{{ link }}"{% if external %} target="_blank" rel="noopener"{% endif %}{% else %} role="link" aria-disabled="true"{% endif %} is="hover-link" {{ shopify_attributes }}>
     <span class="link-text">{{ label | escape }}</span>
     {%- liquid
       if show_icon
@@ -26,7 +25,7 @@
     -%}
   </a>
 {%- else -%}
-  <a class="button button--{{ style | default: 'primary' }} button--{{ size | default: 'md' }}{% if classes != blank %} {{ classes }}{% endif %}{% if show_icon %} icon-with-text{% endif %}"{% if link != blank %} href="{{ link }}"{% if external %} target="_blank" rel="noopener"{% endif %}{% else %} role="link" aria-disabled="true"{% endif %} is="hover-link" {{ shopify_attributes }}{% if border_radius %} style="border-radius: {{ border_radius }};"{% endif %}>
+  <a class="button button--{{ style | default: 'primary' }} button--{{ size | default: 'md' }}{% if classes != blank %} {{ classes }}{% endif %}{% if show_icon %} icon-with-text{% endif %}"{% if link != blank %} href="{{ link }}"{% if external %} target="_blank" rel="noopener"{% endif %}{% else %} role="link" aria-disabled="true"{% endif %} is="hover-link" {{ shopify_attributes }}>
     <span class="btn-fill" data-fill></span>
     <span class="btn-text">
       {%- liquid

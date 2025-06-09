@@ -220,8 +220,7 @@
                     style: block.settings.button_style,
                     external: block.settings.button_external,
                     show_icon: block.settings.button_icon,
-                    shopify_attributes: block.shopify_attributes,
-                    border_radius: block.settings.button_border_radius
+                    shopify_attributes: block.shopify_attributes
                   -%}
                 {%- endif -%}
 
@@ -969,17 +968,7 @@
           "id": "button_icon",
           "label": "t:sections.global.settings.button_icon.label",
           "default": true
-        },
-        {
-          "type": "range",
-          "id": "button_border_radius",
-          "label": "t:sections.global.settings.button_border_radius.label",
-          "default": 0.75,
-          "min": 0,
-          "max": 1,
-          "step": 0.01,
-          "unit": "rem"
-        },
+        }
       ]
     },
     {
