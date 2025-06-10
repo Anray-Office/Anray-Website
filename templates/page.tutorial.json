@@ -74,44 +74,6 @@
         "rounded": false
       }
     },
-    "custom_liquid_pJKYNQ": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "liquid": "<style>\n        .container {\n            max-width: 1200px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n\n        /* 主视频区域 */\n        .main-video {\n            margin-bottom: 30px;\n            position: relative;\n            display: flex;\n            justify-content: flex-start;\n            align-items: center;\n        }\n\n        .cllection-text{\n          padding: 1rem;\n          flex: 1;\n          display: flex;\n          flex-direction: column;\n          gap: 2rem;\n        }\n        \n        \n        .main-video-container {\n            height: 25rem;\n            flex: 2;\n        }\n\n        .main-video video {\n            width: 100%;\n            object-fit: cover;\n            height: 100%;\n            border-radius: 8px;\n            display: block;\n            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n        }\n\n        .tags {\n            margin-top: 10px;\n        }\n\n        .video-title {\n            margin-top: 15px;\n            font-size: 24px;\n            font-weight: bold;\n            color: #333;\n        }\n\n        /* 视频网格区域 */\n        .video-grid {\n            display: grid;\n            grid-template-columns: repeat(4, 1fr);\n            gap: 20px;\n        }\n\n        .video-item {\n            position: relative;\n        }\n\n\n        .video-container {\n            height: 10rem;\n        }\n\n        .video-item video {\n            width: 100%;\n            object-fit: cover;\n            height: 100%;\n            border-radius: 8px;\n            display: block;\n            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n            cursor: pointer;\n            transition: transform 0.3s ease;\n        }\n\n        .video-item video:hover {\n            transform: scale(1.02);\n        }\n\n        .tag {\n            display: inline-block;\n            background-color: #A57C52;\n            color: white;\n            padding: 4px 10px;\n            border-radius: 4px;\n            font-size: 12px;\n            margin-right: 5px;\n            margin-bottom: 5px;\n            font-weight: normal;\n        }\n\n        .video-description {\n            margin-top: 10px;\n            font-weight: bold;\n            font-size: 16px;\n            color: #333;\n        }\n\n        .video-duration {\n            position: absolute;\n            top: 10px;\n            left: 10px;\n            background-color: rgba(0, 0, 0, 0.7);\n            color: white;\n            padding: 2px 8px;\n            border-radius: 20px;\n            font-size: 12px;\n            display: flex;\n            align-items: center;\n        }\n\n        .duration-icon {\n            width: 12px;\n            height: 12px;\n            background-color: white;\n            border-radius: 50%;\n            margin-right: 5px;\n            display: inline-block;\n        }\n\n        /* 响应式设计 */\n        @media (max-width: 1024px) {\n            .video-grid {\n                grid-template-columns: repeat(3, 1fr);\n            }\n        }\n\n        @media (max-width: 768px) {\n            .video-grid {\n                grid-template-columns: repeat(2, 1fr);\n            }\n        }\n\n        @media (max-width: 480px) {\n            .video-grid {\n                grid-template-columns: 1fr;\n            }\n        }\n    </style>\n<body>\n    <div class=\"container\">\n        <!-- 主视频 -->\n        <div class=\"main-video\">\n            <div class=\"main-video-container\">\n                <video poster=\"https://cdn.shopify.com/s/files/1/0683/9065/0074/files/002.jpg?v=1744276270\" controls>\n                    <source src=\"https://cdn.shopify.com/videos/c/o/v/2999bcac17ee4c038081ddc29d0800ba.mp4\"\n                        type=\"video/mp4\">\n                    您的浏览器不支持视频标签。\n                </video>\n            </div>\n            <div class=\"cllection-text\">\n              <h2>Video Tutorial</h2>\n              <p>It’s easy to learn to cook elegantly! Watch simple tutorials and unlock the endless possibilities of Anray cookware.</p>\n              <a class=\"button button--primary button--md icon-with-text\" role=\"link\" aria-disabled=\"true\" is=\"hover-link\">\n                    <span class=\"btn-fill\" data-fill=\"\" style=\"transform: translateY(var(--motion-translateY)); --motion-translateY: -76%;\"></span>\n                    <span class=\"btn-text\">Shop Now<svg class=\"icon icon-arrow-right icon-sm transform\" viewBox=\"0 0 21 20\" stroke=\"currentColor\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334\"></path>\n    </svg></span>\n                  </a>\n            </div>\n        </div>\n\n        <!-- 视频网格 -->\n        <div class=\"video-grid\">\n            <!-- 视频1 -->\n            <div class=\"video-item\">\n                <div class=\"video-duration\">\n                    <span class=\"duration-icon\"></span>\n                    01:52\n                </div>\n                <div class=\"video-container\">\n                    <video\n                        poster=\"https://cdn.shopify.com/s/files/1/0683/9065/0074/files/collection_showcase_green_tableware.jpg?v=1744276262\"\n                        muted>\n                        <source\n                            src=\"https://breville.scene7.com/is/content/brevilleprod/Smart_Oven_LPE_BOV680_Hero_banner-2\"\n                            type=\"video/mp4\">\n                    </video>\n                </div>\n                <div class=\"video-description\">Choosing the right beans</div>\n            </div>\n\n            <!-- 视频2 -->\n            <div class=\"video-item\">\n                <div class=\"video-duration\">\n                    <span class=\"duration-icon\"></span>\n                    02:04\n                </div>\n                <div class=\"video-container\">\n                    <video\n                        poster=\"https://cdn.shopify.com/s/files/1/0683/9065/0074/files/collection_showcase_green_tableware.jpg?v=1744276262\"\n                        muted>\n                        <source src=\"https://cdn.shopify.com/videos/c/o/v/2999bcac17ee4c038081ddc29d0800ba.mp4\"\n                            type=\"video/mp4\">\n                    </video>\n                </div>\n                <div class=\"video-description\">Balancing your extraction</div>\n            </div>\n\n            <!-- 视频3 -->\n            <div class=\"video-item\">\n                <div class=\"video-duration\">\n                    <span class=\"duration-icon\"></span>\n                    02:17\n                </div>\n                <div class=\"video-container\">\n                    <video\n                        poster=\"https://cdn.shopify.com/s/files/1/0683/9065/0074/files/collection_showcase_green_tableware.jpg?v=1744276262\"\n                        muted>\n                        <source src=\"https://cdn.shopify.com/videos/c/o/v/2999bcac17ee4c038081ddc29d0800ba.mp4\"\n                            type=\"video/mp4\">\n                    </video>\n                </div>\n                <div class=\"video-description\">Auto MilQ Hands-free Milk Texturing</div>\n            </div>\n\n            <!-- 视频4 -->\n            <div class=\"video-item\">\n                <div class=\"video-duration\">\n                    <span class=\"duration-icon\"></span>\n                    02:02\n                </div>\n                <div class=\"video-container\">\n                    <video\n                        poster=\"https://cdn.shopify.com/s/files/1/0683/9065/0074/files/collection_showcase_green_tableware.jpg?v=1744276262\"\n                        muted>\n                        <source src=\"https://cdn.shopify.com/videos/c/o/v/2999bcac17ee4c038081ddc29d0800ba.mp4\"\n                            type=\"video/mp4\">\n                    </video>\n                </div>\n                <div class=\"video-description\">Daily Routine</div>\n            </div>\n        </div>\n    </div>\n\n    <script>\n        // 等待DOM加载完成\n        document.addEventListener('DOMContentLoaded', () => {\n            // 缓存DOM元素\n            const mainVideo = document.querySelector('.main-video video');\n            const videoItems = document.querySelectorAll('.video-item video');\n\n            // 视频播放控制函数\n            const videoController = {\n                play: (video) => {\n                    video.play().catch(err => console.log(err));\n                },\n                reset: (video) => {\n                    video.pause();\n                    video.currentTime = 0;\n                },\n                updateMainVideo: (sourceVideo) => {\n                    mainVideo.poster = sourceVideo.poster;\n                    mainVideo.querySelector('source').src = sourceVideo.querySelector('source').src;\n                    mainVideo.load();\n                    videoController.play(mainVideo);\n                }\n            };\n\n            // 为每个小视频添加事件监听\n            videoItems.forEach(video => {\n                // 鼠标悬停事件\n                video.addEventListener('mouseenter', () => videoController.play(video));\n                video.addEventListener('mouseleave', () => videoController.reset(video));\n\n                // 点击事件\n                video.addEventListener('click', () => videoController.updateMainVideo(video));\n            });\n\n            // 主视频播放结束事件\n            mainVideo.addEventListener('ended', () => videoController.reset(mainVideo));\n        });\n    </script>\n</body>",
-        "color_text": "",
-        "color_background": "#f8f7f5",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
-      }
-    },
-    "custom_liquid_jt9wbm": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "liquid": "<style>\n        .container {\n            max-width: 1200px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n\n        /* 主视频区域 */\n        .main-video {\n            margin-bottom: 30px;\n            position: relative;\n            display: flex;\n            justify-content: flex-start;\n            align-items: center;\n        }\n\n        .cllection-text{\n          padding: 1rem;\n          flex: 1;\n          display: flex;\n          flex-direction: column;\n          gap: 2rem;\n        }\n        \n        \n        .main-video-container {\n            height: 25rem;\n            flex: 2;\n        }\n\n        .main-video video {\n            width: 100%;\n            object-fit: cover;\n            height: 100%;\n            border-radius: 8px;\n            display: block;\n            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n        }\n\n        .tags {\n            margin-top: 10px;\n        }\n\n        .video-title {\n            margin-top: 15px;\n            font-size: 24px;\n            font-weight: bold;\n            color: #333;\n        }\n\n        /* 视频网格区域 */\n        .video-grid {\n            display: grid;\n            grid-template-columns: repeat(4, 1fr);\n            gap: 20px;\n        }\n\n        .video-item {\n            position: relative;\n        }\n\n\n        .video-container {\n            height: 10rem;\n        }\n\n        .video-item video {\n            width: 100%;\n            object-fit: cover;\n            height: 100%;\n            border-radius: 8px;\n            display: block;\n            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n            cursor: pointer;\n            transition: transform 0.3s ease;\n        }\n\n        .video-item video:hover {\n            transform: scale(1.02);\n        }\n\n        .tag {\n            display: inline-block;\n            background-color: #A57C52;\n            color: white;\n            padding: 4px 10px;\n            border-radius: 4px;\n            font-size: 12px;\n            margin-right: 5px;\n            margin-bottom: 5px;\n            font-weight: normal;\n        }\n\n        .video-description {\n            margin-top: 10px;\n            font-weight: bold;\n            font-size: 16px;\n            color: #333;\n        }\n\n        .video-duration {\n            position: absolute;\n            top: 10px;\n            left: 10px;\n            background-color: rgba(0, 0, 0, 0.7);\n            color: white;\n            padding: 2px 8px;\n            border-radius: 20px;\n            font-size: 12px;\n            display: flex;\n            align-items: center;\n        }\n\n        .duration-icon {\n            width: 12px;\n            height: 12px;\n            background-color: white;\n            border-radius: 50%;\n            margin-right: 5px;\n            display: inline-block;\n        }\n\n        /* 响应式设计 */\n        @media (max-width: 1024px) {\n            .video-grid {\n                grid-template-columns: repeat(3, 1fr);\n            }\n        }\n\n        @media (max-width: 768px) {\n            .video-grid {\n                grid-template-columns: repeat(2, 1fr);\n            }\n        }\n\n        @media (max-width: 480px) {\n            .video-grid {\n                grid-template-columns: 1fr;\n            }\n        }\n    </style>\n<body>\n    <div class=\"container\">\n        <!-- 主视频 -->\n        <div class=\"main-video\">\n            <div class=\"main-video-container\">\n                <video poster=\"https://cdn.shopify.com/s/files/1/0683/9065/0074/files/002.jpg?v=1744276270\" controls>\n                    <source src=\"https://cdn.shopify.com/videos/c/o/v/2999bcac17ee4c038081ddc29d0800ba.mp4\"\n                        type=\"video/mp4\">\n                    您的浏览器不支持视频标签。\n                </video>\n            </div>\n            <div class=\"cllection-text\">\n              <h2>Video Tutorial</h2>\n              <p>It’s easy to learn to cook elegantly! Watch simple tutorials and unlock the endless possibilities of Anray cookware.</p>\n              <a class=\"button button--primary button--md icon-with-text\" role=\"link\" aria-disabled=\"true\" is=\"hover-link\">\n                    <span class=\"btn-fill\" data-fill=\"\" style=\"transform: translateY(var(--motion-translateY)); --motion-translateY: -76%;\"></span>\n                    <span class=\"btn-text\">Shop Now<svg class=\"icon icon-arrow-right icon-sm transform\" viewBox=\"0 0 21 20\" stroke=\"currentColor\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334\"></path>\n    </svg></span>\n                  </a>\n            </div>\n        </div>\n\n        <!-- 视频网格 -->\n        <div class=\"video-grid\">\n            <!-- 视频1 -->\n            <div class=\"video-item\">\n                <div class=\"video-duration\">\n                    <span class=\"duration-icon\"></span>\n                    01:52\n                </div>\n                <div class=\"video-container\">\n                    <video\n                        poster=\"https://cdn.shopify.com/s/files/1/0683/9065/0074/files/collection_showcase_green_tableware.jpg?v=1744276262\"\n                        muted>\n                        <source\n                            src=\"https://breville.scene7.com/is/content/brevilleprod/Smart_Oven_LPE_BOV680_Hero_banner-2\"\n                            type=\"video/mp4\">\n                    </video>\n                </div>\n                <div class=\"video-description\">Choosing the right beans</div>\n            </div>\n\n            <!-- 视频2 -->\n            <div class=\"video-item\">\n                <div class=\"video-duration\">\n                    <span class=\"duration-icon\"></span>\n                    02:04\n                </div>\n                <div class=\"video-container\">\n                    <video\n                        poster=\"https://cdn.shopify.com/s/files/1/0683/9065/0074/files/collection_showcase_green_tableware.jpg?v=1744276262\"\n                        muted>\n                        <source src=\"https://cdn.shopify.com/videos/c/o/v/2999bcac17ee4c038081ddc29d0800ba.mp4\"\n                            type=\"video/mp4\">\n                    </video>\n                </div>\n                <div class=\"video-description\">Balancing your extraction</div>\n            </div>\n\n            <!-- 视频3 -->\n            <div class=\"video-item\">\n                <div class=\"video-duration\">\n                    <span class=\"duration-icon\"></span>\n                    02:17\n                </div>\n                <div class=\"video-container\">\n                    <video\n                        poster=\"https://cdn.shopify.com/s/files/1/0683/9065/0074/files/collection_showcase_green_tableware.jpg?v=1744276262\"\n                        muted>\n                        <source src=\"https://cdn.shopify.com/videos/c/o/v/2999bcac17ee4c038081ddc29d0800ba.mp4\"\n                            type=\"video/mp4\">\n                    </video>\n                </div>\n                <div class=\"video-description\">Auto MilQ Hands-free Milk Texturing</div>\n            </div>\n\n            <!-- 视频4 -->\n            <div class=\"video-item\">\n                <div class=\"video-duration\">\n                    <span class=\"duration-icon\"></span>\n                    02:02\n                </div>\n                <div class=\"video-container\">\n                    <video\n                        poster=\"https://cdn.shopify.com/s/files/1/0683/9065/0074/files/collection_showcase_green_tableware.jpg?v=1744276262\"\n                        muted>\n                        <source src=\"https://cdn.shopify.com/videos/c/o/v/2999bcac17ee4c038081ddc29d0800ba.mp4\"\n                            type=\"video/mp4\">\n                    </video>\n                </div>\n                <div class=\"video-description\">Daily Routine</div>\n            </div>\n        </div>\n    </div>\n\n    <script>\n        // 等待DOM加载完成\n        document.addEventListener('DOMContentLoaded', () => {\n            // 缓存DOM元素\n            const mainVideo = document.querySelector('.main-video video');\n            const videoItems = document.querySelectorAll('.video-item video');\n\n            // 视频播放控制函数\n            const videoController = {\n                play: (video) => {\n                    video.play().catch(err => console.log(err));\n                },\n                reset: (video) => {\n                    video.pause();\n                    video.currentTime = 0;\n                },\n                updateMainVideo: (sourceVideo) => {\n                    mainVideo.poster = sourceVideo.poster;\n                    mainVideo.querySelector('source').src = sourceVideo.querySelector('source').src;\n                    mainVideo.load();\n                    videoController.play(mainVideo);\n                }\n            };\n\n            // 为每个小视频添加事件监听\n            videoItems.forEach(video => {\n                // 鼠标悬停事件\n                video.addEventListener('mouseenter', () => videoController.play(video));\n                video.addEventListener('mouseleave', () => videoController.reset(video));\n\n                // 点击事件\n                video.addEventListener('click', () => videoController.updateMainVideo(video));\n            });\n\n            // 主视频播放结束事件\n            mainVideo.addEventListener('ended', () => videoController.reset(mainVideo));\n        });\n    </script>\n</body>",
-        "color_text": "",
-        "color_background": "#f8f7f5",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
-      }
-    },
     "video_with_text_M6bcAD": {
       "type": "video-with-text",
       "blocks": {
@@ -188,14 +150,168 @@
         "enable_parallax": false,
         "parallax_direction": "vertical"
       }
+    },
+    "video_with_text_ULHaPQ": {
+      "type": "video-with-text",
+      "blocks": {
+        "heading_RRr6hW": {
+          "type": "heading",
+          "settings": {
+            "heading": "Easy to clean",
+            "heading_size": "title-md",
+            "heading_tag": "h1",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_RfkhHP": {
+          "type": "text",
+          "name": "副标题",
+          "settings": {
+            "text": "<p>The best way to clean up.</p>",
+            "text_size": "subtext-custom",
+            "text_max_size": 30,
+            "text_font": "heading",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_GKVA8F": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>WASH UP </strong><br/>Our pans are super easy to clean with a soft sponge and some warm, soapy water. They’re also dishwasher safe. Avoid abrasive detergents, steel wool, or iron sponges.  </p><p><br/><strong>LET IT COOL</strong><br/>Plunging a hot pan into cold water risks thermal shock, which can warp pans and shatter glass lids. Always allow your cookware to cool before washing. </p>",
+            "text_size": "subtext-custom",
+            "text_max_size": 16,
+            "text_font": "body",
+            "secondary_color": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RRr6hW",
+        "text_RfkhHP",
+        "text_GKVA8F"
+      ],
+      "name": "t:sections.video-with-text.presets.name",
+      "settings": {
+        "video": "shopify://files/videos/DM_20250225094052_001.mp4",
+        "video_url": "https://youtube.com/watch?v=lsfvGwy1fec?si=tYW-rjr3RqwjgqHi",
+        "description": "",
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "image_height": "500px",
+        "video_width": "large",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": false,
+        "parallax_direction": "vertical"
+      }
+    },
+    "video_with_text_TFU3N6": {
+      "type": "video-with-text",
+      "blocks": {
+        "heading_xmBKQA": {
+          "type": "heading",
+          "settings": {
+            "heading": "Cooking with greenpan",
+            "heading_size": "title-md",
+            "heading_tag": "h1",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_A7GB6f": {
+          "type": "text",
+          "name": "副标题",
+          "settings": {
+            "text": "<p>A few sticky spots appeared out of nowhere? Here’s why.</p>",
+            "text_size": "subtext-custom",
+            "text_max_size": 30,
+            "text_font": "heading",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_GzQ8Bj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Here’s how you can deep clean:  </p><p>For the interior: Fill the pan halfway with water and bring it to a near boil for about 2 minutes. Pour out the water and place the pan on a sturdy surface such as a wooden cutting board. Carefully use a restoring sponge (melamine) on the warm surface. This should do the trick.  </p>",
+            "text_size": "subtext-custom",
+            "text_max_size": 16,
+            "text_font": "body",
+            "secondary_color": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xmBKQA",
+        "text_A7GB6f",
+        "text_GzQ8Bj"
+      ],
+      "name": "t:sections.video-with-text.presets.name",
+      "settings": {
+        "video": "shopify://files/videos/DM_20250225094052_001.mp4",
+        "video_url": "https://youtube.com/watch?v=lsfvGwy1fec?si=tYW-rjr3RqwjgqHi",
+        "description": "",
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "image_height": "500px",
+        "video_width": "large",
+        "layout": "video_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": false,
+        "parallax_direction": "vertical"
+      }
     }
   },
   "order": [
     "main-page",
     "image_with_text_overlay_qe4m8b",
     "custom_liquid_ymxLdB",
-    "custom_liquid_pJKYNQ",
-    "custom_liquid_jt9wbm",
-    "video_with_text_M6bcAD"
+    "video_with_text_M6bcAD",
+    "video_with_text_ULHaPQ",
+    "video_with_text_TFU3N6"
   ]
 }
