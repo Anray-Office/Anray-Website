@@ -118,9 +118,9 @@
         "heading_zQPE37": {
           "type": "heading",
           "settings": {
-            "heading": "Video with text",
+            "heading": "Cooking with greenpan",
             "heading_size": "title-md",
-            "heading_tag": "h2",
+            "heading_tag": "h1",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
@@ -130,9 +130,9 @@
           "name": "副标题",
           "settings": {
             "text": "<p>A few sticky spots appeared out of nowhere? Here’s why.</p>",
-            "text_size": "subtext-sm",
-            "text_max_size": 32,
-            "text_font": "body",
+            "text_size": "subtext-custom",
+            "text_max_size": 30,
+            "text_font": "heading",
             "secondary_color": false,
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
@@ -141,9 +141,9 @@
         "text_j6bYkW": {
           "type": "text",
           "settings": {
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "text_size": "subtext-sm",
-            "text_max_size": 20,
+            "text": "<p>Here’s how you can deep clean:  </p><p>For the interior: Fill the pan halfway with water and bring it to a near boil for about 2 minutes. Pour out the water and place the pan on a sturdy surface such as a wooden cutting board. Carefully use a restoring sponge (melamine) on the warm surface. This should do the trick.  </p>",
+            "text_size": "subtext-custom",
+            "text_max_size": 16,
             "text_font": "body",
             "secondary_color": true,
             "highlighted_text": "none",
