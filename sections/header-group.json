@@ -74,7 +74,7 @@
         "menu_active": "dot",
         "hover_menu": true,
         "header_layout": "left-center",
-        "sticky_header_type": "none",
+        "sticky_header_type": "on-scroll-up",
         "enable_language_selector_desktop": false,
         "enable_country_selector_desktop": false,
         "show_country_name_dekstop": false,
