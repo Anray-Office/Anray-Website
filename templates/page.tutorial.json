@@ -112,24 +112,25 @@
         "rounded": false
       }
     },
-    "image_with_text_yQVnxq": {
-      "type": "image-with-text",
+    "video_with_text_M6bcAD": {
+      "type": "video-with-text",
       "blocks": {
-        "heading_KDRMwd": {
+        "heading_zQPE37": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "Video with text",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
           }
         },
-        "text_C6qwV4": {
+        "text_TLWwA9": {
           "type": "text",
+          "name": "副标题",
           "settings": {
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "text_size": "subtext-md",
+            "text": "<p>A few sticky spots appeared out of nowhere? Here’s why.</p>",
+            "text_size": "subtext-sm",
             "text_max_size": 32,
             "text_font": "body",
             "secondary_color": false,
@@ -137,35 +138,40 @@
             "highlighted_scribble": "circle"
           }
         },
-        "button_dcjhF7": {
-          "type": "button",
+        "text_j6bYkW": {
+          "type": "text",
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style": "primary",
-            "button_size": "md",
-            "button_external": false,
-            "button_icon": true
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text_size": "subtext-sm",
+            "text_max_size": 20,
+            "text_font": "body",
+            "secondary_color": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
           }
         }
       },
       "block_order": [
-        "heading_KDRMwd",
-        "text_C6qwV4",
-        "button_dcjhF7"
+        "heading_zQPE37",
+        "text_TLWwA9",
+        "text_j6bYkW"
       ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "t:sections.video-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/kitchen-7855423_1280.jpg",
-        "image_height": "850px",
-        "image_width": "large",
-        "layout": "text_first",
+        "video": "shopify://files/videos/DM_20250225094052_001.mp4",
+        "video_url": "https://youtube.com/watch?v=lsfvGwy1fec?si=tYW-rjr3RqwjgqHi",
+        "description": "",
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "image_height": "500px",
+        "video_width": "large",
+        "layout": "video_first",
         "text_alignment": "left",
         "content_position": "align-self-center",
         "image_height_mobile": "auto",
         "text_alignment_mobile": "left",
         "color_text": "",
-        "color_background": "#fcfaf6",
+        "color_background": "",
         "gradient_background": "",
         "color_background_2": "",
         "gradient_background_2": "",
@@ -179,7 +185,7 @@
         "divider": false,
         "full_width": false,
         "rounded": false,
-        "enable_parallax": true,
+        "enable_parallax": false,
         "parallax_direction": "vertical"
       }
     }
@@ -190,6 +196,6 @@
     "custom_liquid_ymxLdB",
     "custom_liquid_pJKYNQ",
     "custom_liquid_jt9wbm",
-    "image_with_text_yQVnxq"
+    "video_with_text_M6bcAD"
   ]
 }
