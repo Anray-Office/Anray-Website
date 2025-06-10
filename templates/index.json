@@ -45,6 +45,24 @@
         "rounded": false
       }
     },
+    "anray_banner_X3hkHh": {
+      "type": "anray-banner",
+      "name": "Anray Banner",
+      "settings": {
+        "transparent_header": true,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
     "video_mRcxqQ": {
       "type": "video",
       "disabled": true,
@@ -68,6 +86,7 @@
     },
     "image_with_text_overlay_R484R4": {
       "type": "image-with-text-overlay",
+      "disabled": true,
       "custom_css": [
         ".media > img {object-fit: contain;}"
       ],
@@ -278,24 +297,6 @@
         "full_width": true,
         "rounded": false,
         "enable_parallax": true
-      }
-    },
-    "anray_banner_X3hkHh": {
-      "type": "anray-banner",
-      "name": "Anray Banner",
-      "settings": {
-        "transparent_header": false,
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
       }
     }
   },
