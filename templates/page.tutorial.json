@@ -130,6 +130,7 @@
         "layout": "video_first",
         "text_alignment": "left",
         "content_position": "align-self-center",
+        "video_url_mobile": "",
         "image_height_mobile": "auto",
         "text_alignment_mobile": "left",
         "color_text": "",
@@ -207,6 +208,7 @@
         "layout": "text_first",
         "text_alignment": "left",
         "content_position": "align-self-center",
+        "video_url_mobile": "",
         "image_height_mobile": "auto",
         "text_alignment_mobile": "left",
         "color_text": "",
@@ -284,6 +286,7 @@
         "layout": "video_first",
         "text_alignment": "left",
         "content_position": "align-self-center",
+        "video_url_mobile": "",
         "image_height_mobile": "auto",
         "text_alignment_mobile": "left",
         "color_text": "",
@@ -304,12 +307,31 @@
         "enable_parallax": false,
         "parallax_direction": "vertical"
       }
+    },
+    "anray_banner2_7xdV79": {
+      "type": "anray-banner2",
+      "name": "Anray Banner2",
+      "settings": {
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
     }
   },
   "order": [
     "main-page",
     "image_with_text_overlay_qe4m8b",
     "custom_liquid_ymxLdB",
+    "anray_banner2_7xdV79",
     "video_with_text_M6bcAD",
     "video_with_text_ULHaPQ",
     "video_with_text_TFU3N6"
