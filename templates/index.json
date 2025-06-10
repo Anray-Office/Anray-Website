@@ -279,10 +279,29 @@
         "rounded": false,
         "enable_parallax": true
       }
+    },
+    "anray_banner_X3hkHh": {
+      "type": "anray-banner",
+      "name": "Anray Banner",
+      "settings": {
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
     }
   },
   "order": [
     "blog-posts-collage",
+    "anray_banner_X3hkHh",
     "video_mRcxqQ",
     "image_with_text_overlay_R484R4",
     "custom_liquid_hCLTdj",
