@@ -88,7 +88,7 @@
         "padding_top": 0,
         "padding_bottom": 60,
         "divider": false,
-        "full_width": false,
+        "full_width": true,
         "rounded": false
       }
     },
@@ -325,66 +325,6 @@
         "enable_parallax": false,
         "parallax_direction": "vertical"
       }
-    },
-    "video_hero_ejb4LQ": {
-      "type": "video-hero",
-      "blocks": {
-        "slide_kjWYyM": {
-          "type": "slide",
-          "settings": {
-            "heading": "Heading",
-            "heading_size": "title-lg tracking-heading",
-            "heading_tag": "h2",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "slide_ML8tCQ": {
-          "type": "slide",
-          "settings": {
-            "heading": "Heading",
-            "heading_size": "title-lg tracking-heading",
-            "heading_tag": "h2",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "slide_dAhcyX": {
-          "type": "slide",
-          "settings": {
-            "heading": "Heading",
-            "heading_size": "title-lg tracking-heading",
-            "heading_tag": "h2",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        }
-      },
-      "block_order": [
-        "slide_kjWYyM",
-        "slide_ML8tCQ",
-        "slide_dAhcyX"
-      ],
-      "name": "t:sections.video-hero.presets.name",
-      "settings": {
-        "transparent_header": false,
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "enable_video_autoplay": true,
-        "enable_video_looping": true,
-        "content_width": "medium",
-        "video_url_mobile": "",
-        "color_text": "#ffffff",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_overlay": "#000000",
-        "overlay_opacity": 40,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "divider": false,
-        "full_width": false,
-        "rounded": false
-      }
     }
   },
   "order": [
@@ -394,7 +334,6 @@
     "anray_banner2_7xdV79",
     "video_with_text_M6bcAD",
     "video_with_text_ULHaPQ",
-    "video_with_text_TFU3N6",
-    "video_hero_ejb4LQ"
+    "video_with_text_TFU3N6"
   ]
 }
