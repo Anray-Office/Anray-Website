@@ -325,6 +325,38 @@
         "enable_parallax": false,
         "parallax_direction": "vertical"
       }
+    },
+    "map_knDbVM": {
+      "type": "map",
+      "name": "t:sections.map.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "map_address": "620 King St W, Toronto, ON M5V 1M7, Canada",
+        "map_api_key": "",
+        "map_zoom": 16,
+        "map_style": "dark",
+        "image_height": "650px",
+        "content_position": "md:items-end md:justify-start",
+        "text_alignment": "left",
+        "content_position_mobile": "image_first",
+        "image_height_mobile": "400px",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
     }
   },
   "order": [
@@ -334,6 +366,7 @@
     "anray_banner2_7xdV79",
     "video_with_text_M6bcAD",
     "video_with_text_ULHaPQ",
-    "video_with_text_TFU3N6"
+    "video_with_text_TFU3N6",
+    "map_knDbVM"
   ]
 }
