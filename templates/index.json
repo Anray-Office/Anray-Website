@@ -118,8 +118,8 @@
           "type": "text",
           "settings": {
             "text": "<p>Let users understand Anray's brand story, mission, and philosophy, and build brand trust. We should also emphasize the brand's core values ​​such as professionalism, innovation, and environmental protection, so that users can resonate with the brand and enhance their purchasing confidence.</p>",
-            "text_size": "subtext-md",
-            "text_max_size": 32,
+            "text_size": "subtext-custom",
+            "text_max_size": 18,
             "text_font": "body",
             "secondary_color": false,
             "highlighted_text": "none",
