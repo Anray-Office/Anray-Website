@@ -69,7 +69,7 @@
     allow-transparent-header
   {% endif %}
 >
-  <div class="page-width {% if section.settings.full_width %} page-width--full{% endif %} relative">
+  <div class="{% unless section.settings.full_width %}page-width {% endunless %} relative">
     <!-- 内容区域 -->
     <div class="anray-banner2">
       <div class="anray-banner2-content">
