@@ -64,12 +64,12 @@
 </style>
 
 <div
-  class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}"
+  class="section section--padding {% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}"
   {% if section.settings.transparent_header %}
     allow-transparent-header
   {% endif %}
 >
-  <div class="page-width{% if section.settings.narrow %} page-width--narrow{% endif %} relative">
+  <div class="page-width {% if section.settings.full_width %} page-width--full{% endif %} relative">
     <!-- 内容区域 -->
     <div class="anray-banner2">
       <div class="anray-banner2-content">
@@ -167,8 +167,8 @@
     },
     {
       "type": "checkbox",
-      "id": "narrow",
-      "label": "t:sections.global.settings.narrow.label",
+      "id": "full_width",
+      "label": "t:sections.global.settings.full_width.label",
       "default": false
     },
     {
