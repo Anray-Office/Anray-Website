@@ -1,0 +1,247 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    {%- render 'section-variables', section: section -%};
+  }
+
+  .anray-products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+    gap: 45px;
+    justify-content: center;
+  }
+
+  .anray-product-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .anray-product-image-container {
+    background-color: #f2f3f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  .anray-product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .anray-product-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+
+  .anray-product-price {
+    font-size: 16px;
+    color: #333;
+  }
+
+  /* 移动端响应式样式 */
+  @media screen and (max-width: 768px) {
+    .anray-products-grid {
+      grid-template-columns: repeat(2, minmax(130px, 1fr));
+      gap: 15px;
+    }
+
+    .anray-product-title {
+      font-size: 16px;
+    }
+
+    .anray-product-price {
+      font-size: 14px;
+    }
+
+    .anray-product-image-container {
+      padding: 15px;
+    }
+  }
+
+  /* 响应式样式 */
+  @media screen and (min-width: 769px) {
+    .anray-products-grid {
+      grid-template-columns: repeat(4, minmax(0, 270px));
+    }
+  }
+</style>
+
+<div
+  class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}"
+  {% if section.settings.transparent_header %}
+    allow-transparent-header
+  {% endif %}
+>
+  <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %} relative">
+    <!-- 内容区域 -->
+    <div class="anray-products-grid">
+      <!-- 产品1 -->
+      <div class="anray-product-card">
+        <div class="anray-product-image-container">
+          <img
+            class="anray-product-image"
+            width="100%"
+            height="100%"
+            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/e2d046f9ab7cae588c46ff312686908c99153c6f1a27c-n6Nltj_fw1200.png?v=1746778996"
+            alt="Protable juicer"
+          >
+        </div>
+        <h3 class="anray-product-title">Protable juicer</h3>
+        <p class="anray-product-price">$299.00</p>
+      </div>
+
+      <!-- 产品2 -->
+      <div class="anray-product-card">
+        <div class="anray-product-image-container">
+          <img
+            class="anray-product-image"
+            width="100%"
+            height="100%"
+            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/e2d046f9ab7cae588c46ff312686908c99153c6f1a27c-n6Nltj_fw1200.png?v=1746778996"
+            alt="Protable juicer"
+          >
+        </div>
+        <h3 class="anray-product-title">Protable juicer</h3>
+        <p class="anray-product-price">$299.00</p>
+      </div>
+
+      <!-- 产品3 -->
+      <div class="anray-product-card">
+        <div class="anray-product-image-container">
+          <img
+            class="anray-product-image"
+            width="100%"
+            height="100%"
+            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/e2d046f9ab7cae588c46ff312686908c99153c6f1a27c-n6Nltj_fw1200.png?v=1746778996"
+            alt="Protable juicer"
+          >
+        </div>
+        <h3 class="anray-product-title">Protable juicer</h3>
+        <p class="anray-product-price">$299.00</p>
+      </div>
+
+      <!-- 产品4 -->
+      <div class="anray-product-card">
+        <div class="anray-product-image-container">
+          <img
+            class="anray-product-image"
+            width="100%"
+            height="100%"
+            src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/e2d046f9ab7cae588c46ff312686908c99153c6f1a27c-n6Nltj_fw1200.png?v=1746778996"
+            alt="Protable juicer"
+          >
+        </div>
+        <h3 class="anray-product-title">Protable juicer</h3>
+        <p class="anray-product-price">$299.00</p>
+      </div>
+    </div>
+    <!-- 内容区域 -->
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Anray_Test",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "transparent_header",
+      "label": "t:sections.global.settings.transparent_header.label",
+      "info": "t:sections.global.settings.transparent_header.info",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__colors.content",
+      "info": "t:sections.global.settings.header__colors.info"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "t:sections.global.settings.color_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "t:sections.global.settings.color_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "gradient_background",
+      "label": "t:sections.global.settings.gradient_background.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_text",
+      "label": "t:sections.global.settings.color_button_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_background",
+      "label": "t:sections.global.settings.color_button_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "color_button_gradient",
+      "label": "t:sections.global.settings.color_button_gradient.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__section.content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_top.label",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_bottom.label",
+      "default": 72
+    },
+    {
+      "type": "checkbox",
+      "id": "divider",
+      "label": "t:sections.global.settings.divider.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.global.settings.full_width.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "rounded",
+      "default": false,
+      "label": "t:sections.global.settings.rounded.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anray_Test"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}
