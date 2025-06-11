@@ -373,6 +373,7 @@
         "enable_video_autoplay": true,
         "enable_video_looping": true,
         "content_width": "medium",
+        "video_url_mobile": "",
         "color_text": "#ffffff",
         "color_highlight": "",
         "gradient_highlight": "",
@@ -381,7 +382,7 @@
         "padding_top": 0,
         "padding_bottom": 0,
         "divider": false,
-        "full_width": true,
+        "full_width": false,
         "rounded": false
       }
     }
