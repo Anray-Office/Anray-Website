@@ -20,7 +20,7 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "padding_top": 72,
+        "padding_top": 52,
         "padding_bottom": 0,
         "divider": false,
         "narrow": false,
@@ -146,7 +146,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/f9d16f30d3c6b806d3cfdcc014d6989.png",
-        "image_height": "650px",
+        "image_height": "500px",
         "image_width": "medium",
         "layout": "text_first",
         "text_alignment": "left",
@@ -166,7 +166,7 @@
         "padding_top": 0,
         "padding_bottom": 72,
         "divider": false,
-        "full_width": false,
+        "full_width": true,
         "rounded": false,
         "enable_parallax": true,
         "parallax_direction": "vertical"
