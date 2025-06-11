@@ -89,7 +89,8 @@
         "padding_bottom": 0,
         "divider": false,
         "full_width": true,
-        "rounded": false
+        "rounded": false,
+        "image": "shopify://shop_images/image_693.png"
       }
     },
     "video_with_text_M6bcAD": {
