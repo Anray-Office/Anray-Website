@@ -1,0 +1,588 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    {%- render 'section-variables', section: section -%};
+  }
+
+  .anray-containercc {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      height: 510px;
+    }
+
+    /* 左侧轮播图部分 */
+    .anray-slider-container {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      max-width: 830px;
+      height: 100%;
+    }
+
+    .anray-slider {
+      height: inherit;
+      position: relative;
+    }
+
+    .anray-slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .anray-slide.anray-active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .anray-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* 分页器样式 */
+    .anray-pagination {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      padding: 8px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 2;
+    }
+
+    .anray-pagination-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 4px;
+      background-color: #fff;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .anray-pagination-dot.anray-active {
+      width: 30px;
+      height: 8px;
+      border-radius: 15px;
+      background-color: #ffffff8c;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* 进度条样式 */
+    .anray-pagination-dot .anray-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      background-color: #fff;
+      border-radius: inherit;
+      z-index: 1;
+    }
+
+    /* 右侧产品展示部分 */
+    .anray-products {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 460px;
+    }
+
+    .anray-product {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      height: calc(50% - 10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .anray-product-content-top,
+    .anray-product-content-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+
+    .anray-product-info-top,
+    .anray-product-info-bottom,
+    .anray-product-image-top,
+    .anray-product-image-bottom {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .anray-product-subtitle-top,
+    .anray-product-subtitle-bottom {
+      color: #7c5a4a;
+      font-size: clamp(12px, 1.2vw, 15px);
+      font-weight: normal;
+      text-align: left;
+    }
+
+    .anray-product-title-top,
+    .anray-product-title-bottom {
+      color: #5a3d2b;
+      font-size: clamp(16px, 2vw, 34px);
+      font-weight: bold;
+    }
+
+    .anray-product-content .anray-product-image {
+      max-width: 305px;
+    }
+
+    .anray-product-image-top,
+    .anray-product-image-bottom {
+      text-align: center;
+      align-items: center;
+    }
+
+    .anray-product-image-bottom {
+      text-align: left;
+      align-self: center;
+    }
+
+    .anray-product-image-top img,
+    .anray-product-image-bottom img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .anray-button--secondary {
+      background: #9a7e5e;
+      color: #fff;
+      font-weight: normal;
+      border-radius: 4px;
+      padding: clamp(6px, 0.8vw, 8px) clamp(12px, 1.5vw, 16px);
+      font-size: clamp(12px, 1.2vw, 14px);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    /* 媒体查询 - 平板电脑 */
+    @media (max-width: 1024px) {
+      .anray-containercc {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .anray-slider-container {
+        height: 40vh;
+        width: 100%;
+        max-width: 100%;
+        flex: 1;
+      }
+
+      .anray-products {
+        width: 100%;
+        flex-direction: row;
+        max-width: 100%;
+      }
+
+      .anray-product {
+        width: calc(50% - 10px);
+        height: auto;
+      }
+
+      .anray-product-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .anray-product-image {
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+      }
+
+      .anray-product-image img {
+        max-height: 150px;
+      }
+    }
+
+    /* 媒体查询 - 手机 */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      .anray-containercc {
+        gap: 10px;
+      }
+
+      .anray-products {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .anray-product {
+        width: 100%;
+      }
+
+      .anray-pagination {
+        bottom: 10px;
+      }
+    }
+</style>
+
+<div
+  class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}"
+  {% if section.settings.transparent_header %}
+    allow-transparent-header
+  {% endif %}
+>
+  <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %} relative">
+    <!-- 内容区域 -->
+    <div class="anray-containercc">
+      <!-- 左侧轮播图 -->
+      <div class="anray-slider-container">
+        <div class="anray-slider">
+          <div class="anray-slide">
+            <img
+              width="100%"
+              height="100%"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/f9f9ff23c4d560c3a8374f1b2d0f197.png?v=1745812799"
+              alt="Kitchen Scene 1"
+            >
+          </div>
+          <div class="anray-slide">
+            <img
+              width="100%"
+              height="100%"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/pexels-vlada-karpovich-4617250.jpg?v=1745830037"
+              alt="Kitchen Scene 2"
+            >
+          </div>
+          <div class="anray-slide">
+            <img
+              width="100%"
+              height="100%"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/d9a1992d74c13494f14f8725d86674fbdc39e930f40ac-QW4D3H.jpg?v=1745830037"
+              alt="Kitchen Scene 3"
+            >
+          </div>
+          <div class="anray-slide">
+            <img
+              width="100%"
+              height="100%"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/3de6306ec7d037f8c4e5229f37b39441106638f4fe957-VZjzMX.jpg?v=1745830037"
+              alt="Kitchen Scene 4"
+            >
+          </div>
+        </div>
+        <div class="anray-pagination">
+          <div class="anray-pagination-dot anray-active">
+            <div class="anray-progress">&nbsp;</div>
+          </div>
+          <div class="anray-pagination-dot">
+            <div class="anray-progress">&nbsp;</div>
+          </div>
+          <div class="anray-pagination-dot">
+            <div class="anray-progress">&nbsp;</div>
+          </div>
+          <div class="anray-pagination-dot">
+            <div class="anray-progress">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧产品展示 -->
+      <div class="anray-products">
+        <!-- 上方产品（果汁机） -->
+        <div class="anray-product anray-product-top">
+          <div class="anray-product-content anray-product-content-top">
+            <div class="anray-product-info anray-product-info-top">
+              <div class="anray-product-title-top">Get inspired</div>
+              <div class="anray-product-subtitle-top">Kitchenware that fits your world</div>
+              <a href="#" class="anray-button anray-button--secondary"> learn more </a>
+            </div>
+            <div class="anray-product-image anray-product-image-top">
+              <img
+                width="100%"
+                height="100%"
+                src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/inspired2.png?v=1749612136"
+                alt="Kitchen Pots"
+              >
+            </div>
+          </div>
+        </div>
+        <!-- 下方产品（烤面包机） -->
+        <div class="anray-product anray-product-bottom">
+          <div class="anray-product-content anray-product-content-bottom">
+            <div class="anray-product-image anray-product-image-bottom">
+              <img
+                width="100%"
+                height="100%"
+                src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/inspired2.png?v=1749612136"
+                alt="Kitchen Pans"
+              >
+            </div>
+            <div class="anray-product-info anray-product-info-bottom">
+              <div class="anray-product-title-bottom">Get inspired</div>
+              <div class="anray-product-subtitle-top">Kitchenware that fits your world</div>
+              <a href="#" class="anray-button anray-button--secondary"> learn more </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 内容区域 -->
+  </div>
+</div>
+
+<script>
+  // 轮播图功能实现
+  const slider = document.querySelector('.anray-slider');
+  const slides = document.querySelectorAll('.anray-slide');
+  const dots = document.querySelectorAll('.anray-pagination-dot');
+  const progressBars = document.querySelectorAll('.anray-progress');
+
+  let currentSlide = 0;
+  const slideInterval = 5000; // 5秒切换一次
+  let slideTimer;
+
+  // 初始化轮播图
+  function initSlider() {
+    // 设置第一张幻灯片为激活状态
+    slides[0].classList.add('anray-active');
+
+    // 设置分页点击事件
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        goToSlide(index);
+        resetProgressBar();
+        startProgressBar(index);
+      });
+    });
+
+    // 添加触摸滑动支持
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    slider.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    slider.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      // 向左滑动 (下一张)
+      if (touchEndX < touchStartX - 50) {
+        const nextSlide = (currentSlide + 1) % slides.length;
+        goToSlide(nextSlide);
+      }
+      // 向右滑动 (上一张)
+      if (touchEndX > touchStartX + 50) {
+        const prevSlide = (currentSlide - 1 + slides.length) % slides.length;
+        goToSlide(prevSlide);
+      }
+    }
+
+    // 开始自动轮播
+    startSlideTimer();
+  }
+
+  // 切换到指定幻灯片
+  function goToSlide(index) {
+    // 重置当前进度条
+    resetProgressBar();
+
+    // 移除当前激活的幻灯片
+    slides[currentSlide].classList.remove('anray-active');
+
+    // 更新当前幻灯片索引
+    currentSlide = index;
+
+    // 激活新的幻灯片
+    slides[currentSlide].classList.add('anray-active');
+
+    // 更新分页点状态
+    updateDots();
+
+    // 重新开始计时器
+    startSlideTimer();
+  }
+
+  // 更新分页点状态
+  function updateDots() {
+    dots.forEach((dot, index) => {
+      if (index === currentSlide) {
+        dot.classList.add('anray-active');
+        // 开始进度条动画
+        startProgressBar(index);
+      } else {
+        dot.classList.remove('anray-active');
+      }
+    });
+  }
+
+  // 开始进度条动画
+  function startProgressBar(index) {
+    const progress = progressBars[index];
+    progress.style.width = '0%';
+
+    // 使用CSS动画实现进度条
+    progress.style.transition = `width ${slideInterval}ms linear`;
+    setTimeout(() => {
+      progress.style.width = '100%';
+    }, 50);
+  }
+
+  // 重置进度条
+  function resetProgressBar() {
+    progressBars.forEach((progress) => {
+      progress.style.transition = 'none';
+      progress.style.width = '0%';
+    });
+  }
+
+  // 开始自动轮播计时器
+  function startSlideTimer() {
+    // 清除现有计时器
+    if (slideTimer) {
+      clearTimeout(slideTimer);
+    }
+
+    // 设置新计时器
+    slideTimer = setTimeout(() => {
+      // 计算下一张幻灯片索引
+      const nextSlide = (currentSlide + 1) % slides.length;
+      goToSlide(nextSlide);
+    }, slideInterval);
+  }
+
+  // 初始化轮播图
+  initSlider();
+  // 显示第一张幻灯片的进度条
+  startProgressBar(0);
+</script>
+
+{% schema %}
+{
+  "name": "Anray hot",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "transparent_header",
+      "label": "t:sections.global.settings.transparent_header.label",
+      "info": "t:sections.global.settings.transparent_header.info",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__colors.content",
+      "info": "t:sections.global.settings.header__colors.info"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "t:sections.global.settings.color_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "t:sections.global.settings.color_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "gradient_background",
+      "label": "t:sections.global.settings.gradient_background.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_text",
+      "label": "t:sections.global.settings.color_button_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_background",
+      "label": "t:sections.global.settings.color_button_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "color_button_gradient",
+      "label": "t:sections.global.settings.color_button_gradient.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__section.content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_top.label",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_bottom.label",
+      "default": 72
+    },
+    {
+      "type": "checkbox",
+      "id": "divider",
+      "label": "t:sections.global.settings.divider.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.global.settings.full_width.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "rounded",
+      "default": false,
+      "label": "t:sections.global.settings.rounded.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anray hot"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}

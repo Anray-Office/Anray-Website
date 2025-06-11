@@ -8,7 +8,7 @@
   .anray-products-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(130px, 1fr));
-    gap: 45px;
+    gap: 40px;
     justify-content: center;
   }
 
@@ -18,7 +18,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
   }
 
   .anray-product-image-container {
@@ -31,7 +30,7 @@
   .anray-product-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .anray-product-title {
@@ -68,7 +67,7 @@
   /* 响应式样式 */
   @media screen and (min-width: 769px) {
     .anray-products-grid {
-      grid-template-columns: repeat(4, minmax(0, 270px));
+      grid-template-columns: repeat(4, minmax(0, 320px));
     }
   }
 </style>
