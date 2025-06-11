@@ -4,6 +4,63 @@
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
     {%- render 'section-variables', section: section -%};
   }
+
+  .anray-banner2 {
+    display: flex;
+    align-items: center;
+    background-color: #e8d7c9;
+    overflow: hidden;
+  }
+
+  .anray-banner2-content {
+    flex: 1;
+    padding: 25px;
+    padding-left: 10vw;
+    max-width: 760px;
+  }
+
+  .anray-banner2-title {
+    font-size: 48px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+  }
+
+  .anray-banner2-description {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000;
+  }
+
+  .anray-banner2-image {
+    flex: 1;
+    /* 控制容器的整体高度 */
+    height: 70vh;
+    overflow: hidden;
+  }
+
+  .anray-banner2-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 768px) {
+    .anray-banner2-banner {
+      flex-direction: column;
+      border-radius: 2rem;
+    }
+
+    .anray-banner2-content {
+      padding: 30px;
+    }
+
+    .anray-banner2-image {
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+  }
 </style>
 
 <div
@@ -14,7 +71,20 @@
 >
   <div class="page-width{% if section.settings.narrow %} page-width--narrow{% endif %} relative">
     <!-- 内容区域 -->
-    <h1>Test Test Test Test</h1>
+    <div class="anray-banner2">
+      <div class="anray-banner2-content">
+        <h2 class="anray-banner2-title">banner2</h2>
+        <p class="anray-banner2-description">We're sharing some of our favorite recipes—from our kitchen to yours.</p>
+      </div>
+      <div class="anray-banner2-image">
+        <img
+          width="100%"
+          height="100%"
+          src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/image_693.png?v=1749542729"
+          alt="Kitchen with air fryer and food"
+        >
+      </div>
+    </div>
     <!-- 内容区域 -->
   </div>
 </div>
