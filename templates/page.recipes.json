@@ -26,6 +26,7 @@
     },
     "anray_drag_video_PyWzBb": {
       "type": "anray-drag-video",
+      "disabled": true,
       "name": "anray-drag-video",
       "settings": {
         "transparent_header": false,
@@ -59,11 +60,31 @@
         "narrow": false,
         "rounded": false
       }
+    },
+    "anray_banner2_NBh86X": {
+      "type": "anray-banner2",
+      "name": "Anray Banner2",
+      "settings": {
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "#d6c0a7",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "image": "shopify://shop_images/image_693.png"
+      }
     }
   },
   "order": [
     "main-page",
     "anray_drag_video_PyWzBb",
-    "custom_liquid_QRfmzM"
+    "custom_liquid_QRfmzM",
+    "anray_banner2_NBh86X"
   ]
 }
