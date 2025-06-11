@@ -326,36 +326,63 @@
         "parallax_direction": "vertical"
       }
     },
-    "map_knDbVM": {
-      "type": "map",
-      "name": "t:sections.map.presets.name",
+    "video_hero_ejb4LQ": {
+      "type": "video-hero",
+      "blocks": {
+        "slide_kjWYyM": {
+          "type": "slide",
+          "settings": {
+            "heading": "Heading",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "slide_ML8tCQ": {
+          "type": "slide",
+          "settings": {
+            "heading": "Heading",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "slide_dAhcyX": {
+          "type": "slide",
+          "settings": {
+            "heading": "Heading",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "slide_kjWYyM",
+        "slide_ML8tCQ",
+        "slide_dAhcyX"
+      ],
+      "name": "t:sections.video-hero.presets.name",
       "settings": {
         "transparent_header": false,
-        "map_address": "620 King St W, Toronto, ON M5V 1M7, Canada",
-        "map_api_key": "",
-        "map_zoom": 16,
-        "map_style": "dark",
-        "image_height": "650px",
-        "content_position": "md:items-end md:justify-start",
-        "text_alignment": "left",
-        "content_position_mobile": "image_first",
-        "image_height_mobile": "400px",
-        "text_alignment_mobile": "left",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": true,
+        "content_width": "medium",
+        "color_text": "#ffffff",
         "color_highlight": "",
         "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
+        "color_overlay": "#000000",
+        "overlay_opacity": 40,
         "padding_top": 0,
         "padding_bottom": 0,
         "divider": false,
         "full_width": true,
-        "rounded": false,
-        "enable_parallax": true,
-        "parallax_direction": "vertical"
+        "rounded": false
       }
     }
   },
@@ -367,6 +394,6 @@
     "video_with_text_M6bcAD",
     "video_with_text_ULHaPQ",
     "video_with_text_TFU3N6",
-    "map_knDbVM"
+    "video_hero_ejb4LQ"
   ]
 }
