@@ -74,6 +74,24 @@
         "rounded": false
       }
     },
+    "anray_banner2_7xdV79": {
+      "type": "anray-banner2",
+      "name": "Anray Banner2",
+      "settings": {
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
     "video_with_text_M6bcAD": {
       "type": "video-with-text",
       "blocks": {
@@ -306,24 +324,6 @@
         "rounded": false,
         "enable_parallax": false,
         "parallax_direction": "vertical"
-      }
-    },
-    "anray_banner2_7xdV79": {
-      "type": "anray-banner2",
-      "name": "Anray Banner2",
-      "settings": {
-        "transparent_header": false,
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
       }
     }
   },
