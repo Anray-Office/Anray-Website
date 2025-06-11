@@ -6,170 +6,176 @@
     position: relative;
   }
 
-  .anray-banner {
-    --anray-banner-height: 73vh;
-  }
+ .anray-banner {
+        --anray-banner-height: 85vh;
+      } 
 
-  .anray-banner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0;
-    padding: 0 0 0 0;
-    position: relative;
-    height: var(--anray-banner-height);
-    z-index: 0;
-    margin: 0 auto;
-    background-color: #ffffff00;
-  }
+      .anray-banner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0;
+        padding: 0 0 0 0;
+        position: relative;
+        height: var(--anray-banner-height);
+        z-index: 0;
+        margin: 0 auto;
+        background-color: #ffffff00;
+      }
 
-  .anray-banner-backwrap::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 10%;
-    width: 100%;
-    height: 55vh;
-    z-index: 0;
-    background: #efede3;
-  }
+      .anray-banner-backwrap::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+        width: 100%;
+        height: 60vh;
+        z-index: -1;
+        background: #efede3;
+      }
 
-  .anray-banner-img {
-    flex: 1 1 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    /* min-width: 0; */
-  }
-  .anray-banner-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-  }
-  .anray-banner-content {
-    flex: 1 1 0;
-    padding-left: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* height: 420px; */
-    min-width: 0;
-  }
-  .anray-banner-title {
-    font-size: 48px;
-    font-weight: bold;
-    color: #3a3632;
-    margin: 0 0 16px 0;
-    line-height: 1.1;
-  }
-  .anray-banner-desc {
-    color: #6d6a67;
-    font-size: 16px;
-    margin-bottom: 32px;
-    margin-top: 0;
-  }
-  .anray-banner-btns {
-    display: flex;
-    gap: 16px;
-  }
-  .anray-btn {
-    display: inline-block;
-    padding: 10px 28px;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-  }
-  .anray-btn--primary {
-    background: #ff9000;
-    color: #fff;
-    border: none;
-  }
-  .anray-btn--primary:hover {
-    background: #e07d00;
-  }
-  .anray-btn--secondary {
-    background: #cbbba7;
-    color: #3a3632;
-    border: none;
-  }
-  .anray-btn--secondary:hover {
-    background: #b3a18b;
-  }
-  @media (max-width: 900px) {
-    .anray-banner {
-      flex-direction: column;
-      padding: 24px 0 0 0;
-      min-height: unset;
-      max-width: 100%;
-      height: auto;
-    }
+      .anray-banner-img {
+        width: calc(100% / 2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      .anray-banner-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+      .anray-banner-content {
+        width: calc(100% / 2);
+        padding-left: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 0;
+      }
+      .anray-banner-title {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #3a3632;
+        margin: 0 0 1rem 0;
+        line-height: 1.1;
+      }
+      .anray-banner-desc {
+        color: #6d6a67;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        margin-top: 0;
+      }
+      .anray-banner-btns {
+        display: flex;
+        gap: 1rem;
+      }
+      .anray-btn {
+        display: inline-block;
+        padding: 0.625rem 1.75rem;
+        border-radius: 0.5rem;
+        font-size: 1.125rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: background 0.2s, color 0.2s;
+      }
+      .anray-btn--primary {
+        background: #ff9000;
+        color: #fff;
+        border: none;
+      }
+      .anray-btn--primary:hover {
+        background: #e07d00;
+      }
+      .anray-btn--secondary {
+        background: #cbbba7;
+        color: #3a3632;
+        border: none;
+      }
+      .anray-btn--secondary:hover {
+        background: #b3a18b;
+      }
+      @media (max-width: 900px) {
+        .anray-banner {
+          flex-direction: column;
+          padding: 1.5rem 0 0 0;
+          min-height: unset;
+          max-width: 100%;
+          height: auto;
+        }
 
-    .anray-banner-backwrap::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      background: linear-gradient(180deg, rgba(239,237,224,1) 0%, rgba(239,237,224,1) 35%, rgba(248,247,245,1) 65%, rgba(248,247,245,1) 90%);
-      border-radius: 2rem;
-    }
+        .anray-banner-backwrap::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          background: linear-gradient(
+            180deg,
+            rgba(239, 237, 224, 1) 0%,
+            rgba(239, 237, 224, 1) 35%,
+            rgba(252, 250, 246, 1) 65%,
+            rgba(252, 250, 246, 1) 90%
+          );
+          border-radius: 2rem;
+        }
 
-    .anray-banner-img {
-      height: 30rem;
-      flex: none;
-      justify-content: center;
-      width: 100%;
-      margin-bottom: 20px;
-    }
-    .anray-banner-img img {
-      width: auto;
-      height: 100%;
-      max-width: 90vw;
-      display: block;
-      margin: 0 auto;
-    }
-    .anray-banner-content {
-      padding-left: 0;
-      margin-top: 0;
-      flex: none;
-      height: auto;
-      align-items: center;
-      text-align: center;
-      width: 100%;
-    }
-    .anray-banner-title {
-      font-size: 24px;
-    }
-    .anray-banner-desc {
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-    .anray-banner-btns {
-      flex-direction: column;
-      gap: 12px;
-      align-items: center;
-    }
-    .anray-btn {
-      width: 80vw;
-      max-width: 260px;
-      font-size: 16px;
-      padding: 10px 0;
-    }
-  }
+        .anray-banner-img {
+          height: 30rem;
+          flex: none;
+          justify-content: center;
+          width: 100%;
+          margin-bottom: 1.25rem;
+        }
+        .anray-banner-img img {
+          width: auto;
+          height: 100%;
+          max-width: 90vw;
+          display: block;
+          margin: 0 auto;
+        }
+        .anray-banner-content {
+          padding-left: 0;
+          margin-top: 0;
+          flex: none;
+          height: auto;
+          align-items: center;
+          text-align: center;
+          width: 100%;
+        }
+        .anray-banner-title {
+          font-size: 1.5rem;
+        }
+        .anray-banner-desc {
+          font-size: 0.875rem;
+          margin-bottom: 1.25rem;
+        }
+        .anray-banner-btns {
+          flex-direction: column;
+          gap: 0.75rem;
+          align-items: center;
+        }
+        .anray-btn {
+          width: 80vw;
+          max-width: 16.25rem;
+          font-size: 1rem;
+          padding: 0.625rem 0;
+        }
+      }
 
-  @media (max-width: 767.99px) {
-    .anray-banner-img {
-      height: 20rem;
-    }
-  }
+      @media (max-width: 767.99px) {
+        .anray-banner-img {
+          height: 20rem;
+        }
+      }
 </style>
 
 <div
