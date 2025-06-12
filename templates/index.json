@@ -180,7 +180,7 @@
           "type": "heading",
           "settings": {
             "heading": "Video with text overlay",
-            "heading_size": "title-lg tracking-heading",
+            "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
             "highlighted_scribble": "circle"
@@ -216,7 +216,7 @@
         "button_yqNYgB"
       ],
       "custom_css": [
-        ".button:hover .btn-text {color:#987D62;}"
+        ".button:hover .btn-text {color: #987d62;}"
       ],
       "name": "t:sections.video-with-text-overlay.presets.name",
       "settings": {
