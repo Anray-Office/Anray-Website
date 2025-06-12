@@ -247,7 +247,7 @@
         "padding_bottom": 32,
         "divider": false,
         "full_width": false,
-        "rounded": false
+        "rounded": true
       }
     },
     "images_with_text_overlay_AKBA6e": {
