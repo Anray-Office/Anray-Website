@@ -19,7 +19,7 @@
           "settings": {
             "heading": "Support",
             "custom_text": "<p>对您的订单有疑问吗？我们很乐意帮忙</p>",
-            "menu": "customer-account-main-menu",
+            "menu": "main-menu",
             "opened": false,
             "container_width": 33
           }
