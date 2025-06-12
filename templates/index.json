@@ -281,9 +281,9 @@
             "button_label": "Button label",
             "button_link": "shopify://pages/recipes",
             "button_style": "secondary",
-            "button_size": "md",
+            "button_size": "sm",
             "button_external": false,
-            "button_icon": true
+            "button_icon": false
           }
         }
       },
