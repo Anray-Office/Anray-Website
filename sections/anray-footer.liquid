@@ -339,7 +339,7 @@
       {%- if section.settings.show_secure_payments -%}
         <div class="anray-footer-secure-payments">
           {%- if section.settings.secure_payments_title != blank -%}
-            <p class="text-base-2xl font-medium anray-button--sm">{{ section.settings.secure_payments_title }}</p>
+            <p class="text-base-2xl button--{{ section.settings.icon_font_size }} anray-button--sm">{{ section.settings.secure_payments_title }}</p>
           {%- endif -%}
           <div class="payment-icons-container">
             {%- unless shop.enabled_payment_types == empty -%}
@@ -358,7 +358,7 @@
       {%- if section.settings.show_social_media -%}
         <div class="anray-footer-social">
           {%- if section.settings.social_media_title != blank -%}
-            <p class="text-base-2xl font-medium anray-button--sm">{{ section.settings.social_media_title }}</p>
+            <p class="text-base-2xl button--{{ section.settings.icon_font_size }} anray-button--sm">{{ section.settings.social_media_title }}</p>
           {%- endif -%}
           {%- render 'social-icons', size: 'lg', gap: '7' -%}
         </div>
@@ -561,15 +561,25 @@
       "content": "左侧内容"
     },
     {
-      "type": "range",
-      "id": "icon_font_size",
-      "min": 12,
-      "max": 40,
-      "step": 1,
-      "unit": "px",
-      "label": "Icon title font size",
-      "default": 16
-    },
+          "type": "select",
+          "id": "icon_font_size",
+          "options": [
+            {
+              "value": "sm",
+              "label": "t:sections.global.settings.button_size.options__1.label"
+            },
+            {
+              "value": "md",
+              "label": "t:sections.global.settings.button_size.options__2.label"
+            },
+            {
+              "value": "lg",
+              "label": "t:sections.global.settings.button_size.options__3.label"
+            }
+          ],
+          "default": "md",
+          "label": "t:sections.global.settings.button_size.label"
+        },
     {
       "type": "image_picker",
       "id": "logo",
