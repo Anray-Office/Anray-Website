@@ -47,20 +47,12 @@
             "size_chart": ""
           }
         },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_quantity_selector": true,
-            "show_price": false,
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true,
-            "enable_back_in_stock": false,
-            "show_back_in_stock_name": false,
-            "show_back_in_stock_phone": false
-          }
-        },
         "pickup_availability": {
           "type": "pickup_availability",
+          "settings": {}
+        },
+        "buy_now_button_C7kErc": {
+          "type": "buy_now_button",
           "settings": {}
         },
         "share": {
@@ -92,8 +84,8 @@
         "description",
         "countdown",
         "variant_picker",
-        "buy_buttons",
         "pickup_availability",
+        "buy_now_button_C7kErc",
         "share",
         "complementary",
         "sticky_buy_button"
