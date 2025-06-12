@@ -46,7 +46,6 @@
         },
         "link_list_EGD6Gc": {
           "type": "link_list",
-          "disabled": true,
           "settings": {
             "heading": "Company",
             "custom_text": "",
