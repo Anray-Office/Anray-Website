@@ -26,6 +26,7 @@
     },
     "video_JgFLLR": {
       "type": "video",
+      "disabled": true,
       "name": "t:sections.video.presets.name",
       "settings": {
         "transparent_header": true,
@@ -35,6 +36,7 @@
         "enable_video_autoplay": true,
         "enable_video_looping": true,
         "image_height": "900px",
+        "video_url_mobile": "",
         "image_height_mobile": "auto",
         "padding_top": 0,
         "padding_bottom": 0,
@@ -73,6 +75,7 @@
         "heading_Gi7Vdm",
         "text_Wnh3LM"
       ],
+      "disabled": true,
       "name": "t:sections.floating-product-bundle.presets.name",
       "settings": {
         "collection": "test-products",
