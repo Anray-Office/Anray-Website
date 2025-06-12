@@ -278,9 +278,9 @@
         "button_7TcREP": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
+            "button_label": "Learn More",
             "button_link": "shopify://pages/recipes",
-            "button_style": "secondary",
+            "button_style": "primary",
             "button_size": "sm",
             "button_external": false,
             "button_icon": false
@@ -312,7 +312,7 @@
         "color_highlight": "#e0a580",
         "gradient_highlight": "",
         "color_button_text": "#ffffff",
-        "color_button_background": "#171717",
+        "color_button_background": "#987d62",
         "color_button_gradient": "",
         "color_overlay": "rgba(0,0,0,0)",
         "overlay_opacity": 100,
