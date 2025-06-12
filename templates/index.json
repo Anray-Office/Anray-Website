@@ -216,7 +216,8 @@
         "button_yqNYgB"
       ],
       "custom_css": [
-        ".button:hover .btn-text {color: #987d62;}"
+        ".button:hover .btn-text {color: #987d62;}",
+        ".section--padding > div {z-index: 1;}"
       ],
       "name": "t:sections.video-with-text-overlay.presets.name",
       "settings": {
@@ -312,7 +313,7 @@
         "color_button_text": "#ffffff",
         "color_button_background": "#171717",
         "color_button_gradient": "",
-        "color_overlay": "#f8f7f5",
+        "color_overlay": "rgba(0,0,0,0)",
         "overlay_opacity": 100,
         "padding_top": 0,
         "padding_bottom": 0,
