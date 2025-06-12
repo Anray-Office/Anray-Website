@@ -228,7 +228,7 @@
         "enable_video_looping": true,
         "image_height": "750px",
         "content_width": "small",
-        "content_position": "md:items-end md:justify-start",
+        "content_position": "md:items-center md:justify-start",
         "text_alignment": "left",
         "image_height_mobile": "auto",
         "content_position_mobile": "items-center justify-center",
