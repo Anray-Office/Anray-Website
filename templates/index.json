@@ -294,8 +294,7 @@
       ],
       "custom_css": [
         ".scrolled-images__row {opacity: 1;}",
-        ".scrolled-images__main {--tiles-height: 44vw;}",
-        "@media screen and (min-width: 768px) {.scrolled-images__main {inset-inline-start: 53%; }}"
+        ".scrolled-images__main {--tiles-height: 44vw;}"
       ],
       "name": "t:sections.images-with-text-overlay.presets.name",
       "settings": {
