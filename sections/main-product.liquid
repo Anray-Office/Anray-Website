@@ -500,8 +500,17 @@
                 section_id: section.id
               -%}
 
-            {%- when 'buy_buttons' -%}
+            {% comment %} {%- when 'buy_buttons' -%}
               {%- render 'buy-buttons',
+                block: block,
+                product: product,
+                product_id: product.id,
+                section_id: section.id,
+                product_form_id: product_form_id
+              -%} {% endcomment %}
+
+            {%- when 'buy_now_button' -%}
+              {%- render 'buy-now-button',
                 block: block,
                 product: product,
                 product_id: product.id,
@@ -1908,6 +1917,12 @@
           "label": "t:sections.main-product.blocks.back_in_stock.settings.show_phone.label"
         }
       ]
+    },
+    {
+      "type": "buy_now_button",
+      "name": "立即购买按钮",
+      "limit": 1,
+      "settings": []
     },
     {
       "type": "pickup_availability",

@@ -13,28 +13,33 @@
 
 <div class="product-form-wrapper" {{ block.shopify_attributes }}>
   {%- liquid
+    # 检查是否激活礼品卡收件人功能
     assign gift_card_recipient_feature_active = false
     if block.settings.show_gift_card_recipient and product.gift_card?
       assign gift_card_recipient_feature_active = true
     endif
 
+    # 检查是否显示动态结账按钮
     assign show_dynamic_checkout = false
     if block.settings.show_dynamic_checkout and gift_card_recipient_feature_active == false
       assign show_dynamic_checkout = true
     endif
 
+    # 检查是否有数量选择器区块
     assign quantity_block = section.blocks | where: 'type', 'quantity_selector' | first
     assign show_quantity_selector = block.settings.show_quantity_selector
     if quantity_block
       assign show_quantity_selector = false
     endif
 
+    # 检查是否有库存提醒区块
     assign back_in_stock_block = section.blocks | where: 'type', 'back_in_stock' | first
     assign enable_back_in_stock = block.settings.enable_back_in_stock
     if back_in_stock_block
       assign enable_back_in_stock = false
     endif
 
+    # 检查是否显示价格
     assign show_price = block.settings.show_price
   -%}
   {%- form 'product',
@@ -48,10 +53,12 @@
     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
 
     {%- liquid
+      # 如果启用了礼品卡收件人功能，渲染礼品卡收件人表单
       if gift_card_recipient_feature_active
         render 'gift-card-recipient-form', product: product, form: form, section_id: section_id, product_id: product_id
       endif
 
+      # 检查库存情况
       assign check_against_inventory = true
       if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
         assign check_against_inventory = false
@@ -88,6 +95,7 @@
             </span>
           </label>
           <div class="flex items-center gap-4">
+            <!-- 数量选择器组件 -->
             <quantity-input
               class="quantity inline-flex relative"
               data-section-id="{{ section_id }}"
@@ -132,6 +140,7 @@
 
             {%- if product.quantity_price_breaks_configured? -%}
               {%- liquid
+                # 配置批量价格显示
                 assign volume_pricing_array = product.selected_or_first_available_variant.quantity_price_breaks | sort: 'quantity' | reverse
                 assign current_qty_for_volume_pricing = cart_qty | plus: product.selected_or_first_available_variant.quantity_rule.min
                 if cart_qty > 0
@@ -139,6 +148,7 @@
                 endif
                 assign variant_price_compare = product.selected_or_first_available_variant.compare_at_price
               -%}
+              <!-- 每件商品价格显示组件 -->
               <price-per-item
                 id="PricePerItem-{{ section_id }}-{{ product_id }}"
                 class="price flex flex-wrap items-center gap-2 lg:gap-1d5"
@@ -209,6 +219,7 @@
             or product.selected_or_first_available_variant.quantity_rule.min > 1
             or product.selected_or_first_available_variant.quantity_rule.max != null
           -%}
+            <!-- 数量规则提示 -->
             <div
               class="quantity__rules text-sm font-medium leading-tight"
               id="QuantityRules-{{ section_id }}-{{ product_id }}"
@@ -241,12 +252,14 @@
           {%- endif -%}
         </div>
       {%- endif -%}
+      <!-- 购买按钮区域 -->
       <div class="buy-buttons{% if enable_back_in_stock %} back-in-stock{% endif %}{% if product.quantity_price_breaks_configured? != true and show_quantity_selector or show_price %} flex flex-wrap{% else %} grid{% endif %} gap-4">
         {%- if product.quantity_price_breaks_configured? != true and show_quantity_selector -%}
           {%- assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id -%}
           <label for="Quantity-{{ section_id }}-{{ product_id }}" class="label sr-only">
             {{- 'products.quantity.label' | t -}}
           </label>
+          <!-- 非批量价格模式下的数量选择器 -->
           <quantity-input
             class="quantity inline-flex shrink-0 relative"
             data-section-id="{{ section_id }}"
@@ -290,6 +303,7 @@
           </quantity-input>
         {%- endif -%}
 
+        <!-- 添加到购物车按钮 -->
         <button
           type="submit"
           name="add"
@@ -320,6 +334,7 @@
               -%}
             </span>
             {%- if show_price -%}
+              <!-- 按钮中显示价格 -->
               <div id="BuyButtonPrice-{{ section.id }}-{{ product.id }}" class="flex">
                 <span class="relative">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
                 {%- liquid
@@ -334,6 +349,7 @@
         </button>
 
         {%- if enable_back_in_stock -%}
+          <!-- 库存通知按钮 -->
           <button
             type="button"
             class="product-form__alert button button--primary button--fixed w-full"
@@ -349,6 +365,7 @@
         {%- endif -%}
 
         {%- liquid
+          # 在非批量价格模式且不显示数量选择器或价格的情况下显示动态结账按钮
           unless product.quantity_price_breaks_configured? != true and show_quantity_selector or show_price
             if show_dynamic_checkout
               echo form | payment_button
@@ -362,6 +379,7 @@
           or product.selected_or_first_available_variant.quantity_rule.min > 1
           or product.selected_or_first_available_variant.quantity_rule.max != null
         -%}
+          <!-- 非批量价格模式下的数量规则提示 -->
           <div
             class="quantity__rules text-sm font-medium leading-tight"
             id="QuantityRules-{{ section_id }}-{{ product_id }}"
@@ -395,16 +413,18 @@
       {%- endif -%}
 
       {%- liquid
+        # 在批量价格模式下显示动态结账按钮
         if product.quantity_price_breaks_configured? != true and show_quantity_selector or show_price
           if show_dynamic_checkout
             echo form | payment_button
-          endif
+          endif  
         endif
       -%}
 
-      {% comment %}亚马逊河TK平台按钮 {% endcomment %}
+      {% comment %}亚马逊河TK平台按钮 - 用于在其他电商平台上购买产品 {% endcomment %}
       <div class="inline-flex gap-4 justify-center" style="display:none;">
         {% unless product.metafields.anray_custom_button.amazon_links == blank %}
+          <!-- 亚马逊购买按钮 -->
           <a
             href="{{product.metafields.anray_custom_button.amazon_links}}"
             target="_blank"
@@ -422,6 +442,7 @@
           </a>
         {% endunless %}
         {% unless product.metafields.anray_custom_button.amazon_links == blank %}
+          <!-- 重复的亚马逊购买按钮 - 可能需要修改为其他平台 -->
           <a
             href="{{product.metafields.anray_custom_button.amazon_links}}"
             target="_blank"
@@ -443,6 +464,7 @@
   {%- endform -%}
 
   {%- if enable_back_in_stock -%}
+    <!-- 缺货通知抽屉组件 -->
     <div id="BackInStock-{{ section_id }}-{{ product_id }}"> 
       {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
         <back-in-stock-drawer
@@ -454,12 +476,14 @@
           shopify-design-mode
           hidden
         >
+          <!-- 遮罩层 -->
           <overlay-element
             class="overlay fixed-modal invisible opacity-0 fixed bottom-0 left-0 w-full h-screen pointer-events-none"
             aria-controls="BackInStockDrawer-{{ section_id }}-{{ product_id }}"
             aria-expanded="false"
           ></overlay-element>
           <div class="drawer__inner z-10 absolute top-0 flex flex-col w-full h-full overflow-hidden">
+            <!-- 抽屉头部 -->
             <gesture-element class="drawer__header flex justify-between opacity-0 invisible relative">
               <span class="drawer__title heading lg:text-3xl text-2xl leading-none tracking-tight grid gap-4">
                 {{ product.title | escape }}
@@ -480,6 +504,7 @@
                   </dl>
                 {%- endunless -%}
               </span>
+              <!-- 关闭按钮 -->
               <button
                 class="button button--secondary button--close drawer__close hidden sm:flex items-center justify-center"
                 type="button"
@@ -494,6 +519,7 @@
                 </span>
               </button>
             </gesture-element>
+            <!-- 抽屉内容 -->
             <div class="drawer__content opacity-0 invisible flex flex-col h-full grow shrink">
               <div class="drawer__scrollable relative flex flex-col gap-5 md:gap-7 grow shrink">
                 {%- render 'back-in-stock',

@@ -1,0 +1,127 @@
+{%- comment -%}
+  Renders a simple "Buy Now" button with custom checkout functionality.
+  Accepts:
+  - product: {Object} product object.
+  - block: {Object} passing the block information.
+  - product_form_id: {String} product form id.
+  - product_id: {String} The ID of the current product.
+  - section_id: {String} The ID of section to which this snippet belongs.
+
+  Usage:
+  {% render 'buy-now-button', block: block, product: product, product_form_id: product_form_id, section_id: section.id, product_id: product.id %}
+{%- endcomment -%}
+
+<div class="buy-now-button-wrapper" {{ block.shopify_attributes }}>
+  {%- form 'product',
+    product,
+    id: product_form_id,
+    data-type: 'buy-now-form',
+    class: 'product-form grid gap-4',
+    is: 'product-form'
+  -%}
+    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
+    <input type="hidden" name="quantity" value="1">
+
+    {%- liquid
+      # 检查库存情况
+      assign check_against_inventory = true
+      if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+        assign check_against_inventory = false
+      endif
+      if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+        assign quantity_rule_soldout = true
+      endif
+    -%}
+
+    <div class="product-form__buttons grid gap-4">
+      <div
+        class="product-form__error-message alert alert--error text-sm font-medium leading-tight"
+        role="alert"
+        hidden
+      ></div>
+
+      <!-- 自定义立即购买按钮 -->
+      {%- if product.selected_or_first_available_variant.available and quantity_rule_soldout != true -%}
+        <button
+          type="submit"
+          name="checkout"
+          class="product-form__submit button button--primary button--fixed w-full buy-now-button"
+          is="hover-button"
+          form="{{ product_form_id }}"
+        >
+          <span class="btn-fill" data-fill></span>
+          <span class="btn-text">
+            <span>立即购买</span>
+          </span>
+        </button>
+      {%- else -%}
+        <!-- 已售罄按钮 -->
+        <button
+          type="button"
+          class="product-form__submit button button--primary button--fixed w-full"
+          is="hover-button"
+          disabled
+        >
+          <span class="btn-fill" data-fill></span>
+          <span class="btn-text">
+            <span>{{ 'products.product.sold_out' | t }}</span>
+          </span>
+        </button>
+      {%- endif -%}
+    </div>
+  {%- endform -%}
+</div>
+
+<script>
+  class BuyNowForm extends HTMLFormElement {
+    constructor() {
+      super();
+      this.addEventListener('submit', this.onSubmit.bind(this));
+    }
+
+    onSubmit(event) {
+      event.preventDefault();
+      
+      // 获取表单数据
+      const formData = new FormData(this);
+      const variantId = this.querySelector('input[name="id"]').value;
+      const quantity = this.querySelector('input[name="quantity"]').value || 1;
+      
+      // 清空购物车并添加当前商品，然后直接跳转到结账页面
+      fetch('/cart/clear.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(() => {
+        return fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            items: [{
+              id: variantId,
+              quantity: quantity
+            }]
+          })
+        });
+      })
+      .then(response => response.json())
+      .then(() => {
+        // 跳转到结账页面
+        window.location.href = '/checkout';
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+  }
+
+  // 注册自定义元素
+  if (!customElements.get('buy-now-form')) {
+    customElements.define('buy-now-form', BuyNowForm, { extends: 'form' });
+  }
+</script> 
