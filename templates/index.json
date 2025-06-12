@@ -215,6 +215,9 @@
         "text_DYqgNj",
         "button_yqNYgB"
       ],
+      "custom_css": [
+        ".button:hover .btn-text {color:#987D62;}"
+      ],
       "name": "t:sections.video-with-text-overlay.presets.name",
       "settings": {
         "transparent_header": false,
