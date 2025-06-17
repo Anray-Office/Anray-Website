@@ -17,7 +17,6 @@
       flex: 1;
       position: relative;
       overflow: hidden;
-      border-radius: 10px;
       /* max-width: 710px; */
       height: 100%;
     }
@@ -251,9 +250,9 @@
       }
     }
 </style>
-
+{% comment %} {% if section.settings.rounded %} section--rounded relative{% endif %} {% endcomment %}
 <div
-  class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}"
+  class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} relative{% endif %}"
   {% if section.settings.transparent_header %}
     allow-transparent-header
   {% endif %}
@@ -262,7 +261,7 @@
     <!-- 内容区域 -->
     <div class="anray-containercc">
       <!-- 左侧轮播图 -->
-      <div class="anray-slider-container">
+      <div class="anray-slider-container {% if section.settings.rounded %} section--rounded{% endif %}">
         <div class="anray-slider">
           <div class="anray-slide">
             <img
@@ -334,7 +333,7 @@
           </div>
         </div>
         <!-- 下方产品（烤面包机） -->
-        <div class="anray-product anray-product-bottom">
+        <div class="anray-product anray-product-bottom {% if section.settings.rounded %} section--rounded{% endif %}">
           <div class="anray-product-content anray-product-content-bottom">
             <div class="anray-product-image anray-product-image-bottom">
               <img
@@ -344,7 +343,7 @@
                 alt="Kitchen Pans"
               >
             </div>
-            <div class="anray-product-info anray-product-info-bottom">
+            <div class="anray-product-info anray-product-info-bottom {% if section.settings.rounded %} section--rounded{% endif %}">
               <div class="anray-product-title-bottom">Get inspired</div>
               <div class="anray-product-subtitle-top">Kitchenware that fits your world</div>
               <a href="#" class="anray-button anray-button--secondary"> learn more </a>
