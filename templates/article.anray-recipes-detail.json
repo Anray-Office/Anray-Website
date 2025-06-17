@@ -133,12 +133,31 @@
         "full_width": false,
         "rounded": false
       }
+    },
+    "anray_recipes_texts_Lw3M8b": {
+      "type": "anray-recipes-texts",
+      "name": "Recipes texts",
+      "settings": {
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
     }
   },
   "order": [
     "anray_recipes_video_QWHPdT",
     "main-article-banner",
     "main-article",
-    "anray_recipes_accessories_QBPm9Q"
+    "anray_recipes_accessories_QBPm9Q",
+    "anray_recipes_texts_Lw3M8b"
   ]
 }
