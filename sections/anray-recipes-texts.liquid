@@ -4,9 +4,8 @@
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
     {%- render 'section-variables', section: section -%};
   }
-  {{ 'anray-recipes-texts.css' | asset_url | stylesheet_tag }}
-
 </style>
+{{ 'anray-recipes-texts.css' | asset_url | stylesheet_tag }}
 
 <div
   class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}"
@@ -22,7 +21,9 @@
       <div class="anray-ingredients-header">
         <h2 class="anray-ingredients-title">{{ section.settings.ingredients_title | default: 'Ingredients' }}</h2>
         {% if section.settings.show_print_button %}
-          <a href="javascript:window.print();" class="anray-print-link">{{ section.settings.print_button_text | default: 'Print this recipe' }}</a>
+          <a href="javascript:window.print();" class="anray-print-link">
+            {{- section.settings.print_button_text | default: 'Print this recipe' -}}
+          </a>
         {% endif %}
       </div>
       <!-- directions -->
@@ -104,7 +105,7 @@
       "type": "text",
       "id": "print_button_text",
       "label": "打印按钮文本",
-      "default": "打印此食谱"
+      "default": "Print this recipe"
     },
     {
       "type": "header",
