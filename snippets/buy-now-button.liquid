@@ -17,9 +17,9 @@
     id: product_form_id,
     data-type: 'buy-now-form',
     class: 'product-form grid gap-4',
-    is: 'product-form'
+    is: 'buy-now-form'
   -%}
-    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
+    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
     <input type="hidden" name="quantity" value="1">
 
     {%- liquid
@@ -104,18 +104,29 @@
           body: JSON.stringify({
             items: [{
               id: variantId,
-              quantity: quantity
+              quantity: parseInt(quantity)
             }]
           })
         });
       })
       .then(response => response.json())
-      .then(() => {
-        // 跳转到结账页面
-        window.location.href = '/checkout';
+      .then(data => {
+        // 检查添加商品是否成功
+        if (data.items && data.items.length > 0) {
+          // 跳转到结账页面
+          window.location.href = '/checkout';
+        } else {
+          throw new Error('添加商品到购物车失败');
+        }
       })
       .catch(error => {
-        console.error('Error:', error);
+        console.error('错误:', error);
+        // 显示错误信息给用户
+        const errorMessage = this.querySelector('.product-form__error-message');
+        if (errorMessage) {
+          errorMessage.textContent = '无法跳转到结账页面，请重试。';
+          errorMessage.removeAttribute('hidden');
+        }
       });
     }
   }
