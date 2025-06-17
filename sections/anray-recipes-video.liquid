@@ -1,0 +1,520 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    {%- render 'section-variables', section: section -%};
+  }
+
+  .anray-recipe-card {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      /* background-color: #fff; */
+      /* 这个是整体的 圆角 只有给card 背景色才会显示 */
+      /* border-radius: 2rem; */
+      overflow: hidden;
+    }
+
+    .anray-recipe-card__media {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      /* 圆角 只显示在左侧容器上 */
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    /* 新增控制左侧容器宽高的类名 */
+    .anray-media-container {
+      width: 100%;
+      height: var(
+        --anray-media-height,
+        500px
+      ); /* PC端默认高度，可通过CSS变量覆盖 */
+      display: flex;
+      flex-direction: column;
+      position: relative; /* 添加相对定位以便于子元素绝对定位 */
+      /* 添加过渡效果使高度变化更平滑 */
+      transition: height 0.3s ease-in-out;
+    }
+
+    /* 可以使用下面的类名来快速调整容器高度 */
+    .anray-media-container--tall {
+      --anray-media-height: 700px;
+    }
+
+    .anray-media-container--medium {
+      --anray-media-height: 550px;
+    }
+
+    .anray-media-container--short {
+      --anray-media-height: 450px;
+    }
+
+    .anray-video-wrapper {
+      position: relative; /* For potential absolute positioning of controls or overlays */
+      width: 100%;
+      flex-grow: 1; /* 让视频占据除了信息栏以外的所有空间 */
+      overflow: hidden; /* Ensures video stays within bounds */
+      background-color: #000; /* Background for the video area */
+    }
+
+    .anray-video-wrapper video {
+      width: 100%;
+      height: 100%; /* Will fill the wrapper, wrapper needs a height or aspect ratio */
+      object-fit: cover;
+      display: block;
+    }
+
+    .anray-media-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .anray-media-info__top {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      background-color: #111111; /* Dark background from image */
+      color: #fff; /* Text color for dark background */
+      padding: 15px 35px; /* Padding based on image */
+    }
+
+    .anray-media-info__item {
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .anray-media-info__item span {
+      font-size: 12px;
+      opacity: 0.8;
+      letter-spacing: 0.5px;
+    }
+
+    .anray-media-info__item p {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .anray-media-info__item--video {
+      display: flex;
+      align-items: center;
+      align-self: center; /* Corrected from anchor-center */
+      gap: 15px;
+    }
+
+    .anray-play-button {
+      width: 35px;
+      height: 35px;
+      border: 1.5px solid #fff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .anray-play-button__triangle {
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 14px solid #fff;
+      margin-left: 4px;
+    }
+
+    .anray-media-info__bottom {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      background-color: #ececec; /* Light gray background from image */
+      color: #333333; /* Dark text color for light background */
+      padding: 15px 35px; /* Padding based on image */
+    }
+
+    .anray-media-share span {
+      font-size: 14px;
+    }
+
+    .anray-media-share__icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-left: 15px;
+    }
+
+    .anray-media-share__icons img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .anray-recipe-card__content {
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .anray-recipe-card__content h2 {
+      font-size: 48px;
+      font-weight: 500;
+      margin: 0 0 15px;
+      color: #000;
+    }
+
+    .anray-recipe-card__content .anray-author {
+      font-size: 16px;
+      color: #333;
+      margin: 15px 0;
+    }
+
+    .anray-recipe-card__content .anray-description {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #555;
+      margin: 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 990px) {
+      /* Medium screens */
+      .anray-recipe-card {
+        grid-template-columns: 1fr; /* Stack media and content */
+      }
+
+      .anray-recipe-card__content {
+        padding: 40px;
+      }
+
+      .anray-recipe-card__content h2 {
+        font-size: 36px;
+      }
+
+      .anray-media-info__item p {
+        font-size: 20px;
+      }
+
+      /* 平板端左侧容器宽高调整 */
+      .anray-media-container {
+        --anray-media-height: 500px;
+      }
+
+      /* 可以针对平板端调整不同高度 */
+      .anray-media-container--tall {
+        --anray-media-height: 600px;
+      }
+
+      .anray-media-container--medium {
+        --anray-media-height: 450px;
+      }
+
+      .anray-media-container--short {
+        --anray-media-height: 400px;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      /* 手机端左侧容器宽高调整 */
+      .anray-media-container {
+        --anray-media-height: 450px;
+      }
+
+      /* 可以针对手机端调整不同高度 */
+      .anray-media-container--tall {
+        --anray-media-height: 550px;
+      }
+
+      .anray-media-container--medium {
+        --anray-media-height: 400px;
+      }
+
+      .anray-media-container--short {
+        --anray-media-height: 350px;
+      }
+
+      .anray-media-info__top {
+        /* flex-direction: column; */ /* Stack items vertically */
+        align-items: stretch; /* Stretch items to full width */
+        gap: 15px;
+        padding: 10px;
+      }
+
+      .anray-media-info__item {
+        /* text-align: left; */
+      }
+
+      .anray-media-info__bottom {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Align items to start */
+        gap: 10px;
+        padding: 20px;
+      }
+
+      .anray-media-share__icons {
+        margin-left: 0; /* Remove margin when stacked */
+      }
+
+      .anray-recipe-card__content {
+        padding: 30px;
+      }
+
+      .anray-recipe-card__content h2 {
+        font-size: 28px;
+      }
+
+      .anray-recipe-card__content .anray-author,
+      .anray-recipe-card__content .anray-description {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Extra small screens */
+      .page-width {
+        padding: 0 15px;
+      }
+
+      /* 小屏手机端左侧容器宽高调整 */
+      .anray-media-container {
+        --anray-media-height: 400px;
+      }
+
+      /* 可以针对小屏手机端调整不同高度 */
+      .anray-media-container--tall {
+        --anray-media-height: 500px;
+      }
+
+      .anray-media-container--medium {
+        --anray-media-height: 350px;
+      }
+
+      .anray-media-container--short {
+        --anray-media-height: 300px;
+      }
+
+      .anray-media-info__top,
+      .anray-media-info__bottom {
+        padding: 10px;
+      }
+      .anray-recipe-card__content {
+        padding: 20px;
+      }
+      .anray-recipe-card__content h2 {
+        font-size: 24px;
+      }
+      .anray-media-info__item span {
+        font-size: 11px;
+      }
+      .anray-media-info__item p {
+        font-size: 18px;
+      }
+      .anray-play-button {
+        width: 30px;
+        height: 30px;
+      }
+      .anray-play-button__triangle {
+        border-top-width: 6px;
+        border-bottom-width: 6px;
+        border-left-width: 10px;
+        margin-left: 3px;
+      }
+    }
+
+    @media print {
+      /* 你所有打印的样式都放在这里 */
+      .anray-media-info,
+      .btn--primary {
+        display: none !important;
+      }
+    }
+</style>
+
+<div
+  class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}"
+  {% if section.settings.transparent_header %}
+    allow-transparent-header
+  {% endif %}
+>
+  <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %} relative">
+    <!-- 内容区域 -->
+    <!--
+      1. 默认高度：不添加额外类名，使用默认高度
+      2. 高高度：添加 anray-media-container--tall 类名
+      3. 中等高度：添加 anray-media-container--medium 类名
+      4. 矮高度：添加 anray-media-container--short 类名
+      每个响应式断点（PC、平板、手机等）都有独立的高度设置，互不影响
+    -->
+    <div class="anray-recipe-card">
+      <div class="anray-recipe-card__media">
+        <!-- 可以在此处添加不同的高度类名，例如: anray-media-container--tall -->
+        <div class="anray-media-container anray-media-container--tall">
+          <div class="anray-video-wrapper">
+            <video
+              src="https://cdn.shopify.com/videos/c/o/v/4fa984d5720545f0b8a49df6c01ebc1b.mp4"
+              autoplay
+              muted
+              loop
+              playsinline
+            ></video>
+          </div>
+          <div class="anray-media-info">
+            <div class="anray-media-info__top">
+              <div class="anray-media-info__item">
+                <span>Prep Time</span>
+                <p>10</p>
+              </div>
+              <div class="anray-media-info__item">
+                <span>Cook Time</span>
+                <p>20</p>
+              </div>
+              <div
+                class="anray-media-info__item anray-media-info__item--video"
+              >
+                <span>Play</span>
+                <div class="anray-play-button">
+                  <div class="anray-play-button__triangle">&nbsp;</div>
+                </div>
+              </div>
+            </div>
+            <div class="anray-media-info__bottom">
+              <div class="anray-media-share">
+                <span>Share this recipe!</span>
+              </div>
+              <div class="anray-media-share__icons">
+                <img  width="100%" height="100%"
+                  src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/tik-tok.png?v=1749004816"
+                  alt="social icon"
+                >
+                <img  width="100%" height="100%"
+                  src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/tik-tok.png?v=1749004816"
+                  alt="social icon"
+                >
+                <img  width="100%" height="100%"
+                  src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/tik-tok.png?v=1749004816"
+                  alt="social icon"
+                >
+                <img  width="100%" height="100%"
+                  src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/tik-tok.png?v=1749004816"
+                  alt="social icon"
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="anray-recipe-card__content">
+        <h2>Shamrock Pancakes</h2>
+        <p class="anray-author">Anray Team</p>
+        <p class="anray-description">
+          Start your St. Patrick's Day with a little extra luck right on your plate! These Shamrock Pancakes are fluffy,
+          delicious, and festively green. Perfect for a holiday breakfast or brunch, they bring the spirit of the Irish
+          straight to your kitchen. Top them with butter, syrup, or even a dusting of powdered sugar for a treat that's
+          as charming as it is tasty. Whether you're celebrating with family or just want to add a little extra fun to
+          your morning, these pancakes are sure to bring good fortune — and full bellies!
+        </p>
+      </div>
+    </div>
+    <!-- 内容区域 -->
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Recipes video",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "transparent_header",
+      "label": "t:sections.global.settings.transparent_header.label",
+      "info": "t:sections.global.settings.transparent_header.info",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__colors.content",
+      "info": "t:sections.global.settings.header__colors.info"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "t:sections.global.settings.color_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "t:sections.global.settings.color_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "gradient_background",
+      "label": "t:sections.global.settings.gradient_background.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_text",
+      "label": "t:sections.global.settings.color_button_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_background",
+      "label": "t:sections.global.settings.color_button_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "color_button_gradient",
+      "label": "t:sections.global.settings.color_button_gradient.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__section.content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_top.label",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_bottom.label",
+      "default": 72
+    },
+    {
+      "type": "checkbox",
+      "id": "divider",
+      "label": "t:sections.global.settings.divider.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.global.settings.full_width.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "rounded",
+      "default": false,
+      "label": "t:sections.global.settings.rounded.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recipes video"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}
