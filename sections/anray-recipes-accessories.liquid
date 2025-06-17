@@ -1,0 +1,281 @@
+<style>
+    #shopify-section-{{ section.id }} {
+      --section-padding-top: {{ section.settings.padding_top }}px;
+      --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+      {%- render 'section-variables', section: section -%};
+    }
+
+    .anray-product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 300px));
+      gap: 1.25rem;
+      justify-content: center;
+  }
+
+  .anray-product-card {
+      text-align: center;
+      padding: 1rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+  }
+
+  .anray-product-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+  }
+
+  .anray-product-image-wrapper {
+      width: 100%;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      position: relative;
+      overflow: hidden;
+      background-color: #fff;
+  }
+
+  .anray-product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+  }
+
+  .anray-product-image-wrapper:hover .anray-product-image {
+      transform: translateX(15px) translateY(-15px) scale(1.05);
+  }
+
+  .anray-product-title {
+      font-size: 1rem;
+      font-weight: normal;
+      margin-bottom: 0.5rem;
+      color: #333;
+      /* 文本截断 - 两行 */
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      /* Firefox */
+      max-height: 2.4em;
+      line-height: 1.2;
+      padding: 0 4px;
+  }
+
+  .anray-product-price {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+  }
+
+  /* 响应式布局 */
+  @media screen and (max-width: 1200px) {
+      .anray-product-grid {
+          grid-template-columns: repeat(3, minmax(0, 280px));
+      }
+  }
+
+  @media screen and (max-width: 768px) {
+      .anray-product-grid {
+          grid-template-columns: repeat(2, minmax(0, 250px));
+          gap: 1rem;
+      }
+  }
+
+  @media screen and (max-width: 480px) {
+      .anray-product-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0.75rem;
+          grid-template-rows: repeat(2, auto);
+          grid-auto-rows: 0;
+          overflow: hidden;
+      }
+
+      .anray-product-card {
+          padding: 0;
+      }
+
+      .anray-product-title {
+          font-size: 0.9rem;
+      }
+  }
+</style>
+
+<div
+  class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}"
+  {% if section.settings.transparent_header %}
+    allow-transparent-header
+  {% endif %}
+>
+  <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %} relative">
+    <!-- 内容区域 -->
+    <div class="array-product-grid">
+      <!-- 产品1 -->
+      <div class="anray-product-card">
+        <a href="#" class="array-product-link">
+          <div class="anray-product-image-wrapper">
+            <img
+              width="100%"
+              height="100%"
+              class="anray-product-image"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/detail-image.png?v=1750062631"
+              alt="15 inch seasoned cast iron pan"
+            >
+          </div>
+          <h3 class="anray-product-title">15 inch seasoned cast iron pan with long title text that might overflow</h3>
+          <p class="anray-product-price">$ 99.99</p>
+        </a>
+      </div>
+      <!-- 产品2 -->
+      <div class="anray-product-card">
+        <a href="#" class="anray-product-link">
+          <div class="anray-product-image-wrapper">
+            <img
+              width="100%"
+              height="100%"
+              class="anray-product-image"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/detail-image.png?v=1750062631"
+              alt="15 inch seasoned cast iron pan"
+            >
+          </div>
+          <h3 class="anray-product-title">15 inch seasoned cast iron pan</h3>
+          <p class="anray-product-price">$ 99.99</p>
+        </a>
+      </div>
+      <!-- 产品3 -->
+      <div class="anray-product-card">
+        <a href="#" class="anray-product-link">
+          <div class="anray-product-image-wrapper">
+            <img
+              width="100%"
+              height="100%"
+              class="anray-product-image"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/detail-image.png?v=1750062631"
+              alt="15 inch seasoned cast iron pan"
+            >
+          </div>
+          <h3 class="anray-product-title">15 inch seasoned cast iron pan with extra features and premium quality</h3>
+          <p class="anray-product-price">$ 99.99</p>
+        </a>
+      </div>
+      <!-- 产品4 -->
+      <div class="anray-product-card">
+        <a href="#" class="anray-product-link">
+          <div class="anray-product-image-wrapper">
+            <img
+              width="100%"
+              height="100%"
+              class="anray-product-image"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/detail-image.png?v=1750062631"
+              alt="15 inch seasoned cast iron pan"
+            >
+          </div>
+          <h3 class="anray-product-title">15 inch seasoned cast iron pan</h3>
+          <p class="anray-product-price">$ 99.99</p>
+        </a>
+      </div>
+    </div>
+    <!-- 内容区域 -->
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Recipes accessories",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "transparent_header",
+      "label": "t:sections.global.settings.transparent_header.label",
+      "info": "t:sections.global.settings.transparent_header.info",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__colors.content",
+      "info": "t:sections.global.settings.header__colors.info"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "t:sections.global.settings.color_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "t:sections.global.settings.color_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "gradient_background",
+      "label": "t:sections.global.settings.gradient_background.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_text",
+      "label": "t:sections.global.settings.color_button_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_background",
+      "label": "t:sections.global.settings.color_button_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "color_button_gradient",
+      "label": "t:sections.global.settings.color_button_gradient.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__section.content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_top.label",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_bottom.label",
+      "default": 72
+    },
+    {
+      "type": "checkbox",
+      "id": "divider",
+      "label": "t:sections.global.settings.divider.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.global.settings.full_width.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "rounded",
+      "default": false,
+      "label": "t:sections.global.settings.rounded.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recipes accessories"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}
