@@ -1,0 +1,111 @@
+.anray-ingredients-section {
+  padding: 1.5rem 0;
+}
+
+.anray-ingredients-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.anray-ingredients-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1;
+  font-family: sans-serif;
+  color: #000;
+}
+
+.anray-print-link {
+  color: #999;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: normal;
+  align-self: baseline;
+}
+
+.anray-ingredients-container {
+  justify-content: space-between;
+  padding: 2.5rem 2rem;
+}
+
+.anray-ingredient-column {
+  flex: 1;
+  padding: 0 1.5rem;
+}
+
+.anray-ingredient-item {
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.anray-measurement {
+  font-weight: bold;
+  color: #000;
+}
+
+.anray-directions-container,
+.anray-directions-container .anray-directions-ol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.anray-directions-container {
+  padding: 2.5rem 2rem 2.5rem 4rem;
+}
+
+.anray-directions-container .anray-directions-ol span {
+  line-height: 1.6;
+}
+
+.anray-directions_ingredients {
+  border: 2px solid #e0e0e0;
+  border-radius: 0.75rem;
+  display: flex;
+}
+
+@media screen and (max-width: 1048px) {
+  .anray-ingredients-container {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .anray-directions-container {
+    padding: 1.5rem 1rem 1.5rem 2rem;
+  }
+
+  .anray-ingredient-item {
+    font-size: 1rem;
+  }
+
+  .anray-ingredients-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* 添加移动端适配样式 */
+@media screen and (max-width: 480px) {
+  .anray-ingredients-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .anray-ingredients-title {
+    font-size: 2rem;
+  }
+
+  .anray-print-link {
+    margin-top: 0.25rem;
+  }
+}
