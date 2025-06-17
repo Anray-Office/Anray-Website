@@ -115,12 +115,18 @@
       align-items: center;
     }
 
+    .anray-product-top,
+    .anray-product-bottom{
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    }
+
     .anray-product-content-top,
     .anray-product-content-bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 100%;
+
     }
 
     .anray-product-info-top,
@@ -318,7 +324,7 @@
       <!-- 右侧产品展示 -->
       <div class="anray-products">
         <!-- 上方产品（果汁机） -->
-        <div class="anray-product anray-product-top">
+        <div class="anray-product anray-product-top {% if section.settings.rounded %} anray-section--rounded{% endif %}">
           <div class="anray-product-content anray-product-content-top">
             <div class="anray-product-info anray-product-info-top">
               <div class="anray-product-title-top">Get inspired</div>
