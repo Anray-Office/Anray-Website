@@ -14,6 +14,7 @@
       "blocks": {
         "spacing": {
           "type": "spacing",
+          "disabled": true,
           "settings": {
             "height": 68,
             "height_mobile": 0
@@ -21,6 +22,7 @@
         },
         "title": {
           "type": "title",
+          "disabled": true,
           "settings": {
             "title_size": "title-lg tracking-heading",
             "show_tags": true,
@@ -34,6 +36,7 @@
         "spacing",
         "title"
       ],
+      "disabled": true,
       "settings": {
         "transparent_header": true,
         "show_image": true,
