@@ -93,7 +93,7 @@
       "name": "t:sections.lookbook.name",
       "settings": {
         "image": "shopify://shop_images/desktop_beige_better_bowl_set_with_knives_tablescape.webp",
-        "heading": "You May Also Like",
+        "heading": "",
         "heading_size": "title-md",
         "heading_alignment": "text-center md:items-center",
         "heading_tag": "h2",
