@@ -9,6 +9,24 @@
  */
 {
   "sections": {
+    "anray_recipes_video_QWHPdT": {
+      "type": "anray-recipes-video",
+      "name": "Recipes video",
+      "settings": {
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
     "main-article-banner": {
       "type": "main-article-banner",
       "blocks": {
@@ -89,6 +107,7 @@
         "next_previous_posts",
         "comments"
       ],
+      "disabled": true,
       "settings": {
         "padding_top": 72,
         "padding_bottom": 72,
@@ -96,10 +115,30 @@
         "narrow": true,
         "rounded": true
       }
+    },
+    "anray_recipes_accessories_QBPm9Q": {
+      "type": "anray-recipes-accessories",
+      "name": "Recipes accessories",
+      "settings": {
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
     }
   },
   "order": [
+    "anray_recipes_video_QWHPdT",
     "main-article-banner",
-    "main-article"
+    "main-article",
+    "anray_recipes_accessories_QBPm9Q"
   ]
 }
