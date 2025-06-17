@@ -49,7 +49,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 10px;
     }
 
     /* 分页器样式 */
@@ -249,6 +248,10 @@
         bottom: 10px;
       }
     }
+
+    .anray-section--rounded {
+      border-radius: var(--border-radius,12px);
+    }
 </style>
 {% comment %} {% if section.settings.rounded %} section--rounded relative{% endif %} {% endcomment %}
 <div
@@ -261,7 +264,7 @@
     <!-- 内容区域 -->
     <div class="anray-containercc">
       <!-- 左侧轮播图 -->
-      <div class="anray-slider-container {% if section.settings.rounded %} section--rounded{% endif %}">
+      <div class="anray-slider-container {% if section.settings.rounded %} anray-section--rounded{% endif %}">
         <div class="anray-slider">
           <div class="anray-slide">
             <img
@@ -333,7 +336,7 @@
           </div>
         </div>
         <!-- 下方产品（烤面包机） -->
-        <div class="anray-product anray-product-bottom {% if section.settings.rounded %} section--rounded{% endif %}">
+        <div class="anray-product anray-product-bottom {% if section.settings.rounded %} anray-section--rounded{% endif %}">
           <div class="anray-product-content anray-product-content-bottom">
             <div class="anray-product-image anray-product-image-bottom">
               <img
@@ -343,7 +346,7 @@
                 alt="Kitchen Pans"
               >
             </div>
-            <div class="anray-product-info anray-product-info-bottom {% if section.settings.rounded %} section--rounded{% endif %}">
+            <div class="anray-product-info anray-product-info-bottom {% if section.settings.rounded %} anray-section--rounded{% endif %}">
               <div class="anray-product-title-bottom">Get inspired</div>
               <div class="anray-product-subtitle-top">Kitchenware that fits your world</div>
               <a href="#" class="anray-button anray-button--secondary"> learn more </a>
