@@ -138,6 +138,10 @@
       "type": "anray-recipes-texts",
       "name": "Recipes texts",
       "settings": {
+        "use_alternate_layout": true,
+        "ingredients_title": "Ingredients",
+        "show_print_button": true,
+        "print_button_text": "Print this recipe",
         "transparent_header": false,
         "color_text": "",
         "color_background": "",
