@@ -217,7 +217,8 @@
       ],
       "custom_css": [
         ".button:hover .btn-text {color: #987d62;}",
-        ".section--padding > div {z-index: 1;}"
+        ".section--padding > div {z-index: 1;}",
+        ".banner {overflow: hidden;}"
       ],
       "name": "t:sections.video-with-text-overlay.presets.name",
       "settings": {
