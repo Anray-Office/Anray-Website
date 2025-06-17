@@ -71,7 +71,7 @@
       "settings": {
         "menu": "main-menu",
         "menu_mobile": "",
-        "menu_active": "block",
+        "menu_active": "dot",
         "hover_menu": true,
         "header_layout": "left-center",
         "sticky_header_type": "on-scroll-up",
