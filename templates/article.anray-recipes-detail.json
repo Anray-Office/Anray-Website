@@ -149,8 +149,30 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "anray_recipes_texts_br8wiz": {
+      "type": "anray-recipes-texts",
+      "name": "Recipes texts",
+      "settings": {
+        "use_alternate_layout": false,
+        "ingredients_title": "Directions",
+        "show_print_button": false,
+        "print_button_text": "Print this recipe",
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 16,
+        "padding_bottom": 16,
         "divider": false,
         "full_width": false,
         "rounded": false
@@ -162,6 +184,7 @@
     "main-article-banner",
     "main-article",
     "anray_recipes_accessories_QBPm9Q",
-    "anray_recipes_texts_bMkiyi"
+    "anray_recipes_texts_bMkiyi",
+    "anray_recipes_texts_br8wiz"
   ]
 }
