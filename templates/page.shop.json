@@ -240,126 +240,14 @@
         "rounded": false
       }
     },
-    "collection_list_4eTFtD": {
-      "type": "collection-list",
-      "blocks": {
-        "collection_AJtwzJ": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "description": "",
-            "overlay_content": false,
-            "color_text": "#ffffff",
-            "color_overlay": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_Jaha3n": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "description": "",
-            "overlay_content": false,
-            "color_text": "#ffffff",
-            "color_overlay": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_iGipmy": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "description": "",
-            "overlay_content": false,
-            "color_text": "#ffffff",
-            "color_overlay": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_WmdLVD": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "description": "",
-            "overlay_content": false,
-            "color_text": "#ffffff",
-            "color_overlay": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_jcLeNb": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "description": "",
-            "overlay_content": false,
-            "color_text": "#ffffff",
-            "color_overlay": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_UDyPrj": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "description": "",
-            "overlay_content": false,
-            "color_text": "#ffffff",
-            "color_overlay": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_3pkjTg": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "description": "",
-            "overlay_content": false,
-            "color_text": "#ffffff",
-            "color_overlay": "#000000",
-            "overlay_opacity": 30
-          }
-        }
-      },
-      "block_order": [
-        "collection_AJtwzJ",
-        "collection_Jaha3n",
-        "collection_iGipmy",
-        "collection_WmdLVD",
-        "collection_jcLeNb",
-        "collection_UDyPrj",
-        "collection_3pkjTg"
-      ],
-      "name": "t:sections.collection-list.presets.name",
+    "anray_shop_products_DRt3ga": {
+      "type": "anray-shop-products",
+      "name": "Anray Scroll Products",
       "settings": {
-        "columns": 4,
-        "carousel_on_desktop": true,
-        "image_type": "product",
-        "image_ratio": "square",
-        "show_products_count": true,
-        "show_view_all": true,
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "heading": "Collections",
-        "heading_size": "title-md",
-        "heading_alignment": "text-left md:items-end md:flex-row",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
+        "transparent_header": false,
         "color_text": "",
         "color_background": "",
         "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
@@ -381,6 +269,6 @@
     "custom_liquid_FWGeaC",
     "custom_liquid_rHrGVJ",
     "product_bundle_4JGyaB",
-    "collection_list_4eTFtD"
+    "anray_shop_products_DRt3ga"
   ]
 }
