@@ -50,7 +50,7 @@
         "heading_cnAdrY": {
           "type": "heading",
           "settings": {
-            "heading": "We‘reheretohelp",
+            "heading": "We‘re  here  to  help",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "none",
@@ -61,6 +61,7 @@
       "block_order": [
         "heading_cnAdrY"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "text_alignment": "center",
@@ -176,6 +177,7 @@
         "question_kcmbJk",
         "question_yq8rUN"
       ],
+      "disabled": true,
       "custom_css": [
         ".subtext-lg {order: 2;}",
         ".faqs.with-border .faq {border: none;}"
