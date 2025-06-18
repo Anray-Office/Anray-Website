@@ -91,10 +91,29 @@
         "full_width": true,
         "rounded": false
       }
+    },
+    "anray_nav_B8igAx": {
+      "type": "anray-nav",
+      "name": "Anray nav",
+      "settings": {
+        "transparent_header": false,
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "anray_nav_B8igAx"
   ]
 }
