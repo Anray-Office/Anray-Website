@@ -141,7 +141,7 @@
         "color_overlay": "#ffffff",
         "overlay_opacity": 0,
         "padding_top": 72,
-        "padding_bottom": 72,
+        "padding_bottom": 0,
         "divider": false,
         "narrow": false,
         "rounded": false
@@ -263,6 +263,7 @@
         "question_MzmCHB",
         "question_FdyQgH"
       ],
+      "disabled": true,
       "custom_css": [
         ".faqs.with-border .faq {border: none;}",
         "@media screen and (min-width: 1024px) {.faqs.with-border .faq {padding: 0; }}"
@@ -393,6 +394,7 @@
         "video_RpXBtR",
         "video_EV6iLc"
       ],
+      "disabled": true,
       "name": "t:sections.scrolling-banner.presets.name",
       "settings": {
         "image_height": "650px",
@@ -599,6 +601,7 @@
         "video_jkXdHV",
         "video_GEFjWQ"
       ],
+      "disabled": true,
       "name": "t:sections.collage.presets.name",
       "settings": {
         "heading": "Multimedia collage",
@@ -657,6 +660,7 @@
         "text_xRdqRn",
         "text_CAMzjz"
       ],
+      "disabled": true,
       "custom_css": [
         ".section--plain:before {background-color: #f8f7f5;}"
       ],
