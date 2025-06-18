@@ -94,6 +94,7 @@
     },
     "anray_nav_B8igAx": {
       "type": "anray-nav",
+      "disabled": true,
       "name": "Anray nav",
       "settings": {
         "transparent_header": false,
