@@ -13,8 +13,8 @@
       "type": "empty-space",
       "name": "t:sections.empty-space.presets.name",
       "settings": {
-        "desktop_height": 64,
-        "mobile_height": 64,
+        "desktop_height": 0,
+        "mobile_height": 32,
         "color_background": "",
         "gradient_background": ""
       }
@@ -146,10 +146,10 @@
         "color_button_gradient": "",
         "color_overlay": "#171717",
         "overlay_opacity": 30,
-        "padding_top": 72,
+        "padding_top": 32,
         "padding_bottom": 32,
         "divider": false,
-        "full_width": true,
+        "full_width": false,
         "rounded": true
       }
     },
