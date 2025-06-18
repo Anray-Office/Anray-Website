@@ -9,6 +9,16 @@
  */
 {
   "sections": {
+    "empty_space_6GVpUb": {
+      "type": "empty-space",
+      "name": "t:sections.empty-space.presets.name",
+      "settings": {
+        "desktop_height": 64,
+        "mobile_height": 64,
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
     "main-page": {
       "type": "main-page",
       "disabled": true,
@@ -137,7 +147,7 @@
         "color_overlay": "#171717",
         "overlay_opacity": 30,
         "padding_top": 72,
-        "padding_bottom": 72,
+        "padding_bottom": 32,
         "divider": false,
         "full_width": true,
         "rounded": true
@@ -262,6 +272,7 @@
     }
   },
   "order": [
+    "empty_space_6GVpUb",
     "main-page",
     "anray_nav_fikXQw",
     "custom_liquid_7kypgw",
