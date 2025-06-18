@@ -1,3 +1,7 @@
+/**
+ * DragScroll - 轻量级拖拽滚动组件
+ * 支持鼠标和触摸事件，带惯性滚动效果
+ */
 class DragScroll {
   constructor(element, options = {}) {
     // 默认配置
@@ -6,6 +10,9 @@ class DragScroll {
       momentumMultiplier: 15, // 惯性系数
       frictionFactor: 0.95, // 减速因子
       threshold: 0.1, // 停止阈值
+      scrollButtonLeft: null, // 左滚动按钮
+      scrollButtonRight: null, // 右滚动按钮
+      scrollAmount: 0.8, // 按钮点击滚动量（容器宽度的比例）
       ...options,
     };
 
@@ -29,6 +36,7 @@ class DragScroll {
     this.handleTouchStart = this.handleTouchStart.bind(this);
     this.handleTouchEnd = this.handleTouchEnd.bind(this);
     this.handleTouchMove = this.handleTouchMove.bind(this);
+    this.handleScrollButtonClick = this.handleScrollButtonClick.bind(this);
 
     // 初始化
     this.init();
@@ -50,6 +58,35 @@ class DragScroll {
     this.element.addEventListener("touchend", this.handleTouchEnd);
     this.element.addEventListener("touchmove", this.handleTouchMove, {
       passive: false,
+    });
+
+    // 初始化滚动按钮
+    this.initScrollButtons();
+  }
+
+  // 初始化滚动按钮
+  initScrollButtons() {
+    if (this.config.scrollButtonLeft) {
+      this.config.scrollButtonLeft.addEventListener("click", () =>
+        this.handleScrollButtonClick("left")
+      );
+    }
+
+    if (this.config.scrollButtonRight) {
+      this.config.scrollButtonRight.addEventListener("click", () =>
+        this.handleScrollButtonClick("right")
+      );
+    }
+  }
+
+  // 处理滚动按钮点击
+  handleScrollButtonClick(direction) {
+    const scrollAmount = this.element.offsetWidth * this.config.scrollAmount;
+    const scrollDirection = direction === "left" ? -1 : 1;
+
+    this.element.scrollBy({
+      left: scrollAmount * scrollDirection,
+      behavior: "smooth",
     });
   }
 
@@ -167,27 +204,41 @@ class DragScroll {
     this.element.removeEventListener("touchend", this.handleTouchEnd);
     this.element.removeEventListener("touchmove", this.handleTouchMove);
 
+    // 移除滚动按钮事件
+    if (this.config.scrollButtonLeft) {
+      this.config.scrollButtonLeft.removeEventListener("click", () =>
+        this.handleScrollButtonClick("left")
+      );
+    }
+
+    if (this.config.scrollButtonRight) {
+      this.config.scrollButtonRight.removeEventListener("click", () =>
+        this.handleScrollButtonClick("right")
+      );
+    }
+
     // 重置样式
     this.element.style.cursor = "";
   }
 }
 
+// 页面加载完成后初始化
+// document.addEventListener("DOMContentLoaded", function () {
+//   获取DOM元素
+//   const productsContainer = document.querySelector(".products-container-grey");
+//   const scrollLeftButton = document.getElementById("scroll-left");
+//   const scrollRightButton = document.getElementById("scroll-right");
 
-// 使用
-/**
- * 
- * document.addEventListener('DOMContentLoaded', function() {
-      // 创建拖拽滚动实例
-      const dragScroll = new DragScroll('.products-container-grey', {
-        scrollMultiplier: 1.5,    // 滚动灵敏度
-        momentumMultiplier: 20,   // 惯性系数
-        frictionFactor: 0.92      // 摩擦系数，越小减速越快
-      });
-      
-      // 可以在window对象上存储实例，以便需要时访问
-      window.dragScroll = dragScroll;
-    });
- * 
- * 
- * 
-*/
+//   初始化拖拽滚动
+//   const dragScroll = new DragScroll(productsContainer, {
+//     scrollMultiplier: 1.5,
+//     momentumMultiplier: 20,
+//     frictionFactor: 0.92,
+//     scrollButtonLeft: scrollLeftButton,
+//     scrollButtonRight: scrollRightButton,
+//     scrollAmount: 0.8,
+//   });
+
+//   将实例存储在window对象上，以便需要时访问
+//   window.dragScroll = dragScroll;
+// });
