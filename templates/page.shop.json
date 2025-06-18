@@ -26,7 +26,6 @@
     },
     "anray_nav_fikXQw": {
       "type": "anray-nav",
-      "disabled": true,
       "name": "Anray nav",
       "settings": {
         "transparent_header": false,
