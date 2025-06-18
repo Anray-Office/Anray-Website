@@ -33,7 +33,7 @@
         "description": "",
         "enable_video_autoplay": true,
         "enable_video_looping": true,
-        "image_height": "750px",
+        "image_height": "100vh",
         "content_width": "small",
         "content_position": "md:items-center md:justify-center",
         "text_alignment": "center",
