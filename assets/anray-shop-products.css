@@ -1,0 +1,287 @@
+   /* 父容器共有样式 */
+   .accessories-section {
+    max-width: 1600px;
+    margin: 0 auto;
+    scroll-margin-top: 300px;
+  }
+
+  .products-container-grey {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 0;
+    scroll-snap-type: x mandatory; /* 添加强制吸附滚动 */
+  }
+
+  /* 隐藏滚动条 */
+  .products-container-grey::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+
+  /* 产品卡片链接样式 */
+  .products-container-grey .product-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    flex: 0 0 calc(25% - 15px); /* 一行刚好显示4个，考虑间距 */
+    min-width: calc(25% - 15px);
+    scroll-snap-align: start; /* 卡片左侧与容器左侧对齐 */
+  }
+
+  .products-container-grey .product-card {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .products-container-grey .product-card:hover .product-image img {
+    transform: scale(1.05);
+  }
+
+  /* 响应式设计：不同屏幕尺寸下的布局调整 */
+  @media (max-width: 1200px) {
+    .accessories-section {
+      padding: 0 20px;
+    }
+
+    .products-container-grey .product-link {
+      flex: 0 0 calc(33.333% - 14px); /* 一行显示3个 */
+      min-width: calc(33.333% - 14px);
+    }
+  }
+
+  @media (max-width: 992px) {
+    .products-container-grey .product-link {
+      flex: 0 0 calc(50% - 10px); /* 一行显示2个 */
+      min-width: calc(50% - 10px);
+    }
+
+    .accessories-title-container .accessories-title {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .accessories-section {
+      padding: 0 15px;
+    }
+
+    .products-container-grey .product-link {
+      flex: 0 0 calc(100% - 5px); /* 一行显示1个 */
+      min-width: calc(100% - 5px);
+    }
+
+    .accessories-title-container {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .accessories-title-container .accessories-title {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .accessories-title-container .see-all {
+      margin-left: 0;
+    }
+  }
+
+  .products-container-grey .product-image {
+    width: 100%;
+    aspect-ratio: 1/1; /* 确保是正方形 */
+    padding: 0.75rem;
+    overflow: hidden;
+    background-color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .products-container-grey .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  .products-container-grey .product-image-radius {
+    border-radius: 15px;
+  }
+
+  .products-container-grey .product-info {
+    padding: 15px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .products-container-grey .product-name {
+    font-size: 1.2rem;
+    /* font-weight: bold; */
+    color: #333;
+    margin: 0;
+  }
+
+  .products-container-grey .product-price-value {
+    font-size: 1.2rem;
+    /* font-weight: bold; */
+    color: #333;
+    margin: 0;
+  }
+
+  /* 标题容器样式 */
+  .accessories-title-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 0 30px 0;
+  }
+
+  .accessories-title-container .accessories-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .accessories-title-container .see-all {
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-left: 30px;
+    align-self: flex-end;
+    position: relative;
+  }
+
+  /* 滚动按钮样式 */
+  .products-scroll-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .scroll-button:hover {
+    background-color: #f5f5f5;
+  }
+
+  .scroll-button.left {
+    left: -20px;
+  }
+
+  .scroll-button.right {
+    right: -20px;
+  }
+
+  .scroll-button svg {
+    width: 20px;
+    height: 20px;
+    color: #888888;
+  }
+
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .icon-sm {
+    width: 20px;
+    height: 20px;
+  }
+
+  .stroke-2 {
+    stroke-width: 2;
+  }
+
+  /* 媒体查询中添加滚动按钮的响应式样式 */
+  @media (max-width: 768px) {
+    .scroll-button {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .scroll-button {
+      width: 32px;
+      height: 32px;
+    }
+
+    .scroll-button svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .accessories-title-container .see-all::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #000;
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  .accessories-title-container .see-all:hover::after {
+    animation: underline-right 0.3s forwards;
+  }
+
+  .accessories-title-container .see-all:not(:hover)::after {
+    animation: underline-left 0.3s forwards;
+  }
+
+  @keyframes underline-right {
+    0% {
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+    100% {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
+  @keyframes underline-left {
+    0% {
+      transform: scaleX(1);
+      transform-origin: right;
+    }
+    100% {
+      transform: scaleX(0);
+      transform-origin: right;
+    }
+  }
