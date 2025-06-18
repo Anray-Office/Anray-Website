@@ -221,24 +221,3 @@ class DragScroll {
     this.element.style.cursor = "";
   }
 }
-
-// 页面加载完成后初始化
-// document.addEventListener("DOMContentLoaded", function () {
-//   获取DOM元素
-//   const productsContainer = document.querySelector(".products-container-grey");
-//   const scrollLeftButton = document.getElementById("scroll-left");
-//   const scrollRightButton = document.getElementById("scroll-right");
-
-//   初始化拖拽滚动
-//   const dragScroll = new DragScroll(productsContainer, {
-//     scrollMultiplier: 1.5,
-//     momentumMultiplier: 20,
-//     frictionFactor: 0.92,
-//     scrollButtonLeft: scrollLeftButton,
-//     scrollButtonRight: scrollRightButton,
-//     scrollAmount: 0.8,
-//   });
-
-//   将实例存储在window对象上，以便需要时访问
-//   window.dragScroll = dragScroll;
-// });

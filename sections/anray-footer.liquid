@@ -131,6 +131,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    gap: 5px;
     max-width: 100%; /* 防止溢出 */
   }
   .footer__accordions .details__content ul li {
@@ -274,7 +275,7 @@
       flex-shrink: 0; /* Prevent shrinking */
     }
     .anray-footer-left {
-      margin-bottom: 5rem; /* Reset any mobile-specific bottom margin */
+      margin-bottom: 2rem; /* Reset any mobile-specific bottom margin */
     }
   }
 
@@ -314,7 +315,7 @@
   }
   
   .footer-copyright{
-    padding-block: 0;
+    padding-block: 1rem;
   }
 
   
@@ -405,7 +406,7 @@
           endif
         -%}
         {%- if section.settings.show_policy -%}
-          <ul class="flex flex-wrap gap-3 justify-center lg:justify-start">
+          <ul class="flex flex-wrap gap-2 justify-center lg:justify-start">
             {%- for policy in shop.policies -%}
               {%- if policy != blank -%}
                 <li>
