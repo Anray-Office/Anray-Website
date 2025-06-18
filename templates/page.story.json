@@ -305,7 +305,7 @@
         "video_cLGfQq": {
           "type": "video",
           "settings": {
-            "video": "shopify://files/videos/焊接2.mp4",
+            "video": "shopify://files/videos/jxb_video.mp4",
             "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "icon": "none",
             "icon_width": 48,
@@ -323,13 +323,14 @@
             "highlighted_scribble": "circle"
           }
         },
-        "image_TrKK34": {
-          "type": "image",
+        "video_i3zDQn": {
+          "type": "video",
           "settings": {
-            "image": "shopify://shop_images/e2d046f9ab7cae588c46ff312686908c99153c6f1a27c-n6Nltj_fw1200.png",
+            "video": "shopify://files/videos/jxb_video.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "icon": "none",
             "icon_width": 48,
-            "heading": "卖点2",
+            "heading": "卖点1",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "subheading": "",
@@ -343,13 +344,14 @@
             "highlighted_scribble": "circle"
           }
         },
-        "image_jF8cGA": {
-          "type": "image",
+        "video_RpXBtR": {
+          "type": "video",
           "settings": {
-            "image": "shopify://shop_images/0303_36accb33-a35f-4d22-8290-a7c3e490a48e.png",
+            "video": "shopify://files/videos/jxb_video.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "icon": "none",
             "icon_width": 48,
-            "heading": "卖点3",
+            "heading": "卖点1",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "subheading": "",
@@ -363,13 +365,14 @@
             "highlighted_scribble": "circle"
           }
         },
-        "image_6xWx36": {
-          "type": "image",
+        "video_EV6iLc": {
+          "type": "video",
           "settings": {
-            "image": "shopify://shop_images/9f282faf2c68ba7d2ad889684123f9ebef932b9fcbe3d-ZMiKCH_fw1200.png",
+            "video": "shopify://files/videos/jxb_video.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "icon": "none",
             "icon_width": 48,
-            "heading": "Heading 4",
+            "heading": "卖点1",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "subheading": "",
@@ -386,9 +389,9 @@
       },
       "block_order": [
         "video_cLGfQq",
-        "image_TrKK34",
-        "image_jF8cGA",
-        "image_6xWx36"
+        "video_i3zDQn",
+        "video_RpXBtR",
+        "video_EV6iLc"
       ],
       "name": "t:sections.scrolling-banner.presets.name",
       "settings": {
