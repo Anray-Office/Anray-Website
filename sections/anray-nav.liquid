@@ -1,0 +1,391 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    {%- render 'section-variables', section: section -%};
+
+
+    .anray-content-wrapper {
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .anray-background {
+        height: 10.625rem;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+      }
+
+      .anray-shop-container {
+        width: 100%;
+        padding: 1.25rem;
+        padding-top: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 2;
+      }
+
+      .anray-shop-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: palegoldenrod;
+        z-index: 1;
+        height: 0.625rem;
+      }
+
+      .anray-shop-title {
+        font-size: 2.32rem;
+        font-weight: normal;
+        color: #000;
+        margin: 0;
+        padding-bottom: 1.5rem;
+        transition: font-size 0.2s linear;
+      }
+
+      .anray-shop-title.anray-large-font {
+        font-size: 4rem;
+      }
+
+      .anray-nav {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .anray-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .anray-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        white-space: nowrap;
+      }
+
+      .anray-nav li {
+        margin-right: 1.875rem;
+        font-size: 1rem;
+      }
+
+      .anray-nav li:last-child {
+        margin-right: 0;
+      }
+
+      .anray-nav li.anray-active a {
+        background-color: #333;
+        color: #fff;
+        font-weight: 500;
+        border-radius: 1.25rem;
+      }
+
+      .anray-nav li a {
+        text-decoration: none;
+        color: #333;
+        padding: 0.5rem 1rem;
+        border-radius: 1.25rem;
+        transition: all 0.2s ease;
+        display: inline-block;
+      }
+
+      /* Demo section styles */
+      .anray-section {
+        height: 50vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+      }
+
+      .anray-section:nth-child(odd) {
+        background-color: #f0f0f0;
+      }
+
+      .anray-section:nth-child(even) {
+        background-color: #e0e0e0;
+      }
+
+      @media (max-width: 768px) {
+        .anray-shop-title {
+          font-size: 2rem;
+        }
+        .anray-shop-title.anray-large-font {
+          font-size: 3.5rem;
+        }
+
+        .anray-nav li {
+          margin-right: 0.625rem;
+          font-size: 0.875rem;
+        }
+      }
+  }
+</style>
+
+<div
+  class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}"
+  {% if section.settings.transparent_header %}
+    allow-transparent-header
+  {% endif %}
+>
+  <div class="{% unless section.settings.full_width %}page-width {% endunless %} relative">
+    <!-- 内容区域 -->
+    <div class="anray-content-wrapper">
+      <!-- <div class="anray-background"></div> -->
+      <div
+        class="anray-shop-container"
+        style="padding-inline: var(--page-padding); background-color: palegreen"
+      >
+        <h1 class="anray-shop-title anray-large-font">Shop All</h1>
+        <nav class="anray-nav">
+          <ul>
+            <li class="anray-active"><a href="#machines">Machines</a></li>
+            <li><a href="#coffee">Coffee</a></li>
+            <li><a href="#coffee-machine">Coffee-Machine</a></li>
+            <li><a href="#coffee-cleaning">Coffee-Cleaning</a></li>
+            <li><a href="#extra-parts">Extra Parts</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- 内容区域 -->
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // 缓存DOM元素
+    const shopContainer = document.querySelector('.anray-shop-container');
+    const shopTitle = document.querySelector('.anray-shop-title');
+    const contentWrapper = document.querySelector('.anray-content-wrapper');
+    const navLinks = document.querySelectorAll('.anray-nav a');
+    const sections = document.querySelectorAll('.anray-section');
+
+    const fixedHeaderHeight = 60; // 固定头部高度
+    const initialContainerOffsetTop = contentWrapper.offsetTop;
+
+    let isFixed = false;
+    let ticking = false;
+
+    // 处理滚动效果
+    function handleScroll() {
+      const scrollY = window.scrollY;
+      const fixThreshold = initialContainerOffsetTop - fixedHeaderHeight;
+
+      // 处理导航栏固定状态
+      if (scrollY >= fixThreshold && !isFixed) {
+        setFixedState(true);
+      } else if (scrollY < fixThreshold && isFixed) {
+        setFixedState(false);
+      }
+
+      // 处理字体大小
+      if (scrollY > 0) {
+        shopTitle.classList.remove('anray-large-font');
+      } else {
+        shopTitle.classList.add('anray-large-font');
+      }
+
+      // 处理导航激活状态
+      updateActiveNavLink();
+
+      ticking = false;
+    }
+
+    // 设置固定/非固定状态
+    function setFixedState(fixed) {
+      if (fixed) {
+        shopContainer.style.position = 'fixed';
+        shopContainer.style.top = fixedHeaderHeight + 'px';
+        shopContainer.style.left = '0';
+        shopContainer.style.right = '0';
+        shopContainer.style.zIndex = '100';
+        shopContainer.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+      } else {
+        shopContainer.style.position = 'absolute';
+        shopContainer.style.top = '0';
+        shopContainer.style.left = '0';
+        shopContainer.style.right = '';
+        shopContainer.style.zIndex = '2';
+        shopContainer.style.boxShadow = 'none';
+      }
+      isFixed = fixed;
+    }
+
+    // 更新导航激活状态
+    function updateActiveNavLink() {
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+      sections.forEach((section, index) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          // 移除所有激活状态
+          document.querySelectorAll('.anray-nav li').forEach((li) => {
+            li.classList.remove('anray-active');
+          });
+
+          // 添加激活状态到当前部分对应的链接的父元素li
+          const currentLink = document.querySelector(`.anray-nav a[href="#${section.id}"]`);
+          if (currentLink) {
+            currentLink.closest('li').classList.add('anray-active');
+            // 滚动到可见区域
+            currentLink.scrollIntoView({
+              behavior: 'smooth',
+              block: 'nearest',
+              inline: 'center',
+            });
+          }
+        }
+      });
+    }
+
+    // 点击导航链接处理
+    navLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const targetId = link.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          const offsetTop = targetElement.offsetTop - fixedHeaderHeight - 20;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth',
+          });
+
+          // 更新激活状态
+          document.querySelectorAll('.anray-nav li').forEach((li) => {
+            li.classList.remove('anray-active');
+          });
+          link.closest('li').classList.add('anray-active');
+        }
+      });
+    });
+
+    // 使用requestAnimationFrame进行滚动节流
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(handleScroll);
+        ticking = true;
+      }
+    });
+
+    // 初始化
+    handleScroll();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Anray nav",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "transparent_header",
+      "label": "t:sections.global.settings.transparent_header.label",
+      "info": "t:sections.global.settings.transparent_header.info",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__colors.content",
+      "info": "t:sections.global.settings.header__colors.info"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "t:sections.global.settings.color_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "t:sections.global.settings.color_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "gradient_background",
+      "label": "t:sections.global.settings.gradient_background.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_text",
+      "label": "t:sections.global.settings.color_button_text.label"
+    },
+    {
+      "type": "color",
+      "id": "color_button_background",
+      "label": "t:sections.global.settings.color_button_background.label"
+    },
+    {
+      "type": "color_background",
+      "id": "color_button_gradient",
+      "label": "t:sections.global.settings.color_button_gradient.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__section.content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_top.label",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.global.settings.padding_bottom.label",
+      "default": 72
+    },
+    {
+      "type": "checkbox",
+      "id": "divider",
+      "label": "t:sections.global.settings.divider.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.global.settings.full_width.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "rounded",
+      "default": false,
+      "label": "t:sections.global.settings.rounded.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anray nav"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}
