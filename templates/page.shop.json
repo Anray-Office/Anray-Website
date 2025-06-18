@@ -302,6 +302,30 @@
             "color_overlay": "#000000",
             "overlay_opacity": 30
           }
+        },
+        "collection_UDyPrj": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "description": "",
+            "overlay_content": false,
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_3pkjTg": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "description": "",
+            "overlay_content": false,
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 30
+          }
         }
       },
       "block_order": [
@@ -309,7 +333,9 @@
         "collection_Jaha3n",
         "collection_iGipmy",
         "collection_WmdLVD",
-        "collection_jcLeNb"
+        "collection_jcLeNb",
+        "collection_UDyPrj",
+        "collection_3pkjTg"
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
