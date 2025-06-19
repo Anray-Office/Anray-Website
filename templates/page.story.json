@@ -670,7 +670,7 @@
         "grid_horizontal": 70,
         "enable_twin": true,
         "enable_parallax": true,
-        "color_text": "#171717",
+        "color_text": "#5a3d2b",
         "color_background": "#f8f7f5",
         "gradient_background": "",
         "color_highlight": "#826c55",
