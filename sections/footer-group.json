@@ -92,7 +92,7 @@
         "show_secure_payments": true,
         "secure_payments_title": "SECURE PAYMENTS",
         "monochrome_payment_icons": false,
-        "payment_icon_height": 20,
+        "payment_icon_height": 25,
         "show_social_media": true,
         "social_media_title": "GET SOCIAL",
         "show_copyright": true,
