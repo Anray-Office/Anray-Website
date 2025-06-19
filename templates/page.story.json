@@ -639,26 +639,26 @@
           "type": "text",
           "settings": {
             "text": "Welcome To ANRAY",
-            "text_size": 160,
+            "text_size": 100,
             "text_font": "heading",
             "highlighted_text": "stencil",
             "highlighted_scribble": "squiggle-underline-2"
           }
         },
-        "text_CAMzjz": {
+        "text_TTeCcc": {
           "type": "text",
           "settings": {
             "text": "Welcome To ANRAY",
-            "text_size": 160,
+            "text_size": 120,
             "text_font": "heading",
             "highlighted_text": "stencil",
-            "highlighted_scribble": "circle"
+            "highlighted_scribble": "squiggle-underline-2"
           }
         }
       },
       "block_order": [
         "text_xRdqRn",
-        "text_CAMzjz"
+        "text_TTeCcc"
       ],
       "custom_css": [
         ".section--plain:before {background-color: #f8f7f5;}"
