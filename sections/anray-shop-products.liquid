@@ -6,8 +6,7 @@
   }
 </style>
 
-<link rel="stylesheet" href="{{ 'anray-shop-products.css' | asset_url }}" media="print" onload="this.media='all'">
-{% comment %} <noscript><link rel="stylesheet" href="{{ 'anray-shop-products.css' | asset_url }}"></noscript> {% endcomment %}
+{{ 'anray-shop-products.css' | asset_url | stylesheet_tag }}
 
 <div
   class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}"
@@ -19,10 +18,10 @@
     <!-- 内容区域 -->
     <div class="anray-shop-accessories-section" id="{{ section.settings.shop_scroll_id | handleize }}">
       <!-- 添加标题和See All链接 -->
-        <div class="anray-shop-accessories-title-container">
-          <h1 class="anray-shop-accessories-title">{{ section.settings.shop_scroll_title }}</h1>
-          <a href="#" class="anray-shop-see-all">See All</a>
-        </div>
+      <div class="anray-shop-accessories-title-container">
+        <h1 class="anray-shop-accessories-title">{{ section.settings.shop_scroll_title }}</h1>
+        <a href="#" class="anray-shop-see-all">See All</a>
+      </div>
 
       <!-- 添加滚动容器和按钮 -->
       <div class="anray-shop-products-scroll-container">
@@ -172,23 +171,6 @@
     <!-- 内容区域 -->
   </div>
 </div>
-
-<style>
-  /* 确保DragScroll正常工作所需的基本样式 */
-  .anray-shop-products-container-grey {
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-  }
-
-  .anray-shop-products-container-grey::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
-</style>
-
-<script src="{{ 'anray-custom-Drag.js' | asset_url }}" defer></script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
