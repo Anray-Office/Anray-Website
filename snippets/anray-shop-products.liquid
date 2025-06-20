@@ -1,0 +1,138 @@
+{%- comment -%}
+  渲染产品滚动视图
+
+  接受参数:
+  - collection: {Object} 产品集合对象
+  - title: {String} 可选，显示的标题
+  - limit: {Integer} 可选，限制显示产品数量，默认全部
+  - image_ratio: {String} 可选，产品图片比例，默认'square'
+
+  用法示例:
+  {% render 'anray-shop-products', collection: collections.featured-collection, title: '热门产品', limit: 8 %}
+{%- endcomment -%}
+
+{%- liquid
+  # 设置产品显示数量限制，如果未提供则默认为50个
+  assign product_limit = limit | default: 50
+  
+  # 设置显示标题，如果未提供则使用集合标题
+  assign show_title = title | default: collection.title
+  
+  # 设置图片比例，如果未提供则默认为正方形
+  assign image_ratio = image_ratio | default: 'square'
+
+  # 检查集合是否存在且包含产品
+  if collection != blank and collection.products.size > 0
+    # 将集合中的产品赋值给products变量以便后续使用
+    assign products = collection.products
+  endif
+-%}
+
+<div class="anray-shop-products-scroll-container">
+  <button class="anray-shop-scroll-button anray-shop-left">
+    <svg
+      class="anray-shop-icon anray-shop-icon-chevron-left anray-shop-icon-sm anray-shop-stroke-2 anray-shop-transform"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M14 6L8 12L14 18"></path>
+    </svg>
+  </button>
+
+  <div class="anray-shop-products-container-grey">
+    {%- if show_title != blank -%}
+      <h2 class="anray-shop-title">{{ show_title }}</h2>
+    {%- endif -%}
+
+    {%- if products != blank -%}
+      {%- for product in products limit: product_limit -%}
+        {%- liquid
+          # 获取产品的特色图片
+          assign product_image = product.featured_image
+          # 获取产品的当前变体或第一个可用变体
+          assign current_variant = product.selected_or_first_available_variant
+
+          # 检查产品是否有折扣
+          # 比较最高比较价格和当前价格，如果比较价格更高，则有折扣
+          if product.compare_at_price_max > product.price
+            assign has_discount = true
+          else
+            assign has_discount = false
+          endif
+        -%}
+
+        <a href="{{ product.url }}" class="anray-shop-product-link" aria-label="{{ product.title | escape }}">
+          <div class="anray-shop-product-card">
+            <div class="anray-shop-product-image anray-shop-product-image-radius media--{{ image_ratio }} relative overflow-hidden">
+              {%- if product_image != blank -%}
+                {{-
+                  product_image
+                  | image_url: width: product_image.width
+                  | image_tag: loading: 'lazy', widths: '180,360,540,720,900,1080', is: 'lazy-image', alt: product.title
+                -}}
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
+              {%- endif -%}
+
+              {%- if has_discount -%}
+                <span class="anray-shop-discount-badge">
+                  {%- assign discount_amount = product.compare_at_price_max
+                    | minus: product.price
+                    | times: 100
+                    | divided_by: product.compare_at_price_max
+                  -%}
+                  -{{ discount_amount }}%
+                </span>
+              {%- endif -%}
+
+              {%- if product.available == false -%}
+                <span class="anray-shop-sold-out-badge">已售罄</span>
+              {%- endif -%}
+            </div>
+            <div class="anray-shop-product-info">
+              <div class="anray-shop-product-name">{{ product.title | escape }}</div>
+              <div class="anray-shop-product-price flex items-center">
+                <div class="anray-shop-product-price-value">{{ product.price | money }}</div>
+                {%- if has_discount -%}
+                  <div class="anray-shop-product-compare-price">{{ product.compare_at_price_max | money }}</div>
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+        </a>
+      {%- endfor -%}
+    {%- else -%}
+      {% for i in (1..8) %}
+        <a
+          href="javascript:void(0)"
+          class="anray-shop-product-link"
+        >
+          <div class="anray-shop-product-card">
+            <div
+              class="anray-shop-product-image anray-shop-product-image-radius"
+            >
+              {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
+            </div>
+            <div class="anray-shop-product-info">
+              <div class="anray-shop-product-name">title</div>
+              <div class="anray-shop-product-price-value">price</div>
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    {%- endif -%}
+  </div>
+  <button class="anray-shop-scroll-button anray-shop-right">
+    <svg
+      class="anray-shop-icon anray-shop-icon-chevron-right anray-shop-icon-sm anray-shop-stroke-2 anray-shop-transform"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M10 6L16 12L10 18"></path>
+    </svg>
+  </button>
+</div>

@@ -3,11 +3,12 @@
     --section-padding-top: {{ section.settings.padding_top }}px;
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
     {%- render 'section-variables', section: section -%};
+    --anray-shop-product-width: 260px;
+    --anray-shop-product-height: 260px;
+    --anray-shop-product-gap: 53px;
   }
 </style>
-
-{{ 'anray-shop-products.css' | asset_url | stylesheet_tag }}
-
+<script src="{{ 'anray-custom-Drag.js' | asset_url }}" defer></script>
 <div
   class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}"
   {% if section.settings.transparent_header %}
@@ -23,161 +24,23 @@
         <a href="#" class="anray-shop-see-all">See All</a>
       </div>
 
-      <!-- 添加滚动容器和按钮 -->
-      <div class="anray-shop-products-scroll-container">
-        <button class="anray-shop-scroll-button anray-shop-left" id="shop-scroll-left">
-          <svg
-            class="anray-shop-icon anray-shop-icon-chevron-left anray-shop-icon-sm anray-shop-stroke-2 anray-shop-transform"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14 6L8 12L14 18"></path>
-          </svg>
-        </button>
-
-        <div class="anray-shop-products-container-grey">
-          <a href="products/anray-griddle11" class="anray-shop-product-link">
-            <div class="anray-shop-product-card">
-              <div class="anray-shop-product-image anray-shop-product-image-radius">
-                <img
-                  width="100%"
-                  height="100%"
-                  src="https://www.terrakaffe.com/cdn/shop/products/BBBundle1.jpg?v=1678845744&width=1000"
-                  alt="便携式榨汁机"
-                >
-              </div>
-              <div class="anray-shop-product-info">
-                <div class="anray-shop-product-name">T-02</div>
-                <div class="anray-shop-product-price-value">$299.00</div>
-              </div>
-            </div>
-          </a>
-
-          <a href="products/anray-griddle11" class="anray-shop-product-link">
-            <div class="anray-shop-product-card">
-              <div class="anray-shop-product-image anray-shop-product-image-radius">
-                <img
-                  width="100%"
-                  height="100%"
-                  src="https://www.terrakaffe.com/cdn/shop/products/BBBundle1.jpg?v=1678845744&width=1000"
-                  alt="便携式榨汁机"
-                >
-              </div>
-              <div class="anray-shop-product-info">
-                <div class="anray-shop-product-name">T-02</div>
-                <div class="anray-shop-product-price-value">$299.00</div>
-              </div>
-            </div>
-          </a>
-
-          <a href="products/anray-griddle11" class="anray-shop-product-link">
-            <div class="anray-shop-product-card">
-              <div class="anray-shop-product-image anray-shop-product-image-radius">
-                <img
-                  width="100%"
-                  height="100%"
-                  src="https://www.terrakaffe.com/cdn/shop/products/BBBundle1.jpg?v=1678845744&width=1000"
-                  alt="便携式榨汁机"
-                >
-              </div>
-              <div class="anray-shop-product-info">
-                <div class="anray-shop-product-name">T-02</div>
-                <div class="anray-shop-product-price-value">$299.00</div>
-              </div>
-            </div>
-          </a>
-          <a href="products/anray-griddle11" class="anray-shop-product-link">
-            <div class="anray-shop-product-card">
-              <div class="anray-shop-product-image anray-shop-product-image-radius">
-                <img
-                  width="100%"
-                  height="100%"
-                  src="https://www.terrakaffe.com/cdn/shop/products/BBBundle1.jpg?v=1678845744&width=1000"
-                  alt="便携式榨汁机"
-                >
-              </div>
-              <div class="anray-shop-product-info">
-                <div class="anray-shop-product-name">T-02</div>
-                <div class="anray-shop-product-price-value">$299.00</div>
-              </div>
-            </div>
-          </a>
-          <a href="products/anray-griddle11" class="anray-shop-product-link">
-            <div class="anray-shop-product-card">
-              <div class="anray-shop-product-image anray-shop-product-image-radius">
-                <img
-                  width="100%"
-                  height="100%"
-                  src="https://www.terrakaffe.com/cdn/shop/products/BBBundle1.jpg?v=1678845744&width=1000"
-                  alt="便携式榨汁机"
-                >
-              </div>
-              <div class="anray-shop-product-info">
-                <div class="anray-shop-product-name">T-02</div>
-                <div class="anray-shop-product-price-value">$299.00</div>
-              </div>
-            </div>
-          </a>
-          <a href="products/anray-griddle11" class="anray-shop-product-link">
-            <div class="anray-shop-product-card">
-              <div class="anray-shop-product-image anray-shop-product-image-radius">
-                <img
-                  width="100%"
-                  height="100%"
-                  src="https://www.terrakaffe.com/cdn/shop/products/BBBundle1.jpg?v=1678845744&width=1000"
-                  alt="便携式榨汁机"
-                >
-              </div>
-              <div class="anray-shop-product-info">
-                <div class="anray-shop-product-name">T-02</div>
-                <div class="anray-shop-product-price-value">$299.00</div>
-              </div>
-            </div>
-          </a>
-
-          <a href="products/anray-griddle11" class="anray-shop-product-link">
-            <div class="anray-shop-product-card">
-              <div class="anray-shop-product-image anray-shop-product-image-radius">
-                <img
-                  width="100%"
-                  height="100%"
-                  src="https://www.terrakaffe.com/cdn/shop/products/BBBundle1.jpg?v=1678845744&width=1000"
-                  alt="便携式榨汁机"
-                >
-              </div>
-              <div class="anray-shop-product-info">
-                <div class="anray-shop-product-name">T-02</div>
-                <div class="anray-shop-product-price-value">$299.00</div>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <button class="anray-shop-scroll-button anray-shop-right" id="shop-scroll-right">
-          <svg
-            class="anray-shop-icon anray-shop-icon-chevron-right anray-shop-icon-sm anray-shop-stroke-2 anray-shop-transform"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6L16 12L10 18"></path>
-          </svg>
-        </button>
-      </div>
+      {% render 'anray-shop-products' %}
     </div>
     <!-- 内容区域 -->
   </div>
 </div>
 
 <script>
+  // 页面加载完成后初始化
   document.addEventListener('DOMContentLoaded', function () {
-    const productsContainer = document.querySelector('.anray-shop-products-container-grey');
-    const scrollLeftButton = document.getElementById('shop-scroll-left');
-    const scrollRightButton = document.getElementById('shop-scroll-right');
+    // 获取DOM元素
+    const productsContainer = document.querySelector(
+      '#shopify-section-{{ section.id }} .anray-shop-products-container-grey'
+    );
+    const scrollLeftButton = document.querySelector('#shopify-section-{{ section.id }} .anray-shop-left');
+    const scrollRightButton = document.querySelector('#shopify-section-{{ section.id }} .anray-shop-right');
 
+    // 初始化拖拽滚动
     const dragScroll = new DragScroll(productsContainer, {
       scrollMultiplier: 1.5,
       momentumMultiplier: 20,
@@ -186,6 +49,8 @@
       scrollButtonRight: scrollRightButton,
       scrollAmount: 0.8,
     });
+
+    // 将实例存储在window对象上，以便需要时访问
     window.dragScroll = dragScroll;
   });
 </script>

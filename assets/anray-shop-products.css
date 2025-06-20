@@ -2,13 +2,13 @@
 .anray-shop-accessories-section {
   /* max-width: 1600px; */
   margin: 0 auto;
-  scroll-margin-top: 300px;
+  /* scroll-margin-top: 300px; */
 }
 
 .anray-shop-products-container-grey {
   display: flex;
   flex-wrap: nowrap;
-  gap: 20px;
+  gap: var(--anray-shop-product-gap);
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
@@ -30,9 +30,10 @@
   text-decoration: none;
   color: inherit;
   display: block;
-  flex: 0 0 calc(25% - 15px); /* 一行刚好显示4个，考虑间距 */
-  min-width: calc(25% - 15px);
-  scroll-snap-align: start; /* 卡片左侧与容器左侧对齐 */
+  flex: 0 0 auto;
+  width: var(--anray-shop-product-width);
+  /* min-width: calc(25% - 15px); */
+  scroll-snap-align: start;
 }
 
 .anray-shop-products-container-grey .anray-shop-product-card {
@@ -107,7 +108,8 @@
 .anray-shop-products-container-grey .anray-shop-product-image {
   width: 100%;
   aspect-ratio: 1/1; /* 确保是正方形 */
-  padding: 0.75rem;
+  /* padding: 0.75rem; */
+  height: var(--anray-shop-product-width);
   overflow: hidden;
   background-color: #eeeeee;
   display: flex;
