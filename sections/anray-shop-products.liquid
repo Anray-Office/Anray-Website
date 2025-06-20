@@ -3,9 +3,9 @@
     --section-padding-top: {{ section.settings.padding_top }}px;
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
     {%- render 'section-variables', section: section -%};
-    --anray-shop-product-width: 260px;
-    --anray-shop-product-height: 260px;
-    --anray-shop-product-gap: 53px;
+    --anray-shop-product-width: {{ section.settings.product_width }}px;
+    --anray-shop-product-height: {{ section.settings.product_height }}px;
+    --anray-shop-product-gap: {{ section.settings.product_gap }}px;
   }
 </style>
 <script src="{{ 'anray-custom-Drag.js' | asset_url }}" defer></script>
@@ -74,6 +74,33 @@
       "type": "collection",
       "id": "collection",
       "label": "集合"
+    },
+    {
+      "type": "range",
+      "id": "product_width",
+      "label": "产品图片宽度",
+      "min": 100,
+      "max": 350,
+      "step": 1,
+      "default": 260
+    },
+    {
+      "type": "range",
+      "id": "product_height",
+      "label": "产品图片高度",
+      "min": 100,
+      "max": 350,
+      "step": 1,
+      "default": 260
+    },
+    {
+      "type": "range",
+      "id": "product_gap",
+      "label": "产品间距",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 53
     },
     {
       "type": "checkbox",
