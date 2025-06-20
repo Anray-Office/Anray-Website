@@ -200,7 +200,7 @@
       "type": "anray-shop-products",
       "name": "Anray Scroll Products",
       "settings": {
-        "shop_scroll_title": "Coffee Machine Extra Parts",
+        "shop_scroll_title": "",
         "shop_scroll_id": "Coffee",
         "collection": "test-products",
         "product_width": 260,
@@ -226,7 +226,7 @@
       "settings": {
         "shop_scroll_title": "Care & Cleaning",
         "shop_scroll_id": "Coffee",
-        "collection": "",
+        "collection": "test-products",
         "product_width": 260,
         "product_height": 260,
         "product_gap": 53,
