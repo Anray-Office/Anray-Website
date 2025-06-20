@@ -178,6 +178,10 @@
       "settings": {
         "shop_scroll_title": "Coffee",
         "shop_scroll_id": "Coffee",
+        "collection": "test-products",
+        "product_width": 275,
+        "product_height": 275,
+        "product_gap": 53,
         "transparent_header": false,
         "color_text": "",
         "color_background": "",
@@ -198,6 +202,10 @@
       "settings": {
         "shop_scroll_title": "Coffee Machine Extra Parts",
         "shop_scroll_id": "Coffee",
+        "collection": "",
+        "product_width": 260,
+        "product_height": 260,
+        "product_gap": 53,
         "transparent_header": false,
         "color_text": "",
         "color_background": "",
@@ -218,6 +226,10 @@
       "settings": {
         "shop_scroll_title": "Care & Cleaning",
         "shop_scroll_id": "Coffee",
+        "collection": "",
+        "product_width": 260,
+        "product_height": 260,
+        "product_gap": 53,
         "transparent_header": false,
         "color_text": "",
         "color_background": "",
