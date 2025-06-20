@@ -21,7 +21,7 @@
       <!-- 添加标题和See All链接 -->
       <div class="anray-shop-accessories-title-container">
         <h1 class="anray-shop-accessories-title">{{ section.settings.shop_scroll_title }}</h1>
-        <a href="#" class="anray-shop-see-all">See All</a>
+        <a href="{{ section.settings.collection.url }}" class="anray-shop-see-all">See All</a>
       </div>
       {% render 'anray-shop-products', collection: section.settings.collection %}
     </div>
