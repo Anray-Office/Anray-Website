@@ -20,10 +20,16 @@
     <div class="anray-shop-accessories-section" id="{{ section.settings.shop_scroll_id | handleize }}">
       <!-- 添加标题和See All链接 -->
       <div class="anray-shop-accessories-title-container">
-        <h1 class="anray-shop-accessories-title">{{ section.settings.shop_scroll_title }}</h1>
+        <h1 class="anray-shop-accessories-title">
+          {%- if section.settings.collection.title != blank -%}
+            {{ section.settings.collection.title }}
+          {%- else -%}
+            {{ section.settings.shop_scroll_title }}
+          {%- endif -%}
+        </h1>
         <a href="{{ section.settings.collection.url | default: 'javascript:void(0)' }}" class="anray-shop-see-all">See All</a>
       </div>
-      {% render 'anray-shop-products', collection: section.settings.collection %}
+      {% render 'anray-shop-products', collection: section.settings.collection, limit: 8 %}
     </div>
     <!-- 内容区域 -->
   </div>

@@ -8,15 +8,12 @@
   - image_ratio: {String} 可选，产品图片比例，默认'square'
 
   用法示例:
-  {% render 'anray-shop-products', collection: collections.featured-collection, title: '热门产品', limit: 8 %}
+  {% render 'anray-shop-products', collection: collections.featured-collection, limit: 8 %}
 {%- endcomment -%}
 
 {%- liquid
   # 设置产品显示数量限制，如果未提供则默认为50个
   assign product_limit = limit | default: 50
-  
-  # 设置显示标题，如果未提供则使用集合标题
-  assign show_title = title | default: collection.title
   
   # 设置图片比例，如果未提供则默认为正方形
   assign image_ratio = image_ratio | default: 'square'
@@ -42,10 +39,6 @@
   </button>
 
   <div class="anray-shop-products-container-grey">
-    {%- if show_title != blank -%}
-      <h2 class="anray-shop-title">{{ show_title }}</h2>
-    {%- endif -%}
-
     {%- if products != blank -%}
       {%- for product in products limit: product_limit -%}
         {%- liquid
