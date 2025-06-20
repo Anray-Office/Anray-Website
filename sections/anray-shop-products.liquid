@@ -23,8 +23,7 @@
         <h1 class="anray-shop-accessories-title">{{ section.settings.shop_scroll_title }}</h1>
         <a href="#" class="anray-shop-see-all">See All</a>
       </div>
-
-      {% render 'anray-shop-products' %}
+      {% render 'anray-shop-products', collection: section.settings.collection %}
     </div>
     <!-- 内容区域 -->
   </div>
@@ -70,6 +69,11 @@
       "id": "shop_scroll_id",
       "label": "id",
       "default": "Coffee"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "集合"
     },
     {
       "type": "checkbox",
