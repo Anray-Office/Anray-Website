@@ -319,7 +319,7 @@
   <div class="anray-footer-main page-width {% if section.settings.full_width %} page-width--full{% endif %}">
     <div class="anray-footer-left">
       {%- if section.settings.logo != blank -%}
-        <div class="anray-footer-logo">
+        {% comment %} <div class="anray-footer-logo">
           <a href="{{ routes.root_url }}" aria-label="{{ shop.name }} Logo">
             <img
               src="{{ section.settings.logo | image_url: height: section.settings.logo_height }}"
@@ -329,7 +329,7 @@
               loading="lazy"
             >
           </a>
-        </div>
+        </div> {% endcomment %}
       {%- endif -%}
       {%- if section.settings.show_secure_payments -%}
         <div class="anray-footer-secure-payments">
