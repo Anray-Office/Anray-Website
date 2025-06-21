@@ -281,84 +281,6 @@
         "rounded": false
       }
     },
-    "faq_JMcj4E": {
-      "type": "faq",
-      "blocks": {
-        "question_eRj3PY": {
-          "type": "question",
-          "settings": {
-            "title": "Materials",
-            "text": "<ol><li>Exterior Finish: Exterior </li><li>Finish: Hi-Heat Silicone Polyester</li><li>Handles: Dual Riveted PlasticInterior</li><li>Surface: Interior </li><li>Surface: Ceramic NonstickLid</li><li>Material: Lid Material: Tempered Glass<br/><br/></li></ol>",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "question_W6nEPd": {
-          "type": "question",
-          "settings": {
-            "title": "Use and care",
-            "text": "<ol><li>Exterior Finish: Exterior </li><li>Finish: Hi-Heat Silicone Polyester</li><li>Handles: Dual Riveted PlasticInterior</li><li>Surface: Interior </li><li>Surface: Ceramic NonstickLid</li><li>Material: Lid Material: Tempered Glass</li></ol>",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "question_aekejR": {
-          "type": "question",
-          "settings": {
-            "title": "shipping",
-            "text": "<ol><li>Exterior Finish: Exterior </li><li>Finish: Hi-Heat Silicone Polyester</li><li>Handles: Dual Riveted PlasticInterior</li><li>Surface: Interior </li><li>Surface: Ceramic NonstickLid</li><li>Material: Lid Material: Tempered Glass</li></ol>",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "question_rx83L4": {
-          "type": "question",
-          "settings": {
-            "title": "warranty",
-            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
-            "highlighted_text": "text",
-            "highlighted_scribble": "basic-underline"
-          }
-        }
-      },
-      "block_order": [
-        "question_eRj3PY",
-        "question_W6nEPd",
-        "question_aekejR",
-        "question_rx83L4"
-      ],
-      "name": "t:sections.faq.presets.name",
-      "settings": {
-        "style": "with-background",
-        "heading": "Product Parameters",
-        "heading_size": "title-sm",
-        "heading_alignment": "text-left md:items-end md:flex-row",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "color_overlay": "#ffffff",
-        "overlay_opacity": 13,
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
-      }
-    },
     "image_with_text_8NYiyT": {
       "type": "image-with-text",
       "blocks": {
@@ -529,6 +451,7 @@
         "heading_BhPdEA",
         "button_Fy7faq"
       ],
+      "disabled": true,
       "name": "anray-img-with-text",
       "settings": {
         "transparent_header": false,
@@ -571,6 +494,7 @@
         "heading_zXfynf",
         "button_Hpq4E4"
       ],
+      "disabled": true,
       "custom_css": [
         ".anray-img-with-text {flex-direction: row-reverse;}"
       ],
@@ -646,6 +570,7 @@
         "question_Nd4Mw3",
         "question_tNw6gW"
       ],
+      "disabled": true,
       "name": "t:sections.faq.presets.name",
       "settings": {
         "style": "with-background",
@@ -728,6 +653,7 @@
         "profile_marBLc",
         "profile_aVDjQy"
       ],
+      "disabled": true,
       "custom_css": [
         ".profile__content {display: none;}"
       ],
@@ -761,6 +687,184 @@
         "rounded": false,
         "enable_parallax": true
       }
+    },
+    "faq_JMcj4E": {
+      "type": "faq",
+      "blocks": {
+        "question_eRj3PY": {
+          "type": "question",
+          "settings": {
+            "title": "Materials",
+            "text": "<ol><li>Exterior Finish: Exterior </li><li>Finish: Hi-Heat Silicone Polyester</li><li>Handles: Dual Riveted PlasticInterior</li><li>Surface: Interior </li><li>Surface: Ceramic NonstickLid</li><li>Material: Lid Material: Tempered Glass<br/><br/></li></ol>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_W6nEPd": {
+          "type": "question",
+          "settings": {
+            "title": "Use and care",
+            "text": "<ol><li>Exterior Finish: Exterior </li><li>Finish: Hi-Heat Silicone Polyester</li><li>Handles: Dual Riveted PlasticInterior</li><li>Surface: Interior </li><li>Surface: Ceramic NonstickLid</li><li>Material: Lid Material: Tempered Glass</li></ol>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_aekejR": {
+          "type": "question",
+          "settings": {
+            "title": "shipping",
+            "text": "<ol><li>Exterior Finish: Exterior </li><li>Finish: Hi-Heat Silicone Polyester</li><li>Handles: Dual Riveted PlasticInterior</li><li>Surface: Interior </li><li>Surface: Ceramic NonstickLid</li><li>Material: Lid Material: Tempered Glass</li></ol>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_rx83L4": {
+          "type": "question",
+          "settings": {
+            "title": "warranty",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "highlighted_text": "text",
+            "highlighted_scribble": "basic-underline"
+          }
+        }
+      },
+      "block_order": [
+        "question_eRj3PY",
+        "question_W6nEPd",
+        "question_aekejR",
+        "question_rx83L4"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "style": "with-background",
+        "heading": "Product Parameters",
+        "heading_size": "title-sm",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 13,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "reveal_testimonials_RRGX83": {
+      "type": "reveal-testimonials",
+      "blocks": {
+        "testimonial_CAmCQM": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "none",
+            "text": "<p>Anray baking pans are of great quality, with food-grade non-stick coating, so food can be baked without sticking to the pan, and they are super easy to clean! They heat evenly, and the cakes and pizzas they bake taste first-class. The size is reasonably designed, suitable for home use, and cost-effective. I highly recommend it!</p>",
+            "author": "Author's name",
+            "author_info": "",
+            "author_url": "",
+            "image": "shopify://shop_images/c9ef53d184a45344a7ac0f0a6786e7a1.jpg",
+            "image_ratio": "rounded",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "testimonial_npwdzw": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "quote",
+            "text": "<p>Anray baking pans are of great quality, with food-grade non-stick coating, so food can be baked without sticking to the pan, and they are super easy to clean! They heat evenly, and the cakes and pizzas they bake taste first-class. The size is reasonably designed, suitable for home use, and cost-effective. I highly recommend it!</p>",
+            "author": "Author's name",
+            "author_info": "",
+            "author_url": "",
+            "image": "shopify://shop_images/cec4c8e35a07b695b6eb340d263bc10c.png",
+            "image_ratio": "rounded",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "testimonial_R9P6R6": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "quote",
+            "text": "<p>Anray baking pans are of great quality, with food-grade non-stick coating, so food can be baked without sticking to the pan, and they are super easy to clean! They heat evenly, and the cakes and pizzas they bake taste first-class. The size is reasonably designed, suitable for home use, and cost-effective. I highly recommend it!</p>",
+            "author": "Author's name",
+            "author_info": "",
+            "author_url": "",
+            "image": "shopify://shop_images/ae5ffa6c89e512d727f4c5f9b65db5b0.jpg",
+            "image_ratio": "rounded",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "testimonial_UjM7kr": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "quote",
+            "text": "<p>Anray baking pans are of great quality, with food-grade non-stick coating, so food can be baked without sticking to the pan, and they are super easy to clean! They heat evenly, and the cakes and pizzas they bake taste first-class. The size is reasonably designed, suitable for home use, and cost-effective. I highly recommend it!</p>",
+            "author": "Author's name",
+            "author_info": "",
+            "author_url": "",
+            "image": "shopify://shop_images/a33b3ca8d57bfd2daecc12776bf36ce1.jpg",
+            "image_ratio": "rounded",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "testimonial_wpgTyN": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "quote",
+            "text": "<p>Anray baking pans are of great quality, with food-grade non-stick coating, so food can be baked without sticking to the pan, and they are super easy to clean! They heat evenly, and the cakes and pizzas they bake taste first-class. The size is reasonably designed, suitable for home use, and cost-effective. I highly recommend it!</p>",
+            "author": "Author's name",
+            "author_info": "",
+            "author_url": "",
+            "image": "shopify://shop_images/Sette_Promo-Feature01.webp",
+            "image_ratio": "rounded",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_CAmCQM",
+        "testimonial_npwdzw",
+        "testimonial_R9P6R6",
+        "testimonial_UjM7kr",
+        "testimonial_wpgTyN"
+      ],
+      "name": "t:sections.reveal-testimonials.presets.name",
+      "settings": {
+        "heading": "What people are saying",
+        "heading_size": "title-md",
+        "heading_tag": "h2",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "rounded": false
+      }
     }
   },
   "order": [
@@ -770,12 +874,13 @@
     "anray_drag_jVRnnU",
     "anray_product_picturs_NRiGjF",
     "anray_in_box_R6rHHK",
-    "faq_JMcj4E",
     "image_with_text_8NYiyT",
     "image_with_text_haawLA",
     "anray_img_with_text_7XEPzB",
     "anray_img_with_text_VPjFdJ",
     "faq_fHwAx8",
-    "portfolio_on_scroll_d44yg3"
+    "portfolio_on_scroll_d44yg3",
+    "faq_JMcj4E",
+    "reveal_testimonials_RRGX83"
   ]
 }
