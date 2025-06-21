@@ -246,8 +246,8 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
+        "padding_top": 32,
+        "padding_bottom": 32,
         "divider": false,
         "narrow": false,
         "rounded": false,
@@ -735,7 +735,7 @@
         "question_rx83L4"
       ],
       "custom_css": [
-        ".faqs.with-background>div{padding:0;}"
+        ".faqs.with-background > div {padding: 0;}"
       ],
       "name": "t:sections.faq.presets.name",
       "settings": {
@@ -762,8 +762,8 @@
         "color_button_gradient": "",
         "color_overlay": "#ffffff",
         "overlay_opacity": 13,
-        "padding_top": 0,
-        "padding_bottom": 0,
+        "padding_top": 32,
+        "padding_bottom": 32,
         "divider": false,
         "narrow": false,
         "rounded": false
