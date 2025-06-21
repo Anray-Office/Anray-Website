@@ -21,11 +21,7 @@
       <!-- 添加标题和See All链接 -->
       <div class="anray-shop-accessories-title-container">
         <h1 class="anray-shop-accessories-title">
-          {%- if section.settings.collection.shop_scroll_title != blank -%}
-            {{ section.settings.collection.shop_scroll_title }}
-          {%- else -%}
-            {{ section.settings.title }}
-          {%- endif -%}
+            {{ section.settings.collection.shop_scroll_title}}
         </h1>
         <a href="{{ section.settings.collection.url | default: 'javascript:void(0)' }}" class="anray-shop-see-all">See All</a>
       </div>
