@@ -39,8 +39,9 @@
       ],
       "settings": {
         "transparent_header": true,
-        "show_image": true,
-        "image_height": "750px",
+        "show_image": false,
+        "image": "shopify://shop_images/425e0020-27ce-4726-bab8-52f35f8a5631--Untitled_design.webp",
+        "image_height": "500px",
         "content_position": "md:items-end md:justify-start",
         "text_alignment": "left",
         "image_height_mobile": "auto",
@@ -99,8 +100,8 @@
         "promotion"
       ],
       "settings": {
-        "products_per_page": 11,
-        "columns": 2,
+        "products_per_page": 6,
+        "columns": 4,
         "columns_mobile": "2",
         "pagination": "paginated",
         "enable_filtering": true,
