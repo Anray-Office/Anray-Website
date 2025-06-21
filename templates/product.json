@@ -766,6 +766,29 @@
         "rounded": false
       }
     },
+    "reveal_video_with_text_overlay_JfACAF": {
+      "type": "reveal-video-with-text-overlay",
+      "name": "t:sections.reveal-video-with-text-overlay.presets.name",
+      "settings": {
+        "video": "shopify://files/videos/3198161-hd_1920_1080_25fps.mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "content_width": "small",
+        "content_position": "md:items-end md:justify-start",
+        "text_alignment": "left",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity": 0,
+        "enable_parallax": true
+      }
+    },
     "reveal_testimonials_RRGX83": {
       "type": "reveal-testimonials",
       "blocks": {
@@ -881,6 +904,7 @@
     "faq_fHwAx8",
     "portfolio_on_scroll_d44yg3",
     "faq_JMcj4E",
+    "reveal_video_with_text_overlay_JfACAF",
     "reveal_testimonials_RRGX83"
   ]
 }
