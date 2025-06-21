@@ -734,6 +734,9 @@
         "question_aekejR",
         "question_rx83L4"
       ],
+      "custom_css": [
+        ".faqs.with-background>div{padding:0;}"
+      ],
       "name": "t:sections.faq.presets.name",
       "settings": {
         "style": "with-background",
