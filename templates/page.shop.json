@@ -216,7 +216,7 @@
         "product_radius": 20,
         "image_radius": 20,
         "product_gap": 53,
-        "image_padding": 10,
+        "image_padding": 0,
         "product_bg_color": "rgba(0,0,0,0)",
         "transparent_header": false,
         "color_text": "",
