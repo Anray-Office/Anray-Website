@@ -218,10 +218,23 @@
         "rounded": true
       }
     },
-    "anray_drag_jVRnnU": {
-      "type": "anray-drag-scroll",
-      "name": "anray-drag",
+    "anray_shop_products_dgLwme": {
+      "type": "anray-shop-products",
+      "name": "Anray Scroll Products",
       "settings": {
+        "shop_scroll_title": "Coffee",
+        "shop_scroll_id": "ANRAY",
+        "collection": "",
+        "show_button": true,
+        "show_buy_card": true,
+        "product_width": 260,
+        "product_height": 260,
+        "product_radius": 20,
+        "image_radius": 20,
+        "product_gap": 35,
+        "image_padding": 0,
+        "product_bg_color": "#ffffff00",
+        "image_bg_color": "#eeeeee",
         "transparent_header": false,
         "color_text": "",
         "color_background": "",
@@ -229,10 +242,10 @@
         "color_button_text": "",
         "color_button_background": "",
         "color_button_gradient": "",
-        "padding_top": 32,
-        "padding_bottom": 32,
+        "padding_top": 72,
+        "padding_bottom": 72,
         "divider": false,
-        "narrow": false,
+        "full_width": false,
         "rounded": false
       }
     },
@@ -779,6 +792,7 @@
         "content_width": "small",
         "content_position": "md:items-end md:justify-start",
         "text_alignment": "left",
+        "video_url_mobile": "",
         "content_position_mobile": "items-end justify-start",
         "text_alignment_mobile": "left",
         "color_text": "#ffffff",
@@ -897,7 +911,7 @@
     "main-product",
     "help-drawer",
     "product-recommendations",
-    "anray_drag_jVRnnU",
+    "anray_shop_products_dgLwme",
     "anray_product_picturs_NRiGjF",
     "anray_in_box_R6rHHK",
     "image_with_text_8NYiyT",
