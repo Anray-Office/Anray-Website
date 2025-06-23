@@ -223,6 +223,12 @@
       "name": "Anray Scroll Products",
       "settings": {
         "shop_scroll_title": "Frequently bought together",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h1",
+        "highlighted_text": "full_text",
+        "highlighted_scribble": "basic-underline",
+        "heading": "Rich text",
+        "gradient_highlight": "",
         "shop_scroll_id": "ANRAY",
         "shop_scroll_see_all": "",
         "collection": "",
