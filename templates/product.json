@@ -227,7 +227,7 @@
         "shop_scroll_see_all": "",
         "collection": "",
         "show_button": true,
-        "show_buy_card": true,
+        "show_buy_card": false,
         "product_width": 185,
         "product_height": 185,
         "product_radius": 20,
