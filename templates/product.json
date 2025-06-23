@@ -219,7 +219,7 @@
       }
     },
     "anray_drag_jVRnnU": {
-      "type": "anray-drag",
+      "type": "anray-drag-scroll",
       "name": "anray-drag",
       "settings": {
         "transparent_header": false,

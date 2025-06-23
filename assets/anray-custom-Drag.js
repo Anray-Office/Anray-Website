@@ -37,6 +37,8 @@ class DragScroll {
     this.handleTouchEnd = this.handleTouchEnd.bind(this);
     this.handleTouchMove = this.handleTouchMove.bind(this);
     this.handleScrollButtonClick = this.handleScrollButtonClick.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+    this.updateArrowsVisibility = this.updateArrowsVisibility.bind(this);
 
     // 初始化
     this.init();
@@ -60,8 +62,14 @@ class DragScroll {
       passive: false,
     });
 
+    // 滚动事件
+    this.element.addEventListener("scroll", this.handleScroll);
+
     // 初始化滚动按钮
     this.initScrollButtons();
+
+    // 初始化时更新箭头可见性
+    setTimeout(() => this.updateArrowsVisibility(), 100);
   }
 
   // 初始化滚动按钮
@@ -76,6 +84,52 @@ class DragScroll {
       this.config.scrollButtonRight.addEventListener("click", () =>
         this.handleScrollButtonClick("right")
       );
+    }
+  }
+
+  // 处理滚动事件
+  handleScroll() {
+    this.updateArrowsVisibility();
+  }
+
+  // 更新箭头按钮可见性
+  updateArrowsVisibility() {
+    if (!this.config.scrollButtonLeft || !this.config.scrollButtonRight) {
+      return;
+    }
+
+    // 检查左侧是否有内容可滚动
+    const hasScrollLeft = this.element.scrollLeft > 0;
+
+    // 检查右侧是否有内容可滚动
+    const hasScrollRight =
+      this.element.scrollLeft <
+      this.element.scrollWidth - this.element.clientWidth;
+
+    // 更新左箭头可见性 - 添加动画效果
+    if (hasScrollLeft) {
+      this.config.scrollButtonLeft.style.opacity = "1";
+      this.config.scrollButtonLeft.style.transform =
+        "translateY(-50%) scale(1)";
+      this.config.scrollButtonLeft.style.pointerEvents = "auto";
+    } else {
+      this.config.scrollButtonLeft.style.opacity = "0";
+      this.config.scrollButtonLeft.style.transform =
+        "translateY(-50%) scale(0.5)";
+      this.config.scrollButtonLeft.style.pointerEvents = "none";
+    }
+
+    // 更新右箭头可见性 - 添加动画效果
+    if (hasScrollRight) {
+      this.config.scrollButtonRight.style.opacity = "1";
+      this.config.scrollButtonRight.style.transform =
+        "translateY(-50%) scale(1)";
+      this.config.scrollButtonRight.style.pointerEvents = "auto";
+    } else {
+      this.config.scrollButtonRight.style.opacity = "0";
+      this.config.scrollButtonRight.style.transform =
+        "translateY(-50%) scale(0.5)";
+      this.config.scrollButtonRight.style.pointerEvents = "none";
     }
   }
 
@@ -106,6 +160,7 @@ class DragScroll {
     this.isDown = false;
     this.element.style.cursor = "grab";
     this.beginMomentumTracking();
+    this.updateArrowsVisibility();
   }
 
   handleMouseLeave() {
@@ -113,6 +168,7 @@ class DragScroll {
       this.isDown = false;
       this.element.style.cursor = "grab";
       this.beginMomentumTracking();
+      this.updateArrowsVisibility();
     }
   }
 
@@ -139,6 +195,7 @@ class DragScroll {
   handleTouchEnd() {
     this.isDown = false;
     this.beginMomentumTracking();
+    this.updateArrowsVisibility();
   }
 
   handleTouchMove(e) {
@@ -173,6 +230,8 @@ class DragScroll {
         this.element.scrollLeft -= this.momentum;
         this.momentum *= this.config.frictionFactor;
         this.rafId = requestAnimationFrame(momentumLoop);
+      } else {
+        this.updateArrowsVisibility();
       }
     };
 
@@ -203,6 +262,9 @@ class DragScroll {
     this.element.removeEventListener("touchstart", this.handleTouchStart);
     this.element.removeEventListener("touchend", this.handleTouchEnd);
     this.element.removeEventListener("touchmove", this.handleTouchMove);
+
+    // 移除滚动事件
+    this.element.removeEventListener("scroll", this.handleScroll);
 
     // 移除滚动按钮事件
     if (this.config.scrollButtonLeft) {

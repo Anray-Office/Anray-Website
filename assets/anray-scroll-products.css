@@ -1,0 +1,333 @@
+/* 父容器共有样式 */
+.anray-product-slide {
+}
+
+.anray-products-slide-container {
+  display: flex;
+  flex-wrap: nowrap;
+  /* gap: 40px; */
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory; /* 添加强制吸附滚动 */
+  /* padding-inline-end: 2.5rem; */
+}
+
+/* 隐藏滚动条 */
+.anray-products-slide-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+/* 产品卡片链接样式 */
+.anray-products-slide-container .anray-product-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  flex: 0 0 var(--product-card-width); /* 一行刚好显示4个，考虑间距 */
+  min-width: var(--product-card-width);
+  scroll-snap-align: start; /* 卡片左侧与容器左侧对齐 */
+  position: relative; /* 添加相对定位，用于购物车按钮定位 */
+  margin-inline: 0 var(--product-card-margin-inline-gap);
+}
+
+.anray-products-slide-container .anray-product-card {
+  width: 100%;
+  border-radius: var(--product-card-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-color: var(--product-card-background-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.anray-products-slide-container
+  .anray-product-card:hover
+  .anray-product-image
+  img {
+  transform: scale(1.05);
+}
+
+.anray-products-slide-container .anray-product-image {
+  padding: var(--product-card-image-padding);
+  overflow: hidden;
+  background-color: #eeeeee;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: var(--product-card-height);
+}
+
+.anray-products-slide-container .anray-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.anray-products-slide-container .anray-product-image-radius {
+  border-radius: var(--product-card-image-radius);
+}
+
+.anray-products-slide-container .anray-product-info {
+  padding: 15px 5px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.anray-products-slide-container .anray-product-details-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.anray-products-slide-container .anray-product-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.anray-products-slide-container .anray-product-price-value {
+  margin: 0;
+}
+
+.anray-products-slide-container .anray-product-options {
+  display: flex;
+  align-items: flex-end;
+}
+
+.anray-products-slide-container .anray-product-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: right;
+}
+
+/* 标题容器样式 */
+.anray-title-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px 40px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 0 30px 0;
+}
+
+.anray-title-container .anray-common-title {
+  font-size: clamp(12px, 1.5vw, 24px);
+  font-weight: bold;
+  color: #000;
+  margin: 0;
+  line-height: 1;
+}
+
+.anray-title-container .anray-see-all {
+  color: #000;
+  text-decoration: none;
+  font-size: 1rem;
+  align-self: flex-end;
+  position: relative;
+}
+.anray-title-container .anray-see-all::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #000;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.anray-title-container .anray-see-all:hover::after {
+  animation: underline-right 0.3s forwards;
+}
+
+.anray-title-container .anray-see-all:not(:hover)::after {
+  animation: underline-left 0.3s forwards;
+}
+
+@keyframes underline-right {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@keyframes underline-left {
+  0% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+/* 添加购物车按钮样式 */
+.anray-add-to-cart-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 66px;
+  height: 66px;
+  background-color: rgba(255, 255, 255, 0.637);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translate(-50%, 50%) scale(0.25);
+  transition: all 1s ease;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.anray-add-to-cart-btn img {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 5px;
+}
+
+.anray-add-to-cart-btn span {
+  font-size: 10px;
+  font-weight: 400;
+  color: #000;
+  text-align: center;
+}
+
+/* 添加购物车按钮动画 */
+@media (hover: hover) {
+  .anray-product-link:hover .anray-add-to-cart-btn {
+    opacity: 1;
+    transform: translate(-50%, -60%) scale(0.95);
+  }
+}
+
+/* 轮播按钮 */
+.anray-slide-button {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(250, 250, 250, 0.7);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: all 0.3s ease;
+  opacity: 1;
+  will-change: transform, opacity;
+}
+
+.anray-slide-button:hover {
+  background-color: rgba(250, 250, 250);
+  transform: translateY(-50%) scale3d(1.15, 1.15, 1.15) !important;
+}
+
+.anray-slide-button-prev {
+  left: 10px;
+}
+
+.anray-slide-button-next {
+  right: 10px;
+}
+
+.anray-slide-button svg {
+  color: #8e8d8d;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* 响应式设计：不同屏幕尺寸下的布局调整 */
+
+@media (max-width: 1200px) {
+  .anray-products-slide-container .anray-product-link {
+    flex: 0 0 calc(33.333% - 14px); /* 一行显示3个 */
+    min-width: calc(33.333% - 14px);
+  }
+}
+
+@media (max-width: 768px) {
+  .anray-accessories-title-container .anray-accessories-title {
+    font-size: 2rem;
+  }
+
+  .anray-add-to-cart-btn {
+    top: 5%;
+    left: 75%;
+    width: 3.25rem;
+    height: 3.25rem;
+    opacity: 1;
+    transform: none;
+    transition: all 1s ease;
+    z-index: 5;
+  }
+
+  .anray-add-to-cart-btn img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .anray-add-to-cart-btn span {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 576.99px) {
+  .anray-products-slide-container .anray-product-link {
+    flex: 0 0 calc(50% - 14px); /* 一行显示2个 */
+    min-width: calc(50% - 14px);
+  }
+
+  .anray-accessories-title-container .anray-accessories-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .anray-products-slide-container .anray-product-link {
+    flex: 0 0 calc(85% - 10px);
+    min-width: calc(85% - 10px);
+  }
+
+  .anray-accessories-title-container {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .anray-products-slide-container .anray-product-details-row {
+    justify-content: center;
+    align-items: center;
+    gap: 10px 40px;
+  }
+
+  .anray-accessories-title-container .anray-accessories-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+}

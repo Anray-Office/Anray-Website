@@ -3,12 +3,17 @@
     --section-padding-top: {{ section.settings.padding_top }}px;
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
     {%- render 'section-variables', section: section -%};
-    --anray-shop-product-width: {{ section.settings.product_width }}px;
-    --anray-shop-product-height: {{ section.settings.product_height }}px;
-    --anray-shop-product-gap: {{ section.settings.product_gap }}px;
+
+    --product-card-width: {{ section.settings.product_width }}px; /* 产品卡片宽度 */
+    --product-card-height: {{ section.settings.product_height }}px; /* 产品卡片高度 */
+    --product-card-radius: {{ section.settings.product_radius }}px; /* 产品卡片圆角 */
+    --product-card-image-radius: {{ section.settings.image_radius }}px; /* 产品卡片图片圆角 */
+    --product-card-margin-inline-gap: {{ section.settings.product_gap }}px; /* 产品卡片间距 */
+    --product-card-background-color: {{ section.settings.product_bg_color }}; /* 产品卡片背景颜色 */
+    --product-card-image-padding: {{ section.settings.image_padding }}px; /* 产品卡片图片内边距 */
   }
 </style>
-<script src="{{ 'anray-custom-Drag.js' | asset_url }}" defer></script>
+
 <div
   class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}"
   {% if section.settings.transparent_header %}
@@ -17,48 +22,27 @@
 >
   <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %} relative">
     <!-- 内容区域 -->
-    <div class="anray-shop-accessories-section" id="{{ section.settings.shop_scroll_id | handleize }}">
+    <div class="anray-shop-accessories-section">
       <!-- 添加标题和See All链接 -->
-      <div class="anray-shop-accessories-title-container">
-        <h1 class="anray-shop-accessories-title">
+      <div class="anray-title-container" id="{{ section.settings.shop_scroll_id | handleize }}">
+        <h1 class="anray-common-title">
           {%- if section.settings.shop_scroll_title != blank -%}
-            {{ section.settings.shop_scroll_title}}
+            {{ section.settings.shop_scroll_title }}
           {%- else -%}
             {{ section.settings.collection.title }}
           {%- endif -%}
         </h1>
-        <a href="{{ section.settings.collection.url | default: 'javascript:void(0)' }}" class="anray-shop-see-all">See All</a>
+        <a href="{{ section.settings.collection.url | default: 'javascript:void(0)' }}" class="anray-see-all"
+          >See All</a
+        >
       </div>
-      {% render 'anray-shop-products', collection: section.settings.collection, limit: 8 %}
+      {% render 'anray-shop-products', collection: section.settings.collection, limit: 8, show_button: section.settings.show_button ,show_buy_card: section.settings.show_buy_card %}
     </div>
     <!-- 内容区域 -->
   </div>
 </div>
 
-<script>
-  // 页面加载完成后初始化
-  document.addEventListener('DOMContentLoaded', function () {
-    // 获取DOM元素
-    const productsContainer = document.querySelector(
-      '#shopify-section-{{ section.id }} .anray-shop-products-container-grey'
-    );
-    const scrollLeftButton = document.querySelector('#shopify-section-{{ section.id }} .anray-shop-left');
-    const scrollRightButton = document.querySelector('#shopify-section-{{ section.id }} .anray-shop-right');
-
-    // 初始化拖拽滚动
-    const dragScroll = new DragScroll(productsContainer, {
-      scrollMultiplier: 1.5,
-      momentumMultiplier: 20,
-      frictionFactor: 0.92,
-      scrollButtonLeft: scrollLeftButton,
-      scrollButtonRight: scrollRightButton,
-      scrollAmount: 0.8,
-    });
-
-    // 将实例存储在window对象上，以便需要时访问
-    window.dragScroll = dragScroll;
-  });
-</script>
+<script></script>
 
 {% schema %}
 {
@@ -74,12 +58,24 @@
       "type": "text",
       "id": "shop_scroll_id",
       "label": "id",
-      "default": "Coffee"
+      "default": "ANRAY"
     },
     {
       "type": "collection",
       "id": "collection",
       "label": "集合"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "显示轮播按钮",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_buy_card",
+      "label": "显示添加购物车按钮",
+      "default": false
     },
     {
       "type": "range",
@@ -101,12 +97,45 @@
     },
     {
       "type": "range",
+      "id": "product_radius",
+      "label": "产品圆角",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "产品图片圆角",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "range",
       "id": "product_gap",
       "label": "产品间距",
       "min": 0,
       "max": 100,
       "step": 1,
       "default": 53
+    },
+    {
+      "type": "range",
+      "id": "image_padding",
+      "label": "产品图片内边距",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "product_bg_color",
+      "label": "产品背景颜色",
+      "default": "#ffffff00"
     },
     {
       "type": "checkbox",

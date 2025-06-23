@@ -5,7 +5,8 @@
   - collection: {Object} 产品集合对象
   - title: {String} 可选，显示的标题
   - limit: {Integer} 可选，限制显示产品数量，默认全部
-  - image_ratio: {String} 可选，产品图片比例，默认'square'
+  - button: {Boolean} 可选，是否显示按钮，默认true
+  - buy_card: {Boolean} 可选，是否显示购买卡片，默认false
 
   用法示例:
   {% render 'anray-shop-products', collection: collections.featured-collection, limit: 8 %}
@@ -14,31 +15,40 @@
 {%- liquid
   # 设置产品显示数量限制，如果未提供则默认为50个
   assign product_limit = limit | default: 50
-  
-  # 设置图片比例，如果未提供则默认为正方形
-  assign image_ratio = image_ratio | default: 'square'
 
   # 检查集合是否存在且包含产品
   if collection != blank and collection.products.size > 0
     # 将集合中的产品赋值给products变量以便后续使用
     assign products = collection.products
   endif
+
+  # 检查是否显示按钮，如果未提供则默认为true
+  assign show_button = show_button | default: true
+
+  assign show_buy_card = show_buy_card | default: false
 -%}
 
-<div class="anray-shop-products-scroll-container">
-  <button class="anray-shop-scroll-button anray-shop-left">
-    <svg
-      class="anray-shop-icon anray-shop-icon-chevron-left anray-shop-icon-sm anray-shop-stroke-2 anray-shop-transform"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M14 6L8 12L14 18"></path>
-    </svg>
-  </button>
+<div class="anray-product-slide relative">
+  {%- if show_button -%}
+    <button class="anray-slide-button anray-slide-button-prev">
+      <svg
+        class="anray-shop-icon anray-shop-icon-chevron-left anray-shop-icon-sm anray-shop-stroke-2 anray-shop-transform"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M14 6L8 12L14 18"
+        ></path>
+      </svg>
+    </button>
+  {%- endif -%}
 
-  <div class="anray-shop-products-container-grey">
+  <div class="anray-products-slide-container">
     {%- if products != blank -%}
       {%- for product in products limit: product_limit -%}
         {%- liquid
@@ -56,9 +66,9 @@
           endif
         -%}
 
-        <a href="{{ product.url }}" class="anray-shop-product-link" aria-label="{{ product.title | escape }}">
-          <div class="anray-shop-product-card">
-            <div class="anray-shop-product-image anray-shop-product-image-radius media--{{ image_ratio }} relative overflow-hidden">
+        <a href="{{ product.url }}" class="anray-product-link" aria-label="{{ product.title | escape }}">
+          <div class="anray-product-card">
+            <div class="anray-product-image anray-product-image-radius">
               {%- if product_image != blank -%}
                 {{-
                   product_image
@@ -84,15 +94,30 @@
                 <span class="anray-shop-sold-out-badge">已售罄</span>
               {%- endif -%}
             </div>
-            <div class="anray-shop-product-info">
-              <div class="anray-shop-product-name">{{ product.title | escape }}</div>
-              <div class="anray-shop-product-price flex items-center">
-                <div class="anray-shop-product-price-value">{{ product.price | money }}</div>
+            <div class="anray-product-info">
+              <div class="anray-product-details-row">
+                <div class="anray-product-details">
+                  <div class="anray-product-name">{{ product.title | escape }}</div>
+                </div>
+              </div>
+              <div class="anray-product-options">
+                <div class="anray-product-price">
+                  <div class="anray-product-price-value">{{ product.price | money }}</div>
+                </div>
                 {%- if has_discount -%}
-                  <div class="anray-shop-product-compare-price">{{ product.compare_at_price_max | money }}</div>
+                  <div class="anray-product-price-value">{{ product.compare_at_price_max | money }}</div>
                 {%- endif -%}
               </div>
             </div>
+          </div>
+          <div class="anray-add-to-cart-btn">
+            <img
+              width="100%"
+              height="100%"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/add_car.png?v=1748508748"
+              alt="添加购物车"
+            >
+            <span>ADD</span>
           </div>
         </a>
       {%- endfor -%}
@@ -100,32 +125,54 @@
       {% for i in (1..8) %}
         <a
           href="javascript:void(0)"
-          class="anray-shop-product-link"
+          class="anray-product-link"
         >
-          <div class="anray-shop-product-card">
-            <div
-              class="anray-shop-product-image anray-shop-product-image-radius"
-            >
+          <div class="anray-product-card">
+            <div class="anray-product-image anray-product-image-radius">
               {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
             </div>
-            <div class="anray-shop-product-info">
-              <div class="anray-shop-product-name">title</div>
-              <div class="anray-shop-product-price-value">price</div>
+            <div class="anray-product-info">
+              <div class="anray-product-details-row">
+                <div class="anray-product-details">
+                  <div class="anray-product-name">title</div>
+                </div>
+                <div class="anray-product-options">
+                  <div class="anray-product-price">
+                    <div class="anray-product-price-value">price</div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="anray-add-to-cart-btn">
+            <img
+              width="100%"
+              height="100%"
+              src="https://cdn.shopify.com/s/files/1/0683/9065/0074/files/add_car.png?v=1748508748"
+              alt="添加购物车"
+            >
+            <span>ADD</span>
           </div>
         </a>
       {% endfor %}
     {%- endif -%}
   </div>
-  <button class="anray-shop-scroll-button anray-shop-right">
-    <svg
-      class="anray-shop-icon anray-shop-icon-chevron-right anray-shop-icon-sm anray-shop-stroke-2 anray-shop-transform"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M10 6L16 12L10 18"></path>
-    </svg>
-  </button>
+  {%- if show_button -%}
+    <button class="anray-slide-button anray-slide-button-next">
+      <svg
+        class="anray-shop-icon anray-shop-icon-chevron-right anray-shop-icon-sm anray-shop-stroke-2 anray-shop-transform"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M10 6L16 12L10 18"
+        ></path>
+      </svg>
+    </button>
+  {%- endif -%}
 </div>
