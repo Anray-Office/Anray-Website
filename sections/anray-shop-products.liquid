@@ -36,9 +36,12 @@
             {{ section.settings.collection.title }}
           {%- endif -%}
         </h1>
-        <a href="{{ section.settings.collection.url | default: 'javascript:void(0)' }}" class="anray-see-all"
-          >See All</a
-        >
+
+        {%- if section.settings.shop_scroll_see_all != blank -%}
+          <a href="{{ section.settings.collection.url | default: 'javascript:void(0)' }}" class="anray-see-all"
+            >{{ section.settings.shop_scroll_see_all }}</a
+          >
+        {%- endif -%}
       </div>
       {% render 'anray-shop-products',
         collection: section.settings.collection,
@@ -90,6 +93,12 @@
       "id": "shop_scroll_id",
       "label": "id",
       "default": "ANRAY"
+    },
+    {
+      "type": "text",
+      "id": "shop_scroll_see_all",
+      "label": "了解更多",
+      "default": "See All"
     },
     {
       "type": "collection",
