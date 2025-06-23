@@ -38,26 +38,42 @@
             {%- endif -%}
           </h1>
         {% endcomment %}
-        {%- assign with_gradient = false -%}
-        {%- if section.settings.gradient_highlight != blank and section.settings.gradient_highlight != 'rgba(0,0,0,0)' -%}
-          {%- assign with_gradient = true -%}
-        {%- endif -%}
+        <div class="rich-text md:text-{{ section.settings.text_alignment }} text-{{ section.settings.text_alignment_mobile }} relative z-1">
+          {%- liquid
+            assign with_gradient = false
+            if section.settings.gradient_highlight != blank and section.settings.gradient_highlight != 'rgba(0,0,0,0)'
+              assign with_gradient = true
+            endif
 
-        <div class="grid gap-4 {{ section.settings.heading_alignment }}">
-          <div class="title-wrapper leading-none grid gap-4 {{ section.settings.heading_alignment }}">
-            {%- if section.settings.heading != blank -%}
-              <{{ section.settings.heading_tag }} class="heading {{ section.settings.heading_size }}">
+            assign delay = 0
+          -%}
+
+          {%- if section.settings.heading != blank -%}
+            {%- assign delay = delay | plus: 1 -%}
+            <{{ section.settings.heading_tag }}
+              class="heading leading-none {{ section.settings.heading_size }}"
+              {{ section.shopify_attributes }}
+            >
+              {%- if section.settings.highlighted_text == 'none' -%}
+                <split-words
+                  class="split-words block"
+                  data-animate="fade-up-large"
+                  data-animate-delay="{{ delay | times: 250 }}"
+                >
+                  {{- section.settings.heading -}}
+                </split-words>
+              {%- else -%}
                 {%- render 'highlighted-text',
                   content: section.settings.heading,
                   style: section.settings.highlighted_text,
                   scribble: section.settings.highlighted_scribble,
                   gradient: with_gradient
                 -%}
-              </{{ section.settings.heading_tag }}>
-            {%- endif -%}
-          </div>
+              {%- endif -%}
+            </{{ section.settings.heading_tag }}>
+          {%- endif -%}
         </div>
-
+        {% comment %} 1111111111 {% endcomment %}
         {%- if section.settings.shop_scroll_see_all != blank -%}
           <a href="{{ section.settings.collection.url | default: 'javascript:void(0)' }}" class="anray-see-all">
             {{- section.settings.shop_scroll_see_all -}}
@@ -104,30 +120,25 @@
   "name": "Anray Scroll Products",
   "settings": [
     {
+      "type": "header",
+      "content": "t:sections.global.settings.header__heading.content"
+    },
+    {
       "type": "text",
       "id": "shop_scroll_title",
       "label": "标题",
       "default": "Coffee"
     },
     {
-      "type": "select",
-      "id": "heading_alignment",
-      "label": "t:sections.global.settings.heading_alignment.label",
-      "options": [
-        {
-          "value": "text-left md:items-end md:flex-row",
-          "label": "t:sections.global.settings.heading_alignment.options__1.label"
-        },
-        {
-          "value": "text-center md:items-center",
-          "label": "t:sections.global.settings.heading_alignment.options__2.label"
-        },
-        {
-          "value": "text-right md:items-end md:flex-row-reverse",
-          "label": "t:sections.global.settings.heading_alignment.options__3.label"
-        }
-      ],
-      "default": "text-left md:items-end md:flex-row"
+      "type": "color_background",
+      "id": "gradient_highlight",
+      "label": "t:sections.global.settings.gradient_highlight.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:sections.global.settings.heading.label",
+      "default": "Rich text"
     },
     {
       "type": "select",
@@ -176,6 +187,30 @@
     },
     {
       "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "title-sm",
+          "label": "t:sections.global.settings.heading_size.options__1.label"
+        },
+        {
+          "value": "title-md",
+          "label": "t:sections.global.settings.heading_size.options__2.label"
+        },
+        {
+          "value": "title-lg tracking-heading",
+          "label": "t:sections.global.settings.heading_size.options__3.label"
+        },
+        {
+          "value": "title-xl tracking-heading",
+          "label": "t:sections.global.settings.heading_size.options__4.label"
+        }
+      ],
+      "default": "title-md",
+      "label": "t:sections.global.settings.heading_size.label"
+    },
+    {
+      "type": "select",
       "id": "highlighted_text",
       "options": [
         {
@@ -210,46 +245,37 @@
       "default": "none",
       "label": "t:sections.global.settings.highlighted_text.label"
     },
+
     {
-        "type": "select",
-        "id": "highlighted_scribble",
-        "options": [
-          {
-            "value": "circle",
-            "label": "t:sections.global.settings.highlighted_scribble.options__1.label"
-          },
-          {
-            "value": "basic-underline",
-            "label": "t:sections.global.settings.highlighted_scribble.options__2.label"
-          },
-          {
-            "value": "sketch-underline",
-            "label": "t:sections.global.settings.highlighted_scribble.options__3.label"
-          },
-          {
-            "value": "squiggle-underline",
-            "label": "t:sections.global.settings.highlighted_scribble.options__4.label"
-          },
-          {
-            "value": "squiggle-underline-2",
-            "label": "t:sections.global.settings.highlighted_scribble.options__5.label"
-          }
-        ],
-        "default": "circle",
-        "label": "t:sections.global.settings.highlighted_scribble.label",
-        "info": "t:sections.global.settings.highlighted_scribble.info"
+      "type": "select",
+      "id": "highlighted_scribble",
+      "options": [
+        {
+          "value": "circle",
+          "label": "t:sections.global.settings.highlighted_scribble.options__1.label"
+        },
+        {
+          "value": "basic-underline",
+          "label": "t:sections.global.settings.highlighted_scribble.options__2.label"
+        },
+        {
+          "value": "sketch-underline",
+          "label": "t:sections.global.settings.highlighted_scribble.options__3.label"
+        },
+        {
+          "value": "squiggle-underline",
+          "label": "t:sections.global.settings.highlighted_scribble.options__4.label"
+        },
+        {
+          "value": "squiggle-underline-2",
+          "label": "t:sections.global.settings.highlighted_scribble.options__5.label"
+        }
+      ],
+      "default": "circle",
+      "label": "t:sections.global.settings.highlighted_scribble.label",
+      "info": "t:sections.global.settings.highlighted_scribble.info"
     },
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "label": "t:sections.global.settings.heading.label",
-      "default": "Rich text"
-    },
-    {
-        "type": "color_background",
-        "id": "gradient_highlight",
-        "label": "t:sections.global.settings.gradient_highlight.label"
-      },
+
     {
       "type": "text",
       "id": "shop_scroll_id",
@@ -261,6 +287,10 @@
       "id": "shop_scroll_see_all",
       "label": "了解更多",
       "default": "See All"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.global.settings.header__heading.content"
     },
     {
       "type": "collection",
