@@ -29,18 +29,39 @@
     <div class="anray-shop-accessories-section">
       <!-- 添加标题和See All链接 -->
       <div class="anray-title-container" id="{{ section.settings.shop_scroll_id | handleize }}">
-        <h1 class="anray-common-title">
-          {%- if section.settings.shop_scroll_title != blank -%}
-            {{ section.settings.shop_scroll_title }}
-          {%- else -%}
-            {{ section.settings.collection.title }}
-          {%- endif -%}
-        </h1>
+        {% comment %}
+          <h1 class="anray-common-title">
+            {%- if section.settings.shop_scroll_title != blank -%}
+              {{ section.settings.shop_scroll_title }}
+            {%- else -%}
+              {{ section.settings.collection.title }}
+            {%- endif -%}
+          </h1>
+        {% endcomment %}
+        {%- assign with_gradient = false -%}
+        {%- if section.settings.gradient_highlight != blank and section.settings.gradient_highlight != 'rgba(0,0,0,0)' -%}
+          {%- assign with_gradient = true -%}
+        {%- endif -%}
+
+        <div class="grid gap-4 {{ section.settings.heading_alignment }}">
+          <div class="title-wrapper leading-none grid gap-4 {{ section.settings.heading_alignment }}">
+            {%- if section.settings.heading != blank -%}
+              <{{ section.settings.heading_tag }} class="heading {{ section.settings.heading_size }}">
+                {%- render 'highlighted-text',
+                  content: section.settings.heading,
+                  style: section.settings.highlighted_text,
+                  scribble: section.settings.highlighted_scribble,
+                  gradient: with_gradient
+                -%}
+              </{{ section.settings.heading_tag }}>
+            {%- endif -%}
+          </div>
+        </div>
 
         {%- if section.settings.shop_scroll_see_all != blank -%}
-          <a href="{{ section.settings.collection.url | default: 'javascript:void(0)' }}" class="anray-see-all"
-            >{{ section.settings.shop_scroll_see_all }}</a
-          >
+          <a href="{{ section.settings.collection.url | default: 'javascript:void(0)' }}" class="anray-see-all">
+            {{- section.settings.shop_scroll_see_all -}}
+          </a>
         {%- endif -%}
       </div>
       {% render 'anray-shop-products',
@@ -88,6 +109,147 @@
       "label": "标题",
       "default": "Coffee"
     },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "t:sections.global.settings.heading_alignment.label",
+      "options": [
+        {
+          "value": "text-left md:items-end md:flex-row",
+          "label": "t:sections.global.settings.heading_alignment.options__1.label"
+        },
+        {
+          "value": "text-center md:items-center",
+          "label": "t:sections.global.settings.heading_alignment.options__2.label"
+        },
+        {
+          "value": "text-right md:items-end md:flex-row-reverse",
+          "label": "t:sections.global.settings.heading_alignment.options__3.label"
+        }
+      ],
+      "default": "text-left md:items-end md:flex-row"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "options": [
+        {
+          "value": "h1",
+          "label": "t:sections.global.settings.heading_tag.options__1.label"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.global.settings.heading_tag.options__2.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.global.settings.heading_tag.options__3.label"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.global.settings.heading_tag.options__4.label"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.global.settings.heading_tag.options__5.label"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.global.settings.heading_tag.options__6.label"
+        },
+        {
+          "value": "div",
+          "label": "t:sections.global.settings.heading_tag.options__7.label"
+        },
+        {
+          "value": "span",
+          "label": "t:sections.global.settings.heading_tag.options__8.label"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.global.settings.heading_tag.options__9.label"
+        }
+      ],
+      "default": "h2",
+      "label": "t:sections.global.settings.heading_tag.label",
+      "info": "t:sections.global.settings.heading_tag.info"
+    },
+    {
+      "type": "select",
+      "id": "highlighted_text",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.global.settings.highlighted_text.options__1.label"
+        },
+        {
+          "value": "text",
+          "label": "t:sections.global.settings.highlighted_text.options__2.label"
+        },
+        {
+          "value": "full_text",
+          "label": "t:sections.global.settings.highlighted_text.options__3.label"
+        },
+        {
+          "value": "half_text",
+          "label": "t:sections.global.settings.highlighted_text.options__4.label"
+        },
+        {
+          "value": "underline",
+          "label": "t:sections.global.settings.highlighted_text.options__5.label"
+        },
+        {
+          "value": "stencil",
+          "label": "t:sections.global.settings.highlighted_text.options__6.label"
+        },
+        {
+          "value": "scribble",
+          "label": "t:sections.global.settings.highlighted_text.options__7.label"
+        }
+      ],
+      "default": "none",
+      "label": "t:sections.global.settings.highlighted_text.label"
+    },
+    {
+        "type": "select",
+        "id": "highlighted_scribble",
+        "options": [
+          {
+            "value": "circle",
+            "label": "t:sections.global.settings.highlighted_scribble.options__1.label"
+          },
+          {
+            "value": "basic-underline",
+            "label": "t:sections.global.settings.highlighted_scribble.options__2.label"
+          },
+          {
+            "value": "sketch-underline",
+            "label": "t:sections.global.settings.highlighted_scribble.options__3.label"
+          },
+          {
+            "value": "squiggle-underline",
+            "label": "t:sections.global.settings.highlighted_scribble.options__4.label"
+          },
+          {
+            "value": "squiggle-underline-2",
+            "label": "t:sections.global.settings.highlighted_scribble.options__5.label"
+          }
+        ],
+        "default": "circle",
+        "label": "t:sections.global.settings.highlighted_scribble.label",
+        "info": "t:sections.global.settings.highlighted_scribble.info"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:sections.global.settings.heading.label",
+      "default": "Rich text"
+    },
+    {
+        "type": "color_background",
+        "id": "gradient_highlight",
+        "label": "t:sections.global.settings.gradient_highlight.label"
+      },
     {
       "type": "text",
       "id": "shop_scroll_id",
