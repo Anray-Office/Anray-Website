@@ -36,13 +36,40 @@
           >See All</a
         >
       </div>
-      {% render 'anray-shop-products', collection: section.settings.collection, limit: 8, show_button: section.settings.show_button ,show_buy_card: section.settings.show_buy_card %}
+      {% render 'anray-shop-products',
+        collection: section.settings.collection,
+        limit: 8,
+        show_button: section.settings.show_button,
+        show_buy_card: section.settings.show_buy_card
+      %}
     </div>
     <!-- 内容区域 -->
   </div>
 </div>
 
-<script></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // 获取DOM元素
+    const productsContainer = document.querySelector(
+      '#shopify-section-{{ section.id }} .anray-products-slide-container'
+    );
+    const scrollLeftButton = document.querySelector('#shopify-section-{{ section.id }} .anray-slide-button-prev');
+    const scrollRightButton = document.querySelector('#shopify-section-{{ section.id }} .anray-slide-button-next');
+
+    // 初始化拖拽滚动
+    const dragScroll = new DragScroll(productsContainer, {
+      scrollMultiplier: 1.5,
+      momentumMultiplier: 20,
+      frictionFactor: 0.92,
+      scrollButtonLeft: scrollLeftButton,
+      scrollButtonRight: scrollRightButton,
+      scrollAmount: 0.8,
+    });
+
+    // 将实例存储在window对象上，以便需要时访问
+    window.dragScroll = dragScroll;
+  });
+</script>
 
 {% schema %}
 {

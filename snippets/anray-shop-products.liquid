@@ -99,14 +99,14 @@
                 <div class="anray-product-details">
                   <div class="anray-product-name">{{ product.title | escape }}</div>
                 </div>
-              </div>
-              <div class="anray-product-options">
-                <div class="anray-product-price">
-                  <div class="anray-product-price-value">{{ product.price | money }}</div>
+                <div class="anray-product-options">
+                  <div class="anray-product-price">
+                    <div class="anray-product-price-value">{{ product.price | money }}</div>
+                  </div>
+                  {%- if has_discount -%}
+                    <div class="anray-product-price-value">{{ product.compare_at_price_max | money }}</div>
+                  {%- endif -%}
                 </div>
-                {%- if has_discount -%}
-                  <div class="anray-product-price-value">{{ product.compare_at_price_max | money }}</div>
-                {%- endif -%}
               </div>
             </div>
           </div>
