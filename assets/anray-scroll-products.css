@@ -54,7 +54,7 @@
 .anray-products-slide-container .anray-product-image {
   padding: var(--product-card-image-padding);
   overflow: hidden;
-  background-color: #eeeeee;
+  background-color: var(--product-image-background-color);
   aspect-ratio: 1 / 1;
   width: 100%;
   height: var(--product-card-height);

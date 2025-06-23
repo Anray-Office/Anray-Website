@@ -11,6 +11,10 @@
     --product-card-margin-inline-gap: {{ section.settings.product_gap }}px; /* 产品卡片间距 */
     --product-card-background-color: {{ section.settings.product_bg_color }}; /* 产品卡片背景颜色 */
     --product-card-image-padding: {{ section.settings.image_padding }}px; /* 产品卡片图片内边距 */
+
+    {%- if section.settings.image_padding > 0 -%}
+      --product-image-background-color: {{ section.settings.image_bg_color }}; /* 产品卡片图片背景颜色 */
+    {%- endif -%}
   }
 </style>
 
