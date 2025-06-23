@@ -948,12 +948,21 @@
             "button_external": false,
             "button_icon": true
           }
+        },
+        "link_6CGTeF": {
+          "type": "link",
+          "settings": {
+            "label": "Text",
+            "link": "",
+            "external": false
+          }
         }
       },
       "block_order": [
         "heading_Ct4XPL",
         "text_wAPTGB",
-        "button_tbmBM6"
+        "button_tbmBM6",
+        "link_6CGTeF"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
