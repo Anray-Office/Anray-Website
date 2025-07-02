@@ -96,6 +96,7 @@
         },
         "floating": {
           "type": "floating",
+          "disabled": true,
           "settings": {
             "heading": "Get 20% Off",
             "content_position": "left-0",
@@ -117,7 +118,6 @@
         "media",
         "floating"
       ],
-      "disabled": true,
       "settings": {
         "mode": "enabled",
         "only_homepage": true,
