@@ -1012,6 +1012,11 @@
   <script type="application/ld+json">
     {{- product | structured_data -}}
   </script>
+
+  {%- comment -%} 产品标签页 - Spec 和 Others {%- endcomment -%}
+  <div class="page-width" style="margin-top: 3rem;">
+    {%- render 'anray-tab' -%}
+  </div>
 </div>
 
 {% schema %}
