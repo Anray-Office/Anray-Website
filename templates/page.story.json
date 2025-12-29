@@ -56,6 +56,126 @@
         "rounded": true
       }
     },
+    "scrolling_banner_fe4bJE": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "video_i3zDQn": {
+          "type": "video",
+          "settings": {
+            "video_url": "",
+            "cover_image": "shopify://shop_images/baratza-kitchen-1.webp",
+            "icon": "none",
+            "icon_width": 48,
+            "heading": "卖点2",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "subheading": "",
+            "description": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "video_RpXBtR": {
+          "type": "video",
+          "settings": {
+            "video_url": "",
+            "cover_image": "shopify://shop_images/Mask_group_d0731a1b-5bb4-45f0-b078-6bb48f0bf1a2.png",
+            "icon": "none",
+            "icon_width": 48,
+            "heading": "卖点3",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "subheading": "",
+            "description": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "video_EV6iLc": {
+          "type": "video",
+          "settings": {
+            "video_url": "",
+            "cover_image": "shopify://shop_images/get_in_touch.jpg",
+            "icon": "none",
+            "icon_width": 48,
+            "heading": "卖点4",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "subheading": "",
+            "description": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "video_cLGfQq": {
+          "type": "video",
+          "settings": {
+            "video_url": "",
+            "cover_image": "shopify://shop_images/Mask_group_d0731a1b-5bb4-45f0-b078-6bb48f0bf1a2.png",
+            "icon": "none",
+            "icon_width": 48,
+            "heading": "卖点1",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "subheading": "",
+            "description": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "video_i3zDQn",
+        "video_RpXBtR",
+        "video_EV6iLc",
+        "video_cLGfQq"
+      ],
+      "name": "t:sections.scrolling-banner.presets.name",
+      "settings": {
+        "image_height": "650px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "items-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "#f8f7f5",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
     "custom_liquid_wQbdfA": {
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
@@ -315,127 +435,6 @@
         "padding_bottom": 0,
         "divider": false,
         "narrow": false,
-        "rounded": false
-      }
-    },
-    "scrolling_banner_fe4bJE": {
-      "type": "scrolling-banner",
-      "blocks": {
-        "video_cLGfQq": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/jxb_video.mp4",
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "icon": "none",
-            "icon_width": 48,
-            "heading": "卖点1",
-            "heading_size": "title-md",
-            "heading_tag": "h2",
-            "subheading": "",
-            "description": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "video_i3zDQn": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/jxb_video.mp4",
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "icon": "none",
-            "icon_width": 48,
-            "heading": "卖点2",
-            "heading_size": "title-md",
-            "heading_tag": "h2",
-            "subheading": "",
-            "description": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "video_RpXBtR": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/jxb_video.mp4",
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "icon": "none",
-            "icon_width": 48,
-            "heading": "卖点3",
-            "heading_size": "title-md",
-            "heading_tag": "h2",
-            "subheading": "",
-            "description": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "video_EV6iLc": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/jxb_video.mp4",
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "icon": "none",
-            "icon_width": 48,
-            "heading": "卖点4",
-            "heading_size": "title-md",
-            "heading_tag": "h2",
-            "subheading": "",
-            "description": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        }
-      },
-      "block_order": [
-        "video_cLGfQq",
-        "video_i3zDQn",
-        "video_RpXBtR",
-        "video_EV6iLc"
-      ],
-      "disabled": true,
-      "name": "t:sections.scrolling-banner.presets.name",
-      "settings": {
-        "image_height": "650px",
-        "image_width": "medium",
-        "layout": "image_first",
-        "text_alignment": "left",
-        "content_position": "items-center",
-        "image_height_mobile": "auto",
-        "text_alignment_mobile": "left",
-        "color_text": "",
-        "color_background": "#f8f7f5",
-        "gradient_background": "",
-        "color_background_2": "",
-        "gradient_background_2": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "full_width": false,
         "rounded": false
       }
     },
@@ -704,13 +703,13 @@
   "order": [
     "main",
     "video-with-text-overlay",
+    "scrolling_banner_fe4bJE",
     "custom_liquid_wQbdfA",
     "faq_f6cpTC",
     "rich_text_66MKRE",
     "custom_liquid_XfdaKQ",
     "custom_liquid_8BdkeB",
     "faq_ezVHKq",
-    "scrolling_banner_fe4bJE",
     "collage_wBD6wW",
     "scrolling_text_7CGrz7"
   ]
