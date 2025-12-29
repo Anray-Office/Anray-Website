@@ -1,8 +1,9 @@
 <div class="anray-product-container">
+  <input type="radio" id="spec-tab" name="product-tabs" checked>
+  <input type="radio" id="others-tab" name="product-tabs">
+  
   <div class="anray-product-tabs">
-    <input type="radio" id="spec-tab" name="product-tabs" checked>
     <label class="product-tab" for="spec-tab">Spec</label>
-    <input type="radio" id="others-tab" name="product-tabs">
     <label class="product-tab" for="others-tab">Others</label>
     <span class="anray-tab-glider"></span>
   </div>
@@ -93,6 +94,10 @@
     margin: 2rem 0;
   }
 
+  .anray-product-container > input[type='radio'] {
+    display: none;
+  }
+
   .anray-product-tabs {
     display: inline-flex;
     position: relative;
@@ -105,10 +110,6 @@
 
   .anray-product-tabs * {
     z-index: 2;
-  }
-
-  .anray-product-tabs input[type='radio'] {
-    display: none;
   }
 
   .product-tab {
@@ -125,15 +126,16 @@
     color: var(--anray-text-color);
   }
 
-  .anray-product-tabs input[type='radio']:checked + label {
+  .anray-product-container input[id='spec-tab']:checked ~ .anray-product-tabs label[for='spec-tab'],
+  .anray-product-container input[id='others-tab']:checked ~ .anray-product-tabs label[for='others-tab'] {
     color: #fff;
   }
 
-  .anray-product-tabs input[id='spec-tab']:checked ~ .anray-tab-glider {
+  .anray-product-container input[id='spec-tab']:checked ~ .anray-product-tabs .anray-tab-glider {
     transform: translateX(0);
   }
 
-  .anray-product-tabs input[id='others-tab']:checked ~ .anray-tab-glider {
+  .anray-product-container input[id='others-tab']:checked ~ .anray-product-tabs .anray-tab-glider {
     transform: translateX(100%);
   }
 
@@ -159,12 +161,9 @@
     animation: fadeIn 0.3s ease-in;
   }
 
-  .anray-product-tabs input[id='spec-tab']:checked ~ .anray-tab-content #spec-content {
-    display: block;
-  }
-
-  .anray-product-tabs input[id='others-tab']:checked ~ .anray-tab-content #others-content {
-    display: block;
+  .anray-product-container input[id='spec-tab']:checked ~ .anray-tab-content #spec-content,
+  .anray-product-container input[id='others-tab']:checked ~ .anray-tab-content #others-content {
+    display: block !important;
   }
 
   @keyframes fadeIn {
@@ -315,9 +314,20 @@
 <script>
   // Ensure tab content visibility is properly controlled
   document.addEventListener('DOMContentLoaded', function() {
-    const tabInputs = document.querySelectorAll('.anray-product-tabs input[type="radio"]');
-    const tabPanels = document.querySelectorAll('.tab-panel');
+    const tabInputs = document.querySelectorAll('.anray-product-container > input[type="radio"]');
+    const tabPanels = document.querySelectorAll('.anray-product-container .tab-panel');
     
+    // Initial display
+    const checkedInput = document.querySelector('.anray-product-container > input[type="radio"]:checked');
+    if (checkedInput) {
+      const targetId = checkedInput.id === 'spec-tab' ? 'spec-content' : 'others-content';
+      const targetPanel = document.getElementById(targetId);
+      if (targetPanel) {
+        targetPanel.style.display = 'block';
+      }
+    }
+    
+    // Handle tab changes
     tabInputs.forEach(input => {
       input.addEventListener('change', function() {
         tabPanels.forEach(panel => {
@@ -325,9 +335,11 @@
         });
         
         if (this.id === 'spec-tab') {
-          document.getElementById('spec-content').style.display = 'block';
+          const specContent = document.getElementById('spec-content');
+          if (specContent) specContent.style.display = 'block';
         } else if (this.id === 'others-tab') {
-          document.getElementById('others-content').style.display = 'block';
+          const othersContent = document.getElementById('others-content');
+          if (othersContent) othersContent.style.display = 'block';
         }
       });
     });
