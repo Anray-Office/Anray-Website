@@ -68,6 +68,10 @@
             "show_back_in_stock_phone": true
           }
         },
+        "anray_product_tabs_PVaTiR": {
+          "type": "anray_product_tabs",
+          "settings": {}
+        },
         "buy_now_button_C7kErc": {
           "type": "buy_now_button",
           "disabled": true,
@@ -105,6 +109,7 @@
         "pickup_availability",
         "quantity_selector_AxN49q",
         "buy_buttons_bEQemX",
+        "anray_product_tabs_PVaTiR",
         "buy_now_button_C7kErc",
         "share",
         "complementary",
