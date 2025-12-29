@@ -1,311 +1,336 @@
-{%- liquid
-  assign anray_id = block.id | default: section.id | default: 'anray-tabs'
-  assign tab_width = block.settings.tab_width | default: 200
-  assign tab_height = block.settings.tab_height | default: 54
--%}
-
-<div
-  class="anray-tabs-root"
-  style="
-    --anray-primary-color: {{ block.settings.primary_color | default: '#F15A22' }};
-    --anray-secondary-color: {{ block.settings.secondary_color | default: '#0A0E27' }};
-    --anray-tab-width: {{ tab_width }}px;
-    --anray-tab-height: {{ tab_height }}px;
-  "
-  data-anray-tabs-id="{{ anray_id }}"
-  {{ block.shopify_attributes }}
->
-  {%- comment -%} Radios must be siblings of tabs + panels for CSS-only switching {%- endcomment -%}
-  <input type="radio" id="anray-tab-1-{{ anray_id }}" name="anray-tabs-{{ anray_id }}" checked>
-  <input type="radio" id="anray-tab-2-{{ anray_id }}" name="anray-tabs-{{ anray_id }}">
-  <input type="radio" id="anray-tab-3-{{ anray_id }}" name="anray-tabs-{{ anray_id }}">
-
-  <div class="anray-tabs" role="tablist" aria-label="ANRAY Tabs">
-    <label class="anray-tab" for="anray-tab-1-{{ anray_id }}" role="tab">
-      {{ block.settings.tab_1_title | default: 'Tab 1' | escape }}
-      {%- if block.settings.tab_1_badge != blank -%}
-        <span class="anray-notification">{{ block.settings.tab_1_badge | escape }}</span>
-      {%- endif -%}
-    </label>
-
-    <label class="anray-tab" for="anray-tab-2-{{ anray_id }}" role="tab">
-      {{ block.settings.tab_2_title | default: 'Tab 2' | escape }}
-      {%- if block.settings.tab_2_badge != blank -%}
-        <span class="anray-notification">{{ block.settings.tab_2_badge | escape }}</span>
-      {%- endif -%}
-    </label>
-
-    <label class="anray-tab" for="anray-tab-3-{{ anray_id }}" role="tab">
-      {{ block.settings.tab_3_title | default: 'Tab 3' | escape }}
-      {%- if block.settings.tab_3_badge != blank -%}
-        <span class="anray-notification">{{ block.settings.tab_3_badge | escape }}</span>
-      {%- endif -%}
-    </label>
-
-    <span class="anray-glider" aria-hidden="true"></span>
+<div class="anray-product-container">
+  <div class="anray-product-tabs">
+    <input type="radio" id="spec-tab" name="product-tabs" checked>
+    <label class="product-tab" for="spec-tab">Spec</label>
+    <input type="radio" id="others-tab" name="product-tabs">
+    <label class="product-tab" for="others-tab">Others</label>
+    <span class="anray-tab-glider"></span>
   </div>
 
-  <div class="anray-panels">
-    <div class="anray-panel" id="anray-panel-1-{{ anray_id }}" role="tabpanel">
-      {%- if block.settings.tab_1_liquid != blank -%}
-        {{ block.settings.tab_1_liquid }}
-      {%- else -%}
-        <div class="rte">
-          <p>请在后台配置 Tab 1 的内容（支持直接写 Liquid/HTML，也可以写：<code>{% raw %}{% render 'your-snippet' %}{% endraw %}</code>）。</p>
+  <div class="anray-tab-content">
+    <!-- Spec Tab Content -->
+    <div class="tab-panel" id="spec-content">
+      <div class="spec-section">
+        <h3 class="spec-title">Body</h3>
+      </div>
+      
+      <div class="spec-section">
+        <h3 class="spec-title">Blade Technology</h3>
+        <div class="spec-item">
+          <span class="spec-label">Blade Material:</span>
+          <span class="spec-value">Premium Titanium-Coated Ceramic Blades</span>
         </div>
-      {%- endif -%}
+        <div class="spec-item">
+          <span class="spec-label">Coating Technology:</span>
+          <span class="spec-value">Lower blade with DLC (Diamond-Like Carbon) coating | Upper blade with titanium coating</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Benefits:</span>
+          <span class="spec-value">Prevents pulling, stays cool during use, gentle on sensitive skin, exceptional durability</span>
+        </div>
+      </div>
+
+      <div class="spec-section">
+        <h3 class="spec-title">Display Features</h3>
+        <div class="spec-item">
+          <span class="spec-label">Battery Indicator:</span>
+          <span class="spec-value">Smart LCD display with 4-level battery indicator (3 green segments + 1 red/green segment)</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Speed Display:</span>
+          <span class="spec-value">LCD indicator showing 6600 RPM when powered on</span>
+        </div>
+      </div>
+
+      <div class="spec-section">
+        <h3 class="spec-title">Included Accessories</h3>
+      </div>
     </div>
 
-    <div class="anray-panel" id="anray-panel-2-{{ anray_id }}" role="tabpanel">
-      {%- if block.settings.tab_2_liquid != blank -%}
-        {{ block.settings.tab_2_liquid }}
-      {%- else -%}
-        <div class="rte"><p>请在后台配置 Tab 2 的内容。</p></div>
-      {%- endif -%}
-    </div>
+    <!-- Others Tab Content -->
+    <div class="tab-panel" id="others-content">
+      <div class="others-section">
+        <div class="section-header">
+          <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 3h18v18H3z" stroke-width="2"/>
+            <path d="M9 3v18M3 9h18M3 15h18" stroke-width="2"/>
+          </svg>
+          <span class="section-title">Buy from</span>
+        </div>
+        <div class="button-group">
+          <a href="#" class="action-button primary-btn">Amazon</a>
+          <a href="#" class="action-button primary-btn">TikTok</a>
+        </div>
+      </div>
 
-    <div class="anray-panel" id="anray-panel-3-{{ anray_id }}" role="tabpanel">
-      {%- if block.settings.tab_3_liquid != blank -%}
-        {{ block.settings.tab_3_liquid }}
-      {%- else -%}
-        <div class="rte"><p>请在后台配置 Tab 3 的内容。</p></div>
-      {%- endif -%}
+      <div class="others-section">
+        <div class="section-header">
+          <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="section-title">Download</span>
+        </div>
+        <div class="button-group">
+          <a href="#" class="action-button secondary-btn">Manual</a>
+          <a href="#" class="action-button secondary-btn">Tutorial</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <style>
-  .anray-tabs-root {
+  :root {
+    --anray-primary-color: #F15A22;
+    --anray-secondary-color: #0A0E27;
+    --anray-text-color: #333;
+    --anray-border-color: #e5e5e5;
+    --anray-bg-light: #f8f8f8;
+  }
+
+  .anray-product-container {
     width: 100%;
-    margin: 1rem 0;
+    margin: 2rem 0;
   }
 
-  .anray-tabs-root input[type='radio'] {
-    display: none;
-  }
-
-  .anray-tabs {
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-    background-color: #ffffff;
-    padding: 0.75rem;
-    border-radius: 999px;
-    box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .anray-tabs::-webkit-scrollbar {
-    display: none;
-  }
-
-  .anray-tab {
+  .anray-product-tabs {
     display: inline-flex;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
+    padding: 0.5rem;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+  }
+
+  .anray-product-tabs * {
+    z-index: 2;
+  }
+
+  .anray-product-tabs input[type='radio'] {
+    display: none;
+  }
+
+  .product-tab {
+    display: flex;
     align-items: center;
     justify-content: center;
-    height: var(--anray-tab-height);
-    width: var(--anray-tab-width);
-    font-size: 1.05rem;
+    height: 45px;
+    width: 140px;
+    font-size: 1.1rem;
     font-weight: 500;
-    border-radius: 999px;
+    border-radius: 50px;
     cursor: pointer;
     transition: color 0.15s ease-in;
-    z-index: 2;
-    position: relative;
-    white-space: nowrap;
-    color: #111111;
+    color: var(--anray-text-color);
   }
 
-  .anray-notification {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    margin-left: 0.75rem;
-    border-radius: 50%;
-    background-color: var(--anray-secondary-color);
-    color: #ffffff;
-    transition: background-color 0.15s ease-in, color 0.15s ease-in;
-    font-size: 0.95rem;
-    line-height: 1;
+  .anray-product-tabs input[type='radio']:checked + label {
+    color: #fff;
   }
 
-  .anray-glider {
+  .anray-product-tabs input[id='spec-tab']:checked ~ .anray-tab-glider {
+    transform: translateX(0);
+  }
+
+  .anray-product-tabs input[id='others-tab']:checked ~ .anray-tab-glider {
+    transform: translateX(100%);
+  }
+
+  .anray-tab-glider {
     position: absolute;
-    top: 50%;
-    left: 0.75rem;
-    height: var(--anray-tab-height);
-    width: var(--anray-tab-width);
+    display: flex;
+    height: 45px;
+    width: 140px;
     background-color: var(--anray-secondary-color);
     z-index: 1;
-    border-radius: 999px;
-    transition: transform 0.25s ease-out;
-    transform: translate(0, -50%);
-    pointer-events: none;
+    border-radius: 50px;
+    transition: 0.25s ease-out;
   }
 
-  .anray-panels {
-    margin-top: 1rem;
+  /* Tab Content */
+  .anray-tab-content {
+    position: relative;
+    min-height: 400px;
   }
 
-  .anray-panel {
+  .tab-panel {
     display: none;
-    padding: 1rem 0;
+    animation: fadeIn 0.3s ease-in;
   }
 
-  /* Active states: text + badge + panel + glider position */
-  .anray-tabs-root input#anray-tab-1-{{ anray_id }}:checked ~ .anray-tabs label[for='anray-tab-1-{{ anray_id }}'],
-  .anray-tabs-root input#anray-tab-2-{{ anray_id }}:checked ~ .anray-tabs label[for='anray-tab-2-{{ anray_id }}'],
-  .anray-tabs-root input#anray-tab-3-{{ anray_id }}:checked ~ .anray-tabs label[for='anray-tab-3-{{ anray_id }}'] {
-    color: var(--anray-primary-color);
-  }
-
-  .anray-tabs-root input#anray-tab-1-{{ anray_id }}:checked ~ .anray-tabs label[for='anray-tab-1-{{ anray_id }}'] .anray-notification,
-  .anray-tabs-root input#anray-tab-2-{{ anray_id }}:checked ~ .anray-tabs label[for='anray-tab-2-{{ anray_id }}'] .anray-notification,
-  .anray-tabs-root input#anray-tab-3-{{ anray_id }}:checked ~ .anray-tabs label[for='anray-tab-3-{{ anray_id }}'] .anray-notification {
-    background-color: var(--anray-primary-color);
-    color: #ffffff;
-  }
-
-  .anray-tabs-root input#anray-tab-1-{{ anray_id }}:checked ~ .anray-panels #anray-panel-1-{{ anray_id }},
-  .anray-tabs-root input#anray-tab-2-{{ anray_id }}:checked ~ .anray-panels #anray-panel-2-{{ anray_id }},
-  .anray-tabs-root input#anray-tab-3-{{ anray_id }}:checked ~ .anray-panels #anray-panel-3-{{ anray_id }} {
+  .anray-product-tabs input[id='spec-tab']:checked ~ .anray-tab-content #spec-content {
     display: block;
   }
 
-  .anray-tabs-root input#anray-tab-1-{{ anray_id }}:checked ~ .anray-tabs .anray-glider {
-    transform: translate(0, -50%);
-  }
-  .anray-tabs-root input#anray-tab-2-{{ anray_id }}:checked ~ .anray-tabs .anray-glider {
-    transform: translate(100%, -50%);
-  }
-  .anray-tabs-root input#anray-tab-3-{{ anray_id }}:checked ~ .anray-tabs .anray-glider {
-    transform: translate(200%, -50%);
+  .anray-product-tabs input[id='others-tab']:checked ~ .anray-tab-content #others-content {
+    display: block;
   }
 
-  @media (max-width: 700px) {
-    .anray-tab {
-      width: calc(var(--anray-tab-width) * 0.75);
-      height: calc(var(--anray-tab-height) * 0.85);
-      font-size: 0.98rem;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Spec Content Styles */
+  .spec-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--anray-border-color);
+  }
+
+  .spec-section:last-child {
+    border-bottom: none;
+  }
+
+  .spec-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--anray-secondary-color);
+    margin-bottom: 1rem;
+  }
+
+  .spec-item {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .spec-label {
+    font-weight: 600;
+    color: var(--anray-text-color);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .spec-value {
+    color: #666;
+    display: block;
+    padding-left: 0;
+  }
+
+  /* Others Content Styles */
+  .others-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-icon {
+    color: var(--anray-secondary-color);
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--anray-secondary-color);
+  }
+
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .action-button {
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    min-width: 120px;
+    text-align: center;
+  }
+
+  .primary-btn {
+    background-color: var(--anray-secondary-color);
+    color: #fff;
+    border: 2px solid var(--anray-secondary-color);
+  }
+
+  .primary-btn:hover {
+    background-color: transparent;
+    color: var(--anray-secondary-color);
+  }
+
+  .secondary-btn {
+    background-color: transparent;
+    color: var(--anray-secondary-color);
+    border: 2px solid var(--anray-secondary-color);
+  }
+
+  .secondary-btn:hover {
+    background-color: var(--anray-secondary-color);
+    color: #fff;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .anray-product-tabs {
+      padding: 0.4rem;
     }
 
-    .anray-glider {
-      width: calc(var(--anray-tab-width) * 0.75);
-      height: calc(var(--anray-tab-height) * 0.85);
+    .product-tab {
+      height: 40px;
+      width: 120px;
+      font-size: 1rem;
+    }
+
+    .anray-tab-glider {
+      height: 40px;
+      width: 120px;
+    }
+
+    .spec-title {
+      font-size: 1.1rem;
+    }
+
+    .button-group {
+      flex-direction: column;
+    }
+
+    .action-button {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .anray-product-tabs {
+      transform: scale(0.9);
     }
   }
 </style>
 
-{% schema %}
-{
-  "name": "ANRAY - Tabs",
-  "settings": [
-    {
-      "type": "color",
-      "id": "primary_color",
-      "label": "高亮文字/角标颜色",
-      "default": "#F15A22"
-    },
-    {
-      "type": "color",
-      "id": "secondary_color",
-      "label": "滑块背景颜色",
-      "default": "#0A0E27"
-    },
-    {
-      "type": "range",
-      "id": "tab_width",
-      "min": 120,
-      "max": 320,
-      "step": 10,
-      "unit": "px",
-      "label": "Tab 宽度",
-      "default": 200
-    },
-    {
-      "type": "range",
-      "id": "tab_height",
-      "min": 36,
-      "max": 72,
-      "step": 2,
-      "unit": "px",
-      "label": "Tab 高度",
-      "default": 54
-    },
-    {
-      "type": "header",
-      "content": "Tab 1"
-    },
-    {
-      "type": "text",
-      "id": "tab_1_title",
-      "label": "标题",
-      "default": "Upcoming"
-    },
-    {
-      "type": "text",
-      "id": "tab_1_badge",
-      "label": "角标（可选）",
-      "default": "2"
-    },
-    {
-      "type": "liquid",
-      "id": "tab_1_liquid",
-      "label": "内容（支持 Liquid/HTML，例如：render 'your-snippet'）"
-    },
-    {
-      "type": "header",
-      "content": "Tab 2"
-    },
-    {
-      "type": "text",
-      "id": "tab_2_title",
-      "label": "标题",
-      "default": "Development"
-    },
-    {
-      "type": "text",
-      "id": "tab_2_badge",
-      "label": "角标（可选）"
-    },
-    {
-      "type": "liquid",
-      "id": "tab_2_liquid",
-      "label": "内容（支持 Liquid/HTML，例如：render 'your-snippet'）"
-    },
-    {
-      "type": "header",
-      "content": "Tab 3"
-    },
-    {
-      "type": "text",
-      "id": "tab_3_title",
-      "label": "标题",
-      "default": "Completed"
-    },
-    {
-      "type": "text",
-      "id": "tab_3_badge",
-      "label": "角标（可选）"
-    },
-    {
-      "type": "liquid",
-      "id": "tab_3_liquid",
-      "label": "内容（支持 Liquid/HTML，例如：render 'your-snippet'）"
-    }
-  ],
-  "presets": [
-    {
-      "name": "ANRAY - Tabs"
-    }
-  ]
-}
-{% endschema %}
+<script>
+  // Ensure tab content visibility is properly controlled
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabInputs = document.querySelectorAll('.anray-product-tabs input[type="radio"]');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+    
+    tabInputs.forEach(input => {
+      input.addEventListener('change', function() {
+        tabPanels.forEach(panel => {
+          panel.style.display = 'none';
+        });
+        
+        if (this.id === 'spec-tab') {
+          document.getElementById('spec-content').style.display = 'block';
+        } else if (this.id === 'others-tab') {
+          document.getElementById('others-content').style.display = 'block';
+        }
+      });
+    });
+  });
+</script>
 
