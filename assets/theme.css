@@ -11965,7 +11965,8 @@ noscript .product-form__input {
   }
 
   .buy-buttons.grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(0px, 1fr));
+    row-gap: var(--sp-2) !important;
   }
 }
 

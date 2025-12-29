@@ -852,6 +852,13 @@
                   {%- endcase -%}
                 {%- endif -%}
               </div>
+
+            {%- when 'product_tabs' -%}
+              {%- render 'product-tabs', block: block, section: section, product: product -%}
+
+            {%- when 'tab_content' -%}
+              {%- comment -%}Tab 内容块由 product_tabs 渲染，这里不需要处理{%- endcomment -%}
+
           {%- endcase -%}
         {%- endfor -%}
       </product-info>
@@ -2873,6 +2880,92 @@
         {
           "type": "paragraph",
           "content": "t:sections.main-product.blocks.sticky_buy_button.settings.paragraph.content"
+        }
+      ]
+    },
+    {
+      "type": "product_tabs",
+      "name": "产品标签页",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "📌 标签页容器：创建一个标签页组。添加此块后，请添加【标签页内容】块并将其父标签页 ID 设置为此块的 ID。"
+        },
+        {
+          "type": "header",
+          "content": "🎨 颜色设置"
+        },
+        {
+          "type": "color",
+          "id": "tab_active_bg",
+          "label": "激活背景色",
+          "default": "#e6eef9",
+          "info": "当前选中标签页的背景颜色"
+        },
+        {
+          "type": "color",
+          "id": "tab_active_text",
+          "label": "激活文字颜色",
+          "default": "#185ee0",
+          "info": "当前选中标签页的文字颜色"
+        },
+        {
+          "type": "color",
+          "id": "tab_inactive_text",
+          "label": "未激活文字颜色",
+          "default": "#111111",
+          "info": "未选中标签页的文字颜色"
+        }
+      ]
+    },
+    {
+      "type": "tab_content",
+      "name": "标签页内容",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "📄 标签页内容：为标签页添加具体内容。必须关联到一个【产品标签页】块。"
+        },
+        {
+          "type": "text",
+          "id": "parent_tab_id",
+          "label": "🔗 父标签页 ID（必填）",
+          "info": "输入对应【产品标签页】块的 ID。提示：在主题编辑器中选中该块，浏览器地址栏会显示块 ID。",
+          "placeholder": "例如: 1234567890abcdef"
+        },
+        {
+          "type": "header",
+          "content": "标签页设置"
+        },
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "标签页标题",
+          "default": "标签页",
+          "info": "显示在标签按钮上的文字"
+        },
+        {
+          "type": "header",
+          "content": "📝 内容（至少选择一种）"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "富文本内容",
+          "info": "使用富文本编辑器添加内容"
+        },
+        {
+          "type": "page",
+          "id": "page",
+          "label": "页面内容",
+          "info": "引用已有页面的内容"
+        },
+        {
+          "type": "liquid",
+          "id": "liquid",
+          "label": "自定义 Liquid 代码",
+          "info": "高级用户可使用 Liquid 代码动态显示内容"
         }
       ]
     }
