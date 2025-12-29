@@ -852,6 +852,11 @@
                   {%- endcase -%}
                 {%- endif -%}
               </div>
+
+            {%- when 'anray_product_tabs' -%}
+              <div {{ block.shopify_attributes }}>
+                {%- render 'anray-tab' -%}
+              </div>
           {%- endcase -%}
         {%- endfor -%}
       </product-info>
@@ -1012,11 +1017,6 @@
   <script type="application/ld+json">
     {{- product | structured_data -}}
   </script>
-
-  {%- comment -%} 产品标签页 - Spec 和 Others {%- endcomment -%}
-  <div class="page-width" style="margin-top: 3rem;">
-    {%- render 'anray-tab' -%}
-  </div>
 </div>
 
 {% schema %}
@@ -2878,6 +2878,17 @@
         {
           "type": "paragraph",
           "content": "t:sections.main-product.blocks.sticky_buy_button.settings.paragraph.content"
+        }
+      ]
+    },
+    {
+      "type": "anray_product_tabs",
+      "name": "产品标签页 (Spec & Others)",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "显示产品规格和其他信息（购买链接、下载资源等）的标签页组件"
         }
       ]
     }
