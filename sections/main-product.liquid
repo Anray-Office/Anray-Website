@@ -500,14 +500,14 @@
                 section_id: section.id
               -%}
 
-            {% comment %} {%- when 'buy_buttons' -%}
+            {%- when 'buy_buttons' -%}
               {%- render 'buy-buttons',
                 block: block,
                 product: product,
                 product_id: product.id,
                 section_id: section.id,
                 product_form_id: product_form_id
-              -%} {% endcomment %}
+              -%}
 
             {%- when 'buy_now_button' -%}
               {%- render 'buy-now-button',
