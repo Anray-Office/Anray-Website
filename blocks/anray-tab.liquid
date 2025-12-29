@@ -1,0 +1,311 @@
+{%- liquid
+  assign anray_id = block.id | default: section.id | default: 'anray-tabs'
+  assign tab_width = block.settings.tab_width | default: 200
+  assign tab_height = block.settings.tab_height | default: 54
+-%}
+
+<div
+  class="anray-tabs-root"
+  style="
+    --anray-primary-color: {{ block.settings.primary_color | default: '#F15A22' }};
+    --anray-secondary-color: {{ block.settings.secondary_color | default: '#0A0E27' }};
+    --anray-tab-width: {{ tab_width }}px;
+    --anray-tab-height: {{ tab_height }}px;
+  "
+  data-anray-tabs-id="{{ anray_id }}"
+  {{ block.shopify_attributes }}
+>
+  {%- comment -%} Radios must be siblings of tabs + panels for CSS-only switching {%- endcomment -%}
+  <input type="radio" id="anray-tab-1-{{ anray_id }}" name="anray-tabs-{{ anray_id }}" checked>
+  <input type="radio" id="anray-tab-2-{{ anray_id }}" name="anray-tabs-{{ anray_id }}">
+  <input type="radio" id="anray-tab-3-{{ anray_id }}" name="anray-tabs-{{ anray_id }}">
+
+  <div class="anray-tabs" role="tablist" aria-label="ANRAY Tabs">
+    <label class="anray-tab" for="anray-tab-1-{{ anray_id }}" role="tab">
+      {{ block.settings.tab_1_title | default: 'Tab 1' | escape }}
+      {%- if block.settings.tab_1_badge != blank -%}
+        <span class="anray-notification">{{ block.settings.tab_1_badge | escape }}</span>
+      {%- endif -%}
+    </label>
+
+    <label class="anray-tab" for="anray-tab-2-{{ anray_id }}" role="tab">
+      {{ block.settings.tab_2_title | default: 'Tab 2' | escape }}
+      {%- if block.settings.tab_2_badge != blank -%}
+        <span class="anray-notification">{{ block.settings.tab_2_badge | escape }}</span>
+      {%- endif -%}
+    </label>
+
+    <label class="anray-tab" for="anray-tab-3-{{ anray_id }}" role="tab">
+      {{ block.settings.tab_3_title | default: 'Tab 3' | escape }}
+      {%- if block.settings.tab_3_badge != blank -%}
+        <span class="anray-notification">{{ block.settings.tab_3_badge | escape }}</span>
+      {%- endif -%}
+    </label>
+
+    <span class="anray-glider" aria-hidden="true"></span>
+  </div>
+
+  <div class="anray-panels">
+    <div class="anray-panel" id="anray-panel-1-{{ anray_id }}" role="tabpanel">
+      {%- if block.settings.tab_1_liquid != blank -%}
+        {{ block.settings.tab_1_liquid }}
+      {%- else -%}
+        <div class="rte">
+          <p>请在后台配置 Tab 1 的内容（支持直接写 Liquid/HTML，也可以写：<code>{% raw %}{% render 'your-snippet' %}{% endraw %}</code>）。</p>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="anray-panel" id="anray-panel-2-{{ anray_id }}" role="tabpanel">
+      {%- if block.settings.tab_2_liquid != blank -%}
+        {{ block.settings.tab_2_liquid }}
+      {%- else -%}
+        <div class="rte"><p>请在后台配置 Tab 2 的内容。</p></div>
+      {%- endif -%}
+    </div>
+
+    <div class="anray-panel" id="anray-panel-3-{{ anray_id }}" role="tabpanel">
+      {%- if block.settings.tab_3_liquid != blank -%}
+        {{ block.settings.tab_3_liquid }}
+      {%- else -%}
+        <div class="rte"><p>请在后台配置 Tab 3 的内容。</p></div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .anray-tabs-root {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .anray-tabs-root input[type='radio'] {
+    display: none;
+  }
+
+  .anray-tabs {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    background-color: #ffffff;
+    padding: 0.75rem;
+    border-radius: 999px;
+    box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .anray-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .anray-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--anray-tab-height);
+    width: var(--anray-tab-width);
+    font-size: 1.05rem;
+    font-weight: 500;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 0.15s ease-in;
+    z-index: 2;
+    position: relative;
+    white-space: nowrap;
+    color: #111111;
+  }
+
+  .anray-notification {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin-left: 0.75rem;
+    border-radius: 50%;
+    background-color: var(--anray-secondary-color);
+    color: #ffffff;
+    transition: background-color 0.15s ease-in, color 0.15s ease-in;
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+
+  .anray-glider {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    height: var(--anray-tab-height);
+    width: var(--anray-tab-width);
+    background-color: var(--anray-secondary-color);
+    z-index: 1;
+    border-radius: 999px;
+    transition: transform 0.25s ease-out;
+    transform: translate(0, -50%);
+    pointer-events: none;
+  }
+
+  .anray-panels {
+    margin-top: 1rem;
+  }
+
+  .anray-panel {
+    display: none;
+    padding: 1rem 0;
+  }
+
+  /* Active states: text + badge + panel + glider position */
+  .anray-tabs-root input#anray-tab-1-{{ anray_id }}:checked ~ .anray-tabs label[for='anray-tab-1-{{ anray_id }}'],
+  .anray-tabs-root input#anray-tab-2-{{ anray_id }}:checked ~ .anray-tabs label[for='anray-tab-2-{{ anray_id }}'],
+  .anray-tabs-root input#anray-tab-3-{{ anray_id }}:checked ~ .anray-tabs label[for='anray-tab-3-{{ anray_id }}'] {
+    color: var(--anray-primary-color);
+  }
+
+  .anray-tabs-root input#anray-tab-1-{{ anray_id }}:checked ~ .anray-tabs label[for='anray-tab-1-{{ anray_id }}'] .anray-notification,
+  .anray-tabs-root input#anray-tab-2-{{ anray_id }}:checked ~ .anray-tabs label[for='anray-tab-2-{{ anray_id }}'] .anray-notification,
+  .anray-tabs-root input#anray-tab-3-{{ anray_id }}:checked ~ .anray-tabs label[for='anray-tab-3-{{ anray_id }}'] .anray-notification {
+    background-color: var(--anray-primary-color);
+    color: #ffffff;
+  }
+
+  .anray-tabs-root input#anray-tab-1-{{ anray_id }}:checked ~ .anray-panels #anray-panel-1-{{ anray_id }},
+  .anray-tabs-root input#anray-tab-2-{{ anray_id }}:checked ~ .anray-panels #anray-panel-2-{{ anray_id }},
+  .anray-tabs-root input#anray-tab-3-{{ anray_id }}:checked ~ .anray-panels #anray-panel-3-{{ anray_id }} {
+    display: block;
+  }
+
+  .anray-tabs-root input#anray-tab-1-{{ anray_id }}:checked ~ .anray-tabs .anray-glider {
+    transform: translate(0, -50%);
+  }
+  .anray-tabs-root input#anray-tab-2-{{ anray_id }}:checked ~ .anray-tabs .anray-glider {
+    transform: translate(100%, -50%);
+  }
+  .anray-tabs-root input#anray-tab-3-{{ anray_id }}:checked ~ .anray-tabs .anray-glider {
+    transform: translate(200%, -50%);
+  }
+
+  @media (max-width: 700px) {
+    .anray-tab {
+      width: calc(var(--anray-tab-width) * 0.75);
+      height: calc(var(--anray-tab-height) * 0.85);
+      font-size: 0.98rem;
+    }
+
+    .anray-glider {
+      width: calc(var(--anray-tab-width) * 0.75);
+      height: calc(var(--anray-tab-height) * 0.85);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "ANRAY - Tabs",
+  "settings": [
+    {
+      "type": "color",
+      "id": "primary_color",
+      "label": "高亮文字/角标颜色",
+      "default": "#F15A22"
+    },
+    {
+      "type": "color",
+      "id": "secondary_color",
+      "label": "滑块背景颜色",
+      "default": "#0A0E27"
+    },
+    {
+      "type": "range",
+      "id": "tab_width",
+      "min": 120,
+      "max": 320,
+      "step": 10,
+      "unit": "px",
+      "label": "Tab 宽度",
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "tab_height",
+      "min": 36,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Tab 高度",
+      "default": 54
+    },
+    {
+      "type": "header",
+      "content": "Tab 1"
+    },
+    {
+      "type": "text",
+      "id": "tab_1_title",
+      "label": "标题",
+      "default": "Upcoming"
+    },
+    {
+      "type": "text",
+      "id": "tab_1_badge",
+      "label": "角标（可选）",
+      "default": "2"
+    },
+    {
+      "type": "liquid",
+      "id": "tab_1_liquid",
+      "label": "内容（支持 Liquid/HTML，例如：render 'your-snippet'）"
+    },
+    {
+      "type": "header",
+      "content": "Tab 2"
+    },
+    {
+      "type": "text",
+      "id": "tab_2_title",
+      "label": "标题",
+      "default": "Development"
+    },
+    {
+      "type": "text",
+      "id": "tab_2_badge",
+      "label": "角标（可选）"
+    },
+    {
+      "type": "liquid",
+      "id": "tab_2_liquid",
+      "label": "内容（支持 Liquid/HTML，例如：render 'your-snippet'）"
+    },
+    {
+      "type": "header",
+      "content": "Tab 3"
+    },
+    {
+      "type": "text",
+      "id": "tab_3_title",
+      "label": "标题",
+      "default": "Completed"
+    },
+    {
+      "type": "text",
+      "id": "tab_3_badge",
+      "label": "角标（可选）"
+    },
+    {
+      "type": "liquid",
+      "id": "tab_3_liquid",
+      "label": "内容（支持 Liquid/HTML，例如：render 'your-snippet'）"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ANRAY - Tabs"
+    }
+  ]
+}
+{% endschema %}
+
