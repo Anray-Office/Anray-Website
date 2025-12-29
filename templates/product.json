@@ -23,6 +23,7 @@
         },
         "description": {
           "type": "description",
+          "disabled": true,
           "settings": {
             "text_size": "text-sm"
           }
@@ -97,12 +98,12 @@
         "thumbnail_position": "below",
         "image_ratio": "adapt_first",
         "image_zoom": "lightbox",
-        "hide_variants": false,
+        "hide_variants": true,
         "enable_video_autoplay": true,
         "enable_video_looping": true,
         "mobile_layout": "full_width",
-        "image_ratio_mobile": "adapt",
-        "mobile_thumbnail": false,
+        "image_ratio_mobile": "square",
+        "mobile_thumbnail": true,
         "padding_top": 20,
         "padding_bottom": 84,
         "divider": false,
@@ -223,12 +224,12 @@
       "name": "Anray Scroll Products",
       "settings": {
         "shop_scroll_title": "Frequently bought together",
-        "heading_alignment": "text-left md:items-end md:flex-row",
+        "gradient_highlight": "",
+        "heading": "Rich text",
         "heading_tag": "h1",
+        "heading_size": "title-md",
         "highlighted_text": "full_text",
         "highlighted_scribble": "basic-underline",
-        "heading": "Rich text",
-        "gradient_highlight": "",
         "shop_scroll_id": "ANRAY",
         "shop_scroll_see_all": "",
         "collection": "",
