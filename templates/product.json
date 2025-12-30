@@ -271,7 +271,7 @@
         "divider": false,
         "full_width": false,
         "rounded": false,
-        "enable_parallax": true,
+        "enable_parallax": false,
         "parallax_direction": "vertical"
       }
     },
