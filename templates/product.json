@@ -180,9 +180,9 @@
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
         "transparent_header": false,
-        "image": "shopify://shop_images/1b354a9a16468671.jpg",
-        "image_height": "750px",
-        "content_width": "small",
+        "image": "shopify://shop_images/ccc98d53050ff1d7.jpg",
+        "image_height": "adapt",
+        "content_width": "large",
         "content_position": "md:items-end md:justify-start",
         "text_alignment": "left",
         "image_height_mobile": "auto",
@@ -201,7 +201,7 @@
         "divider": false,
         "full_width": false,
         "rounded": false,
-        "enable_parallax": true,
+        "enable_parallax": false,
         "parallax_direction": "vertical"
       }
     },
