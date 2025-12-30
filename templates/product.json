@@ -205,6 +205,76 @@
         "parallax_direction": "vertical"
       }
     },
+    "image_with_text_overlay_aiwnQx": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_giDY6f": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "subheading": "Add a tagline",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "heading_FRhKyT": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image with text overlay",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_icWCAV": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_giDY6f",
+        "heading_FRhKyT",
+        "text_icWCAV"
+      ],
+      "name": "t:sections.image-with-text-overlay.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "image": "shopify://shop_images/a07accf649be0535_a0c0b0cb-e671-41de-ba2a-1f93f95517ea.jpg",
+        "image_height": "adapt",
+        "content_width": "large",
+        "content_position": "md:items-end md:justify-start",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity": 70,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": false,
+        "parallax_direction": "vertical"
+      }
+    },
     "image_with_text_overlay_idkn3i": {
       "type": "image-with-text-overlay",
       "blocks": {
@@ -275,10 +345,10 @@
         "parallax_direction": "vertical"
       }
     },
-    "image_with_text_overlay_PLdWMH": {
+    "image_with_text_overlay_jkwBUr": {
       "type": "image-with-text-overlay",
       "blocks": {
-        "subheading_kThyNa": {
+        "subheading_rcRQDR": {
           "type": "subheading",
           "disabled": true,
           "settings": {
@@ -287,7 +357,7 @@
             "secondary_color": true
           }
         },
-        "heading_4cJPjF": {
+        "heading_yUArhi": {
           "type": "heading",
           "disabled": true,
           "settings": {
@@ -298,7 +368,7 @@
             "highlighted_scribble": "circle"
           }
         },
-        "text_wVicqT": {
+        "text_MtXQFt": {
           "type": "text",
           "disabled": true,
           "settings": {
@@ -313,18 +383,18 @@
         }
       },
       "block_order": [
-        "subheading_kThyNa",
-        "heading_4cJPjF",
-        "text_wVicqT"
+        "subheading_rcRQDR",
+        "heading_yUArhi",
+        "text_MtXQFt"
       ],
       "name": "t:sections.image-with-text-overlay.presets.name",
       "settings": {
-        "transparent_header": true,
-        "image": "shopify://shop_images/QQ20251230-211649.png",
-        "image_height": "750px",
-        "content_width": "medium",
+        "transparent_header": false,
+        "image": "shopify://shop_images/07d63c6fda9478f6.jpg",
+        "image_height": "adapt",
+        "content_width": "large",
         "content_position": "md:items-end md:justify-start",
-        "text_alignment": "center",
+        "text_alignment": "left",
         "image_height_mobile": "auto",
         "content_position_mobile": "items-end justify-start",
         "text_alignment_mobile": "left",
@@ -341,7 +411,147 @@
         "divider": false,
         "full_width": false,
         "rounded": false,
-        "enable_parallax": true,
+        "enable_parallax": false,
+        "parallax_direction": "vertical"
+      }
+    },
+    "image_with_text_overlay_MBJyh3": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_qeAjCg": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "subheading": "Add a tagline",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "heading_43bQbr": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image with text overlay",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_FKUwb3": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_qeAjCg",
+        "heading_43bQbr",
+        "text_FKUwb3"
+      ],
+      "name": "t:sections.image-with-text-overlay.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "image": "shopify://shop_images/download.jpg",
+        "image_height": "adapt",
+        "content_width": "large",
+        "content_position": "md:items-end md:justify-start",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity": 70,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": false,
+        "parallax_direction": "vertical"
+      }
+    },
+    "image_with_text_overlay_YdYtbr": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_pCVWwC": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "subheading": "Add a tagline",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "heading_8CKjdt": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image with text overlay",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_688fBe": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_pCVWwC",
+        "heading_8CKjdt",
+        "text_688fBe"
+      ],
+      "name": "t:sections.image-with-text-overlay.presets.name",
+      "settings": {
+        "transparent_header": false,
+        "image": "shopify://shop_images/2a686661275e9856.jpg",
+        "image_height": "adapt",
+        "content_width": "large",
+        "content_position": "md:items-end md:justify-start",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#e0a580",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity": 70,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": false,
         "parallax_direction": "vertical"
       }
     },
@@ -1155,8 +1365,11 @@
   "order": [
     "main-product",
     "image_with_text_overlay_LMXPcJ",
+    "image_with_text_overlay_aiwnQx",
     "image_with_text_overlay_idkn3i",
-    "image_with_text_overlay_PLdWMH",
+    "image_with_text_overlay_jkwBUr",
+    "image_with_text_overlay_MBJyh3",
+    "image_with_text_overlay_YdYtbr",
     "help-drawer",
     "product-recommendations",
     "anray_shop_products_dgLwme",
