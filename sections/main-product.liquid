@@ -25,9 +25,66 @@
   }
 
   @media screen and (min-width: 1024px) {
-  .product__gallery-container {
-    position: sticky;
-    top: 70px;
+    .product__gallery-container {
+      position: sticky;
+      top: 70px;
+    }
+  }
+
+  /* 产品视频容器：≥1200px 与图库、信息同排显示 */
+  @media screen and (min-width: 1200px) {
+    #shopify-section-{{ section.id }} .product-information.has-video-container {
+      /* 用 grid shorthand 覆盖主题里可能存在的 grid: ... 规则，确保三列永远生效 */
+      grid: auto / minmax(0, 0.7fr) minmax(0, 1fr) minmax(0, 0.9fr);
+      align-items: start;
+      gap: 2rem;
+    }
+
+    #shopify-section-{{ section.id }} .product-information.has-video-container .product__gallery-container {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    #shopify-section-{{ section.id }} .product-information.has-video-container .product-information__video-container {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    #shopify-section-{{ section.id }} .product-information.has-video-container .product__info {
+      grid-column: 3;
+      grid-row: 1;
+    }
+  }
+
+  /* <1200px：隐藏视频容器并重构网格（网格会自动回到主题的两列规则） */
+  @media screen and (max-width: 1199.99px) {
+    .product-information .product-information__video-container {
+      display: none;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .product-information__video-container {
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .product-information__video-frame {
+    position: relative;
+    width: 100%;
+    min-height:60svh;
+    overflow: hidden;
+    border-radius:20px;
+  }
+
+  #shopify-section-{{ section.id }} .product-information__video-frame > :is(video, iframe, img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product__thumbnails{
+    display: none;
   }
 </style>
 
@@ -36,6 +93,33 @@
   assign media_count = product.media.size
   assign first_3d_model = product.media | where: 'media_type', 'model' | first
   assign icon_list_block = section.blocks | where: 'type', 'icon_list' | first
+
+  assign video_container_enabled = section.settings.show_video_container
+  assign video_content_type = section.settings.content_type
+  assign has_uploaded_video = false
+  if section.settings.video != blank
+    assign has_uploaded_video = true
+  endif
+  assign video_url_raw = section.settings.video_url | strip
+  assign has_video_url = false
+  if video_url_raw != blank
+    assign has_video_url = true
+  endif
+  assign has_image = false
+  if section.settings.image != blank
+    assign has_image = true
+  endif
+
+  assign should_render_video_container = false
+  if video_container_enabled
+    if video_content_type == 'video' and has_uploaded_video
+      assign should_render_video_container = true
+    elsif video_content_type == 'video_url' and has_video_url
+      assign should_render_video_container = true
+    elsif video_content_type == 'image' and has_image
+      assign should_render_video_container = true
+    endif
+  endif
 -%}
 
 {%- if first_3d_model -%}
@@ -119,7 +203,141 @@
 
 <div class="section section--padding{% if section.settings.divider %} section--divider{% endif %}{% if section.settings.rounded %} section--rounded relative{% endif %}">
   <div class="page-width{% if media_count > 0 %}{% if section.settings.full_width %} page-width--full{% endif %}{% else %} page-width--narrow{% endif %} relative">
-    <div class="featured-product product product--{{ section.settings.gallery_layout }}{% if media_count == 0 %} no-media{% endif %} flex flex-col items-start lg:grid gap-5 w-full relative">
+    <div class="featured-product product product-information{% if should_render_video_container %} has-video-container{% endif %} product--{{ section.settings.gallery_layout }}{% if media_count == 0 %} no-media{% endif %} flex flex-col items-start lg:grid gap-5 w-full relative">
+      {% comment %} 视频区域 {% endcomment %}
+
+      {%- if should_render_video_container -%}
+        <div class="product-information__video-container w-full">
+          <div class="product-information__video-frame">
+            {%- if video_content_type == 'video' and has_uploaded_video -%}
+              {%- liquid
+                assign autoplay = section.settings.video_autoplay
+                assign loop = section.settings.video_loop
+              -%}
+              {{
+                section.settings.video
+                | video_tag:
+                  class: 'product-information__video-tag',
+                  controls: true,
+                  autoplay: autoplay,
+                  loop: loop,
+                  muted: autoplay,
+                  playsinline: true,
+                  preload: 'metadata'
+              }}
+
+            {%- elsif video_content_type == 'video_url' and has_video_url -%}
+              {%- liquid
+                assign autoplay = section.settings.video_autoplay
+                assign loop = section.settings.video_loop
+
+                assign url = video_url_raw
+                assign lower_url = url | downcase
+
+                assign is_direct_file = false
+                if lower_url contains '.mp4' or lower_url contains '.webm' or lower_url contains '.mov'
+                  assign is_direct_file = true
+                endif
+
+                assign is_youtube = false
+                if section.settings.video_type == 'youtube' or lower_url contains 'youtube.com' or lower_url contains 'youtu.be'
+                  assign is_youtube = true
+                endif
+
+                assign is_vimeo = false
+                if section.settings.video_type == 'vimeo' or lower_url contains 'vimeo.com'
+                  assign is_vimeo = true
+                endif
+              -%}
+
+              {%- if is_direct_file -%}
+                <video
+                  class="product-information__video-tag"
+                  src="{{ url | escape }}"
+                  controls
+                  playsinline
+                  preload="metadata"
+                  {% if autoplay %}autoplay muted{% endif %}
+                  {% if loop %}loop{% endif %}
+                ></video>
+
+              {%- elsif is_youtube -%}
+                {%- liquid
+                  assign yt_id = ''
+                  if lower_url contains 'youtube.com/embed/'
+                    assign yt_id = url | split: 'youtube.com/embed/' | last | split: '?' | first | split: '&' | first
+                  elsif lower_url contains 'youtu.be/'
+                    assign yt_id = url | split: 'youtu.be/' | last | split: '?' | first | split: '&' | first
+                  elsif lower_url contains 'watch?v='
+                    assign yt_id = url | split: 'watch?v=' | last | split: '&' | first
+                  endif
+
+                  assign yt_params = 'playsinline=1&rel=0'
+                  if autoplay
+                    assign yt_params = yt_params | append: '&autoplay=1&mute=1'
+                  endif
+                  if loop and yt_id != blank
+                    assign yt_params = yt_params | append: '&loop=1&playlist=' | append: yt_id
+                  endif
+
+                  assign yt_src = url
+                  if yt_id != blank
+                    assign yt_src = 'https://www.youtube.com/embed/' | append: yt_id | append: '?' | append: yt_params
+                  endif
+                -%}
+                <iframe
+                  class="product-information__video-iframe"
+                  src="{{ yt_src | escape }}"
+                  title="YouTube video"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+
+              {%- elsif is_vimeo -%}
+                {%- liquid
+                  assign vimeo_id = ''
+                  if lower_url contains 'player.vimeo.com/video/'
+                    assign vimeo_id = url | split: 'player.vimeo.com/video/' | last | split: '?' | first | split: '&' | first
+                  else
+                    assign vimeo_id = url | split: '/' | last | split: '?' | first | split: '&' | first
+                  endif
+
+                  assign vimeo_params = 'title=0&byline=0&portrait=0'
+                  if autoplay
+                    assign vimeo_params = vimeo_params | append: '&autoplay=1&muted=1'
+                  endif
+                  if loop
+                    assign vimeo_params = vimeo_params | append: '&loop=1'
+                  endif
+
+                  assign vimeo_src = url
+                  if vimeo_id != blank
+                    assign vimeo_src = 'https://player.vimeo.com/video/' | append: vimeo_id | append: '?' | append: vimeo_params
+                  endif
+                -%}
+                <iframe
+                  class="product-information__video-iframe"
+                  src="{{ vimeo_src | escape }}"
+                  title="Vimeo video"
+                  frameborder="0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              {%- else -%}
+                <a class="reversed-link" href="{{ url | escape }}" target="_blank" rel="nofollow noopener">
+                  {{- url -}}
+                </a>
+              {%- endif -%}
+
+            {%- elsif video_content_type == 'image' and has_image -%}
+              {{- section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'w-full h-full image-fit' -}}
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      {% comment %} 视频区域 {% endcomment %}
       {%- if media_count > 0 -%}
         <div class="product__gallery-container flex flex-col gap-0 md:gap-8 relative">
           {%- render 'product-media-gallery',
@@ -1369,6 +1587,86 @@
       "id": "enable_video_looping",
       "default": false,
       "label": "t:sections.main-product.settings.enable_video_looping.label"
+    },
+    {
+      "type": "header",
+      "content": "产品视频容器设置"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_video_container",
+      "default": false,
+      "label": "显示视频容器"
+    },
+    {
+      "type": "select",
+      "id": "content_type",
+      "label": "内容类型",
+      "options": [
+        {
+          "value": "video",
+          "label": "上传视频"
+        },
+        {
+          "value": "video_url",
+          "label": "视频链接"
+        },
+        {
+          "value": "image",
+          "label": "图片"
+        }
+      ],
+      "default": "video"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "上传视频"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "视频链接 (YouTube 或 Vimeo)",
+      "info": "仅当内容类型为'视频链接'时使用"
+    },
+    {
+      "type": "select",
+      "id": "video_type",
+      "label": "视频类型",
+      "options": [
+        {
+          "value": "youtube",
+          "label": "YouTube"
+        },
+        {
+          "value": "vimeo",
+          "label": "Vimeo"
+        }
+      ],
+      "default": "youtube"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "图片"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_autoplay",
+      "default": false,
+      "label": "视频自动播放"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_loop",
+      "default": false,
+      "label": "视频循环播放"
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_controls",
+      "default": false,
+      "label": "禁用视频控制"
     },
     {
       "type": "header",
