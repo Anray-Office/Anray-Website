@@ -54,6 +54,10 @@
       grid-column: 3;
       grid-row: 1;
     }
+
+    .product__thumbnails{
+      display: none;
+    }
   }
 
   /* <1200px：隐藏视频容器并重构网格（网格会自动回到主题的两列规则） */
@@ -81,10 +85,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .product__thumbnails{
-    display: none;
   }
 </style>
 
@@ -257,8 +257,12 @@
                   controls
                   playsinline
                   preload="metadata"
-                  {% if autoplay %}autoplay muted{% endif %}
-                  {% if loop %}loop{% endif %}
+                  {% if autoplay %}
+                    autoplay muted
+                  {% endif %}
+                  {% if loop %}
+                    loop
+                  {% endif %}
                 ></video>
 
               {%- elsif is_youtube -%}
@@ -331,7 +335,11 @@
               {%- endif -%}
 
             {%- elsif video_content_type == 'image' and has_image -%}
-              {{- section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'w-full h-full image-fit' -}}
+              {{-
+                section.settings.image
+                | image_url: width: 1200
+                | image_tag: loading: 'lazy', class: 'w-full h-full image-fit'
+              -}}
             {%- endif -%}
           </div>
         </div>
