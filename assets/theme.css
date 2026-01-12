@@ -3077,7 +3077,7 @@ button.shopify-payment-button__button--unbranded,
 
 shopify-accelerated-checkout,
 shopify-accelerated-checkout-cart {
-  --shopify-accelerated-checkout-button-block-size: 50px;
+  --shopify-accelerated-checkout-button-block-size: 45px;
   --shopify-accelerated-checkout-button-border-radius: var(--buttons-radius, 0);
   --shopify-accelerated-checkout-button-box-shadow: none;
 }
