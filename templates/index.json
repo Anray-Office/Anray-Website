@@ -56,9 +56,9 @@
             "title": "",
             "description": "",
             "overlay_content": false,
-            "color_text": "#ffffff",
-            "color_overlay": "#000000",
-            "overlay_opacity": 30
+            "color_text": "#171717",
+            "color_overlay": "#ffffff",
+            "overlay_opacity": 45
           }
         },
         "collection_kJFD3q": {
@@ -103,6 +103,9 @@
         "collection_kJFD3q",
         "collection_zhawc9",
         "collection_iyGh7f"
+      ],
+      "custom_css": [
+        ".media-card,.media {background-color: rgb(250 250 250 / 0%);}"
       ],
       "name": "Anray Product Categories",
       "settings": {
