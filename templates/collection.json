@@ -37,6 +37,7 @@
         "breadcrumb",
         "title"
       ],
+      "disabled": true,
       "settings": {
         "transparent_header": true,
         "show_image": false,
@@ -101,11 +102,11 @@
       ],
       "settings": {
         "products_per_page": 6,
-        "columns": 4,
+        "columns": 3,
         "columns_mobile": "2",
         "pagination": "paginated",
         "enable_filtering": true,
-        "filter_collapsed": false,
+        "filter_collapsed": true,
         "filter_type": "drawer",
         "filter_color_swatches": true,
         "enable_sorting": true,
