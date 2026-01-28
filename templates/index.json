@@ -52,19 +52,7 @@
         "collection_Abjf8W": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "title": "",
-            "description": "",
-            "overlay_content": false,
-            "color_text": "#ffffff",
-            "color_overlay": "#000000",
-            "overlay_opacity": 30
-          }
-        },
-        "collection_zhawc9": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
+            "collection": "吹风筒",
             "title": "",
             "description": "",
             "overlay_content": false,
@@ -76,7 +64,19 @@
         "collection_kJFD3q": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "电推剪",
+            "title": "",
+            "description": "",
+            "overlay_content": false,
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_zhawc9": {
+          "type": "collection",
+          "settings": {
+            "collection": "卷发棒",
             "title": "",
             "description": "",
             "overlay_content": false,
@@ -88,7 +88,7 @@
         "collection_iyGh7f": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "直发器",
             "title": "",
             "description": "",
             "overlay_content": false,
@@ -100,8 +100,8 @@
       },
       "block_order": [
         "collection_Abjf8W",
-        "collection_zhawc9",
         "collection_kJFD3q",
+        "collection_zhawc9",
         "collection_iyGh7f"
       ],
       "name": "Anray Product Categories",
