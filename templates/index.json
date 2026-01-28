@@ -49,6 +49,18 @@
     "collection_list_N9nm68": {
       "type": "collection-list",
       "blocks": {
+        "collection_Abjf8W": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "description": "",
+            "overlay_content": false,
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 30
+          }
+        },
         "collection_zhawc9": {
           "type": "collection",
           "settings": {
@@ -87,6 +99,7 @@
         }
       },
       "block_order": [
+        "collection_Abjf8W",
         "collection_zhawc9",
         "collection_kJFD3q",
         "collection_iyGh7f"
