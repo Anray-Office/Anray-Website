@@ -105,7 +105,7 @@
         "collection_bMNgKq"
       ],
       "custom_css": [
-        ".media{background-color:#ffffff00;}"
+        ".media,.media-card {background-color: #ffffff00;}"
       ],
       "name": "ANRAY Category",
       "settings": {
