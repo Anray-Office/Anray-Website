@@ -104,6 +104,9 @@
         "collection_FYLytB",
         "collection_bMNgKq"
       ],
+      "custom_css": [
+        ".media{background-color:#ffffff00;}"
+      ],
       "name": "ANRAY Category",
       "settings": {
         "columns": 4,
