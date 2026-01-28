@@ -46,22 +46,22 @@
         "rounded": false
       }
     },
-    "collection_list_N9nm68": {
+    "collection_list_iF7dAY": {
       "type": "collection-list",
       "blocks": {
-        "collection_Abjf8W": {
+        "collection_KC7FX8": {
           "type": "collection",
           "settings": {
             "collection": "吹风筒",
             "title": "",
             "description": "",
             "overlay_content": false,
-            "color_text": "#171717",
-            "color_overlay": "#ffffff",
-            "overlay_opacity": 45
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 30
           }
         },
-        "collection_kJFD3q": {
+        "collection_p9KTMD": {
           "type": "collection",
           "settings": {
             "collection": "电推剪",
@@ -73,7 +73,7 @@
             "overlay_opacity": 30
           }
         },
-        "collection_zhawc9": {
+        "collection_FYLytB": {
           "type": "collection",
           "settings": {
             "collection": "卷发棒",
@@ -85,7 +85,7 @@
             "overlay_opacity": 30
           }
         },
-        "collection_iyGh7f": {
+        "collection_bMNgKq": {
           "type": "collection",
           "settings": {
             "collection": "直发器",
@@ -99,15 +99,12 @@
         }
       },
       "block_order": [
-        "collection_Abjf8W",
-        "collection_kJFD3q",
-        "collection_zhawc9",
-        "collection_iyGh7f"
+        "collection_KC7FX8",
+        "collection_p9KTMD",
+        "collection_FYLytB",
+        "collection_bMNgKq"
       ],
-      "custom_css": [
-        ".media-card,.media {background-color: rgb(250 250 250 / 0%);}"
-      ],
-      "name": "Anray Product Categories",
+      "name": "t:sections.collection-list.presets.name",
       "settings": {
         "columns": 4,
         "carousel_on_desktop": true,
@@ -115,10 +112,10 @@
         "image_ratio": "square",
         "show_products_count": true,
         "show_view_all": false,
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": true,
         "heading": "",
-        "heading_size": "title-sm",
+        "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
         "subheading": "",
@@ -388,7 +385,7 @@
   "order": [
     "anray_banner_X3hkHh",
     "anray_products_arin3V",
-    "collection_list_N9nm68",
+    "collection_list_iF7dAY",
     "anray_hotproduct_AYg6LT",
     "image_with_text_8GWDxE",
     "video_with_text_overlay_z7QEdP",
