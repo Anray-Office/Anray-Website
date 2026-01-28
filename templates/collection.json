@@ -101,7 +101,7 @@
         "promotion"
       ],
       "custom_css": [
-        ".media,.media-card {background-color: #ffffff00;}"
+        ".media,.product-card {background-color: #ffffff00;}"
       ],
       "settings": {
         "products_per_page": 6,
