@@ -365,6 +365,7 @@
         },
         "button_nadJJr": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "Button label",
             "button_link": "",
@@ -762,6 +763,70 @@
         "divider": false,
         "rounded": false
       }
+    },
+    "rich_text_RfP4we": {
+      "type": "rich-text",
+      "blocks": {
+        "text_j9j3Da": {
+          "type": "text",
+          "settings": {
+            "text": "<p>After three years of refinement, this dream took form as products that balance technical excellence with human warmth.<br/><br/>Following Andrew’s passing in 2025, Ray continued their shared vision, weaving remembrance and dedication into every ANRAY hair appliance. Upholding over 20 years of R&D commitment, each product is powered by Ray’s long-standing innovations, including <strong>NST Nano Carbon Thin-Film Technology</strong> and the <strong>TMS Temperature Management System</strong>, designed to enhance hair moisture retention by up to <strong>28%</strong>* while gently protecting every strand.</p><p>Today, <strong>ANRAY is more than a hair appliance brand</strong>.<br/><br/>It is a quiet guardian—angelic in spirit—inviting you to experience professional care in everyday moments, and to let your hair shine with effortless radiance as you encounter life’s small, beautiful beginnings.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_YkBNir": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "text_j9j3Da",
+        "button_YkBNir"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 100,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
     }
   },
   "order": [
@@ -776,6 +841,7 @@
     "custom_liquid_8BdkeB",
     "faq_ezVHKq",
     "collage_wBD6wW",
-    "scrolling_text_7CGrz7"
+    "scrolling_text_7CGrz7",
+    "rich_text_RfP4we"
   ]
 }
