@@ -348,6 +348,69 @@
         "rounded": false
       }
     },
+    "rich_text_n3TUYB": {
+      "type": "rich-text",
+      "blocks": {
+        "text_Cxrdce": {
+          "type": "text",
+          "settings": {
+            "text": "<p>In a small café in Cleveland, their conversations drifted from the artistry of coffee to a shared vision for hair care.<br/><br/>Ray, with over 20 years of experience in the professional hair appliance industry, had led the development of multiple best-selling products and solved critical challenges such as uneven heat distribution. He understood, deeply, both salon-level performance standards and the unmet needs of everyday hair care at home.<br/><br/>Andrew, warm and perceptive, carried a quiet sensitivity to the beauty of hair and the emotions people attach to it.</p><p>Bound by trust and shared purpose, they infused two decades of professional expertise into daily life and gave rise to <strong>ANRAY</strong>—<br/><br/><strong>AN</strong>, for Andrew, also meaning <em>“angel”</em> in French; <strong>RAY</strong>, for light—<br/>a name that reflects their promise to protect hair with professional care, while delivering love, warmth, and beauty.</p>",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_font": "body",
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_nadJJr": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "text_Cxrdce",
+        "button_nadJJr"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 100,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
     "custom_liquid_8BdkeB": {
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
@@ -709,6 +772,7 @@
     "faq_f6cpTC",
     "rich_text_66MKRE",
     "custom_liquid_XfdaKQ",
+    "rich_text_n3TUYB",
     "custom_liquid_8BdkeB",
     "faq_ezVHKq",
     "collage_wBD6wW",
