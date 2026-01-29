@@ -70,7 +70,7 @@
       ],
       "settings": {
         "menu": "main-menu",
-        "menu_mobile": "",
+        "menu_mobile": "main-menu",
         "menu_active": "dot",
         "hover_menu": true,
         "header_layout": "left-center",
