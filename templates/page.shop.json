@@ -11,6 +11,7 @@
   "sections": {
     "empty_space_6GVpUb": {
       "type": "empty-space",
+      "disabled": true,
       "name": "t:sections.empty-space.presets.name",
       "settings": {
         "desktop_height": 64,
@@ -74,6 +75,7 @@
     },
     "anray_products_Nmr8yM": {
       "type": "anray-products",
+      "disabled": true,
       "name": "Anray Products",
       "settings": {
         "transparent_header": false,
@@ -177,7 +179,14 @@
       "name": "Anray Scroll Products",
       "settings": {
         "shop_scroll_title": "Coffee",
+        "gradient_highlight": "",
+        "heading": "Rich text",
+        "heading_tag": "h2",
+        "heading_size": "title-md",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
         "shop_scroll_id": "Coffee",
+        "shop_scroll_see_all": "See All",
         "collection": "test-products",
         "show_button": false,
         "show_buy_card": false,
@@ -208,7 +217,14 @@
       "name": "Anray Scroll Products",
       "settings": {
         "shop_scroll_title": "Coffee",
+        "gradient_highlight": "",
+        "heading": "Rich text",
+        "heading_tag": "h2",
+        "heading_size": "title-md",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
         "shop_scroll_id": "Coffee",
+        "shop_scroll_see_all": "See All",
         "collection": "test-products",
         "show_button": false,
         "show_buy_card": false,
@@ -239,7 +255,14 @@
       "name": "Anray Scroll Products",
       "settings": {
         "shop_scroll_title": "Coffee",
+        "gradient_highlight": "",
+        "heading": "Rich text",
+        "heading_tag": "h2",
+        "heading_size": "title-md",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
         "shop_scroll_id": "Coffee",
+        "shop_scroll_see_all": "See All",
         "collection": "test-products",
         "show_button": false,
         "show_buy_card": false,
@@ -264,6 +287,100 @@
         "full_width": false,
         "rounded": false
       }
+    },
+    "collection_list_gAEx7i": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_kdiYHM": {
+          "type": "collection",
+          "settings": {
+            "collection": "吹风筒",
+            "title": "",
+            "description": "",
+            "overlay_content": false,
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_VPQz9V": {
+          "type": "collection",
+          "settings": {
+            "collection": "电推剪",
+            "title": "",
+            "description": "",
+            "overlay_content": false,
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_a8iHqk": {
+          "type": "collection",
+          "settings": {
+            "collection": "卷发棒",
+            "title": "",
+            "description": "",
+            "overlay_content": false,
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection_LzGDMV": {
+          "type": "collection",
+          "settings": {
+            "collection": "直发器",
+            "title": "",
+            "description": "",
+            "overlay_content": false,
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "collection_kdiYHM",
+        "collection_VPQz9V",
+        "collection_a8iHqk",
+        "collection_LzGDMV"
+      ],
+      "custom_css": [
+        ".media,.media-card {background-color: #ffffff00;}"
+      ],
+      "name": "ANRAY Category",
+      "settings": {
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "image_type": "collection",
+        "image_ratio": "square",
+        "show_products_count": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
     }
   },
   "order": [
@@ -273,6 +390,7 @@
     "custom_liquid_7kypgw",
     "anray_products_Nmr8yM",
     "custom_liquid_rd9qKx",
+    "collection_list_gAEx7i",
     "lookbook_J4kEX9",
     "anray_shop_products_DRt3ga",
     "anray_shop_products_VDQ8HN",
