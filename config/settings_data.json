@@ -9,9 +9,9 @@
  */
 {
   "current": {
-    "logo": "",
-    "white_logo": "",
-    "logo_width": 70,
+    "logo": "shopify://shop_images/anray_logo-w2.webp",
+    "white_logo": "shopify://shop_images/anray_logo-b2.webp",
+    "logo_width": 150,
     "logo_mobile": "",
     "white_logo_mobile": "",
     "logo_width_mobile": 70,
